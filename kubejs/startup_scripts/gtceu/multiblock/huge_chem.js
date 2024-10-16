@@ -32,7 +32,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
        			.aisle('AAA', 'BCB', 'BDB', 'AAA')
 
        		 // Specifying conditions for each block
-        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))ű
+        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
         	.where('A', casing
             		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
             		.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
@@ -42,7 +42,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             		.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
             		.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
         	)
-        	.where('P', Predicates.blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))ű
+        	.where('P', Predicates.blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
         	.where('B', casing)
         	.where('D', coil.or(casing))
 

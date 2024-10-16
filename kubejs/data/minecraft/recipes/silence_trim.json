@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DID",
+    "DBD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "I": {
+      "item": "minecraft:sculk"
+    }
+  },
+  "result": {
+    "item": "minecraft:silence_armor_trim_smithing_template",
+    "count": 1
+  }
+}

@@ -46,9 +46,9 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .build();
 		 })
         .workableCasingRenderer(
-			"gtceu:block/casings/solid/machine_casing_inert_ptfe",
-			"gtceu:block/multiblock/large_chemical_reactor", false
-		);
+		GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
+                GTCEu.id("block/multiblock/large_chemical_reactor")
+	);
 
 });
 

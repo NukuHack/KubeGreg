@@ -53,6 +53,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
 
 /*
+// xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
 
 const MMDefinition = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
 
@@ -60,10 +61,8 @@ const MMDefinition = Java.loadClass('com.gregtechceu.gtceu.api.machine.Multibloc
 const largeChemicalReactor = MMDefinition.LARGE_CHEMICAL_REACTOR;
 console.log(Object.keys(MMDefinition));
 
-const largeChemicalReactor = MMDefinition.getBuilt('large_chemical_reactor');
-console.log(largeChemicalReactor);
-
-
+//const largeChemicalReactor = MMDefinition.getBuilt('large_chemical_reactor');
+//console.log(largeChemicalReactor);
 //console.log(large_chemical_reactor.getPatternFactory())
 
 

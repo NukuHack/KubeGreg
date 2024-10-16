@@ -15,148 +15,147 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	
     //.or(Predicates.autoAbilities(definition.getRecipeTypes())))
 
-    event.create('arboreal_growth_facility', 'multiblock')
-        .rotationState(RotationState.NON_Y_AXIS)
-        .recipeType('arboreal_growth_facility')
+	/* 
+ // original LCR making (originally in Java not in Js but who cares)
+    public static final MultiblockMachineDefinition LARGE_CHEMICAL_REACTOR = REGISTRATE
+            .multiblock("large_chemical_reactor", WorkableElectricMultiblockMachine::new)
+            .tooltips(GTMachines.defaultEnvironmentRequirement())
+            .rotationState(RotationState.ALL)
+            .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
+            .recipeModifiers(GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,
+                    GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK_SUBTICK))
+            .appearanceBlock(CASING_PTFE_INERT)
+            .pattern(definition -> {
+                var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
+                var abilities = Predicates.autoAbilities(definition.getRecipeTypes())
+                        .or(Predicates.autoAbilities(true, false, false));
+                return FactoryBlockPattern.start()
+                        .aisle("XXX", "XCX", "XXX")
+                        .aisle("XCX", "CPC", "XCX")
+                        .aisle("XXX", "XSX", "XXX")
+                        .where('S', Predicates.controller(blocks(definition.getBlock())))
+                        .where('X', casing.or(abilities))
+                        .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
+                        .where('C', blocks(COIL_CUPRONICKEL.get()).setExactLimit(1)
+                                .or(abilities)
+                                .or(casing))
+                        .build();
+            })
+            .shapeInfos(definition -> {
+                ArrayList<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
+                var baseBuilder = MultiblockShapeInfo.builder()
+                        .where('S', definition, Direction.NORTH)
+                        .where('X', CASING_PTFE_INERT.getDefaultState())
+                        .where('P', CASING_POLYTETRAFLUOROETHYLENE_PIPE.getDefaultState())
+                        .where('C', COIL_CUPRONICKEL.getDefaultState())
+                        .where('I', ITEM_IMPORT_BUS[3], Direction.NORTH)
+                        .where('E', ENERGY_INPUT_HATCH[3], Direction.NORTH)
+                        .where('O', ITEM_EXPORT_BUS[3], Direction.NORTH)
+                        .where('F', FLUID_IMPORT_HATCH[3], Direction.NORTH)
+                        .where('M', MAINTENANCE_HATCH, Direction.NORTH)
+                        .where('H', FLUID_EXPORT_HATCH[3], Direction.NORTH);
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("XXX", "XPX", "XXX")
+                        .aisle("XEX", "XCX", "XXX")
+                        .build());
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("XXX", "XPX", "XCX")
+                        .aisle("XEX", "XXX", "XXX")
+                        .build());
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("XCX", "XPX", "XXX")
+                        .aisle("XEX", "XXX", "XXX")
+                        .build());
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("XXX", "CPX", "XXX")
+                        .aisle("XEX", "XXX", "XXX")
+                        .build());
+                shapeInfo.add(baseBuilder.shallowCopy()
+                        .aisle("IXO", "FSH", "XMX")
+                        .aisle("XXX", "XPC", "XXX")
+                        .aisle("XEX", "XXX", "XXX")
+                        .build());
+                return shapeInfo;
+            })
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
+                    GTCEu.id("block/multiblock/large_chemical_reactor"))
+            .compassSections(GTCompassSections.TIER[HV])
+            .compassNodeSelf()
+            .register();
+*/
+	
+    event.create('machine_name', 'multiblock')
+	    
+        //.rotationState(RotationState.NON_Y_AXIS)
+        .rotationState(RotationState.ALL)
+	    
+        .recipeType('machine_name')
+	    
         .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
+	/*
+	        GTBlocks.CASING_TITANIUM_STABLE
+		GTBlocks.CASING_STAINLESS_CLEAN
+		GTBlocks.CASING_STEEL_SOLID
+		GTBlocks.CASING_TITANIUM_STABLE
+    		GTBlocks.CASING_ASSEMBLY_LINE
+      		GTBlocks.CASING_ASSEMBLY_CONTROL
+    		GTBlocks.CASING_HSSE_STURDY
+      
+		GTBlocks.CASING_TUNGSTENSTEEL_GEARBOX
+      
+		GTBlocks.CASING_TEMPERED_GLASS
+		GTBlocks.CASING_LAMINATED_GLASS
+  
+  		GTBlocks.COIL_CUPRONICKEL
+    
+		GTBlocks.COMPUTER_HEAT_VENT
+  		GTBlocks.COMPUTER_CASING
+  	*/
+		
+			
+			
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
+			
         .pattern(definition => FactoryBlockPattern.start()
-            .aisle('##TTT##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##TTT##', '#######')
-            .aisle('#TTTTT#', '#FTMTF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#TTTTT#', '##SSS##')
-            .aisle('TTTTTTT', 'STMMMTS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'TT###TT', '#SSSSS#')
-            .aisle('TTTTTTT', 'GMMMMMG', 'G#####G', 'G#####G', 'G#####G', 'G#####G', 'G#####G', 'G#####G', 'T#####T', '#SSPSS#')
-            .aisle('TTTTTTT', 'STMMMTS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'ST###TS', 'TT###TT', '#SSSSS#')
-            .aisle('#TTTTT#', '#FTMTF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#FT#TF#', '#TTTTT#', '##SSS##')
-            .aisle('##TCT##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##SGS##', '##TTT##', '#######')
+		
+		// a lot more needed xD
+            .aisle('#')
+
+		
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
             .where('#', Predicates.any())
-            .where('G', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
-            .where('M', Predicates.blocks('minecraft:moss_carpet'))
-            .where('P', Predicates.blocks('cosmiccore:antiblock_white'))
-            .where('F', Predicates.blocks('gtceu:terrasteel_frame'))
-            .where('S', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
-            .where('T', Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get())
+            .where(' ', Predicates.air())
+		
+            .where('M', Predicates.blocks('minecraft:stone')	// can be basically any block or any GTBlocks.<block>
                 .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
-                .or(Predicates.abilities(PartAbility.MAINTENANCE))
-                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-            )
-            .build())
-        .workableCasingRenderer('gtceu:block/casings/solid/machine_casing_clean_stainless_steel', 'gtceu:block/machines/mana_fluidizer', false);
-
-
-
-
-
-
-    event.create('industrial_stoneworks', 'multiblock')
-        .rotationState(RotationState.NON_Y_AXIS)
-        .recipeType('industrial_stoneworks')
-        .appearanceBlock(GTBlocks.CASING_TITANIUM_STABLE)
-        .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-        .pattern(definition => FactoryBlockPattern.start()
-            .aisle('#TTT#', '#TTT#', '#TTT#')
-            .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('#', Predicates.any())
-            .where('G', Predicates.blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
-            .where('W', Predicates.blocks('minecraft:water'))
-            .where('L', Predicates.blocks('minecraft:lava'))
-            .where('Q', Predicates.blocks(GTBlocks.CASING_TUNGSTENSTEEL_GEARBOX.get()))
-            .where('T', Predicates.blocks(GTBlocks.CASING_TITANIUM_STABLE.get())
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
-                .or(Predicates.abilities(PartAbility.MAINTENANCE))
-                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-            )
-            .build())
-        .workableCasingRenderer('gtceu:block/casings/solid/machine_casing_stable_titanium', 'gtceu:block/machines/rock_crusher', false);
-
-
-
-
-
-
-    event.create('grand_assembly_line', 'multiblock')
-        .rotationState(RotationState.ALL)
-        .recipeType('assembly_line')
-        // .recipeTypes(["pulse_exchange_steam_vent", "pulse_exchange_steam"])
-        // ["recipeTypes(com.gregtechceu.gtceu.api.recipe.GTRecipeType[])"]('pulse_exchange_steam_vent','pulse_exchange_steam' )
-        .appearanceBlock(GTBlocks.COMPUTER_CASING)
-        .pattern(definition => FactoryBlockPattern.start()
-            .aisle('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC', 'VGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGV', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC', '################################################',)
-            .aisle('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', 'VZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZV', 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', 'VZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZV', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC',)
-            .aisle('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', 'OXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXH', 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC',)
-            .aisle('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', 'VZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZV', 'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', 'VZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZVVZV', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC',)
-            .aisle('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC', 'VGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVGVVQV', 'CGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGCCGC', '################################################',)
-            .where('Q', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('#', Predicates.any())
-            .where('C', Predicates.blocks(GTBlocks.COMPUTER_CASING.get())
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
                 .or(Predicates.abilities(PartAbility.INPUT_LASER))
+		   
+                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
+		   
                 .or(Predicates.abilities(PartAbility.MAINTENANCE))
                 .or(Predicates.abilities(PartAbility.OPTICAL_DATA_RECEPTION))
                 .or(Predicates.abilities(PartAbility.DATA_ACCESS))
                 .or(Predicates.abilities(PartAbility.COMPUTATION_DATA_RECEPTION))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-            )
-            .where('G', Predicates.blocks(GTBlocks.CASING_LAMINATED_GLASS.get())
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
-                .or(Predicates.abilities(PartAbility.INPUT_LASER))
-                .or(Predicates.abilities(PartAbility.MAINTENANCE))
-                .or(Predicates.abilities(PartAbility.OPTICAL_DATA_RECEPTION))
-                .or(Predicates.abilities(PartAbility.DATA_ACCESS))
-                .or(Predicates.abilities(PartAbility.COMPUTATION_DATA_RECEPTION))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-            )
-            .where('H', Predicates.abilities(PartAbility.IMPORT_ITEMS))
-            .where('Z', Predicates.blocks(GTBlocks.CASING_ASSEMBLY_LINE.get()))
-            .where('X', Predicates.blocks(GTBlocks.CASING_ASSEMBLY_CONTROL.get()))
-            .where('V', Predicates.blocks(GTBlocks.COMPUTER_HEAT_VENT.get()))
-            .where('O', Predicates.abilities(PartAbility.EXPORT_ITEMS))
-            .build())
-        .workableCasingRenderer('gtceu:block/casings/hpca/computer_casing/side', 'gtceu:block/multiblock/network_switch', false);
-
-
-
-
-
-        event.create('large_lithographic_processor', 'multiblock')
-        .rotationState(RotationState.ALL)
-        .recipeType('aio_lithography_processor')
-        .appearanceBlock(GTBlocks.CASING_HSSE_STURDY)
-        .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-        .pattern(definition => FactoryBlockPattern.start()
-            .aisle('TTTTTTT', 'TGGGGGT', 'TTTTTTT','TGT####','TTT####')
-            .aisle('TTTTTTT', 'GQQQQQG', 'TQTTTTT','GQG####','TTT####')
-            .aisle('TTTTTTT', 'TGGGGGT', 'TCTTTTT','TGT####','TTT####')
-            .where('#', Predicates.any())
-            .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('Q', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()))
-            .where('G', Predicates.blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
-            .where('A', Predicates.air())
-            .where('T', Predicates.blocks(GTBlocks.CASING_HSSE_STURDY.get())
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY))
-                .or(Predicates.abilities(PartAbility.MAINTENANCE))
-                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
+		   
                 .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
+                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
+		   
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+		
             )
-            .where('G', Predicates.blocks(GTBlocks.CASING_LAMINATED_GLASS.get()))
+		
             .build())
-        .workableCasingRenderer('gtceu:block/casings/solid/machine_casing_sturdy_hsse', 'gtceu:block/machines/flora_nurturer', false);
-
-
-
-
+			
+        .workableCasingRenderer(
+		'gtceu:block/casings/solid/machine_casing_clean_stainless_steel',
+		//'gtceu:block/casings/solid/machine_casing_stable_titanium' or any kind of block with the correct path
+		'gtceu:block/machines/rock_crusher', false
+	);
 
 
 });

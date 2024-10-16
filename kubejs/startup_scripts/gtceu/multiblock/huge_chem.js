@@ -1,3 +1,4 @@
+priority: -100
 
 // Large Chemical Reactor - making it acept more than 2 energy hatches
 
@@ -5,7 +6,7 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('huge_chemical_reactor')     // name of the multiblock
         .category('gfs')    // name of the recipe category
         .setEUIO('in')                  // energy transport way
-        .setMaxIOSize(9, 6, 9, 6)       // in out , floud in fluid out
+        .setMaxIOSize(6, 6, 6, 6)       // in out , floud in fluid out
         .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)	// slot overlay
         .setProgressBar(GuiTextures.PROGRESS_BAR_BATH, FillDirection.LEFT_TO_RIGHT)	// the arrow between the inputs and outputs
         .setSound(GTSoundEntries.BATH);// just the sound
@@ -13,45 +14,45 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
 
+    //let casing = Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
+	
 	// copy mainly from the original LCR : https://github.com/GregTechCEu/GregTech-Modern/blob/1.20.1/src/main/java/com/gregtechceu/gtceu/common/data/GTMachines.java#L1323
     event.create('huge_chemical_reactor', 'multiblock')
-            .rotationState(RotationState.ALL)
-            .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
-            .appearanceBlock(CASING_PTFE_INERT)
+			.rotationState(RotationState.NON_Y_AXIS)
+            .recipeType("large_chemical_reactor")
+			//GTRecipeTypes.LARGE_CHEMICAL_RECIPES
+            .appearanceBlock(GTBlocks.CASING_PTFE_INERT)
 	    .recipeModifiers([GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,GTRecipeModifiers.PARALLEL_HATCH,
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-	.pattern(definition => {
-    		// Defining casing and coil variables with their block types
-    		var casing = Predicates.blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
-    		var coil = Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4);
 
-    		// Returning the constructed factory block pattern
-    		return FactoryBlockPattern.start()
-        		.aisle('AAA', 'BDB', 'BDB', 'AAA')
-        		.aisle('ABA', 'DPD', 'DPD', 'AAA')
-       			.aisle('AAA', 'BCB', 'BDB', 'AAA')
+	.pattern(definition => FactoryBlockPattern.start()
+        	.aisle('AAA', 'BDB', 'BDB', 'AAA')
+        	.aisle('ABA', 'DPD', 'DPD', 'AAA')
+       		.aisle('ACA', 'BDB', 'BDB', 'AAA')
 
-       		 // Specifying conditions for each block
-        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-        	.where('A', casing
-            		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-            		.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-            		.or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMinGlobalLimited(1)
-            		.or(Predicates.abilities(PartAbility.MAINTENANCE))
-            		.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
-            		.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-            		.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-        	)
-        	.where('P', Predicates.blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-        	.where('B', casing)
-        	.where('D', coil.or(casing))
+       		// Specifying conditions for each block
+       	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
+       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10)
+       		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
+         	.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
+         	.or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMinGlobalLimited(1)
+           	.or(Predicates.abilities(PartAbility.MAINTENANCE))
+           	.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
+           	.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
+           	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+        )
 
-        	// Build the pattern and return
-       		.build();
-	})
-        .workableCasingRenderer(
-		GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
-                GTCEu.id("block/multiblock/large_chemical_reactor")
+        .where('P', Predicates.blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
+        .where('B', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
+        .where('D', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4)
+			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
+		
+       	// Build the pattern and return
+  		.build()
+	)
+    .workableCasingRenderer(
+	GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
+        GTCEu.id("block/multiblock/large_chemical_reactor")
 	);
 
 });

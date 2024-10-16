@@ -1,0 +1,49 @@
+{
+    "material.gtceu.quartz_glass": "Quartz Glass",
+    "material.gtceu.strong_mix": "Strong Mix",
+    "material.gtceu.sodium_trioxide": "Sodium Trioxide",
+    "material.gtceu.sodium_trioxide": "Sodium Trioxide",
+    "material.gtceu.sodium_hydroxide_residue": "Sodium Hydroxide Residue",
+    "material.gtceu.hydrated_iron_iii_chloride": "Hydrated Iron III Chloride",
+    "material.gtceu.thionyl_chloride": "Thionyl Chloride",
+    "material.gtceu.sulfur_dichloride": "Sulfur Dichloride",
+    "material.gtceu.sulfur_chlorid": "Sulfur Chlorid",
+
+    "gtceu.inscriber": "Inscriber",
+    "gtceu.rock_generator": "Rock Generator",
+    "gtceu.large_farm": "Large Farm",
+    "gtceu.tree_greenhouse": "Tree Greenhouse",
+
+    "block.gtceu.large_farm": "§uLarge Farm§r",
+    "block.gtceu.tree_greenhouse": "§uTree Greenhouse§r",
+
+    "block.gtceu.hv_inscriber": "§6Inscriber§r",
+    "block.gtceu.ev_inscriber": "§5Advanced Inscriber§r",
+    "block.gtceu.iv_inscriber": "§1Elite Inscriber§r",
+    "block.gtceu.luv_inscriber": "§dElite Inscriber II§r",
+    "block.gtceu.zpm_inscriber": "§cElite Inscriber III§r",
+    "block.gtceu.uv_inscriber": "§3Ultimate Inscriber§r",
+
+    "block.gtceu.iv_rock_generator": "§1Rock Generator§r",
+    "block.gtceu.luv_rock_generator": "§dElite Rock Generator§r",
+    "block.gtceu.zpm_rock_generator": "§cElite Rock Generator II§r",
+    "block.gtceu.uv_rock_generator": "§3Ultimate Rock Generator§r",
+
+    "block.gtceu.mv_miniature_ebf": "§bMiniature ebf§r",
+    "block.gtceu.hv_miniature_ebf": "§6Miniature ebf II§r",
+    "block.gtceu.ev_miniature_ebf": "§5Miniature ebf III§r",
+    "block.gtceu.iv_miniature_ebf": "§1Elite Miniature ebf§r",
+    "block.gtceu.luv_miniature_ebf": "§dElite Miniature ebf II§r",
+    "block.gtceu.zpm_miniature_ebf": "§cElite Miniature ebf III§r",
+    "block.gtceu.uv_miniature_ebf": "§3Ultimate Miniature ebf§r",
+
+    "block.gtceu.mv_miniature_pyrolyse_oven": "§bMiniature Pyrolyse Oven§r",
+    "block.gtceu.hv_miniature_pyrolyse_oven": "§6Miniature Pyrolyse Oven II§r",
+    "block.gtceu.ev_miniature_pyrolyse_oven": "§5Miniature Pyrolyse Oven III§r",
+    "block.gtceu.iv_miniature_pyrolyse_oven": "§1Elite Miniature Pyrolyse Oven§r",
+    "block.gtceu.luv_miniature_pyrolyse_oven": "§dElite Miniature Pyrolyse Oven II§r",
+    "block.gtceu.zpm_miniature_pyrolyse_oven": "§cElite Miniature Pyrolyse Oven III§r",
+    "block.gtceu.uv_miniature_pyrolyse_oven": "§3Ultimate Miniature Pyrolyse Oven§r",
+
+
+}

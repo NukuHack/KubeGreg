@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DID",
+    "DBD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:cobblestone"
+    },
+    "I": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "item": "minecraft:coast_armor_trim_smithing_template",
+    "count": 1
+  }
+}

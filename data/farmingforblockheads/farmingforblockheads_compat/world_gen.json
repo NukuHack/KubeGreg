@@ -1,0 +1,46 @@
+{
+  "customCategories": {
+    "world_gen": {
+      "name": "World Gen",
+      "defaultPayment": { "item": "minecraft:gold_ingot" },
+      "icon": { "item": "minecraft:brush" }
+    }
+  },
+    "modId": "minecraft",
+    "group": {
+      "name": "World Gen",
+      "enabledByDefault": true,
+      "defaultPayment": {
+        "item": "minecraft:gold_ingot"
+      },
+      "defaultCategory": "world_gen"
+    },
+    "customEntries": [
+      {"output": "gtceu:rubber_sapling"},
+      {"output": "minecraft:pitcher_plant"},
+      {"output": "minecraft:peony"},
+      {"output": "minecraft:rose_bush"},
+      {"output": "minecraft:lilac"},
+      {"output": "minecraft:sunflower"},
+      {"output": "minecraft:torchflower"},
+      {"output": "minecraft:lily_of_the_valley"},
+      {"output": "minecraft:cornflower"},
+      {"output": "minecraft:oxeye_daisy"},
+      {"output": "minecraft:pink_tulip"},
+      {"output": "minecraft:white_tulip"},
+      {"output": "minecraft:orange_tulip"},
+      {"output": "minecraft:red_tulip"},
+      {"output": "minecraft:azure_bluet"},
+      {"output": "minecraft:allium"},
+      {"output": "minecraft:blue_orchid"},
+      {"output": "minecraft:poppy"},
+      {"output": "minecraft:dandelion"},
+      {"output": "minecraft:podzol"},
+      {"output": "minecraft:mycelium"},
+      {"output": "minecraft:warped_nylium"},
+      {"output": "minecraft:crimson_nylium"},
+      {"output": "minecraft:suspicious_sand"},
+      {"output": "minecraft:suspicious_gravel"}
+    ]
+  }
+  

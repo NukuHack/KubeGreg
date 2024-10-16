@@ -1,10 +1,3 @@
-usable things :
-megacells:sky_steel_ingot
-megacells:sky_steel_block
-dmlreloaded:machine_casing
-dmlreloaded:soot_covered_plate
-dmlreloaded:soot_covered_redstone
-
 defining recipes :
  	just put an "minecraft:cobble_stone"      ˇˇthe number of items
 		but put (Item.of(minecraft:stone, 3)) if you want to be sure
@@ -105,7 +98,7 @@ Conditions :
 
 
 
-
+some random stolen stuff from ... idk
 
 event.forEachRecipe({ mod: 'gtceu'}, recipe => {getFluids(recipe)}
 func getFluids() {

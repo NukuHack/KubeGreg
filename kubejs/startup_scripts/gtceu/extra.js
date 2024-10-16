@@ -1,4 +1,4 @@
-GTCEuStartupEvents.materialModification("gtceu:material", event => {
+GTCEuStartupEvents.materialModification(event => {
 /*
 const $FluidProperty = Java.loadClass('com.gregtechceu.gtceu.api.data.chemical.material.properties.FluidProperty');
 const $FluidBuilder = Java.loadClass('com.gregtechceu.gtceu.api.fluids.FluidBuilder');

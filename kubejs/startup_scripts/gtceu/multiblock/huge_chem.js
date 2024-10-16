@@ -13,18 +13,22 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
 
+	// copy mainly from the original LCR : https://github.com/GregTechCEu/GregTech-Modern/blob/1.20.1/src/main/java/com/gregtechceu/gtceu/common/data/GTMachines.java#L1323
     event.create('huge_chemical_reactor', 'multiblock')
-        .rotationState(RotationState.NON_Y_AXIS)
-        .recipeType('large_chemical_reactor')
-        .appearanceBlock(GTBlocks.CASING_PTFE_INERT)
-		.recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
+            .rotationState(RotationState.ALL)
+            .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
+            .appearanceBlock(CASING_PTFE_INERT)
+	    .recipeModifiers([GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,GTRecipeModifiers.PARALLEL_HATCH,
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-        .pattern(definition => FactoryBlockPattern.start()
+           .pattern(definition => {
+                var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
+                //var abilities = Predicates.autoAbilities(definition.getRecipeTypes()).or(Predicates.autoAbilities(true, false, false));
+		return FactoryBlockPattern.start()
             .aisle('AAA', 'BDB', 'BDB', 'AAA')
             .aisle('ABA', 'DPD', 'DPD', 'AAA')
             .aisle('AAA', 'BCB', 'BDB', 'AAA')
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())
+            .where('A', casing
                 .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
                 .or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMinGlobalLimited(1)
@@ -33,14 +37,14 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
             )
-            .where('P', Predicates.blocks('gtceu:ptfe_pipe_casing'))
-            .where('B', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10))
+	    .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
+            .where('B', casing)
             .where('D', 
 				Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4)
-				.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
+				.or(casing)
 			)
-            .build()
-		)
+            .build();
+		 })
         .workableCasingRenderer(
 			"gtceu:block/casings/solid/machine_casing_inert_ptfe",
 			"gtceu:block/multiblock/large_chemical_reactor", false

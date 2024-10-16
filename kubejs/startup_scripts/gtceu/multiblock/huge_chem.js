@@ -20,29 +20,35 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .appearanceBlock(CASING_PTFE_INERT)
 	    .recipeModifiers([GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,GTRecipeModifiers.PARALLEL_HATCH,
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-           .pattern(definition => {
-                var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
-                var coil = blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4);
-                //var abilities = Predicates.autoAbilities(definition.getRecipeTypes()).or(Predicates.autoAbilities(true, false, false));
-		return FactoryBlockPattern.start()
-            .aisle('AAA', 'BDB', 'BDB', 'AAA')
-            .aisle('ABA', 'DPD', 'DPD', 'AAA')
-            .aisle('AAA', 'BCB', 'BDB', 'AAA')
-            .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('A', casing
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMinGlobalLimited(1)
-                .or(Predicates.abilities(PartAbility.MAINTENANCE))
-                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
-                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-            )
-	    .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-            .where('B', casing)
-            .where('D', coil.or(casing))
-            .build();
-		 })
+	.pattern(definition => {
+    		// Defining casing and coil variables with their block types
+    		var casing = Predicates.blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
+    		var coil = Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4);
+
+    		// Returning the constructed factory block pattern
+    		return FactoryBlockPattern.start()
+        		.aisle('AAA', 'BDB', 'BDB', 'AAA')
+        		.aisle('ABA', 'DPD', 'DPD', 'AAA')
+       			.aisle('AAA', 'BCB', 'BDB', 'AAA')
+
+       		 // Specifying conditions for each block
+        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))ű
+        	.where('A', casing
+            		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
+            		.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
+            		.or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMinGlobalLimited(1)
+            		.or(Predicates.abilities(PartAbility.MAINTENANCE))
+            		.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
+            		.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
+            		.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+        	)
+        	.where('P', Predicates.blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))ű
+        	.where('B', casing)
+        	.where('D', coil.or(casing))
+
+        	// Build the pattern and return
+       		.build();
+	})
         .workableCasingRenderer(
 		GTCEu.id("block/casings/solid/machine_casing_inert_ptfe"),
                 GTCEu.id("block/multiblock/large_chemical_reactor")

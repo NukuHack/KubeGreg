@@ -22,6 +22,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
            .pattern(definition => {
                 var casing = blocks(CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
+                var coil = blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4);
                 //var abilities = Predicates.autoAbilities(definition.getRecipeTypes()).or(Predicates.autoAbilities(true, false, false));
 		return FactoryBlockPattern.start()
             .aisle('AAA', 'BDB', 'BDB', 'AAA')
@@ -40,7 +41,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	    .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
             .where('B', casing)
             .where('D', 
-				Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4)
+				coil
 				.or(casing)
 			)
             .build();

@@ -13,14 +13,14 @@ ServerEvents.recipes(event => {
         .circuit(6)
         .duration(50)
         .EUt(16);
-*//*
+*/
     greg.assembler('gfs:huge_chemical_reactor')
         .itemInputs('gtceu:large_chemical_reactor',"6x #forge:plates/polyethylene")
         .itemOutputs('gtceu:huge_chemical_reactor')
         .circuit(23)
         .duration(20*80)
         .EUt(480);
-*/
+
 	event.shaped("gfs:compressed_lv_hatch",
 		["ABA", "D F", "GJH"],
 		{A: "gtceu:lv_energy_input_hatch",

@@ -13,9 +13,6 @@ const $CosmicPartAbility = Java.loadClass('com.ghostipedia.cosmiccore.api.machin
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
 	
-    //.or(Predicates.autoAbilities(definition.getRecipeTypes())))
-
-	/* 
  // original LCR making (originally in Java not in Js but who cares)
     public static final MultiblockMachineDefinition LARGE_CHEMICAL_REACTOR = REGISTRATE
             .multiblock("large_chemical_reactor", WorkableElectricMultiblockMachine::new)
@@ -86,7 +83,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .compassSections(GTCompassSections.TIER[HV])
             .compassNodeSelf()
             .register();
-*/
+
 	
     event.create('machine_name', 'multiblock')
 	    
@@ -95,7 +92,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	    
         .recipeType('machine_name')
 	    
-        .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
+        .appearanceBlock(GTBlocks.<"a gt block">)
 	/*
 	        GTBlocks.CASING_TITANIUM_STABLE
 		GTBlocks.CASING_STAINLESS_CLEAN
@@ -146,6 +143,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
 		   
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+
+		//.or(Predicates.autoAbilities(definition.getRecipeTypes())))
 		
             )
 		

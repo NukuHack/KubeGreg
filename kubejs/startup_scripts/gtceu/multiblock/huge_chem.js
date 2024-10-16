@@ -40,10 +40,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             )
 	    .where('P', blocks(CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
             .where('B', casing)
-            .where('D', 
-				coil
-				.or(casing)
-			)
+            .where('D', coil.or(casing))
             .build();
 		 })
         .workableCasingRenderer(

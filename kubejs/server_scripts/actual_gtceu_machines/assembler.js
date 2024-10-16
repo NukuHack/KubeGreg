@@ -66,7 +66,7 @@ greg.assembler("gfs:crafting_cover")
 greg
 .assembler('gfs:single_ptfe_pipe_casing')
 .itemInputs('2x #forge:plates/polytetrafluoroethylene')
-.itemInputs('4x #forge:rods/polytetrafluoroethylene')
+.itemInputs('gtceu:polytetrafluoroethylene_frame')
 .itemInputs('2x gtceu:polytetrafluoroethylene_normal_fluid_pipe')
 .itemOutputs('gtceu:ptfe_pipe_casing')
 .duration(200)

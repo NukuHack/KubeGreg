@@ -21,6 +21,13 @@ ServerEvents.recipes(event => {
         .duration(20*80)
         .EUt(480);
 
+	greg
+	.macerator('gfs:huge_chemical_reactor')
+	.itemInputs('gtceu:huge_chemical_reactor')
+	.itemOutputs('gtceu:large_chemical_reactor',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+	.EUt(30)
+	.duration(600);
+	
 	event.shaped("gfs:compressed_lv_hatch",
 		["ABA", "D F", "GJH"],
 		{A: "gtceu:lv_energy_input_hatch",

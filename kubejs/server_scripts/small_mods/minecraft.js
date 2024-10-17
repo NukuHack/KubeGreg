@@ -4,13 +4,17 @@ ServerEvents.recipes(event => {
 
 	const greg = event.recipes.gtceu;
 
-greg
-  .assembler('gfs:loot_fabricator')
-  .itemInputs('gtceu:hv_assembler')
-  .itemInputs('#forge:ingots/netherite')
-  .itemOutputs('hostilenetworks:loot_fabricator')
-  .duration(800)
-  .EUt(300);
+// netherite_upgrade_smithing_template
+
+event.remove({output:"minecraft:netherite_upgrade_smithing_template"});
+greg.assembler('gfs:netherite_upgrade')
+.itemInputs('8x gtceu:netherrack_dust')
+.itemInputs('8x minecraft:diamond')
+.notConsumable('gtceu:plate_casting_mold')
+.inputFluids(Fluid.of('gtceu:hydrochloric_acid', 288))
+.itemOutputs('minecraft:netherite_upgrade_smithing_template')
+.duration(200)
+.EUt(30);
 
 	event.shaped("minecraft:coast_armor_trim_smithing_template",
 		["DID",

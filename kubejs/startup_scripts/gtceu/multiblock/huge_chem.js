@@ -32,7 +32,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
        		// Specifying conditions for each block
        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-       	.where('A', Predicates.blocks('gtceu:ptfe_pipe_casing').setMinGlobalLimited(10)
+       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10)
        		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
          	.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
          	.or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMaxGlobalLimited(4)

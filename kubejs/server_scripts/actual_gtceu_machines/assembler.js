@@ -106,17 +106,6 @@ greg
 .duration(1200)
 .EUt(480);
 
-// netherite_upgrade_smithing_template
-event.remove({output:"minecraft:netherite_upgrade_smithing_template"});
-greg.assembler('gfs:netherite_upgrade')
-.itemInputs('8x gtceu:netherrack_dust')
-.itemInputs('8x minecraft:diamond')
-.notConsumable('gtceu:plate_casting_mold')
-.inputFluids(Fluid.of('gtceu:hydrochloric_acid', 288))
-.itemOutputs('minecraft:netherite_upgrade_smithing_template')
-.duration(200)
-.EUt(30);
-
 // furnace better
 
 greg

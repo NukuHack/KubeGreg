@@ -13,8 +13,6 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 });
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
-
-    //let casing = Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10);
 	
 	// copy mainly from the original LCR : https://github.com/GregTechCEu/GregTech-Modern/blob/1.20.1/src/main/java/com/gregtechceu/gtceu/common/data/GTMachines.java#L1323
     event.create('huge_chemical_reactor', 'multiblock')
@@ -26,25 +24,28 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
 
 		.pattern(definition => FactoryBlockPattern.start()
-        	.aisle('AAA', 'BDB', 'BDB', 'AAA')
-        	.aisle('ABA', 'DPD', 'DPD', 'AAA')
-       		.aisle('ACA', 'BDB', 'BDB', 'AAA')
+        	.aisle('EEEEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')
+        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
+        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
+        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
+       		.aisle('EECEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')
 
        		// Specifying conditions for each block
        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(10)
+       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())
        		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
          	.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-         	.or(Predicates.abilities(PartAbility.INPUT_ENERGY)).setMaxGlobalLimited(4)
            	.or(Predicates.abilities(PartAbility.MAINTENANCE))
            	.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
            	.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
            	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
         )
-
-        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-        .where('B', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
-        .where('D', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4)
+        .where('E', Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(8)
+         	.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
+        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()).setMinGlobalLimited(18)
+			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
+        .where('D', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(30))
+        .where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(30)
 			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
 		
        	// Build the pattern and return
@@ -55,11 +56,6 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         "gtceu:block/multiblock/large_chemical_reactor",false
 	);
 
-
-
-)};
-
-// GTBlocks.COIL_CUPRONICKEL.get()
 
 
 /*
@@ -116,3 +112,7 @@ console.log(Object.keys(MMDefinition));
        "gtceu:block/multiblock/large_chemical_reactor", false);
 
 */
+
+
+
+});

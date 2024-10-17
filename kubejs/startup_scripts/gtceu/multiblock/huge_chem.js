@@ -19,8 +19,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	// copy mainly from the original LCR : https://github.com/GregTechCEu/GregTech-Modern/blob/1.20.1/src/main/java/com/gregtechceu/gtceu/common/data/GTMachines.java#L1323
     event.create('huge_chemical_reactor', 'multiblock')
 		.rotationState(RotationState.NON_Y_AXIS)
-        .recipeType("large_chemical_reactor")
-		//GTRecipeTypes.LARGE_CHEMICAL_RECIPES
+        .recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
+		//GTRecipeTypes.LARGE_CHEMICAL_RECIPES or "large_chemical_reactor"
         .appearanceBlock(GTBlocks.CASING_PTFE_INERT)
 	    .recipeModifiers([GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,GTRecipeModifiers.PARALLEL_HATCH,
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
@@ -42,9 +42,9 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
            	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
         )
 
-        .where('P', Predicates.blocks('gtceu:ptfe_pipe_casing'))
+        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
         .where('B', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
-        .where('D', Predicates.blocks('gtceu:cupronickel_coil_block').setMinGlobalLimited(4)
+        .where('D', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(4)
 			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
 		
        	// Build the pattern and return

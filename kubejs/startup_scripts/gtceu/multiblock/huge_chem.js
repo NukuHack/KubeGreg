@@ -29,76 +29,58 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
         	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
        		.aisle('EECEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')
-
        		// Specifying conditions for each block
        	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())
-       		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-         	.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-           	.or(Predicates.abilities(PartAbility.MAINTENANCE))
-           	.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
-           	.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-           	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+       	.where('A', Predicates.abilities(PartAbility.MAINTENANCE).setMaxGlobalLimited(1)
+           	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
+		.or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(8))
+       		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMinGlobalLimited(1).setMaxGlobalLimited(8))
+           	.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMinGlobalLimited(1).setMaxGlobalLimited(8))
+           	.or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(8))
+         	.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
         )
         .where('E', Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(8)
          	.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()).setMinGlobalLimited(18)
+        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get().setMinGlobalLimited(18))
 			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
         .where('D', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(30))
-        .where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(30)
+        .where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get().setMinGlobalLimited(30))
 			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-		
-       	// Build the pattern and return
+       	// Build the pattern
   		.build()
 	)
+	// stole some "shape info" from other modpacks 
+         .shapeInfo(controller => MultiblockShapeInfo.builder()
+        	.aisle('EEEED', 'BBDBB', 'BBDBB', 'BBDBB', 'DHDMD')
+        	.aisle('DDDDD', 'BPPPB', 'BPPPB', 'BDDDB', 'FDDDG')
+        	.aisle('DDDDD', 'DPPPD', 'DPPPD', 'DDDDD', 'FDDDG')
+        	.aisle('DDDDD', 'BPPPB', 'BPPPB', 'BDDDB', 'FDDDG')
+       		.aisle('DDCDD', 'BBDBB', 'BBDBB', 'BBDBB', 'IIDOO')
+	 //.where('H', Block.getBlock('gtceu:uv_parallel_hatch').defaultBlockState().setValue(BlockProperties.FACING, Direction.SOUTH))
+	.where('C', Predicates.controller(Predicates.blocks(definition.get())), Direction.SOUTH)
+       	.where('F', Predicates.abilities(PartAbility.IMPORT_FLUIDS), Direction.WEST)
+       	.where('I', Predicates.abilities(PartAbility.IMPORT_ITEMS), Direction.WEST)
+	
+       	.where('G', Predicates.abilities(PartAbility.EXPORT_FLUIDS), Direction.EAST)
+       	.where('O', Predicates.abilities(PartAbility.EXPORT_ITEMS), Direction.EAST)
+	
+       	.where('M', Predicates.abilities(PartAbility.MAINTENANCE), Direction.NORTH)
+       	.where('H', Predicates.abilities(PartAbility.PARALLEL_HATCH), Direction.NORTH)
+	
+        .where('E', Predicates.abilities(PartAbility.INPUT_ENERGY), Direction.NORTH)
+        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
+        .where('D', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
+        .where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()))
+		
+  		.build()
+	)
+	    
     .workableCasingRenderer(
 		"gtceu:block/casings/solid/machine_casing_inert_ptfe",
         "gtceu:block/multiblock/large_chemical_reactor",false
 	);
 
-
-	/*
  
-// stole some "shape info" from other modpacks 
-
-         .shapeInfo(controller => MultiblockShapeInfo.builder()
-        	.aisle('EEEEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')
-        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
-        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
-        	.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
-       		.aisle('EECEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')       	.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-       	.where('A', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())
-       		.or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
-         	.or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
-           	.or(Predicates.abilities(PartAbility.MAINTENANCE))
-           	.or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
-           	.or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
-           	.or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-        )
-        .where('E', Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(8)
-         	.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-        .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()).setMinGlobalLimited(18)
-			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-        .where('D', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(30))
-        .where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(30)
-			.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-		
-       	// Build the pattern and return
-  		.build()
-	)
-            .where('M', controller, Direction.SOUTH)
-            .where('H', Block.getBlock('gtceu:uv_parallel_hatch').defaultBlockState().setValue(BlockProperties.FACING, Direction.SOUTH))
-            .where('E', GTMachines.ENERGY_INPUT_HATCH[6], Direction.WEST)
-            .where('e', GTMachines.ENERGY_INPUT_HATCH[6], Direction.EAST)
-            .where('C', Block.getBlock("gtceu:atomic_casing"))
-            .where('F', GTMachines.FLUID_IMPORT_HATCH[6], Direction.UP)
-            .where('A', GTMachines.ITEM_IMPORT_BUS[6], Direction.SOUTH)
-            .where('B', GTMachines.ITEM_EXPORT_BUS[6], Direction.SOUTH)
-            
-
-
-     */
-
 
 /*
 // xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly

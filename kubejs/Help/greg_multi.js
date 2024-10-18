@@ -143,6 +143,12 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
 		   
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
+				
+                .or(Predicates.abilities(PartAbility.INPUT_KINETIC))
+				
+		//.setExactLimit(1)
+		//.setMinGlobalLimited(5)
+		//.setMaxGlobalLimited(10)
 
 		//.or(Predicates.autoAbilities(definition.getRecipeTypes())))
 		

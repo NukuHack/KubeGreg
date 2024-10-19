@@ -94,7 +94,7 @@ greg.assembler('gfs:netherite_upgrade')
 		"DDD"],
 	{"D": "minecraft:diamond",
 	"B": "minecraft:cobbled_deepslate",
-	"I": "minecraft:minecraft:sculk"
+	"I": "minecraft:sculk"
     });
 	
 	event.shaped("minecraft:snout_armor_trim_smithing_template",

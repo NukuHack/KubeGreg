@@ -56,7 +56,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         	.aisle('DDDDD', 'DPPPD', 'DPPPD', 'DDDDD', 'FDHDG')
         	.aisle('DDDDD', 'BPPPB', 'BPPPB', 'BDDDB', 'FDDDG')
        		.aisle('DDCDD', 'BBDBB', 'BBDBB', 'BBDBB', 'IIDOO')
-	 //.where('H', Block.getBlock('gtceu:uv_parallel_hatch').defaultBlockState().setValue(BlockProperties.FACING, Direction.SOUTH))
+		 
 		.where('C', controller, Direction.SOUTH)
        	.where('F', GTMachines.FLUID_IMPORT_HATCH[3], Direction.WEST)
        	.where('I', GTMachines.ITEM_IMPORT_BUS[3], Direction.WEST)
@@ -64,8 +64,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
        	.where('G', GTMachines.FLUID_EXPORT_HATCH[3], Direction.EAST)
        	.where('O', GTMachines.ITEM_EXPORT_BUS[3], Direction.EAST)
 	
-       	.where('M', Predicates.abilities(PartAbility.MAINTENANCE), Direction.NORTH)
-       	.where('H', Predicates.abilities(PartAbility.PARALLEL_HATCH), Direction.NORTH)
+       	.where('M', Predicates.abilities(PartAbility.MAINTENANCE).defaultBlockState().setValue(BlockProperties.FACING, Direction.NORTH))
+       	.where('H', Predicates.abilities(PartAbility.PARALLEL_HATCH).defaultBlockState().setValue(BlockProperties.FACING, Direction.UP))
 	
         .where('E', GTMachines.ENERGY_INPUT_HATCH[3], Direction.NORTH)
         .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))

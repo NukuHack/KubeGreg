@@ -21,7 +21,7 @@ BlockEvents.rightClicked('minecraft:diamond_block', event => {
 	player.tell("It became a budding amethyst");
       });
 });
-
+/*
 BlockEvents.rightClicked('minecraft:stone', event => {
   const { block, hand, world, item, player, server } = event;
     if (hand != "MAIN_HAND" || item.id != 'minecraft:lava_bucket') return;
@@ -44,7 +44,7 @@ BlockEvents.rightClicked('minecraft:sand', event => {
         player.tell("It became Soul Sand");
       });
 });
-
+*/
 BlockEvents.rightClicked('cookingforblockheads:sink', event => {
   const { block, hand, world, item, player, server } = event;
   const inv = player.getInventory();
@@ -81,6 +81,7 @@ BlockEvents.rightClicked('cookingforblockheads:sink', event => {
 	else {return;};
 });
 
+// bowl
 BlockEvents.rightClicked(event => {
     const { block, hand, world, item, player} = event;
     if (!block.hasTag('forge:leaves') || hand != "MAIN_HAND") return;
@@ -91,7 +92,7 @@ BlockEvents.rightClicked(event => {
     player.giveInHand(Item.of('gfs:water_bowl'));
     player.tell("You got a Bowl of wotah");
 });
-
+// water making
 BlockEvents.rightClicked(event => {
   const { block, hand, world, item, player, server } = event;
     if (!block.hasTag('forge:leaves') || hand != "MAIN_HAND") return;
@@ -121,7 +122,7 @@ BlockEvents.rightClicked(event => {
       } else player.tell("Failed ...");
     } else return;
 });
-
+// un solidify obsidian
 BlockEvents.rightClicked('minecraft:obsidian', event => {
   const { block, hand, world, item, player } = event;
     if (hand != "MAIN_HAND" && item.id != 'minecraft:bucket') return;
@@ -130,7 +131,7 @@ BlockEvents.rightClicked('minecraft:obsidian', event => {
     player.tell("You did it succesfully");
     player.giveInHand(Item.of('minecraft:lava_bucket'));
 });
-
+// log in ... starter items 
 PlayerEvents.loggedIn(event => {
   const { derver, player, entity } = event;
   if (!event.player.stages.has('new_join')) {

@@ -209,6 +209,7 @@ greg
 .inputFluids(Fluid.of('gtceu:hydrochloric_acid', 2000))
 .outputFluids(Fluid.of('gtceu:iron_ii_chloride', 1000))
 .outputFluids(Fluid.of('gtceu:hydrogen', 2000))
+.circuit(2)
 .duration(15*20)
 .EUt(120);
 
@@ -220,6 +221,7 @@ greg
 .inputFluids(Fluid.of('gtceu:hydrochloric_acid', 2000))
 .outputFluids(Fluid.of('gtceu:iron_ii_chloride', 1000))
 .outputFluids(Fluid.of('gtceu:hydrogen', 2000))
+.circuit(2)
 .duration(15*20)
 .EUt(120);
 
@@ -285,7 +287,7 @@ greg
 .outputFluids(Fluid.of('gtceu:iron_iii_chloride', 1000))		//FeCl3
 .outputFluids(Fluid.of('gtceu:sulfur_dioxide', 6000))			//6 SO2
 .outputFluids(Fluid.of('gtceu:hydrochloric_acid', 12000))		//12 HCl
-.duration(10*20)
+.duration(20*20)
 .EUt(120);
 
 // iron iii chloride f hydrated by carbon
@@ -298,8 +300,8 @@ greg
 .outputFluids(Fluid.of('gtceu:iron_iii_chloride', 1000))		//FeCl3
 .outputFluids(Fluid.of('gtceu:carbon_monoxide', 6000))			//6 CO
 .outputFluids(Fluid.of('gtceu:hydrochloric_acid', 12000))		//12 HCl
-.duration(10*20)
-.EUt(120);
+.duration(40*20)
+.EUt(480);
 
 // thionyl_chloride f sulfur_dichloride
 

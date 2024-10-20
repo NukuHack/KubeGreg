@@ -147,6 +147,16 @@ greg
 .duration(250)
 .EUt(120);
 
+// deepslate
+
+greg
+.chemical_bath('gfs:deepslate')
+.itemInputs('#forge:dusts/stone')
+.inputFluids(Fluid.of('gtceu:blask_steel', 10))
+.itemOutputs('#forge:dusts/deepslate')
+.duration(40)
+.EUt(120);
+
 
 
 

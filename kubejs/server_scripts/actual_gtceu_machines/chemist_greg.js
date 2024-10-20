@@ -74,10 +74,10 @@ greg
 
 greg
 .large_chemical_reactor('gfs:sodium_hydroxide_f_chloride')
-.inputFluids(Fluid.of('gtceu:salt', 2000))
-.inputFluids(Fluid.of('minecraft:water', 1000))
-.outputFluids(Fluid.of('gtceu:sodium_hydroxide', 1000))
-.outputFluids(Fluid.of('gtceu:hydrochloric_acid', 2000))
+.inputFluids(Fluid.of('gtceu:salt', 1000))					// NaCl
+.inputFluids(Fluid.of('minecraft:water', 1000))				// H2O
+.outputFluids(Fluid.of('gtceu:sodium_hydroxide', 1000))		// NaHO
+.outputFluids(Fluid.of('gtceu:hydrochloric_acid', 1000))	// HCl
 .duration(20*20)
 .EUt(120);
 
@@ -85,12 +85,12 @@ greg
 
 greg
 .chemical_reactor('gfs:sodium_hydroxide_f_chloride')
-.inputFluids(Fluid.of('gtceu:salt', 2000))
-.inputFluids(Fluid.of('minecraft:water', 1000))
-.outputFluids(Fluid.of('gtceu:sodium_hydroxide', 1000))
-.outputFluids(Fluid.of('gtceu:hydrochloric_acid', 2000))
-.duration(10*20)
-.EUt(120);
+.inputFluids(Fluid.of('gtceu:salt', 1000))					// NaCl
+.inputFluids(Fluid.of('minecraft:water', 1000))				// H2O
+.outputFluids(Fluid.of('gtceu:sodium_hydroxide', 1000))		// NaHO
+.outputFluids(Fluid.of('gtceu:hydrochloric_acid', 1000))	// HCl
+.duration(20*20)
+.EUt(200);
 
 // process sodium_hydroxide_residue
 

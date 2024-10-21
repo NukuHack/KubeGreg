@@ -203,6 +203,7 @@ StartupEvents.registry("item", (event) => {
   event.create("gfs:water_bowl");
   event.create("gfs:mud_brick");
 
+  event.create("gfs:stupid_press");
 
 });
 

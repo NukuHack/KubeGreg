@@ -14,6 +14,12 @@ ServerEvents.recipes(event => {
         .inputFluids(Fluid.of("minecraft:water", 100))
         .itemOutputs("2x #forge:dusts/fluix")
         .EUt(100)
+        .duration(300);
+    greg.mixer("gfs:fluix_dust_faster")
+        .itemInputs("ae2:charged_certus_quartz_crystal", "minecraft:redstone", "minecraft:quartz")
+        .inputFluids(Fluid.of("gtceu:distilled_water", 100))
+        .itemOutputs("2x #forge:dusts/fluix")
+        .EUt(100)
         .duration(200);
 
   // Charged Certus Quartz

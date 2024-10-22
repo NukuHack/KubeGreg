@@ -117,9 +117,14 @@
 
 
 GTCEuStartupEvents.materialModification(event => {
-	const IngotProperty = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty")
+	const IngotProperty = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty");
+	const $WireProperties = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties");
+	
+	GTMaterials.Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
 
-	GTMaterials.Polonium.setProperty(PropertyKey.INGOT, new IngotProperty())
+	GTMaterials.Lead.properties.removeProperty(PropertyKey.WIRE);
+	GTMaterials.Lead.setProperty(PropertyKey.WIRE, new $WireProperties(GTValues.V[GTValues.IV],2,2));
+	
 });
 
 

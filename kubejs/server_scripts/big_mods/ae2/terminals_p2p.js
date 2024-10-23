@@ -60,7 +60,7 @@ ServerEvents.recipes((event) => {
   event.remove({ output: 'ae2:me_p2p_tunnel' })
   event.recipes.gtceu.assembler('ae2:p2p_assembly')
     .itemInputs(["4x #forge:plates/tungsten_steel", '4x gtceu:stainless_steel_plate','4x ae2:charged_certus_quartz_crystal', '2x ae2:semi_dark_monitor', 'ae2:engineering_processor', 'ae2:formation_core', 'ae2:annihilation_core'])
-    .itemOutputs('4x ae2:me_p2p_tunnel')
+    .itemOutputs('2x ae2:me_p2p_tunnel')
     .duration(160)
     .EUt(GTValues.VA[GTValues.MV]);
  

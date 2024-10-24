@@ -12,7 +12,7 @@ materials.forEach((material) => {
 		.itemInputs('#forge:dusts/'+material)
 		.inputFluids(Fluid.of('minecraft:water', 250))
 		.itemOutputs('#forge:gems/'+material)
-		.duration(600)
+		.duration(30*20)
 		.EUt(30);
 
 		greg
@@ -20,7 +20,7 @@ materials.forEach((material) => {
 		.itemInputs('#forge:dusts/'+material)
 		.inputFluids(Fluid.of('gtceu:distilled_water', 250))
 		.itemOutputs('#forge:gems/'+material)
-		.duration(300)
+		.duration(15*20)
 		.EUt(30);
 });
 
@@ -33,7 +33,7 @@ autoClay.forEach((clays) => {
 	.itemInputs('gtceu:'+clays[0]+'_dust')
 	.inputFluids(Fluid.of('minecraft:water', 100))
 	.itemOutputs(clays[1])
-	.duration(300)
+	.duration(15*20)
 	.EUt(30);
 
 	greg
@@ -41,7 +41,7 @@ autoClay.forEach((clays) => {
 	.itemInputs('gtceu:'+clays[0]+'_dust')
 	.inputFluids(Fluid.of('gtceu:distilled_water', 100))
 	.itemOutputs(clays[1])
-	.duration(140)
+	.duration(7*20)
 	.EUt(30);
 
 });
@@ -53,7 +53,7 @@ greg
 .itemInputs('gfs:dust')
 .inputFluids(Fluid.of('minecraft:water', 1000))
 .itemOutputs("4x minecraft:clay_ball")
-.duration(600)
+.duration(30*20)
 .EUt(30);
 
 // clay 2
@@ -63,7 +63,7 @@ greg
 .itemInputs('gfs:dust')
 .inputFluids(Fluid.of('gtceu:distilled_water', 250))
 .itemOutputs("minecraft:clay")
-.duration(600)
+.duration(20*20)
 .EUt(30);
 
 

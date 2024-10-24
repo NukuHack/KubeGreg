@@ -8,6 +8,6 @@ ServerEvents.recipes(event => {
 	event.remove({ output: "minecraft:air" });
 	event.remove({ input: 'minecraft:air' });
 
-// replacing
+// tbh this is actually useless and do NOT work 
 
 })

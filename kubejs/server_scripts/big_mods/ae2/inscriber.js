@@ -105,7 +105,7 @@ ServerEvents.recipes(event => {
     greg.inscriber("gfs:stupid_print_accumulation")
         .itemInputs("#forge:plates/black_steel")
         .notConsumable("gfs:stupid_press")
-        .itemOutputs("ae2:printed_accumulation_processor")
+        .itemOutputs("megacells:printed_accumulation_processor")
         .inputFluids(Fluid.of("gtceu:lubricant", 500))
         .EUt(240)
         .duration(240);

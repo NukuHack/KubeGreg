@@ -140,7 +140,9 @@ event.shapeless(Item.of("gfs:compressed_primitive_blast_furnace"), ["2x gfs:prim
 
 
 
-
+// there was a plan for "all assebler" or something like that, what would be crafter with one tier above stuff inside the assembly line and make it insainly expensive
+// 	functionality for it would be to make a really stupid stuff in a sinlge step like making the entire platline with titanium and chemistry in one step or idk
+// 	but that would take out the "automation" part of gregtech which i like the most ... so i guess it will never be actually implemented ... but i put this stuff here just in case ... you know
 // lathe extruder mixer
 // wiremill circuit_assembler blender
 // solidifier assembler extractor

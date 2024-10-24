@@ -1,3 +1,4 @@
+/*
 defining recipes :
  	just put an "minecraft:cobble_stone"      ˇˇthe number of items
 		but put (Item.of(minecraft:stone, 3)) if you want to be sure
@@ -8,7 +9,7 @@ defining recipes :
 
 	define item : ('minecraft:stone')
 	define tag : ('#forge:dusts/redstone') or (tag: "forge:dusts")
-
+*/
 ServerEvents.recipes(event => {
 
 //this will remove every recipe what would make stone
@@ -44,33 +45,33 @@ event.smithing(
     "cookingtime": 800
 });
 
- event.stonecutting(gfs:polished_concrete,gfs:concrete);
+ event.stonecutting(gfs:polished_concrete,gfs:concrete)
 
 .keepIngredient("minecraft:dirt");
 .replaceIngredient('milk_bucket', 'bucket')
-.damageIngredient("#forge:tools/hoes",'1')
+.damageIngredient("#forge:tools/hoes",'1');
 
-if you want to make recipes for other mods it's easier to just go to the wiki
-and steal some cool ppl's examples and it's harder to define it ...
+//if you want to make recipes for other mods it's easier to just go to the wiki
+//and steal some cool ppl's examples and it's harder to define it ...
 
 //a bit javascript
-
+/*
 "let" is like allow it to be this		<-- variable (it can have a value Only a Single one)
 and "const" is like allow it to be these	<-- constant (it can have a lot value As Many as you want)
 you can acces the array's value like "array[slot]" the slot is what value wil you see
 arrays start from 0 ; "array.lenght" is the lenght of the array
 but these only needed when we define it if you want to set the same variable (or an array slot) to a different value
 	you can use just a " = "  variable : apple = 12    array : numbers[2] = 45
-
+*/
   let variable = 'item' + `_1x` 
-	it will be --> 'item_1x'
+	//it will be --> 'item_1x'
 
   const sor=[]
   for (let i=0, i<3, i++) {
     variable='ite' + `m_${i}x_ra` + 'ndom'
     sor[sor.length]=variale
   }
-       sor will be --> ['item_1x_random','item_2x_random','item_3x_random']
+       //sor will be --> ['item_1x_random','item_2x_random','item_3x_random']
 
 
     event.forEachRecipe({type:"minecraft:crafting_shaped", output:/slab/}, recipe => {
@@ -82,7 +83,7 @@ but these only needed when we define it if you want to set the same variable (or
             }
         }
     })
-
+/*
 Conditions :
 
 	by output item {output: '<item_id>'}
@@ -95,10 +96,10 @@ Conditions :
 	Require ALL conditions to be met: {condition1: 'value', condition2: 'value2'}
 	Require ANY of the conditions to be met: [{condition_a: 'true'}, {condition_b: 'true'}]
 	Require the condition NOT be met: {not: {condition: 'requirement'}}
+*/
 
 
-
-some random stolen stuff from ... idk
+//some random stolen stuff from ... idk
 
 event.forEachRecipe({ mod: 'gtceu'}, recipe => {getFluids(recipe)}
 func getFluids() {

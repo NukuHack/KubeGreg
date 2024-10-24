@@ -18,7 +18,7 @@ greg
 .itemOutputs('2x #forge:ingots/aluminium')			// 2Al
 .itemOutputs('#forge:dusts/sodium_trioxide')			// Na 3O
 .blastFurnaceTemp(2300)
-.duration(300)
+.duration(15*20)
 .EUt(120);
 
 
@@ -31,7 +31,7 @@ greg
 .itemInputs('#forge:ingots/antimony')
 .itemOutputs('9x #forge:ingots/soldering_alloy')
 .blastFurnaceTemp(1800)
-.duration(400)
+.duration(20*20)
 .EUt(120);
 
 

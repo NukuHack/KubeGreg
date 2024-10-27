@@ -85,10 +85,9 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 /*
 // xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
 
-// const TryGTMachines = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
+const TryGTMulti = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
 
-	//TryGTMachines or :
-	GTMachines.LARGE_CHEMICAL_REACTOR.setPatternFactory(definition => FactoryBlockPattern.start()
+	TryGTMulti.LARGE_CHEMICAL_REACTOR.setPatternFactory(definition => FactoryBlockPattern.start()
 			.aisle('AAA', 'AAA', 'AAA')
 			.aisle('AAA', 'APA', 'AAA')
 			.aisle('AAA', 'ACA', 'AAA')

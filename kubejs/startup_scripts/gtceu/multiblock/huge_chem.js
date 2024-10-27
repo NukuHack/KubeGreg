@@ -84,29 +84,13 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
  
 
-	//GTMchines.LARGE_CHEMICAL_REACTOR.pattern
 	
 /*
 // xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
 
-const MMDefinition = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
+//const MMDefinition = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
 
-// Correctly reference the large chemical reactor
-const largeChemicalReactor = MMDefinition.LARGE_CHEMICAL_REACTOR;
-console.log(Object.keys(MMDefinition));
-
-//const largeChemicalReactor = MMDefinition.getBuilt('large_chemical_reactor');
-//console.log(largeChemicalReactor);
-//console.log(large_chemical_reactor.getPatternFactory())
-
-
-	event.create('large_chemical_reactor', 'multiblock')
-		.rotationState(RotationState.NON_Y_AXIS)
-		.recipeType('large_chemical_reactor')
-		.appearanceBlock(GTBlocks.INERT_MACHINE_CASING)
-		.recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
-			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-	.setPatternFactory(definition => FactoryBlockPattern.start()
+	GTMachines.LARGE_CHEMICAL_REACTOR.setPatternFactory(definition => FactoryBlockPattern.start()
 			.aisle('AAA', 'AAA', 'AAA')
 			.aisle('AAA', 'APA', 'AAA')
 			.aisle('AAA', 'ACA', 'AAA')
@@ -118,29 +102,6 @@ console.log(Object.keys(MMDefinition));
 		.workableCasingRenderer("gtceu:block/casings/solid/machine_casing_inert_ptfe",
 		"gtceu:block/multiblock/large_chemical_reactor", false);
 
-
-   largeChemicalReactor.setPatternFactory(() => 
-	   FactoryBlockPattern.start()
-			.aisle('AAA', 'AAA', 'AAA')
-			.aisle('AAA', 'APA', 'AAA')
-			.aisle('AAA', 'ACA', 'AAA')
-			.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-			.where('A', Predicates.blocks(GTBlocks.INERT_MACHINE_CASING.get()).setMinGlobalLimited(10)
-				.or(Predicates.autoAbilities(definition.getRecipeTypes())))
-			.where('P', Predicates.blocks('gtceu:ptfe_pipe_casing'))
-			.build()
-   )
-   .recipeType('large_chemical_reactor')
-   .appearanceBlock(GTBlocks.INERT_MACHINE_CASING)
-   .recipeModifiers([
-	   GTRecipeModifiers.PARALLEL_HATCH,
-	   GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)
-   ])
-   .workableCasingRenderer("gtceu:block/casings/solid/machine_casing_inert_ptfe", 
-	   "gtceu:block/multiblock/large_chemical_reactor", false);
-
 */
-
-
 
 });

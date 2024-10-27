@@ -84,6 +84,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
  
 
+	//GTMchines.LARGE_CHEMICAL_REACTOR.pattern
+	
 /*
 // xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
 

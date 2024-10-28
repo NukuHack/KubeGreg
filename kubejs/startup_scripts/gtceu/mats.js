@@ -1,12 +1,8 @@
 GTCEuStartupEvents.registry("gtceu:material", event => {
-
-	// just some gregify
-
+// might remove quartz_glass dust ... it's just stupid
     event.create("quartz_glass")
     	.components("4x glass","5x certus_quartz")
 	.dust();
-
-    //event.create("sky_steel").ingot();
 
     event.create("strong_mix")
 	.components("2x platinum","2x palladium","1x palladium_raw","1x diamond","4x black_steel","4x blue_steel")

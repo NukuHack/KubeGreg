@@ -3,8 +3,8 @@ priority: 1
 ServerEvents.recipes(event => {
 
   // plan to shorten the LCR and Autoclave
-  
-    event.forEachRecipe({mod:'gtceu',[{type:'autoclave'},{type:'electric_blast_furnace'}]}, recipe => {
+  // type:'autoclave'
+    event.forEachRecipe({mod:'gtceu',type:'electric_blast_furnace'}, recipe => {
         try {
             //var energy = recipe.get("EUt")
             var oldDuration = recipe.get("duration");

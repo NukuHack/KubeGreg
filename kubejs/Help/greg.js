@@ -22,6 +22,7 @@
     .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, FillDirection.UP_TO_DOWN)
     .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, FillDirection.LEFT_TO_RIGHT)
     .setProgressBar(GuiTextures.PROGRESS_BAR_UNPACKER, FillDirection.LEFT_TO_RIGHT)
+    .setProgressBar(new ResourceTexture("kubejs:textures/gui/progress_bar_rocket.png"), FillDirection.LEFT_TO_RIGHT)		// <-- custom
 		// just some gtceu(m) sounds
     .setSound(GTSoundEntries.COOLING);
     .setSound(GTSoundEntries.ASSEMBLER);

@@ -82,21 +82,4 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 		"gtceu:block/multiblock/large_chemical_reactor",false
 	);
 
-
-// xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
-
-const TryGTMulti = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
-
-	TryGTMulti.LARGE_CHEMICAL_REACTOR.setPatternFactory(definition => FactoryBlockPattern.start()
-			.aisle('AAA', 'AAA', 'AAA')
-			.aisle('AAA', 'APA', 'AAA')
-			.aisle('AAA', 'ACA', 'AAA')
-			.where('C', Predicates.controller(Predicates.blocks(definition.get())))
-			.where('A', Predicates.blocks(GTBlocks.INERT_MACHINE_CASING.get()).setMinGlobalLimited(10)
-				.or(Predicates.autoAbilities(definition.getRecipeTypes())))
-			.where('P', Predicates.blocks('gtceu:ptfe_pipe_casing'))
-			.build())
-		.workableCasingRenderer("gtceu:block/casings/solid/machine_casing_inert_ptfe",
-		"gtceu:block/multiblock/large_chemical_reactor", false);
-
 });

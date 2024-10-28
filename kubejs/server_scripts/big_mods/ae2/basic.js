@@ -55,16 +55,11 @@ ServerEvents.recipes(event => {
     event.replaceInput({input : "#forge:dusts/ender_pearl"}, "#forge:dusts/ender_pearl", "#forge:dusts/ender_pearl");
 
 // Quartz Glass Gregified
-    greg.alloy_smelter("gfs:quartz_glass_dust")
-        .itemInputs("4x gtceu:glass_dust", "5x gtceu:certus_quartz_dust")
-        .itemOutputs("4x gtceu:quartz_glass_dust")
-        .EUt(16)
-        .duration(100);
 
     greg.alloy_smelter("gfs:quartz_glass")
-        .itemInputs("gtceu:quartz_glass_dust")
+        .itemInputs("2x gtceu:glass_dust", "3x gtceu:certus_quartz_dust")
         .notConsumable("gtceu:block_casting_mold")
-        .itemOutputs("ae2:quartz_glass")
+        .itemOutputs("2x ae2:quartz_glass")
         .EUt(16)
         .duration(100);
 

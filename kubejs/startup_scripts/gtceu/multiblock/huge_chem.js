@@ -82,7 +82,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 		"gtceu:block/multiblock/large_chemical_reactor",false
 	);
 
-/*
+
 // xD made by chatgpt and help from the Original GT discord server ... but could not get it to work ... sadly
 
 const TryGTMulti = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition');
@@ -98,5 +98,5 @@ const TryGTMulti = Java.loadClass('com.gregtechceu.gtceu.api.machine.MultiblockM
 			.build())
 		.workableCasingRenderer("gtceu:block/casings/solid/machine_casing_inert_ptfe",
 		"gtceu:block/multiblock/large_chemical_reactor", false);
-*/
+
 });

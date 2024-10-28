@@ -44,6 +44,6 @@ greg
   .duration(800)
   .EUt(300);
 
-event.shapeless("4x minecraft:netherrack",["hostilenetworks:nether_prediction","minecrft:dirt"]);
+event.shapeless("4x minecraft:netherrack",["hostilenetworks:nether_prediction","minecraft:dirt"]);
 
 });

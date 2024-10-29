@@ -31,6 +31,7 @@ ServerEvents.recipes( e => {
 			.itemInputs(`4x minecraft:${item}_planks`)
 			.itemInputs('4x gtceu:iron_screw')
 			.itemOutputs(`functionalstorage:${item}_1`)
+			.circuit(1)
 			.duration(100)
 			.EUt(30);
 		gre.assembler(`functionalstorage:${item}_2`) 
@@ -38,6 +39,7 @@ ServerEvents.recipes( e => {
 			.itemInputs(`6x minecraft:${item}_planks`)
 			.itemInputs('6x gtceu:iron_screw')
 			.itemOutputs(`2x functionalstorage:${item}_2`)
+			.circuit(2)
 			.duration(100)
 			.EUt(30);
 		gre.assembler(`functionalstorage:${item}_4`) 
@@ -45,6 +47,7 @@ ServerEvents.recipes( e => {
 			.itemInputs(`8x minecraft:${item}_planks`)
 			.itemInputs('8x gtceu:iron_screw')
 			.itemOutputs(`4x functionalstorage:${item}_4`)
+			.circuit(4)
 			.duration(100)
 			.EUt(30);
     });
@@ -55,6 +58,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`4x gtceu:steel_frame`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:framed_1`)
+			.circuit(1)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:framed_1`,`functionalstorage:framed_1`);
@@ -63,6 +67,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`6x gtceu:steel_frame`)
         .itemInputs('6x gtceu:iron_screw')
         .itemOutputs(`2x functionalstorage:framed_2`)
+			.circuit(2)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:framed_2`,`functionalstorage:framed_2`);
@@ -71,6 +76,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`8x gtceu:steel_frame`)
         .itemInputs('8x gtceu:iron_screw')
         .itemOutputs(`4x functionalstorage:framed_4`)
+			.circuit(4)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:framed_4`,`functionalstorage:framed_4`);
@@ -82,6 +88,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`2x minecraft:piston`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:compacting_drawer`)
+			.circuit(1)
         .duration(100)
         .EUt(30);
 	
@@ -95,6 +102,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`1x minecraft:piston`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:simple_compacting_drawer`)
+			.circuit(2)
         .duration(100)
         .EUt(30);
 	
@@ -107,6 +115,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`4x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:fluid_1`)
+			.circuit(1)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:fluid_1`,`functionalstorage:fluid_1`);
@@ -116,6 +125,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`6x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:fluid_2`)
+			.circuit(2)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:fluid_2`,`functionalstorage:fluid_2`);
@@ -125,6 +135,7 @@ ServerEvents.recipes( e => {
         .itemInputs(`8x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
         .itemOutputs(`functionalstorage:fluid_4`)
+			.circuit(4)
         .duration(100)
         .EUt(30);
     e.shapeless(`functionalstorage:fluid_4`,`functionalstorage:fluid_4`);

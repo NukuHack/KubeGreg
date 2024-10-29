@@ -12,9 +12,9 @@ ServerEvents.recipes(event => {
             if (oldDS>100)
               recipe.set("duration", 100*20);
             else if (oldDS>20)
-              recipe.set("duration", oldDuration/5);
+              recipe.set("duration", 20*20);
             else
-              recipe.set("duration", oldDuration/2);
+              recipe.set("duration", 5*20);
         } catch (err) {
             console.log(recipe.id + " has no duration field, skipped.")
         };

@@ -44,6 +44,15 @@ greg
   .duration(800)
   .EUt(300);
 
+
+	
 event.shapeless("4x minecraft:netherrack",["hostilenetworks:nether_prediction","minecraft:dirt"]);
+	
+	event.remove({ id: "minecraft:nether_star_from_living_matter_extraterrestrial" });
+	event.shaped("#forge:dusts/nether_star",
+		["AAA", "BBB", "CBC"],
+		{ A: "minecraft:wither_skeleton_skull", B: "minecraft:soul_sand",
+			C: "dmlreloaded:living_matter_extraterrestrial"});
+	
 
 });

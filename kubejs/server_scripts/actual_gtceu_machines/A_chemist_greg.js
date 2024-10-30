@@ -117,7 +117,7 @@ greg
 .circuit(2)
 .duration(20*20)
 .EUt(30);
-
+/*
 // sodium hydrogen sulfite from sulfuric acid liquid
 
 greg
@@ -150,8 +150,8 @@ greg
 .outputFluids(Fluid.of('gtceu:hydrochloric_acid', 1000))
 .duration(20*20)
 .EUt(120);
-
-// sodium_chlorid
+*/
+// sodium_chlorid = salt
 
 greg
 .large_chemical_reactor('gfs:sodium_chlorid')
@@ -170,7 +170,7 @@ greg
 .outputFluids(Fluid.of('gtceu:salt', 1000))
 .duration(15*20)
 .EUt(120);
-
+/*
 // sodium_bisulfate separating
 greg
 .electrolyzer('gfs:sodium_bisulfate')
@@ -188,7 +188,7 @@ greg
 .outputFluids(Fluid.of('gtceu:sodium_bisulfate', 1000))
 .duration(10*20)
 .EUt(120);
-
+*/
 
 
 
@@ -228,23 +228,13 @@ greg
 // iron ii chloride f iii
 
 greg
-.chemical_reactor('gfs:3iron_ii_chloride_f_2iii')
-.itemInputs('#forge:dusts/iron')
-.inputFluids(Fluid.of('gtceu:iron_iii_chloride', 2000))
-.outputFluids(Fluid.of('gtceu:iron_ii_chloride', 3000))
-.duration(60*20)
-.EUt(120);
-
-// iron ii chloride f iii
-
-greg
 .large_chemical_reactor('gfs:3iron_ii_chloride_f_2iii')
 .itemInputs('#forge:dusts/iron')
 .inputFluids(Fluid.of('gtceu:iron_iii_chloride', 2000))
 .outputFluids(Fluid.of('gtceu:iron_ii_chloride', 3000))
 .duration(40*20)
 .EUt(120);
-
+/*
 // iron ii chloride f iii excess SCl2
 
 greg
@@ -408,7 +398,7 @@ greg
 .outputFluids(Fluid.of('gtceu:sulfur_chlorid', 1000))
 .duration(10*20)
 .EUt(120);
-
+*/
 
 
 

@@ -82,13 +82,6 @@ ServerEvents.recipes(event => {
 	event.shaped("minecraft:iron_ore", ["ABA","BAB","ABA"],
 		{ A: "minecraft:stone", B: "minecraft:raw_iron_block"});
 
-	event.remove({ id: "minecraft:nether_star_from_living_matter_extraterrestrial" });
-	event.shaped("#forge:dusts/nether_star",
-		["AAA", "BBB", "CBC"],
-		{ A: "minecraft:wither_skeleton_skull", B: "minecraft:soul_sand",
-			C: "dmlreloaded:living_matter_extraterrestrial"});
-
-
 	event.shapeless("2x minecraft:string","#forge:wool");
 	event.shapeless("minecraft:obsidian", ["minecraft:lava_bucket","minecraft:water_bucket"])
 		.replaceIngredient('minecraft:lava_bucket', 'minecraft:bucket')

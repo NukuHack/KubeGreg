@@ -10,15 +10,12 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 
 
-
-
-
 	// this is for chemistry
-
+/*
     event.create("sodium_trioxide")
     	.components("1x sodium","3x oxygen")
 	.dust();
-
+*/
     event.create("sodium_hydroxide_residue")
     	.components("4x sodium","8x oxygen","8x hydrogen","1x gallium")
 	.fluid()
@@ -29,7 +26,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
     	.components("1x sulfur","1x oxygen","2x chlorine")
 	.fluid()
 	.color(0x787878);
-
+/*
     event.create("hydrated_iron_iii_chloride")
     	.components("1x iron","3x chlorine","6x water")
 	.fluid()
@@ -44,7 +41,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
     	.components("1x sulfur","1x chlorine")
 	.fluid()
 	.color(0x909541);
-
+*/
 
 
 
@@ -60,9 +57,10 @@ let addFluid = (mat, key) => {
     prop.getStorage().enqueueRegistration(key, new $FluidBuilder());
     mat.setProperty(PropertyKey.FLUID, prop);
 }
-
+/*
     addFluid(GTMaterials.SodiumHydroxide, $FluidStorageKeys.LIQUID);
     addFluid(GTMaterials.SodiumBisulfate, $FluidStorageKeys.LIQUID);
+*/
     addFluid(GTMaterials.Salt, $FluidStorageKeys.LIQUID);
 	// Can be LIQUID, GAS, PLASMA or MOLTEN
 

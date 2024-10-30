@@ -18,75 +18,86 @@ ServerEvents.recipes(event => {
 	[4,'steam_turbine'],
 	[2,'plasma_generator'],
   ];
-  
-  stupeed.forEach([du,ty]=>{
-    event.forEachRecipe({mod:'gtceu',type:`gtceu:${ty}`}, recipe => {
+	
+  stupeed.forEach(([du, ty]) => {
+    event.forEachRecipe({ mod: 'gtceu', type: `gtceu:${ty}` }, recipe => {
         try {
-            var oldDuration = recipe.get("duration");
-              recipe.set("duration", Math.Round(oldDuration*du,1));
+            const oldDuration = recipe.get("duration");
+            recipe.set("duration", Math.round(oldDuration * du * 10) / 10);
         } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
+            console.log(recipe.id + " has no duration field, skipped.");
+        }
     });
   });
   
-  /*stupaad.forEach((aplee)=>{
-    event.forEachRecipe({mod:'gtceu',type:`gtceu:${aplee[1]}`}, recipe => {
+  /*	
+  stupeed.forEach(([du, ty]) => {
+    event.forEachRecipe({ mod: 'gtceu', type: `gtceu:${ty}` }, recipe => {
         try {
-            var oldEUt = recipe.get("EUt");
-              recipe.set("EUt", Math.Round(oldEUt*aplee[0],1));
+            const oldEU = recipe.get("EUt");
+            recipe.set("EUt", Math.round(oldEU * du * 10) / 10);
         } catch (err) {
-            console.log(recipe.id + " has no energy_unit_tick field, skipped.")
-        };
+            console.log(recipe.id + " has no eu_t field, skipped.");
+        }
     });
-  });*/
+  });
+  */
   
-  
-    event.forEachRecipe({mod:'gtceu',type:'gtceu:macerator'}, recipe => {
-        try {
-            var oldDuration = recipe.get("duration");
-			if (oldDuration==20*20)
-              recipe.set("duration", 5*20);
-        } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
-    });
-    event.forEachRecipe({mod:'gtceu',type:'gtceu:ore_washer'}, recipe => {
-        try {
-            var oldDuration = recipe.get("duration");
-			if (oldDuration==20*20)
-              recipe.set("duration", 10*20);
-        } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
-    });
-    event.forEachRecipe({mod:'gtceu',type:'gtceu:extractor'}, recipe => {
-        try {
-            var oldDuration = recipe.get("duration");
-			if (oldDuration<=10*20)
-              recipe.set("duration", 10*20);
-        } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
-    });
-    event.forEachRecipe({mod:'gtceu',type:'gtceu:mixer'}, recipe => {
-        try {
-            var oldDuration = recipe.get("duration");
-			if (oldDuration>=20*20)
-              recipe.set("duration", oldDuration-(5*20));
-        } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
-    });
-    event.forEachRecipe({mod:'gtceu',type:'gtceu:fluid_solidifier'}, recipe => {
-        try {
-            var oldDuration = recipe.get("duration");
-			if (oldDuration>=20*20)
-              recipe.set("duration", 20*20);
-        } catch (err) {
-            console.log(recipe.id + " has no duration field, skipped.")
-        };
-    });
+  event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:macerator' }, recipe => {
+    try {
+        let oldDuration = recipe.get("duration");
+        if (oldDuration === 20 * 20) {
+            recipe.set("duration", 5 * 20);
+        }
+    } catch (err) {
+        console.log(recipe.id + " has no duration field, skipped.");
+    }
+});
+
+event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:ore_washer' }, recipe => {
+    try {
+        let oldDuration = recipe.get("duration");
+        if (oldDuration === 20 * 20) {
+            recipe.set("duration", 10 * 20);
+        }
+    } catch (err) {
+        console.log(recipe.id + " has no duration field, skipped.");
+    }
+});
+
+event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:extractor' }, recipe => {
+    try {
+        let oldDuration = recipe.get("duration");
+        if (oldDuration <= 10 * 20) {
+            recipe.set("duration", 10 * 20);
+        }
+    } catch (err) {
+        console.log(recipe.id + " has no duration field, skipped.");
+    }
+});
+
+event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:mixer' }, recipe => {
+    try {
+        let oldDuration = recipe.get("duration");
+        if (oldDuration >= 20 * 20) {
+            recipe.set("duration", oldDuration - (5 * 20));
+        }
+    } catch (err) {
+        console.log(recipe.id + " has no duration field, skipped.");
+    }
+});
+
+event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:fluid_solidifier' }, recipe => {
+    try {
+        let oldDuration = recipe.get("duration");
+        if (oldDuration >= 20 * 20) {
+            recipe.set("duration", 20 * 20);
+        }
+    } catch (err) {
+        console.log(recipe.id + " has no duration field, skipped.");
+    }
+});
+
   
   
 })

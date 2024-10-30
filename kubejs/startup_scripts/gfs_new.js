@@ -3,7 +3,7 @@
 */
 
 Platform.mods.kubejs.name = "Gfs";
-// assets/gtceu/textures/block/material_sets/ruby/block.png 
+
 priority: 100
 StartupEvents.registry("block", event => {
 /*
@@ -30,14 +30,6 @@ StartupEvents.registry("block", event => {
     .hardness(0.6)
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("cucumber:mineable/shovel");
-
-    event
-    .create("gfs:wood_comp")
-    .soundType("wood")
-    .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/axe")
-        .tagItem("minecraft:logs_that_burn");
 		
     event
     .create("gfs:coke_oven_side")

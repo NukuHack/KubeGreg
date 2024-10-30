@@ -1,21 +1,10 @@
 priority: 100
 
 
-
 // just remove useless things / things what will have their recipe replaced
 //event.remove({ output: item })
 
 const items = [
-
-	//"ironjetpacks:basic_coil",
-	//"ironjetpacks:advanced_coil",
-	//"ironjetpacks:elite_coil",
-	//"ironjetpacks:ultimate_coil",
-
-	//"modularrouters:modular_router",
-	//"mob_grinding_utils:tank",
-	//"mob_grinding_utils:jumbo_tank",
-
 	"dmlreloaded:soot_covered_redstone",
 	"dmlreloaded:machine_casing",
 	"dmlreloaded:soot_covered_plate",
@@ -126,11 +115,9 @@ const items = [
 	"megacells:mega_crafting_accelerator",
 	"megacells:mega_pattern_provider",
 	"megacells:mega_interface",
-
+	
 	"merequester:requester",
-
 ];
-
 
 
 // just remove useless ids / ids that are too easy or just duplicates
@@ -205,7 +192,6 @@ const ids = [
 	"ae2:network/cells/spatial_storage_cell_128_cubed",
 
 ];
-console.log("Loaded id-consts")
 
 // autoclave recipes
 
@@ -292,8 +278,6 @@ const materials = [
 "fluix",
 
 ];
-
-
 
 
 

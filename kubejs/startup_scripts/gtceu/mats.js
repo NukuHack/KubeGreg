@@ -21,12 +21,12 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	.fluid()
         .flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
 	.color(0x969688);
-
+/*
     event.create("thionyl_chloride")
     	.components("1x sulfur","1x oxygen","2x chlorine")
 	.fluid()
 	.color(0x787878);
-/*
+	
     event.create("hydrated_iron_iii_chloride")
     	.components("1x iron","3x chlorine","6x water")
 	.fluid()

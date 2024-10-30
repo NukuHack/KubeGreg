@@ -61,7 +61,4 @@ ServerEvents.recipes(event => {
 		[" B ", " AB", "A  "],
 		{ B: "#forge:cobblestone", A: "#forge:rods/wooden"});
 
-	event.shapeless("gfs:wood_comp","9x #forge:rods/wood");
-	event.shapeless("9x #forge:rods/wood","gfs:wood_comp");
-
 });

@@ -127,6 +127,14 @@ greg
     .EUt(30);
 
 
+  event.remove({ output: "minecraft:iron_bars",type:"gtceu:assebler"});
+  greg
+    .assembler("gfs:iron_bars")
+    .itemInputs("3x #forge:rods/iron")
+    .itemOutputs("4x minecraft:iron_bars")
+    .circuit(2)
+    .duration(15*20)
+    .EUt(30);
 
 
 
@@ -139,7 +147,7 @@ greg
       .itemInputs(`gtceu:${volt}_machine_hull`)
       .itemInputs(`2x #gtceu:circuits/${volt}`)
       .itemInputs(`2x gtceu:${voltage_to_cable[volt]}_single_cable`)
-      .itemOutputs(`gfs:${volt}_assembler`)
+      .itemOutputs(`gtceu:${volt}_assembler`)
       .duration(400)
       .EUt(voltage_to_eu[volt]/4);
   });

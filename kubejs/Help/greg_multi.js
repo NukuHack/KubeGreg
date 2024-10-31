@@ -84,6 +84,80 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .compassNodeSelf()
             .register();
 
+
+	// original EBF yes still in java but you can atleast steal some code from it :)
+
+
+    public static final MultiblockMachineDefinition ELECTRIC_BLAST_FURNACE = REGISTRATE
+            .multiblock("electric_blast_furnace", CoilWorkableElectricMultiblockMachine::new)
+            .rotationState(RotationState.ALL)
+            .recipeType(GTRecipeTypes.BLAST_RECIPES)
+            .recipeModifier(GTRecipeModifiers::ebfOverclock)
+            .appearanceBlock(CASING_INVAR_HEATPROOF)
+            .pattern(definition -> FactoryBlockPattern.start()
+                    .aisle("XXX", "CCC", "CCC", "XXX")
+                    .aisle("XXX", "C#C", "C#C", "XMX")
+                    .aisle("XSX", "CCC", "CCC", "XXX")
+                    .where('S', controller(blocks(definition.getBlock())))
+                    .where('X', blocks(CASING_INVAR_HEATPROOF.get()).setMinGlobalLimited(9)
+                            .or(autoAbilities(definition.getRecipeTypes()))
+                            .or(autoAbilities(true, false, false)))
+                    .where('M', abilities(PartAbility.MUFFLER))
+                    .where('C', heatingCoils())
+                    .where('#', air())
+                    .build())
+            .shapeInfos(definition -> {
+                List<MultiblockShapeInfo> shapeInfo = new ArrayList<>();
+                var builder = MultiblockShapeInfo.builder()
+                        .aisle("ISO", "CCC", "CCC", "XMX")
+                        .aisle("FXD", "C#C", "C#C", "XHX")
+                        .aisle("EEX", "CCC", "CCC", "XXX")
+                        .where('X', CASING_INVAR_HEATPROOF.getDefaultState())
+                        .where('S', definition, Direction.NORTH)
+                        .where('#', Blocks.AIR.defaultBlockState())
+                        .where('E', ENERGY_INPUT_HATCH[GTValues.LV], Direction.SOUTH)
+                        .where('I', ITEM_IMPORT_BUS[GTValues.LV], Direction.NORTH)
+                        .where('O', ITEM_EXPORT_BUS[GTValues.LV], Direction.NORTH)
+                        .where('F', FLUID_IMPORT_HATCH[GTValues.LV], Direction.WEST)
+                        .where('D', FLUID_EXPORT_HATCH[GTValues.LV], Direction.EAST)
+                        .where('H', MUFFLER_HATCH[GTValues.LV], Direction.UP)
+                        .where('M', MAINTENANCE_HATCH, Direction.NORTH);
+                GTCEuAPI.HEATING_COILS.entrySet().stream()
+                        .sorted(Comparator.comparingInt(entry -> entry.getKey().getTier()))
+                        .forEach(
+                                coil -> shapeInfo.add(builder.shallowCopy().where('C', coil.getValue().get()).build()));
+                return shapeInfo;
+            })
+            .recoveryItems(
+                    () -> new ItemLike[] { GTItems.MATERIAL_ITEMS.get(TagPrefix.dustTiny, GTMaterials.Ash).get() })
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_heatproof"),
+                    GTCEu.id("block/multiblock/electric_blast_furnace"))
+            .tooltips(Component.translatable("gtceu.machine.electric_blast_furnace.tooltip.0"),
+                    Component.translatable("gtceu.machine.electric_blast_furnace.tooltip.1"),
+                    Component.translatable("gtceu.machine.electric_blast_furnace.tooltip.2"))
+            .additionalDisplay((controller, components) -> {
+                if (controller instanceof CoilWorkableElectricMultiblockMachine coilMachine && controller.isFormed()) {
+                    components.add(Component.translatable("gtceu.multiblock.blast_furnace.max_temperature",
+                            Component
+                                    .translatable(
+                                            FormattingUtil
+                                                    .formatNumbers(coilMachine.getCoilType().getCoilTemperature() +
+                                                            100L * Math.max(0, coilMachine.getTier() - GTValues.MV)) +
+                                                    "K")
+                                    .setStyle(Style.EMPTY.withColor(ChatFormatting.RED))));
+                }
+            })
+            .compassSections(GTCompassSections.TIER[MV])
+            .compassNodeSelf()
+            .register();
+
+
+
+
+
+
+
+
 	
     event.create('machine_name', 'multiblock')
 	    

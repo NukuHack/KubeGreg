@@ -1,8 +1,5 @@
 
-
-
-
-//	StartupEvents.registry("block", event => {
+StartupEvents.registry("block", event => {
 
     event.create("gfs:void_ore_generation_core")
         .translationKey("block.gfs.void_ore_generation_core")
@@ -41,55 +38,61 @@
     })
 
     event.create('rose_quartz_budding_block')
-      .material('amethyst')
-      .soundType('amethyst')
-      .hardness(0.5)
-      .displayName('Rose Quartz Budding Block')
-      .randomTick(tick => global.amethystblock(tick));
+        .material('amethyst')
+        .soundType('amethyst')
+        .hardness(0.5)
+        .displayName('Rose Quartz Budding Block')
+        .randomTick(tick => global.amethystblock(tick));
 
     event.create('gfs:latex_machine')
-	.soundType('netherite_block')
-	.hardness(1.4)
+        .soundType('netherite_block')
+        .hardness(1.4)
         .requiresTool(true)
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("forge:mineable/wrench")
         .tagBlock("minecraft:mineable/pickaxe")
-	.blockEntity(entityInfo => {
-        entityInfo.inventory(9,1);
-        entityInfo.rightClickOpensInventory();
-        entityInfo.serverTick(100, 0, entity => {
-		const inv = entity.inventory;
-            if (!inv.isEmpty()) {
-		if ((inv.getSlots()-inv.countNonEmpty())<=1){;}else{
-		let bucketCount = inv.count("industrialforegoing:latex_bucket")
-                inv.insertItem(`${bucketCount}x gtceu:sticky_resin`,false);
-            };};
+        .blockEntity(entityInfo => {
+            entityInfo.inventory(9, 1);
+            entityInfo.rightClickOpensInventory();
+            entityInfo.serverTick(100, 0, entity => {
+                const inv = entity.inventory;
+                if (!inv.isEmpty()) {
+                    if ((inv.getSlots() - inv.countNonEmpty()) <= 1) {
+                        ;
+                    } else {
+                        let bucketCount = inv.count("industrialforegoing:latex_bucket")
+                        inv.insertItem(`${bucketCount}x gtceu:sticky_resin`, false);
+                    }
+                    ;
+                }
+                ;
+            });
         });
-    });
 
-  event.create('gfs:sieving_machine')
-	.soundType('netherite_block')
-	.hardness(1.4)
-	.opaque(true)
+    event.create('gfs:sieving_machine')
+        .soundType('netherite_block')
+        .hardness(1.4)
+        .opaque(true)
         .requiresTool(true)
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("forge:mineable/wrench")
         .tagBlock("minecraft:mineable/pickaxe")
         .textureSide(Direction.UP, "gfs:block/sieving_machine_top")
-	.blockEntity(entityInfo => {
-    entityInfo.inventory(9,1);
-    entityInfo.rightClickOpensInventory();
-    entityInfo.serverTick(40, 0, entity => {
-      const inv = entity.inventory;
-      if (inv.count("minecraft:gravel")!=0) {
-	global.shieveGravel(inv);
-      } else if (inv.count("minecraft:dirt")!=0) {
-	global.shieveDirt(inv);
-      };
-    });
-  });
+        .blockEntity(entityInfo => {
+            entityInfo.inventory(9, 1);
+            entityInfo.rightClickOpensInventory();
+            entityInfo.serverTick(40, 0, entity => {
+                const inv = entity.inventory;
+                if (inv.count("minecraft:gravel") != 0) {
+                    global.shieveGravel(inv);
+                } else if (inv.count("minecraft:dirt") != 0) {
+                    global.shieveDirt(inv);
+                }
+                ;
+            });
+        });
 
-
+});
 
 //	ticking
 
@@ -205,7 +208,7 @@ global.shieveDirt = inv => {
 
 
 
-/In startup_scripts
+//In startup_scripts
 
 /**
  * 
@@ -250,8 +253,10 @@ StartupEvents.registry("block", (event) => {
 });
 }
 
+
 generator("minecraft:stone",20)
 
+/*
 .property(BlockProperty)
 Adds more blockstates to the block, like being waterlogged or facing a certain direction.
 
@@ -289,7 +294,7 @@ Tells the renderer that the block isn't solid.
 Allows the block to be waterloggable.
 .noValidSpawns(boolean)
 If true, the block is not counted as a valid spawnpoint for entities
-
+*/
 
 
 
@@ -327,86 +332,3 @@ StartupEvents.registry("item", (event) => {
       return itemstack;
     });
 });
-
-
-itemstack.setDamageValue(itemstack.getDamageValue() + 1);
-      if (itemstack.getDamageValue() < itemstack.getMaxDamage())
-        return itemstack;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const $CauldronInteraction = Java.loadClass("net.minecraft.core.cauldron.CauldronInteraction")
-const $InteractionResult = Java.loadClass("net.minecraft.world.InteractionResult")
-const $LayeredCauldronBlock = Java.loadClass("net.minecraft.world.level.block.LayeredCauldronBlock")
-const $UtilsJS = Java.loadClass("dev.latvian.mods.kubejs.util.UtilsJS")
-
-StartupEvents.postInit((event) => {
-  /** @type {Internal.Object2ObjectOpenHashMap<Internal.Item, Internal.CauldronInteraction} */
-  let WATER = $CauldronInteraction.WATER
-  /** @type {Internal.CauldronInteraction} */
-  let PURIFIER = (state, world, pos, player, hand, stack) => {
-    if (!world.clientSide) {
-      let stackItem = stack
-      if (!state.hasProperty($LayeredCauldronBlock.LEVEL)) {
-        return $InteractionResult.PASS
-      }
-
-      let level = state.getValue($LayeredCauldronBlock.LEVEL)
-      if (level == 0) return $InteractionResult.PASS
-
-      let reward = Item.of(recipe.getOrDefault(stack.id, Item.empty))
-      player.setItemInHand(hand, reward.withCount(stack.count))
-      $LayeredCauldronBlock.lowerFillLevel(state, world, pos)
-    }
-    return $InteractionResult.sidedSuccess(world.clientSide)
-  }
-  let PURIFIER_PROXY = $UtilsJS.makeFunctionProxy("startup", $CauldronInteraction, PURIFIER)
-
-  /** @type {Internal.LinkedHashMap<string, string>} */
-  let recipe = Utils.newMap()
-  // ADD more here recipes
-  recipe.put("minecraft:magma_cream", "minecraft:slime_ball")
-  // recipe.put("unify:iron_crushed", "unify:iron_crushed_purified")
-  // recipe.put("unify:iron_crushed", "unify:iron_crushed_purified")
-  // recipe.put("unify:iron_crushed", "unify:iron_crushed_purified")
-  // recipe.put("unify:iron_crushed", "unify:iron_crushed_purified")
-
-  recipe.keySet().forEach(input => {
-    WATER.put(Item.getItem(input), PURIFIER_PROXY)
-  })
-})

@@ -12,7 +12,7 @@ const $CosmicPartAbility = Java.loadClass('com.ghostipedia.cosmiccore.api.machin
 
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
-	
+	/*
  // original LCR making (originally in Java not in Js but who cares)
     public static final MultiblockMachineDefinition LARGE_CHEMICAL_REACTOR = REGISTRATE
             .multiblock("large_chemical_reactor", WorkableElectricMultiblockMachine::new)
@@ -83,10 +83,10 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .compassSections(GTCompassSections.TIER[HV])
             .compassNodeSelf()
             .register();
+*/
 
-
+/*
 	// original EBF yes still in java but you can atleast steal some code from it :)
-
 
     public static final MultiblockMachineDefinition ELECTRIC_BLAST_FURNACE = REGISTRATE
             .multiblock("electric_blast_furnace", CoilWorkableElectricMultiblockMachine::new)
@@ -151,7 +151,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .compassNodeSelf()
             .register();
 
-
+*/
 
 
 
@@ -166,12 +166,12 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	    
         .recipeType('machine_name')
 	    
-        .appearanceBlock(GTBlocks.<"a gt block">)
+        .appearanceBlock(GTBlocks.CASING_HSSE_STURDY)
 	/*
 	        GTBlocks.CASING_TITANIUM_STABLE
-		GTBlocks.CASING_STAINLESS_CLEAN
-		GTBlocks.CASING_STEEL_SOLID
-		GTBlocks.CASING_TITANIUM_STABLE
+		    GTBlocks.CASING_STAINLESS_CLEAN
+		    GTBlocks.CASING_STEEL_SOLID
+		    GTBlocks.CASING_TITANIUM_STABLE
     		GTBlocks.CASING_ASSEMBLY_LINE
       		GTBlocks.CASING_ASSEMBLY_CONTROL
     		GTBlocks.CASING_HSSE_STURDY

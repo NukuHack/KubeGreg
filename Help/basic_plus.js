@@ -2,7 +2,7 @@
 BlockEvents.leftClicked('minecraft:sand', event => {
   event.player.give('minecraft:cobblestone')
   event.block.set('minecraft:air')
-})
+});
 /* this is the pebble making - it's waay tooo op
 BlockEvents.rightClicked(event => {
     const { hand, block, player, item, facing } = event;
@@ -44,7 +44,7 @@ BlockEvents.farmlandTrampled(event => {
 BlockEvents.placed('minecraft:crafting_table', event => {
   event.player.tell('NO CRAFTING FOR YOU');
   event.block.set('minecraft:oak_log');
-})
+});
 
 
 

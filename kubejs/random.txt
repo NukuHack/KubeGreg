@@ -11,3 +11,10 @@ dmlreloaded:soot_covered_redstone
 
 max int : 2,147,483,647 .... 2147483647
   aka 2 in the power of 31 minus one = 2^31 - 1
+
+
+Plan : 
+  Thermal Cracking (Pyrolysis): 2 methane + steam = ethylene + 6 hydrogen
+  Catalytic Reaction: methane + carbon + (nc) molybendium = ethylene
+  Catalytic Reforming: methane + carbon monoxide = ethylene + oxygen
+  Gas-Liquid Reaction: 2 clorid + water = 2 hydrogen chloride + oxygen

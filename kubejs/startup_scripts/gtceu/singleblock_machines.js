@@ -49,27 +49,27 @@ GTCEuStartupEvents.registry("gtceu:machine", event => {
         GTValues.IV, GTValues.LuV, GTValues.ZPM, GTValues.UV)
         .recipeType("rock_generator", true, true)
         .rotationState(RotationState.NON_Y_AXIS)
-        .tankScalingFunction(tier => tier * 4800)
+        .tankScalingFunction(tier => tier * 5000)
         .workableTieredHullRenderer("gtceu:block/machines/rock_generator");
 
     event.create("miniature_pyrolyse_oven", "simple",
         GTValues.MV, GTValues.HV, GTValues.EV, GTValues.IV, GTValues.LuV, GTValues.ZPM, GTValues.UV)
         .recipeType("pyrolyse_oven")
         .rotationState(RotationState.NON_Y_AXIS)
-        .tankScalingFunction(tier => tier * 4800)
+        .tankScalingFunction(tier => tier * 5000)
         .workableTieredHullRenderer("gtceu:block/machines/miniature_pyrolyse_oven");
 
     event.create("miniature_ebf", "simple",
         GTValues.MV, GTValues.HV, GTValues.EV, GTValues.IV, GTValues.LuV, GTValues.ZPM, GTValues.UV)
         .recipeType("electric_blast_furnace", true, true)
         .rotationState(RotationState.NON_Y_AXIS)
-        .tankScalingFunction(tier => tier * 4800)
+        .tankScalingFunction(tier => tier * 5000)
         .workableTieredHullRenderer("gtceu:block/machines/miniature_ebf");
 
     event.create("inscriber", "simple",
         GTValues.HV, GTValues.EV, GTValues.IV, GTValues.LuV, GTValues.ZPM, GTValues.UV)
         .recipeType("inscriber", true, true)
         .rotationState(RotationState.NON_Y_AXIS)
-        .tankScalingFunction(tier => tier * 4800)
+        .tankScalingFunction(tier => tier * 5000)
         .workableTieredHullRenderer("gtceu:block/machines/inscriber");
 });

@@ -1,5 +1,20 @@
 LootJS.modifiers((event) => {
 
+
+    event
+        .addBlockLootModifier("#forge:leaves")
+        .matchMainHand("#forge:tools/crooks")
+        .removeLoot(Ingredient.all)
+        .addWeightedLoot(
+            [1, 2],
+            [	Item.of("minecraft:string").withChance(40),
+                Item.of("minecraft:oak_leaves").withChance(30),
+                Item.of("minecraft:stick").withChance(20),
+                Item.of("minecraft:oak_sapling").withChance(10),
+                Item.of("minecraft:apple").withChance(5),
+                Item.of("gfs:wood_bark").withChance(5)]);
+
+    /*
 .addEntityLootModifier("minecraft:creeper")
     .addLootTypeModifier(LootType.ENTITY) // you also can use multiple types
     .addBlockLootModifier("#forge:ores") // keep in mind this is a block tag not an item tag
@@ -33,6 +48,6 @@ LootJS.modifiers((event) => {
         p.addLoot('minecraft:gravel').randomChance(0.30);	//0-1
         p.addLoot('minecraft:sand').randomChance(0.15);		//0-1
     });
-
+*/
 
 });

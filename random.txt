@@ -18,3 +18,5 @@ Plan :
   Catalytic Reaction: methane + carbon + (nc) molybendium = ethylene
   Catalytic Reforming: methane + carbon monoxide = ethylene + oxygen
   Gas-Liquid Reaction: 2 clorid + water = 2 hydrogen chloride + oxygen
+
+welp some gitting

@@ -43,7 +43,7 @@ greg
 .itemInputs('1x #forge:dusts/carbon')
 .itemOutputs('1x #forge:ingots/steel')
 .circuit(5)
-.chancedOutput('1x #forge:dusts/ash',1111,1111)
+.chancedOutput('1x #forge:dusts/ash',1111,0)
 .blastFurnaceTemp(1800)
 .duration(20*10)
 .EUt(120);
@@ -69,6 +69,7 @@ greg
 .itemInputs('1x #forge:ingots/iron')
 .inputFluids(Fluid.of("gtceu:oxygen", 50))
 .itemOutputs('1x #forge:ingots/wrought_iron')
+.circuit(2)
 .blastFurnaceTemp(1800)
 .duration(20*1)
 .EUt(120);

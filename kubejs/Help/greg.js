@@ -175,8 +175,9 @@ GTCEuStartupEvents.materialModification(event => {
         .cleanroom(CleanroomType.CLEANROOM)
         .EUt(GTValues.VA[GTValues.(MV / IV / UHV)])
 		
-	.chancedOutput() 
-	.chancedInput() 
+	.chancedOutput(x,y,z) 
+	.chancedInput(x,y,z) 
+ 	// material , base chance , +chance with each voltage
 	// Ints range (0,10000] where 10000 is 100% chance
 
 

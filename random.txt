@@ -16,4 +16,43 @@ max int : 2,147,483,647 .... 2147483647
 Plan :
     all done (for now)
 
-welp some gitting
+
+
+welp some gitting xD
+
+
+
+
+Key Process Overview for Toluene Production:
+
+Oligomerization to Form Larger Hydrocarbons (C6 and C7) from C2 Compounds**:
+
+Once you have ethylene and acetylene, they can undergo oligomerization reactions to form benzene (C6H6) and other aromatics.
+Catalyst: Zeolite-based catalysts (like ZSM-5) are highly effective for promoting the formation of aromatic hydrocarbons.
+Reaction Conditions: Moderate temperatures (400–600°C or 673–873 K) and pressures around 1–5 atm can encourage the formation of benzene and other aromatics from smaller hydrocarbons.
+
+Alkylation and Methylation of Benzene to Form Toluene:
+
+Benzene can be methylated with methanol (CH4O) to produce toluene (C7H8).
+Reaction Conditions: 300–500°C (573–773 K) with moderate pressure is ideal.
+Catalyst: Acidic catalysts like AlCl3 or zeolites (e.g., ZSM-5) help promote the methylation of benzene to produce toluene.
+
+Stage 2: Oligomerization to Aromatics
+
+Temperature: 673–873 K (400–600°C)
+Pressure: 1–5 atm
+Catalyst: Zeolite (ZSM-5)
+Products: Benzene, small aromatics
+Stage 3: Methylation to Form Toluene
+
+Temperature: 573–773 K (300–500°C)
+Catalyst: Acidic catalyst (AlCl3 or ZSM-5)
+Reaction: Benzene + Methyl radical or methanol → Toluene
+
+
+
+
+
+Inconel Alloys: These are nickel-chromium-based superalloys that maintain mechanical properties at high temperatures.
+Hastelloy: Another nickel-based alloy that offers high strength and resistance to oxidation.
+Ceramics: Advanced ceramics could also be used in areas where high thermal stability and chemical resistance are critical.

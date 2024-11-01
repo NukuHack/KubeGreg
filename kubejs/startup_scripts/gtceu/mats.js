@@ -10,6 +10,24 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 
 
+	
+
+	event.create("butane")
+		.components("butene","butadiene")
+		.fluid()
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.color(0x333333);
+
+	event.create("propana")
+		.components("propane","propene")
+		.fluid()
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.color(0x333333);
+
+
+
+
+
 	event.create("steam_cracked_methane")
 		.components("methane","steam")
 		.fluid()

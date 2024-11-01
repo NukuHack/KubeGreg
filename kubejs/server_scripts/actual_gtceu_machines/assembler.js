@@ -143,7 +143,7 @@ greg
   voltages.forEach((volt)=>{
     greg.assembler(`gfs:${volt}_assembler`)
       .itemInputs(`2x gtceu:${volt}_robot_arm`)
-      .itemInputs(`2x gtceu:${volt}_coveyor_module`)
+      .itemInputs(`2x gtceu:${volt}_conveyor_module`)
       .itemInputs(`gtceu:${volt}_machine_hull`)
       .itemInputs(`2x #gtceu:circuits/${volt}`)
       .itemInputs(`2x gtceu:${voltage_to_cable[volt]}_single_cable`)

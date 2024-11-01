@@ -1,4 +1,4 @@
-just some external stuff i save here ... is not really useful 
+just some external stuff I save here ... is not really useful
 
 fission reactor
 
@@ -13,10 +13,7 @@ max int : 2,147,483,647 .... 2147483647
   aka 2 in the power of 31 minus one = 2^31 - 1
 
 
-Plan : 
-  Thermal Cracking (Pyrolysis): 2 methane + steam = ethylene + 6 hydrogen
-  Catalytic Reaction: methane + carbon + (nc) molybendium = ethylene
-  Catalytic Reforming: methane + carbon monoxide = ethylene + oxygen
-  Gas-Liquid Reaction: 2 clorid + water = 2 hydrogen chloride + oxygen
+Plan :
+    all done (for now)
 
 welp some gitting

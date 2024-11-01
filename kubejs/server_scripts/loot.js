@@ -10,8 +10,7 @@ LootJS.modifiers((event) => {
 		Item.of("minecraft:oak_leaves").withChance(30),
 		Item.of("minecraft:stick").withChance(20),
 		Item.of("minecraft:oak_sapling").withChance(10),
-		Item.of("minecraft:apple").withChance(5),
-		Item.of("gfs:wood_bark").withChance(5)]);
+		Item.of("minecraft:apple").withChance(5)]);
 
 
     event

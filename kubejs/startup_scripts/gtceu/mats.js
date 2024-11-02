@@ -24,19 +24,19 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 
 
-	event.create("steam_cracked_methane")
+	event.create("steam_crack_methane")
 		.components("methane","steam")
 		.fluid()
 		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
 		.color(0x986839);
 
-	event.create("severly_hydrocracked_methane")
+	event.create("hydro_crack_methane")
 		.components("methane","6x hydrogen")
 		.fluid()
 		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
 		.color(0x937670);
 
-	event.create("double_cracked_methane")
+	event.create("double_crack_methane")
 		.components("methane","6x hydrogen","2x carbon_monoxide")
 		.fluid()
 		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)

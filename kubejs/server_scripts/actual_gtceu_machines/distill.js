@@ -48,7 +48,7 @@ ServerEvents.recipes(event => {
 
     greg
         .distillation_tower("gfs:butane")
-        .inputFluids(Fluid.of("gtceu:butane",100))
+        .inputFluids(Fluid.of("gtceu:xbutane",100))
         .outputFluids(
             Fluid.of("gtceu:butene",65),
             Fluid.of("gtceu:butadiene",35)
@@ -59,7 +59,7 @@ ServerEvents.recipes(event => {
 
     greg
         .distillation_tower("gfs:propana")
-        .inputFluids(Fluid.of("gtceu:propana",50))
+        .inputFluids(Fluid.of("gtceu:xpropana",50))
         .outputFluids(
             Fluid.of("gtceu:propane",42),
             Fluid.of("gtceu:propene",8)

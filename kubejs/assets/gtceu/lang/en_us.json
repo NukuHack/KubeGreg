@@ -1,12 +1,11 @@
 {
-    "material.gtceu.quartz_glass": "Quartz Glass",
     "material.gtceu.strong_mix": "Strong Mix",
-    "material.gtceu.sodium_trioxide": "Sodium Trioxide",
-    "material.gtceu.sodium_hydroxide_residue": "Sodium Hydroxide Residue",
+    "material.gtceu.xbutane": "Combined Butane",
+    "material.gtceu.xpropana": "Combined Propana",
+    "material.gtceu.steam_crack_methane": "Steam Cracked Methane",
+    "material.gtceu.hydro_crack_methane": "Hydro-Cracked Methane",
+    "material.gtceu.double_crack_methane": "Double-Cracked Methane",
     "material.gtceu.hydrated_iron_iii_chloride": "Hydrated Iron III Chloride",
-    "material.gtceu.thionyl_chloride": "Thionyl Chloride",
-    "material.gtceu.sulfur_dichloride": "Sulfur Dichloride",
-    "material.gtceu.sulfur_chlorid": "Sulfur Chlorid",
 
     "gtceu.inscriber": "Inscriber",
     "gtceu.rock_generator": "Rock Generator",

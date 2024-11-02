@@ -49,7 +49,7 @@ GTCEuStartupEvents.registry("gtceu:machine", event => {
         GTValues.IV, GTValues.LuV, GTValues.ZPM, GTValues.UV)
         .recipeType("rock_generator", true, true)
         .rotationState(RotationState.NON_Y_AXIS)
-        .tankScalingFunction(tier => tier * 5000)
+        .tankScalingFunction(tier => tier * 4000)
         .workableTieredHullRenderer("gtceu:block/machines/rock_generator");
 
     event.create("miniature_pyrolyse_oven", "simple",

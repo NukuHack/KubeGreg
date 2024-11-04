@@ -54,7 +54,9 @@ Plan :
 		SO2+H2O -> H2SO3
 		SO3+H2O -> H2SO4
 		H2SO3 + O -> H2SO4
-	
+
+	pyro-oven assembling
+
 	realistic ae2
 	
 	

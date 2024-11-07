@@ -98,6 +98,17 @@ ServerEvents.recipes(event => {
 
 
 
+	// oxodization of sulfur dioxide
+
+	greg
+		.large_chemical_reactor('gfs:oxidizing_so2_w_cl_w_h2o')
+		.inputFluids(Fluid.of('gtceu:sulfur_dioxide', 2000))
+		.inputFluids(Fluid.of('gtceu:chlorine', 2000))
+		.inputFluids(Fluid.of('minecraft:water', 2000))
+		.outputFluids(Fluid.of('gtceu:sulfuric_acid', 1000))
+		.outputFluids(Fluid.of('gtceu:chlorine', 2000))
+		.duration(40*20)
+		.EUt(120);
 
 
 

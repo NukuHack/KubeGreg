@@ -3,7 +3,7 @@
 // stuff : 
 
 /*
-//		GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
+GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
 
   event
     .create("greenhouse") // the machine itself
@@ -37,7 +37,7 @@
 
 /*
 
-// 	GTCEuStartupEvents.registry("gtceu:machine", event => {
+GTCEuStartupEvents.registry("gtceu:machine", event => {
 
     var high_pressure = true;
     event.create("steam_sieve", "steam", true)
@@ -67,12 +67,12 @@
 
 
 /*
- GTCEuStartupEvents.registry('gtceu:element', event => {
+GTCEuStartupEvents.registry('gtceu:element', event => {
     event.create('andesite',27, 177, -1, null, 'cm', false) // 
- })
+})
 
 
-  GTCEuStartupEvents.registry('gtceu:material', event => {
+GTCEuStartupEvents.registry('gtceu:material', event => {
     event.create('curium_ingot')
         .ingot()
         .element('curium')
@@ -83,7 +83,7 @@
 
 
 /*
-//	GTCEuStartupEvents.registry("gtceu:material", event => {
+GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	GTMaterials.Lead.addFlags(GTMaterialFlags.GENERATE_GEAR); // This is for materials already in GTCEU
 	GTMaterials.HSLASteel.addFlags(GTMaterialFlags.GENERATE_SPRING);
@@ -119,10 +119,9 @@
 
 GTCEuStartupEvents.materialModification(event => {
 	const IngotProperty = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.IngotProperty");
-	const $WireProperties = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties");
-	
 	GTMaterials.Polonium.setProperty(PropertyKey.INGOT, new IngotProperty());
-
+	
+	const $WireProperties = Java.loadClass("com.gregtechceu.gtceu.api.data.chemical.material.properties.WireProperties");
 	GTMaterials.Lead.properties.removeProperty(PropertyKey.WIRE);
 	GTMaterials.Lead.setProperty(PropertyKey.WIRE, new $WireProperties(GTValues.V[GTValues.IV],2,2));
 	
@@ -136,7 +135,6 @@ GTCEuStartupEvents.materialModification(event => {
 
 
 /*
-// Kube_greg : main -----------------------------------------------------------------------------------------------------------------------------------------
 
 
 	const greg = event.recipes.gtceu;

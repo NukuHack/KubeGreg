@@ -44,7 +44,9 @@ Plan :
 		CaF2
 	making fluoric and hydrofluoric acid in a normal way not so stupid
 		CaF2 + H2SO4 → 2 HF + CaSO4
-	
+
+	CaSO4 + heat = CaO+SO3
+
 	sulfurous acid : H2SO3 (sulfuric acid is 4O)
 		in order to make sulfuric acid in a better way
 		SO2+HCl+H2O -> H2SO3 + HCl

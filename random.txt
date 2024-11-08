@@ -31,8 +31,6 @@ Plan :
 		apples for oaks
 	Large inscriber (paralelle)
 	
-	change the black steel to red steel inside "strong mix"
-	
 	maybe a big multiblock for paralelle sim_chamer + loot_fabric (like in Nomifactory)
 	
 	change the recipe for dye

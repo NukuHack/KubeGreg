@@ -44,7 +44,7 @@ Plan :
 		CaF2
 	making fluoric and hydrofluoric acid in a normal way not so stupid
 		CaF2 + H2SO4 → 2 HF + CaSO4
-
+	gypsum
 	CaSO4 + heat = CaO+SO3
 
 	sulfurous acid : H2SO3 (sulfuric acid is 4O)

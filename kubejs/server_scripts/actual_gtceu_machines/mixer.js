@@ -9,7 +9,7 @@ ServerEvents.recipes(event => {
     greg.mixer('gfs:strong_mix')
         .itemInputs('2x #forge:dusts/platinum','2x #forge:dusts/palladium',
             '#forge:dusts/palladium_raw',"#forge:dusts/diamond")
-        .inputFluids(Fluid.of('gtceu:black_steel', 576))
+        .inputFluids(Fluid.of('gtceu:red_steel', 576))
         .inputFluids(Fluid.of('gtceu:blue_steel', 576))
         .itemOutputs('4x #forge:dusts/strong_mix')
         .duration(20*20)

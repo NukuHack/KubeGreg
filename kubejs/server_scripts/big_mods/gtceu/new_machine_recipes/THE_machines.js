@@ -102,7 +102,7 @@ ServerEvents.recipes(event => {
     });
 
 
-    event.shaped(Item.of('gtceu:large_farm'), [
+    event.shaped(Item.of('gtceu:simple_farm'), [
         'SPS',
         'PBP',
         'SPS'
@@ -111,6 +111,20 @@ ServerEvents.recipes(event => {
         P: 'gtceu:treated_wood_planks',
         B: '#gtceu:circuits/lv'
     });
+
+    greg.assembler('gfs:large_farm')
+        .itemInputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+        .itemOutputs('gtceu:large_farm')
+        .circuit(23)
+        .duration(20*80)
+        .EUt(480);
+
+    greg
+        .macerator('gfs:large_farm')
+        .itemInputs('gtceu:large_farm')
+        .itemOutputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+        .EUt(30)
+        .duration(600);
 
     event.shaped(Item.of('gtceu:tree_greenhouse'), [
         'WAW',

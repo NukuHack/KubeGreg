@@ -1,8 +1,0 @@
-{
-  "parent": "block/slab",
-  "textures": {
-    "bottom": "gfs:block/concrete",
-    "top": "gfs:block/concrete",
-    "side": "gfs:block/concrete"
-  }
-}

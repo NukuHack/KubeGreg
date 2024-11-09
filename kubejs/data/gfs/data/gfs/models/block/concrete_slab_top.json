@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab_top",
+  "textures": {
+    "bottom": "gfs:block/concrete",
+    "top": "gfs:block/concrete",
+    "side": "gfs:block/concrete"
+  }
+}

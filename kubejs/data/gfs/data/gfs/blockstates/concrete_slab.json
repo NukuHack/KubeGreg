@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "gfs:block/concrete_slab" },
+    "type=top": { "model": "gfs:block/concrete" },
+    "type=double": { "model": "gfs:block/concrete_slab" }
+  }
+}

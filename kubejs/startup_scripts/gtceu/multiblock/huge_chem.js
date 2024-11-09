@@ -39,7 +39,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 				.or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(8))
 				.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()))
 			)
-			.where('E', Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(8)
+			.where('E', Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2)
 				.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
 			.where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()).setMinGlobalLimited(18)
 				.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))

@@ -126,47 +126,47 @@ ServerEvents.recipes(event => {
     });
 
 
-/*
+
     event.replaceInput({output: 'gtceu:electric_blast_furnace' },"gtceu:heatproof_machine_casing","gfs:compressed_primitive_blast_furnace");
+/*
     greg.assembler('gfs:electric_blast_furnace')
         .itemInputs("gfs:compressed_primitive_blast_furnace","3x minecraft:furnace","3x #gtceu:circuit/lv",`2x gtceu:tin_single_cable`)
         .itemOutputs('gtceu:electric_blast_furnace')
         .circuit(6)
         .duration(60)
         .EUt(120);
-*//*
+*/
     event.replaceInput({output: 'gtceu:pyrolyse_oven' },"gtceu:mv_machine_hull","gfs:compressed_coke_oven");
+/*
     greg.assembler('gfs:pyrolyse_oven')
-        .itemInputs("gfs:compressed_coke_oven","3x #gtceu:circuit/mv","#forge:not_yet_implemented")
+        .itemInputs("gfs:compressed_coke_oven","3x #gtceu:circuit/mv","2x gtceu:cupronickel_quadruple_cable",
+			"2x gtceu:mv_electric_piston","gtceu:mv_electric_pump")
         .itemOutputs('gtceu:pyrolyse_oven')
         .circuit(6)
         .duration(60)
         .EUt(120);
 */
-    event.shapeless(Item.of("gfs:coke_oven_side"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks"]);
-    event.shapeless(Item.of("gfs:coke_oven_controller"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven","3x gtceu:coke_oven_bricks"]);
-    event.shapeless(Item.of("gfs:compressed_coke_oven"), ["gfs:coke_oven_side","gfs:coke_oven_controller","gfs:coke_oven_side"]);
+    //event.shapeless(Item.of("gfs:coke_oven_side"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks"]);
+    //event.shapeless(Item.of("gfs:coke_oven_controller"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven","3x gtceu:coke_oven_bricks"]);
+    //event.shapeless(Item.of("gfs:compressed_coke_oven"), ["gfs:coke_oven_side","gfs:coke_oven_controller","gfs:coke_oven_side"]);
 
     greg.assembler('gfs:compressed_coke_oven')
-        .itemInputs("4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks")
-        .itemInputs("4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks")
-        .itemInputs("4x gtceu:coke_oven_bricks","gtceu:coke_oven","3x gtceu:coke_oven_bricks")
+        .itemInputs("23x gtceu:coke_oven_bricks","2x gtceu:coke_oven_hatch","gtceu:coke_oven")
         .itemOutputs('gfs:compressed_coke_oven')
         .circuit(4)
         .duration(400)
-        .EUt(120);
+        .EUt(30);
 
-    event.shapeless(Item.of("gfs:primitive_blast_furnace_layer"), ["8x gtceu:firebricks"]);
-    event.shapeless(Item.of("gfs:primitive_blast_furnace_controller"), ["4x gtceu:firebricks","gtceu:primitive_blast_furnace","4x gtceu:firebricks"]);
-    event.shapeless(Item.of("gfs:compressed_primitive_blast_furnace"), ["2x gfs:primitive_blast_furnace_layer","gfs:primitive_blast_furnace_controller","gfs:primitive_blast_furnace_layer"]);
+    //event.shapeless(Item.of("gfs:primitive_blast_furnace_layer"), ["8x gtceu:firebricks"]);
+    //event.shapeless(Item.of("gfs:primitive_blast_furnace_controller"), ["4x gtceu:firebricks","gtceu:primitive_blast_furnace","4x gtceu:firebricks"]);
+    //event.shapeless(Item.of("gfs:compressed_primitive_blast_furnace"), ["2x gfs:primitive_blast_furnace_layer","gfs:primitive_blast_furnace_controller","gfs:primitive_blast_furnace_layer"]);
 
     greg.assembler('gfs:compressed_primitive_blast_furnace')
-        .itemInputs("8x gtceu:firebricks","8x gtceu:firebricks","8x gtceu:firebricks")
-        .itemInputs("4x gtceu:firebricks","gtceu:primitive_blast_furnace","4x gtceu:firebricks")
+        .itemInputs("32x gtceu:firebricks","gtceu:primitive_blast_furnace")
         .itemOutputs('gfs:compressed_primitive_blast_furnace')
         .circuit(4)
         .duration(400)
-        .EUt(120);
+        .EUt(30);
 
 
 // there was a plan for "all assebler" or something like that, what would be crafter with one tier above stuff inside the assembly line and make it insainly expensive

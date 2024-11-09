@@ -22,17 +22,11 @@ Plan :
 	maybe a Fission reactor
 	maybe a paralelle fusion reactor
 	maybe a giant alloy blast smelter
-	balance the large farm  (change it to farm and make another multiblock named large farm)
-		sea pickles to there ... or
-		maybe a multiblock like Flower Garden
+	sea pickles to Large Farm ... or
 	Large inscriber (paralelle)
 
-	change the recipe for dye
-		(make the mixtures like magenta craftable from basic elements like red)
-		remove the red dye tag from redstone
-		remove the gray dye tag from metal_mixture
-		lapis dye recipe should have a mortar
-			bonemeal to white dye too
+	maybe a multiblock like Flower Garden for dies
+	make the mixtures like magenta craftable from basic elements like red
 
 
 	realistic ae2

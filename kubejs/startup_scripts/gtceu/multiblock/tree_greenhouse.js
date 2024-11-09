@@ -29,7 +29,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
                 .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH))
-			)
+            )
             .where('K', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get()))
             .where('B', Predicates.blocks('gtceu:treated_wood_frame'))
             .where('O', Predicates.blocks('minecraft:oak_log'))
@@ -40,5 +40,5 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer("gtceu:block/casings/solid/machine_casing_solid_steel",
-        "gtceu:block/multiblock/implosion_compressor", false);
+            "gtceu:block/multiblock/implosion_compressor", false);
 });

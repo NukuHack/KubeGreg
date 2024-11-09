@@ -1,6 +1,6 @@
 ServerEvents.recipes(event => {
 
-  const greg = event.recipes.gtceu;
+    const greg = event.recipes.gtceu;
 
 
     event.shaped(
@@ -20,7 +20,7 @@ ServerEvents.recipes(event => {
             C: "gtceu:annealed_copper_plate"
         }
     );
-	
+
     function press_recipe(mod, name, color, ingredient) {
         greg.laser_engraver("gfs:" + name + "_press")
             .itemInputs("gtceu:stainless_steel_plate")
@@ -68,12 +68,12 @@ ServerEvents.recipes(event => {
     press_recipe("ae2:", "engineering_processor", "blue", "diamond");
     press_recipe("megacells:", "accumulation_processor", "black", "black_steel");
     press_recipe("ae2:", "silicon", "gray", "silicon");
-	
-	
-	
-	event.shapeless("gfs:stupid_press",["ae2:logic_processor_press","ae2:calculation_processor_press",
-	"ae2:silicon_press","ae2:engineering_processor_press","megacells:accumulation_processor_press"]);
-	
+
+
+
+    event.shapeless("gfs:stupid_press",["ae2:logic_processor_press","ae2:calculation_processor_press",
+        "ae2:silicon_press","ae2:engineering_processor_press","megacells:accumulation_processor_press"]);
+
     greg.inscriber("gfs:stupid_print_logic")
         .itemInputs("#forge:plates/electrum")
         .notConsumable("gfs:stupid_press")
@@ -109,5 +109,5 @@ ServerEvents.recipes(event => {
         .inputFluids(Fluid.of("gtceu:lubricant", 500))
         .EUt(240)
         .duration(240);
-	
+
 });

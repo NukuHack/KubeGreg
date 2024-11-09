@@ -56,7 +56,7 @@ ServerEvents.tags('item', event => {
 	event.add('gtceu:transistors', 'gtceu:advanced_smd_transistor');
 	event.add('gtceu:resistors', 'gtceu:advanced_smd_resistor');
 	event.add('gtceu:capacitors', 'gtceu:advanced_smd_capacitor');
-	
+
 });
 
 /*
@@ -70,17 +70,17 @@ ServerEvents.tags('block', event => {
 	event.add('minecraft:overworld_natural_logs',['gtceu:rubber_log',"minecraft:bamboo_block"]);
 
 	event.add('minecraft:mineable/pickaxe',[
-	'cobblefordays:tier_1',
-	'cobblefordays:tier_2',
-	'cobblefordays:tier_3',
-	'cobblefordays:tier_4',
-	'cobblefordays:tier_5',
+		'cobblefordays:tier_1',
+		'cobblefordays:tier_2',
+		'cobblefordays:tier_3',
+		'cobblefordays:tier_4',
+		'cobblefordays:tier_5',
 
-	"engineersdecor:steel_catwalk",
-	"engineersdecor:steel_railing",
-	"engineersdecor:metal_rung_steps",
-	"engineersdecor:steel_catwalk_stairs",
-		]);
+		"engineersdecor:steel_catwalk",
+		"engineersdecor:steel_railing",
+		"engineersdecor:metal_rung_steps",
+		"engineersdecor:steel_catwalk_stairs",
+	]);
 
 	event.add('minecraft:logs', '#minecraft:bamboo_blocks');
 	event.add('forge:planks/wood', '#minecraft:planks');

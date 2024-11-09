@@ -1,8 +1,8 @@
 {
     "entity": "minecraft:chicken",
     "variants": [
-		"upgrade_aquatic:goose"
-	],
+        "upgrade_aquatic:goose"
+    ],
     "name": "entity.minecraft.chicken",
     "name_color": "#F0EAD6",
     "gui_scale": 1.0,

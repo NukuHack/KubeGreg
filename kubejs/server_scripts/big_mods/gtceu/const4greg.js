@@ -19,27 +19,27 @@ const voltage_to_cable = {
 
 
 const coilS = [
-	"cupronickel",
-	"kanthal",
-	"nichrome",
-	"rtm_alloy",
-	"hssg",
-	"naquadah",
-	"trinium",
-	"tritanium",
+    "cupronickel",
+    "kanthal",
+    "nichrome",
+    "rtm_alloy",
+    "hssg",
+    "naquadah",
+    "trinium",
+    "tritanium",
 ];
 
 
 
 const voltage_to_eu = {
-	"lv": 30,//lv
-	"mv": 120,//mv
-	"hv": 480,//hv
-	"ev": 1920,//ev
-	"iv": 7680,//iv
-	"luv": 30720,//luv
-	"zpm": 122880,//zpm
-	"uv": 491520,//uv
+    "lv": 30,//lv
+    "mv": 120,//mv
+    "hv": 480,//hv
+    "ev": 1920,//ev
+    "iv": 7680,//iv
+    "luv": 30720,//luv
+    "zpm": 122880,//zpm
+    "uv": 491520,//uv
 };
 
 
@@ -51,7 +51,7 @@ const fluid_to_type = {
     "neo":"gtceu:neon",
     "hel":"gtceu:helium",
 };
-  
+
 const fluid_to_amount = {
     "no": 0,
     "nit": 1000,

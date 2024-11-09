@@ -4,5 +4,5 @@ GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
     GTRecipeTypes.ALLOY_SMELTER_RECIPES.setMaxIOSize(3, 2, 0,0)
     // Emectric Blast FUrnace (used to be 3,3,1,1)
     GTRecipeTypes.BLAST_RECIPES.setMaxIOSize(3, 3, 3,3)
-  
+
 });

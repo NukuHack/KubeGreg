@@ -1,33 +1,32 @@
 {
-    "modId": "minecraft",
-    "group": {
-      "name": "Vanilla Crops",
-      "enabledByDefault": true,
-      "defaultPayment": {
-        "item": "minecraft:emerald"
-      },
-      "defaultCategory": "farmingforblockheads:seeds"
+  "modId": "minecraft",
+  "group": {
+    "name": "Vanilla Crops",
+    "enabledByDefault": true,
+    "defaultPayment": {
+      "item": "minecraft:emerald"
     },
-    "customEntries": [
-      {"output": "minecraft:glow_lichen"},
-      {"output": "minecraft:vine"},
-      {"output": "minecraft:warped_roots"},
-      {"output": "minecraft:warped_roots"},
-      {"output": "minecraft:crimson_roots"},
-      {"output": "minecraft:warped_fungus"},
-      {"output": "minecraft:crimson_fungus"},
-      {"output": "minecraft:chorus_fruit"},
-      {"output": "minecraft:cocoa_beans"},
-      {"output": "minecraft:sweet_berries"},
-      {"output": "minecraft:sugar_cane"},
-      {"output": "minecraft:cactus"},
-      {"output": "minecraft:bamboo"},
-      {"output": "minecraft:kelp"},
-      {"output": "minecraft:seagrass"},
-      {"output": "minecraft:nether_wart"},
-      {"output": "minecraft:sea_pickle"},
-      {"output": "minecraft:brown_mushroom"},
-      {"output": "minecraft:red_mushroom"}
-    ]
-  }
-  
+    "defaultCategory": "farmingforblockheads:seeds"
+  },
+  "customEntries": [
+    {"output": "minecraft:glow_lichen"},
+    {"output": "minecraft:vine"},
+    {"output": "minecraft:warped_roots"},
+    {"output": "minecraft:warped_roots"},
+    {"output": "minecraft:crimson_roots"},
+    {"output": "minecraft:warped_fungus"},
+    {"output": "minecraft:crimson_fungus"},
+    {"output": "minecraft:chorus_fruit"},
+    {"output": "minecraft:cocoa_beans"},
+    {"output": "minecraft:sweet_berries"},
+    {"output": "minecraft:sugar_cane"},
+    {"output": "minecraft:cactus"},
+    {"output": "minecraft:bamboo"},
+    {"output": "minecraft:kelp"},
+    {"output": "minecraft:seagrass"},
+    {"output": "minecraft:nether_wart"},
+    {"output": "minecraft:sea_pickle"},
+    {"output": "minecraft:brown_mushroom"},
+    {"output": "minecraft:red_mushroom"}
+  ]
+}

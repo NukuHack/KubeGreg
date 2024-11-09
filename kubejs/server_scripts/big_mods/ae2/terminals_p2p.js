@@ -55,18 +55,18 @@ ServerEvents.recipes((event) => {
     C: "ae2:fluix_glass_cable",
     d: "#forge:tools/screwdrivers",
   });
-  
+
   //P2P Tunnel
   event.remove({ output: 'ae2:me_p2p_tunnel' })
   event.recipes.gtceu.assembler('ae2:p2p_assembly')
-    .itemInputs(["4x #forge:plates/tungsten_steel", '4x gtceu:stainless_steel_plate','4x ae2:charged_certus_quartz_crystal', '2x ae2:semi_dark_monitor', 'ae2:engineering_processor', 'ae2:formation_core', 'ae2:annihilation_core'])
-    .itemOutputs('2x ae2:me_p2p_tunnel')
-    .duration(160)
-    .EUt(GTValues.VA[GTValues.MV]);
- 
- 
-event.remove({id:"mae2:network/parts/multi_p2p_tunnel_workaround"});
-  
+      .itemInputs(["4x #forge:plates/tungsten_steel", '4x gtceu:stainless_steel_plate','4x ae2:charged_certus_quartz_crystal', '2x ae2:semi_dark_monitor', 'ae2:engineering_processor', 'ae2:formation_core', 'ae2:annihilation_core'])
+      .itemOutputs('2x ae2:me_p2p_tunnel')
+      .duration(160)
+      .EUt(GTValues.VA[GTValues.MV]);
+
+
+  event.remove({id:"mae2:network/parts/multi_p2p_tunnel_workaround"});
+
   event.shapeless("ae2:me_p2p_tunnel", ["ae2:me_p2p_tunnel"]);
   event.shapeless("ae2:me_p2p_tunnel", ["eup2p:eu_p2p_tunnel"]);
   event.shapeless("ae2:me_p2p_tunnel", ["ae2:redstone_p2p_tunnel"]);
@@ -75,14 +75,14 @@ event.remove({id:"mae2:network/parts/multi_p2p_tunnel_workaround"});
   event.shapeless("ae2:me_p2p_tunnel", ["ae2:fe_p2p_tunnel"]);
   event.shapeless("ae2:me_p2p_tunnel", ["ae2:light_p2p_tunnel"]);
   event.shapeless("ae2:me_p2p_tunnel", ["mae2:pattern_p2p_tunnel"]);
-  
+
   event.shapeless("ae2:item_p2p_tunnel", ["mae2:item_multi_p2p_tunnel"]);
   event.shapeless("mae2:pattern_p2p_tunnel", ["mae2:pattern_multi_p2p_tunnel"]);
   event.shapeless("ae2:redstone_p2p_tunnel", ["mae2:redstone_multi_p2p_tunnel"]);
   event.shapeless("ae2:fe_p2p_tunnel", ["mae2:fe_multi_p2p_tunnel"]);
   event.shapeless("ae2:fluid_p2p_tunnel", ["mae2:fluid_multi_p2p_tunnel"]);
-  
-  
+
+
   event.shapeless("eup2p:eu_p2p_tunnel", ["ae2:me_p2p_tunnel","#forge:dusts/wrought_iron"]);
   event.shapeless("ae2:redstone_p2p_tunnel", ["ae2:me_p2p_tunnel","#forge:dusts/redstone"]);
   event.shapeless("ae2:item_p2p_tunnel", ["ae2:me_p2p_tunnel","#forge:dusts/wood"]);
@@ -90,6 +90,6 @@ event.remove({id:"mae2:network/parts/multi_p2p_tunnel_workaround"});
   event.shapeless("ae2:fe_p2p_tunnel", ["ae2:me_p2p_tunnel","#forge:dusts/red_alloy"]);
   event.shapeless("ae2:light_p2p_tunnel", ["ae2:me_p2p_tunnel","#forge:dusts/glowstone"]);
   event.shapeless("mae2:pattern_p2p_tunnel", ["ae2:me_p2p_tunnel","ae2:blank_pattern"]);
-  
-  
+
+
 });

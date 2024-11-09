@@ -5,17 +5,17 @@
 ServerEvents.recipes(event => {
 
 	event.shapeless("minecraft:farmland",["#forge:dirt/hoable","#forge:tools/hoes"])
-	.damageIngredient("#forge:tools/hoes",'1');
+		.damageIngredient("#forge:tools/hoes",'1');
 	event.shapeless("minecraft:dirt_path",["#forge:dirt/shovelable","#forge:tools/shovels"])
-	.damageIngredient("#forge:tools/shovels",'1');
+		.damageIngredient("#forge:tools/shovels",'1');
 	event.shapeless("minecraft:dirt",["minecraft:rooted_dirt","#forge:tools/hoes"])
-	.replaceIngredient("minecraft:rooted_dirt",'minecraft:hangigng_roots')
-	.damageIngredient("#forge:tools/hoes",'1');
+		.replaceIngredient("minecraft:rooted_dirt",'minecraft:hangigng_roots')
+		.damageIngredient("#forge:tools/hoes",'1');
 	event.shapeless("minecraft:rooted_dirt",["minecraft:hanging_roots","minecraft:dirt"]);
 	event.shapeless("minecraft:dirt",["minecraft:coarse_dirt","#forge:tools/hoes"])
-	.damageIngredient("#forge:tools/hoes",'1');
+		.damageIngredient("#forge:tools/hoes",'1');
 	event.shapeless("4x minecraft:string",["#forge:wool","#forge:tools/shears"])
-	.damageIngredient("#forge:tools/shears",'1');
+		.damageIngredient("#forge:tools/shears",'1');
 	event.shapeless("minecraft:grass_block",["#forge:dirt","#forge:seeds"]);
 	event.shapeless("minecraft:grass_block",["#forge:dirt","minecraft:bone_meal"]);
 	event.shapeless("minecraft:dirt",["minecraft:farmland"]);
@@ -23,34 +23,34 @@ ServerEvents.recipes(event => {
 	event.shaped("6x minecraft:iron_nugget",
 		["A", "B", "C"],
 		{ B: "#forge:ingots/iron", A: "#forge:tools/hammers",
-		C: "minecraft:water_bucket" })
+			C: "minecraft:water_bucket" })
 		.replaceIngredient('minecraft:water_bucket', 'minecraft:bucket');
 
 	event.remove({ output: "minecraft:furnace" });
 	event.shaped("minecraft:furnace",
 		["ECF", "DBD", "DAD"],
 		{ A: "minecraft:bricks", B: "minecraft:campfire", C: "minecraft:flint",
-		D:"minecraft:gravel", E: "#forge:tools/knives", F: "#forge:tools/mallets"});
+			D:"minecraft:gravel", E: "#forge:tools/knives", F: "#forge:tools/mallets"});
 	event.shaped("minecraft:furnace",
 		["ECF", "DBD", "DAD"],
 		{ A: "minecraft:bricks", B: "minecraft:lava_bucket", C: "#forge:tools/hammers",
-		D:"minecraft:stone", E: "#forge:tools/knives", F: "#forge:tools/mallets"})
+			D:"minecraft:stone", E: "#forge:tools/knives", F: "#forge:tools/mallets"})
 		.replaceIngredient('minecraft:lava_bucket', 'minecraft:bucket');
 
 	event.shaped("minecraft:campfire",
 		["EAF", "ACA", "DDD"],
 		{ A: "#forge:rods/wood", C: "minecraft:flint",
-		D:"#forge:logs", E: "#forge:tools/knives", F: "#forge:tools/mallets"});
+			D:"#forge:logs", E: "#forge:tools/knives", F: "#forge:tools/mallets"});
 
 	event.remove ({ output: 'minecraft:barrel'});
 	event.shaped('minecraft:barrel',
-	['ABA', 'BCB', 'ABA'],
-	{ A: '#forge:planks/wood', B: '#forge:logs', C: '#forge:gems/flint' });
+		['ABA', 'BCB', 'ABA'],
+		{ A: '#forge:planks/wood', B: '#forge:logs', C: '#forge:gems/flint' });
 
 	event.remove({ id: "gtceu:shaped/crafting_table" });
 	event.shaped("minecraft:crafting_table",
-	["BB", "AA"],
-	{ A: "#forge:logs", B: "#forge:planks/wood" });
+		["BB", "AA"],
+		{ A: "#forge:logs", B: "#forge:planks/wood" });
 
 	event.shaped("minecraft:dragon_egg", ["AAA","ABA","AAA"],
 		{A:"minecraft:egg",B:"minecraft:dragon_head"});
@@ -62,9 +62,9 @@ ServerEvents.recipes(event => {
 		{A:"minecraft:purpur_block",B:"minecraft:dragon_head"});
 	event.shaped("8x minecraft:dragon_breath", ["AAA","ABA","AAA"],
 		{A:"minecraft:bottle",B:"minecraft:dragon_head"});
-	event.shaped("minecraft:player_head", ["ABA","CDC","ECE"], 
+	event.shaped("minecraft:player_head", ["ABA","CDC","ECE"],
 		{B:"minecraft:leather_helmet",A:"minecraft:wooden_pickaxe",C:"minecraft:diamond_block",
-		E:"minecraft:netherite_block",D:"minecraft:nether_star"});
+			E:"minecraft:netherite_block",D:"minecraft:nether_star"});
 	event.shaped("minecraft:wither_rose", ["A","B"],
 		{A:"minecraft:wither_skeleton_skull",B:"#minecraft:small_flowers"});
 	event.shaped("minecraft:zombie_head", ["CCC","DBD","CCC"],
@@ -93,7 +93,7 @@ ServerEvents.recipes(event => {
 	event.shapeless("4x minecraft:reinforced_deepslate",["4x minecraft:deepslate", "minecraft:bedrock", "4x minecraft:deepslate"]);
 
 	event.shapeless("8x minecraft:phantom_membrane",["minecraft:shears","minecraft:dragon_head"])
-	.damageIngredient("#forge:tools/shears",'1');
+		.damageIngredient("#forge:tools/shears",'1');
 	event.shapeless("minecraft:rotten_flesh",["minecraft:experience_bottle","#minecraft:fishes"]);
 
 	event.shapeless("minecraft:grass","minecraft:fern");
@@ -122,44 +122,44 @@ ServerEvents.recipes(event => {
 	event.shapeless('ironfurnaces:emerald_furnace',"ironfurnaces:crystal_furnace");
 	event.shapeless('ironfurnaces:crystal_furnace',"ironfurnaces:emerald_furnace");
 
-    // extra recipes
+	// extra recipes
 
-  // Fire Resistance
-  event.shapeless(
-    Item.of("minecraft:potion").withNBT({
-      Potion: "minecraft:fire_resistance",
-    }),
-    [
-      Item.of("minecraft:potion").withNBT({
-        Potion: "minecraft:water",
-      }),
-      "#forge:dusts/sugar",
-      "#forge:dusts/stone",
-      "#forge:dusts/lead",
-    ]
-  );
-  event.shapeless(
-    Item.of("minecraft:potion").withNBT({
-      Potion: "minecraft:long_fire_resistance",
-    }),
-    [
-      Item.of("minecraft:potion").withNBT({
-        Potion: "minecraft:water",
-      }),
-      "#forge:dusts/redstone",
-      "#forge:dusts/sugar",
-      "#forge:dusts/stone",
-      "#forge:dusts/lead",
-    ]
-  );
+	// Fire Resistance
+	event.shapeless(
+		Item.of("minecraft:potion").withNBT({
+			Potion: "minecraft:fire_resistance",
+		}),
+		[
+			Item.of("minecraft:potion").withNBT({
+				Potion: "minecraft:water",
+			}),
+			"#forge:dusts/sugar",
+			"#forge:dusts/stone",
+			"#forge:dusts/lead",
+		]
+	);
+	event.shapeless(
+		Item.of("minecraft:potion").withNBT({
+			Potion: "minecraft:long_fire_resistance",
+		}),
+		[
+			Item.of("minecraft:potion").withNBT({
+				Potion: "minecraft:water",
+			}),
+			"#forge:dusts/redstone",
+			"#forge:dusts/sugar",
+			"#forge:dusts/stone",
+			"#forge:dusts/lead",
+		]
+	);
 
-  event.shaped(Item.of('minecraft:enchanted_book').enchant('minecraft:silk_touch', 1),
-  ["RWR", "WBW", "RmR"], {
-    R: "#forge:plates/rubber",
-    W: "#minecraft:wool",
-    B: "minecraft:book",
-    m: "#forge:tools/mallets"
-  });
+	event.shaped(Item.of('minecraft:enchanted_book').enchant('minecraft:silk_touch', 1),
+		["RWR", "WBW", "RmR"], {
+			R: "#forge:plates/rubber",
+			W: "#minecraft:wool",
+			B: "minecraft:book",
+			m: "#forge:tools/mallets"
+		});
 
 
 });

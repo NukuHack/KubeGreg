@@ -9,6 +9,27 @@ ServerEvents.tags('item', event => {
 	event.add('minecraft:logs_that_burn', '#minecraft:bamboo_blocks');
 	event.add('forge:planks/wood', '#minecraft:planks');
 	event.add('forge:logs', '#minecraft:logs');
+
+	event.add('forge:logs/oak', 'minecraft:oak_log');
+	event.add('forge:logs/dark_oak', 'minecraft:dark_oak_log');
+	event.add('forge:logs/acacia', 'minecraft:acacia_log');
+	event.add('forge:logs/spruce', 'minecraft:spruce_log');
+	event.add('forge:logs/birch', 'minecraft:birch_log');
+	event.add('forge:logs/mangrove', 'minecraft:mangrove_log');
+	event.add('forge:logs/rubber', 'gtceu:rubber_log');
+	event.add('forge:logs/jungle', 'minecraft:jungle_log');
+	event.add('forge:logs/cherry', 'minecraft:cherry_log');
+
+	event.add('forge:saplings/oak', 'minecraft:oak_sapling');
+	event.add('forge:saplings/dark_oak', 'minecraft:dark_oak_sapling');
+	event.add('forge:saplings/acacia', 'minecraft:acacia_sapling');
+	event.add('forge:saplings/spruce', 'minecraft:spruce_sapling');
+	event.add('forge:saplings/birch', 'minecraft:birch_sapling');
+	event.add('forge:saplings/mangrove', 'minecraft:mangrove_propagule');
+	event.add('forge:saplings/rubber', 'gtceu:rubber_sapling');
+	event.add('forge:saplings/jungle', 'minecraft:jungle_sapling');
+	event.add('forge:saplings/cherry', 'minecraft:cherry_sapling');
+
 	event.add('forge:dirt', '#minecraft:dirt');
 	event.add('forge:wool', '#minecraft:wool');
 	event.add('forge:leaves', '#minecraft:leaves');

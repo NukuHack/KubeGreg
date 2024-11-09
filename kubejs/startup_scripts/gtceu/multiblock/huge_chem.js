@@ -50,7 +50,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			.build()
 		)
 		// stole some "shape info" from other modpacks
-		.shapeInfo(controller => MultiblockShapeInfo.builder()
+		/*.shapeInfo(controller => MultiblockShapeInfo.builder()
 			.aisle('EEEED', 'BBDBB', 'BBDBB', 'BBDBB', 'DDMDD')
 			.aisle('DDDDD', 'BPPPB', 'BPPPB', 'BDDDB', 'FDDDG')
 			.aisle('DDDDD', 'DPPPD', 'DPPPD', 'DDDDD', 'FDHDG')
@@ -75,8 +75,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			.where('B', GTBlocks.COIL_CUPRONICKEL.get())
 
 			.build()
-		)
-
+		)*/
 		.workableCasingRenderer(
 			"gtceu:block/casings/solid/machine_casing_inert_ptfe",
 			"gtceu:block/multiblock/large_chemical_reactor",false

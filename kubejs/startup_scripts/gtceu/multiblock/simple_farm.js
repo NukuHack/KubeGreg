@@ -31,6 +31,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('W', Predicates.blocks('minecraft:packed_ice'))
             .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("gtceu:block/treated_wood_planks",
-            "gtceu:block/multiblock/coke_oven", false);
+        .workableCasingRenderer(
+            "gtceu:block/treated_wood_planks",
+            "gtceu:block/multiblock/coke_oven", false
+        );
 });

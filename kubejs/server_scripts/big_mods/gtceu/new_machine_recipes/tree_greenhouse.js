@@ -2,10 +2,6 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
-        //`gtceu:rubber_sapling`)
-        //`128x gtceu:rubber_log`)
-        //`minecraft:mangrove_propagule`)
-
 
     [
         ["oak","minecraft:apple"],
@@ -17,7 +13,8 @@ ServerEvents.recipes(event => {
         ["acacia",""],
         ["spruce",""],
         ["birch",""]
-    ].forEach(([type,extra])=>{
+    ]
+        .forEach(([type,extra])=>{
         extra = (extra==""?"minecraft:dirt":extra); // should change it to some more natural thing
         greg.tree_greenhouse(`gfs:${type}_grow_co2_2`)
             .notConsumable(`#forge:saplings/${type}`)

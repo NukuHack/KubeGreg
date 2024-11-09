@@ -1,7 +1,5 @@
 just some external stuff I save here ... is not really useful
 
-fission reactor
-
 usable things :
 megacells:sky_steel_ingot
 megacells:sky_steel_block

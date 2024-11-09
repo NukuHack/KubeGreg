@@ -23,7 +23,6 @@ Plan :
 	maybe a paralelle fusion reactor
 	maybe a giant alloy blast smelter
 	balance the large farm  (change it to farm and make another multiblock named large farm)
-		cactus to the farm
 		sea pickles to there ... or
 		maybe a multiblock like Flower Garden
 	Large inscriber (paralelle)
@@ -34,11 +33,11 @@ Plan :
 		remove the gray dye tag from metal_mixture
 		lapis dye recipe should have a mortar
 			bonemeal to white dye too
-	
+
 
 	realistic ae2
-	
-	
+
+
 welp some gitting xD
 
 

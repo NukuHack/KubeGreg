@@ -12,17 +12,17 @@ max int : 2,147,483,647 .... 2147483647
 
 
 Plan :
-    Gianormus cracker
-	insainly huge pyro-oven
-	maybe a huge ass implosion comp.
-	maybe a try for huge assembly line ?
-	maye maybe ... big crafter (vanilla crafting)
+    Large cracker - complete
+	Large inscriber - complete
+	Large pyro-oven
+	maybe a huge implosion comp.
+	maybe a huge assembly line
+	maybe a big crafter (vanilla crafting)
 	maybe a Fission reactor
 	maybe a paralelle fusion reactor
 	maybe a giant alloy blast smelter
-	sea pickles to Large Farm ... or
-	Large inscriber (paralelle)
 
+	sea pickles to Large Farm ... or
 	maybe a multiblock like Flower Garden for dies
 	make the mixtures like magenta craftable from basic elements like red
 

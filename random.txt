@@ -26,13 +26,8 @@ Plan :
 		cactus to the farm
 		sea pickles to there ... or
 		maybe a multiblock like Flower Garden
-	balance the tree greenhouse a bit too
-		cocobeans to the jungle
-		apples for oaks
 	Large inscriber (paralelle)
-	
-	maybe a big multiblock for paralelle sim_chamer + loot_fabric (like in Nomifactory)
-	
+
 	change the recipe for dye
 		(make the mixtures like magenta craftable from basic elements like red)
 		remove the red dye tag from redstone
@@ -40,19 +35,6 @@ Plan :
 		lapis dye recipe should have a mortar
 			bonemeal to white dye too
 	
-	making flourite ore (calcium 2x fluoride)
-		CaF2
-	making fluoric and hydrofluoric acid in a normal way not so stupid
-		CaF2 + H2SO4 → 2 HF + CaSO4
-	gypsum
-	CaSO4 + heat = CaO+SO3
-
-	sulfurous acid : H2SO3 (sulfuric acid is 4O)
-		in order to make sulfuric acid in a better way
-		SO2+H2O -> H2SO3
-		H2SO3 + O -> H2SO4
-
-	pyro-oven assembling
 
 	realistic ae2
 	

@@ -49,7 +49,6 @@ Plan :
 
 	sulfurous acid : H2SO3 (sulfuric acid is 4O)
 		in order to make sulfuric acid in a better way
-		SO2+HCl+H2O -> H2SO3 + HCl
 		SO2+H2O -> H2SO3
 		H2SO3 + O -> H2SO4
 

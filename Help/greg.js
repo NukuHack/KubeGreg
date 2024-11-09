@@ -65,7 +65,6 @@ GTCEuStartupEvents.registry("gtceu:machine", event => {
 
 */
 
-
 /*
 GTCEuStartupEvents.registry('gtceu:element', event => {
     event.create('andesite',27, 177, -1, null, 'cm', false) // 
@@ -201,6 +200,19 @@ GTCEuStartupEvents.materialModification(event => {
         .EUt(6500);
 		
 		
+
+
+modify recipes :
+	event.forEachRecipe({mod:"gtceu"}, recipe => {
+        // console.log(JSON.parse(recipe.json))
+        let original_recipe = JSON.parse(recipe.json)
+        original_recipe["tickInputs"]["eu"][0]["content"] = 32
+        recipe.json = JSON.stringify(original_recipe)
+      })
+
+
+
+
 
 
 */

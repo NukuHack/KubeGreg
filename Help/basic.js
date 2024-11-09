@@ -101,6 +101,11 @@ ServerEvents.recipes(event => {
         Require the condition NOT be met: {not: {condition: 'requirement'}}
     */
 
+// for each item in tag do :
+    Ingredient.of('#forge:ingots').getItemIds().forEach(item => {
+      // code
+    });
+
 
 //some random stolen stuff from ... idk
 

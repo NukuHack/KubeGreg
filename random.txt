@@ -26,6 +26,10 @@ Plan :
 	maybe a multiblock like Flower Garden for dies
 	make the mixtures like magenta craftable from basic elements like red
 
+    potato concrete
+        potato starch + Regolith (lifeless dirt) + salt = best concrete
+            potato starch < wet potato s. < potato slurry < crushed potato
+            regolith < basalt powder + iron oxides
 
 	realistic ae2
 

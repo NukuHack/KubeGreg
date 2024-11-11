@@ -22,5 +22,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 		.where('P', Predicates.blocks('gtceu:ptfe_pipe_casing'))
 		.build());
 
+	// adding a .shapeinfo() makes it crash not adding it just makes the in-game multiblock display incorrectly display the original multiblock before the modification ... I give up
+
 });
 

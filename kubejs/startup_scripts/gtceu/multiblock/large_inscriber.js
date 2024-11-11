@@ -3,7 +3,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_inscriber', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType("inscriber") // gtceu: / gfs:
-        .appearanceBlock(CASING_STAINLESS_CLEAN)
+        .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
             GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()

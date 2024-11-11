@@ -3,7 +3,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_cracker', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType(GTRecipeTypes.CRACKING_RECIPES)
-        .appearanceBlock(CASING_STAINLESS_CLEAN)
+        .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
             GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()
@@ -17,7 +17,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle("HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH")
             .aisle("HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHCHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH", "HHHBBBHHHBBBHHH")
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('H', Predicates.blocks(CASING_STAINLESS_CLEAN.get())
+            .where('H', Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get())
                 .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(8))
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(8))
                 

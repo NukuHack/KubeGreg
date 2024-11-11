@@ -10,11 +10,14 @@
     "gtceu.inscriber": "Inscriber",
     "gtceu.rock_generator": "Rock Generator",
     "gtceu.large_farm": "Large Farm",
+    "gtceu.simple_farm": "Simple Farm",
     "gtceu.tree_greenhouse": "Tree Greenhouse",
 
     "block.gtceu.large_farm": "§uLarge Farm§r",
+    "block.gtceu.simple_farm": "§uSimple Farm§r",
     "block.gtceu.tree_greenhouse": "§uTree Greenhouse§r",
     "block.gtceu.huge_chemical_reactor": "§uHuge Chemical Reactor§r",
+    "block.gtceu.large_cracker": "§uLarge Cracker§r",
 
     "block.gtceu.hv_inscriber": "§6Inscriber§r",
     "block.gtceu.ev_inscriber": "§5Advanced Inscriber§r",

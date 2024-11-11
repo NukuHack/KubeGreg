@@ -21,9 +21,11 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
             .where('P', Predicates.blocks(GTBlocks.TREATED_WOOD_PLANK.get())
                 .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(1))
-                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(2))
+                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(2))
+
+                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(2))
+                
                 .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1))
-                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMinGlobalLimited(1).setMaxGlobalLimited(2))
             )
             .where('G', Predicates.blocks(GTBlocks.TREATED_WOOD_PLANK.get()))
             .where('D', Predicates.blocks('gfs:magical_farmland'))

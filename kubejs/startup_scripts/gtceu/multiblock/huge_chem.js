@@ -1,6 +1,4 @@
-priority: -100
-
-// Large Chemical Reactor - making it acept more than 2 energy hatches
+//priority: -100
 
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 	event.create('huge_chemical_reactor')	 // name of the multiblock
@@ -18,7 +16,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 	event.create('huge_chemical_reactor', 'multiblock')
 		.rotationState(RotationState.NON_Y_AXIS)
 		.recipeType(GTRecipeTypes.LARGE_CHEMICAL_RECIPES)
-		//GTRecipeTypes.LARGE_CHEMICAL_RECIPES or "large_chemical_reactor"
+		// or "large_chemical_reactor"
 		.appearanceBlock(GTBlocks.CASING_PTFE_INERT)
 		.recipeModifiers([GTRecipeModifiers.DEFAULT_ENVIRONMENT_REQUIREMENT,GTRecipeModifiers.PARALLEL_HATCH,
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
@@ -29,7 +27,6 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
 			.aisle('EDDDE', 'BPPPB', 'BPPPB', 'BPPPB', 'ADDDA')
 			.aisle('EECEE', 'BBBBB', 'BBBBB', 'BBBBB', 'AAAAA')
-			// Specifying conditions for each block
 			.where('C', Predicates.controller(Predicates.blocks(definition.get())))
 			.where('A', Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)
 				.or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
@@ -46,7 +43,6 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			.where('D', Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get()).setMinGlobalLimited(30))
 			.where('B', Predicates.blocks(GTBlocks.COIL_CUPRONICKEL.get()).setMinGlobalLimited(30)
 				.or(Predicates.blocks(GTBlocks.CASING_PTFE_INERT.get())))
-			// Build the pattern
 			.build()
 		)
 		// stole some "shape info" from other modpacks

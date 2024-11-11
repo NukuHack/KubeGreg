@@ -4,27 +4,29 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
     const plants = [
-        ['minecraft:wheat_seeds', 'minecraft:wheat'],
-        ['minecraft:carrot', 'minecraft:carrot'],
-        ['minecraft:potato', 'minecraft:potato'],
-        ['minecraft:pumpkin_seeds', 'minecraft:pumpkin'],
-        ['minecraft:melon_seeds', 'minecraft:melon'],
-        ['minecraft:cocoa_beans', 'minecraft:cocoa_beans'],
-        ['minecraft:beetroot_seeds', 'minecraft:beetroot'],
-        ['minecraft:bamboo', 'minecraft:bamboo'],
-        ['minecraft:sweet_berries', 'minecraft:sweet_berries'],
-        ['minecraft:kelp', 'minecraft:kelp'],
-        ['minecraft:glow_berries', 'minecraft:glow_berries'],
-        ['minecraft:sugar_cane', 'minecraft:sugar_cane'],
-        ['minecraft:torchflower_seeds', 'minecraft:torchflower'],
-        ['minecraft:pitcher_pod', 'minecraft:pitcher_plant'],
-        ['minecraft:cactus', 'minecraft:cactus']
+        ['wheat_seeds', 'wheat'],
+        ['', 'carrot'],
+        ['', 'potato'],
+        ['pumpkin_seeds', 'pumpkin'],
+        ['melon_seeds', 'melon'],
+        ['', 'cocoa_beans'],
+        ['beetroot_seeds', 'beetroot'],
+        ['', 'bamboo'],
+        ['', 'sweet_berries'],
+        ['', 'kelp'],
+        ['', 'glow_berries'],
+        ['', 'sugar_cane'],
+        ['torchflower_seeds', 'torchflower'],
+        ['pitcher_pod', 'pitcher_plant']
     ];
 
     plants.forEach(([seed,crop])=>{
+		if (seed=="")
+			seed = crop;
+		
         greg.large_farm(`gfs:${crop}_normal`)
-            .notConsumable(seed)
-            .itemOutputs(`16x ${crop}`)
+            .notConsumable(`minecraft:${seed}`)
+            .itemOutputs(`16x minecraft:${crop}`)
             .chancedOutput(seed, 5000, 0)
             .inputFluids('minecraft:water 500')
             .circuit(1)
@@ -32,9 +34,9 @@ ServerEvents.recipes(event => {
             .duration(20*20);
 
         greg.large_farm(`gfs:${crop}_w_bone_meal`)
-            .notConsumable(seed)
+            .notConsumable(`minecraft:${seed}`)
             .itemInputs('minecraft:bone_meal')
-            .itemOutputs(`32x ${crop}`)
+            .itemOutputs(`32x minecraft:${crop}`)
             .chancedOutput(seed, 5000, 0)
             .outputFluids('gtceu:oxygen 500')
             .inputFluids('minecraft:water 1000', 'gtceu:carbon_dioxide 200')
@@ -43,9 +45,9 @@ ServerEvents.recipes(event => {
             .duration(20*15);
 
         greg.large_farm(`gfs:${crop}_w_compost`)
-            .notConsumable(seed)
+            .notConsumable(`minecraft:${seed}`)
             .itemInputs('#forge:farm_fertilizer')
-            .itemOutputs(`48x ${crop}`)
+            .itemOutputs(`48x minecraft:${crop}`)
             .chancedOutput(seed, 5000, 0)
             .outputFluids('gtceu:oxygen 1000')
             .inputFluids('minecraft:water 1000', 'gtceu:carbon_dioxide 500')
@@ -54,9 +56,9 @@ ServerEvents.recipes(event => {
             .duration(20*10);
 
         greg.large_farm(`gfs:${crop}_w_fertilizer`)
-            .notConsumable(seed)
+            .notConsumable(`minecraft:${seed}`)
             .itemInputs('gtceu:fertilizer')
-            .itemOutputs(`64x ${crop}`)
+            .itemOutputs(`64x minecraft:${crop}`)
             .chancedOutput(seed, 5000, 0)
             .outputFluids('gtceu:oxygen 2500')
             .inputFluids('minecraft:water 1000', 'gtceu:carbon_dioxide 1000')

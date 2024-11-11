@@ -112,6 +112,20 @@ ServerEvents.recipes(event => {
         B: '#gtceu:circuits/lv'
     });
 
+    greg.assembler('gfs:large_cracker')
+        .itemInputs('gtceu:cracker',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+        .itemOutputs('gtceu:large_cracker')
+        .circuit(23)
+        .duration(20*80)
+        .EUt(480);
+
+    greg
+        .macerator('gfs:large_cracker')
+        .itemInputs('gtceu:large_cracker')
+        .itemOutputs('gtceu:cracker',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+        .EUt(30)
+        .duration(600);
+
     greg.assembler('gfs:large_farm')
         .itemInputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
         .itemOutputs('gtceu:large_farm')

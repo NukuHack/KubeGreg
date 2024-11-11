@@ -11,7 +11,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType('simple_farm')
         .appearanceBlock(GTBlocks.TREATED_WOOD_PLANK)
-        .recipeModifiers(GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK))
+        .recipeModifiers([//GTRecipeModifiers.PARALLEL_HATCH,
+            GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()
             .aisle('GGGGG', 'F   F', 'F   F', 'FFFFF')
             .aisle('PDDDP', '     ', '     ', 'F   F')
@@ -24,7 +25,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(2))
 
                 .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(2))
-                
+
                 .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setExactLimit(1))
             )
             .where('G', Predicates.blocks(GTBlocks.TREATED_WOOD_PLANK.get()))

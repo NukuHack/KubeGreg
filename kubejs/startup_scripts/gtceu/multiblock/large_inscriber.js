@@ -1,3 +1,14 @@
+/*
+GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
+	
+    event.create("inscriber")
+        .category("gfs")
+        .setEUIO("in")
+        .setMaxIOSize(4, 1, 2, 0)
+        .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, FillDirection.LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.COMPRESSOR);
+});
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_inscriber', 'multiblock')
@@ -20,15 +31,16 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('H', Predicates.blocks(CASING_STAINLESS_CLEAN.get())
                 .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(6))
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(6))
-                
+
                 .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMaxGlobalLimited(6))
                 .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(6))
             )
-            .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gtceu:block/treated_wood_planks",
-            "gtceu:block/multiblock/coke_oven", false
+            "gtceu:block/casings/solid/machine_casing_clean_stainless_steel",
+            "gtceu:block/multiblock/cracking_unit",false
         );
 
 });
+
+*/

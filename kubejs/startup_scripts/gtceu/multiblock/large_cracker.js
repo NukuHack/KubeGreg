@@ -1,4 +1,3 @@
-
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_cracker', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)

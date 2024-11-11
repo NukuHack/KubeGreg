@@ -5,6 +5,6 @@ GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
     // Emectric Blast FUrnace (used to be 3,3,1,1)
     GTRecipeTypes.BLAST_RECIPES.setMaxIOSize(3, 3, 3, 3)
     // Compressor (used to be 1,1,0,0)
-    GTRecipeTypes.COMPRESSOR.setMaxIOSize(2, 2, 1, 1)
+    GTRecipeTypes.COMPRESSOR_RECIPES.setMaxIOSize(2, 2, 1, 1)
 
 });

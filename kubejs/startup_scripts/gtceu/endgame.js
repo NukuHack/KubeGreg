@@ -78,6 +78,6 @@ GTCEuStartupEvents.registry('gtceu:material', event => {
         .dust()
         .color(0xff00ff)
         .iconSet('shiny')
-        .components('5x carbon', '4x hydrogen', '3x oxygen', '4x omnium') // Replace Nitrogen with Omnium when we find out how
+        .components('5x carbon', '4x hydrogen', '3x oxygen', '4x omnium')
         .flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
 })

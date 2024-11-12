@@ -16,16 +16,16 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	addFluid(GTMaterials.SodiumHydroxide, $FluidStorageKeys.LIQUID);
 	addFluid(GTMaterials.Salt, $FluidStorageKeys.LIQUID);
 	// Can be LIQUID, GAS, PLASMA or MOLTEN
-	
-	
-	
+
+
+
 });
 
 GTCEuStartupEvents.materialModification(event => {
-    GTMaterials.RhodiumPlatedPalladium.setComponents("3x palladium", "1x rhodium", "2x lumium");
-    GTMaterials.RhodiumPlatedPalladium.setFormula('Pd3Rh(SnFe)4(CuAg4)2', true);
+	GTMaterials.RhodiumPlatedPalladium.setComponents("3x palladium", "1x rhodium", "2x lumium");
+	GTMaterials.RhodiumPlatedPalladium.setFormula('Pd3Rh(SnFe)4(CuAg4)2', true);
 
-    //GTMaterials.Glowstone.setComponents("1x tricalcium_phosphate", "1x gold");
-    //GTMaterials.Glowstone.setFormula('AuCa3(PO4)2', true);
-	
+	//GTMaterials.Glowstone.setComponents("1x tricalcium_phosphate", "1x gold");
+	//GTMaterials.Glowstone.setFormula('AuCa3(PO4)2', true);
+
 })

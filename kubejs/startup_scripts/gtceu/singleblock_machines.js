@@ -1,8 +1,6 @@
 /*
 * machines.js - Register new recipe types and machines.
 */
-const WorkableSteamHullRenderer = Java.loadClass("com.gregtechceu.gtceu.client.renderer.machine.WorkableSteamMachineRenderer");
-
 GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
 
     // inscriber

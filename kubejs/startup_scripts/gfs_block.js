@@ -1,7 +1,7 @@
 /*
 * greg_sky.js - Register Blocks.
 */
-priority: 90
+priority: 60
 StartupEvents.registry("block", event => {
     /*
         event.create('gfs:wood_casing')
@@ -104,16 +104,16 @@ StartupEvents.registry("block", event => {
 
 
     [
-        { name: "cupronickel", texture: "casing-yellow" },
-        { name: "kanthal", texture: "casing-light_blue" },
-        { name: "nichrome", texture: "casing-white" },
-        { name: "rtm_alloy", texture: "casing-purple" },
-        { name: "hssg", texture: "casing-blue" },
-        { name: "naquadah", texture: "casing-black" },
-        { name: "trinium", texture: "casing-pink" },
-        { name: "tritanium", texture: "casing-red" }
+        ["cupronickel", "casing-yellow" ],
+        ["kanthal", "casing-light_blue" ],
+        ["nichrome", "casing-white" ],
+        ["rtm_alloy", "casing-purple" ],
+        ["hssg", "casing-blue" ],
+        ["naquadah", "casing-black" ],
+        ["trinium", "casing-pink" ],
+        ["tritanium", "casing-red" ]
     ]
-        .forEach(({ name, texture }) => {
+        .forEach(([ name, texture ]) => {
             event.create(`gfs:compressed_${name}_coil`)
                 .hardness(5)
                 .resistance(1)

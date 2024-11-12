@@ -1,6 +1,4 @@
 
-const $ParallelHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.ParallelHatchPartMachine')
-
 // Giga, Omega Parallel Hatches
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create(

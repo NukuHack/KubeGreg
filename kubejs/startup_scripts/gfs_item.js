@@ -2,9 +2,9 @@
 * greg_sky.js - Register Items.
 */
 
-Platform.mods.gfs.name = "Gfs";
+Platform.mods.kubejs.name = "Gfs";
 
-priority: 100
+priority: 90
 
 StartupEvents.registry("item", (event) => {
 
@@ -73,47 +73,40 @@ StartupEvents.registry("item", (event) => {
     event.create('infinity_wire_cutter').texture('gfs:item/infinity/infinity_wire_cutter').rarity("epic").maxStackSize(1)
 
     // Post-Tank Wafer items
-    event.create('universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule')
-    event.create('universe_wafer').texture('gfs:item/wafer_and_chip/universal_wafer').displayName('Universe-doped Wafer')
-    event.create('unactivated_multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/unactivated_multidimensional_cpu_wafer').displayName('Unactivated Multidimensional CPU Wafer')
-    event.create('multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/multidimensional_cpu_wafer').displayName('Multidimensional CPU Wafer')
-    event.create('multidimensional_cpu_chip').texture('gfs:item/wafer_and_chip/multidimensional_cpu_chip').displayName('Multidimensional CPU Chip')
-    event.create('hyperdynamic_ram_wafer').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_wafer').displayName('Hyperdynamic RAM Wafer')
-    event.create('hyperdynamic_ram_chip_base').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip Base')
-    event.create('hyperdynamic_ram_chip').texture('gfs:item/wafer_and_chip/activated_hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip')
-    event.create('quantum_soc_wafer').texture('gfs:item/wafer_and_chip/quantum_soc_wafer').displayName('Quantum SoC Wafer')
-    event.create('quantum_soc_chip_base').texture('gfs:item/wafer_and_chip/quantum_soc_chip_base').displayName('Quantum SoC Chip Base')
-    event.create('quantum_soc_chip').texture('gfs:item/wafer_and_chip/quantum_soc_chip').displayName('Quantum SoC Chip')
+    event.create('universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule');
+    event.create('universe_wafer').texture('gfs:item/wafer_and_chip/universal_wafer').displayName('Universe-doped Wafer');
+    event.create('unactivated_multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/unactivated_multidimensional_cpu_wafer').displayName('Unactivated Multidimensional CPU Wafer');
+    event.create('multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/multidimensional_cpu_wafer').displayName('Multidimensional CPU Wafer');
+    event.create('multidimensional_cpu_chip').texture('gfs:item/wafer_and_chip/multidimensional_cpu_chip').displayName('Multidimensional CPU Chip');
+    event.create('hyperdynamic_ram_wafer').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_wafer').displayName('Hyperdynamic RAM Wafer');
+    event.create('hyperdynamic_ram_chip_base').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip Base');
+    event.create('hyperdynamic_ram_chip').texture('gfs:item/wafer_and_chip/activated_hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip');
+    event.create('quantum_soc_wafer').texture('gfs:item/wafer_and_chip/quantum_soc_wafer').displayName('Quantum SoC Wafer');
+    event.create('quantum_soc_chip_base').texture('gfs:item/wafer_and_chip/quantum_soc_chip_base').displayName('Quantum SoC Chip Base');
+    event.create('quantum_soc_chip').texture('gfs:item/wafer_and_chip/quantum_soc_chip').displayName('Quantum SoC Chip');
 
-        ["uhv","uev","uiv","uxv","opv"]
-        .forEach((x)=>{
+        ["uhv","uev","uiv","uxv","opv"].forEach((x)=>{
             event.create(`${x}_emmitter`)
                 .displayName(`${x.toUpperCase()} Emitter`)
                 .texture(`gfs:item/emitters/${x}_emitter`);
-        })
+        });
 
         // Complex SMDs
-        [
-        'transistor',
-            'resistor',
-            'capacitor',
-            'diode',
-            'inductor'
-        ].forEach((x)=>{
-        event.create(`complex_smd_${x}`)
-            .displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
-            .texture(`gfs:item/complex_smd/complex_smd_${x}`);
-    });
+        ["transistor","resistor","capacitor","diode","inductor"].forEach((x)=>{
+			event.create(`complex_smd_${x}`)
+				.displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
+				.texture(`gfs:item/complex_smd/complex_smd_${x}`);
+		});
 
 
     // Post-tank circuits, circuit boards, processing units
     const themes = [
-        { theme: 'matter', circuits: ['processor', 'processor_assembly', 'processor_computer'], volts: ['zpm', 'uv', 'uhv'], mainframeVolt: 'uev' },
-        { theme: 'dimensional', circuits: ['processor', 'processor_assembly', 'processor_computer'], volts: ['uv', 'uhv', 'uev'], mainframeVolt: 'uiv' },
-        { theme: 'monic', circuits: ['processor', 'processor_assembly', 'processor_computer'], volts: ['uhv', 'uev', 'uiv'], mainframeVolt: 'max' }
+        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev' ],
+        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv' ],
+        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'max' ]
     ];
 
-    themes.forEach(({ theme, circuits, volts, mainframeVolt }) => {
+    themes.forEach(([ theme, circuits, volts, mainframeVolt ]) => {
         // Create unit for each theme
         event.create(`${theme}_processing_unit`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
@@ -137,15 +130,14 @@ StartupEvents.registry("item", (event) => {
     });
 
     //Universal Circuits
-    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv"]
-        .forEach((x) => {
-            event.create(x + "_universal_circuit")
-                .tag("gtceu:circuits/" + x)
-                .tag("gtceu:circuits/universal")
-                .displayName(x.toUpperCase() + " Universal Circuit")
-                .tooltip("§7A Universal Circuit&r")
-                .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
-        })
+    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv"].forEach((x) => {
+        event.create(x + "_universal_circuit")
+            .tag("gtceu:circuits/" + x)
+            .tag("gtceu:circuits/universal")
+            .displayName(x.toUpperCase() + " Universal Circuit")
+            .tooltip("§7A Universal Circuit&r")
+            .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
+    })
 
 });
 

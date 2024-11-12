@@ -30,7 +30,9 @@ Plan :
         potato starch + Regolith (lifeless dirt) + salt = best concrete
             potato starch < wet potato s. < potato slurry < crushed potato
             regolith < basalt powder + iron oxides
-
+	
+	potato slurry
+	
 	realistic ae2
 
 

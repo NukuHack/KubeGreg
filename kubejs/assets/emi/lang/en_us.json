@@ -1,0 +1,11 @@
+{
+	"tag.item.gtceu.circuits": "Circuits",
+	"tag.item.gtceu.circuits.ulv": "ULV Circuits",
+	"tag.item.gtceu.circuits.lv": "LV Circuits",
+	"tag.item.gtceu.circuits.mv": "MV Circuits",
+	"tag.item.gtceu.circuits.hv": "HV Circuits",
+	"tag.item.gtceu.circuits.ev": "EV Circuits",
+	"tag.item.gtceu.circuits.iv": "IV Circuits",
+	"tag.item.gtceu.circuits.luv": "LuV Circuits",
+	"tag.item.gtceu.circuits.zpm": "ZPM Circuits"
+}

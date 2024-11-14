@@ -120,6 +120,12 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     */
 
+
+	// This material is meant to place a ? symbol in a material's chemical formula
+	event.create('mystery')
+		.element(GTElements.get('mystery'));
+
+
 	event.create("cryolobus")
 		.ingot().fluid()
 		.element(GTElements.get("cryolobus"))

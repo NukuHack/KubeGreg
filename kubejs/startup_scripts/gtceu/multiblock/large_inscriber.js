@@ -9,11 +9,12 @@ GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
         .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, FillDirection.LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.COMPRESSOR);
 });
-
+*/
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_inscriber', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
-        .recipeType("inscriber") // gtceu: / gfs:
+        .recipeType(GTRecipeTypes.get("inscriber"))
+         // gtceu: / gfs:
         .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
             GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
@@ -43,4 +44,3 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
 });
 
-*/

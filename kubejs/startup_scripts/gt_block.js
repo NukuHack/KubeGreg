@@ -24,39 +24,30 @@ StartupEvents.registry("block", event => {
     .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
     .model('gtceu:block/misc/treated_log')
     */
-    
-    event.create('gfs:test_casing')
-        .hardness(10)
-        .resistance(1)
-        .lightLevel(1)
-        .soundType('metal')
-        .requiresTool(true)
-        .tagBlock("mineable/pickaxe")
-        .tagBlock('minecraft:needs_iron_tool')
-        .textureAll('gtceu:block/casings/test_casing');
 
+    const casingS = [
+        ["test","Test Casing",10,1,1,"metal","gtceu:block/casings/test_casing"],
+        ["gren","Agri Casing",4,1,10,"metal",'gtceu:block/casings/gren_casing'],
+        ["peek","PEEK Casing",5,1,0,"metal","gfs:block/casings/machine_casing_peek"],
+        ["omnic_matrix","Omnic Matrix Casing",8,1,0,"metal","gfs:block/casings/machine_casing_omnic_matrix"],
+        ['austenitic_stainless_steel_304_casing','Austenitic Stainless Steel 304 Nuclear Casing',6,2,0,"metal",'gfs:block/casings/machine_casing_a_s_steel'],
+        ['inconel_625_casing','Inconel 625 Thermal Fluctuation Resistant Casing',5,3,0,"metal",'gfs:block/casings/machine_casing_inconel'],
+    ];
+    casingS.forEach(([name,Dname,hard,res,light,sound,texture])=>{
+        event.create(`gfs:${name}_casing`)
+            .displayName(Dname)
+            .hardness(hard)
+            .resistance(res)
+            .lightLevel(light)
+            .soundType(sound)
+            .requiresTool(true)
+            .tagBlock('minecraft:mineable/axe')
+            .tagBlock("minecraft:mineable/pickaxe")
+            .tagBlock("cucumber:mineable/paxel")
+            .tagBlock('minecraft:needs_iron_tool')
+            .textureAll(texture);
+    });
 
-    event.create('gfs:peek_casing')
-        .displayName('PEEK Casing')
-        .hardness(5)
-        .resistance(1)
-        .soundType('metal')
-        .requiresTool(true)
-        .tagBlock("mineable/pickaxe")
-        .tagBlock('minecraft:needs_iron_tool')
-        .textureAll('gfs:block/casings/machine_casing_peek');
-
-    event.create('gfs:gren_casing')
-        .displayName('Gren Casing')
-        .hardness(10)
-        .resistance(1)
-        .lightLevel(10)
-        .soundType('metal')
-        .requiresTool(true)
-        .tagBlock('minecraft:mineable/axe')
-        .tagBlock("mineable/pickaxe")
-        .tagBlock('minecraft:needs_iron_tool')
-        .textureAll('gtceu:block/casings/gren_casing');
 
     event.create('gfs:treated_wood_log')
         .woodSoundType()

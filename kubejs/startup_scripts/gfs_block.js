@@ -28,6 +28,35 @@ StartupEvents.registry("block", event => {
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("cucumber:mineable/shovel");
 
+    const antiblockColors = [
+        ["black", "Black"],
+        ["blue", "Blue"],
+        ["brown", "Brown"],
+        ["cyan", "Cyan"],
+        ["green", "Green"],
+        ["gray", "Gray"],
+        ["lime", "Lime"],
+        ["light_blue", "Light Blue"],
+        ["light_gray", "Light Gray"],
+        ["magenta", "Magenta"],
+        ["orange", "Orange"],
+        ["purple", "Purple"],
+        ["red", "Red"],
+        ["white", "White"],
+        ["yellow", "Yellow"],
+        ["pink", "Pink"]
+    ];
+
+    antiblockColors.forEach(([color, colorDisplayName]) => {
+        event.create(`gfs:antiblock_${color}`)
+            .displayName(`${colorDisplayName} Antiblock`)
+            .requiresTool()
+            .soundType(SoundType.AMETHYST)
+            .tagBlock('minecraft:mineable/pickaxe')
+            .property(BlockProperties.LIT)
+            .lightLevel(1.0)
+            .textureAll(`gfs:block/antiblocks/${colorDisplayName}`);
+    });
 
     event
         .create("gfs:coke_oven_side")

@@ -75,15 +75,27 @@ StartupEvents.registry("item", (event) => {
     // Post-Tank Wafer items
     event.create('universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule');
     event.create('universe_wafer').texture('gfs:item/wafer_and_chip/universal_wafer').displayName('Universe-doped Wafer');
+
     event.create('unactivated_multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/unactivated_multidimensional_cpu_wafer').displayName('Unactivated Multidimensional CPU Wafer');
     event.create('multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/multidimensional_cpu_wafer').displayName('Multidimensional CPU Wafer');
     event.create('multidimensional_cpu_chip').texture('gfs:item/wafer_and_chip/multidimensional_cpu_chip').displayName('Multidimensional CPU Chip');
+
     event.create('hyperdynamic_ram_wafer').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_wafer').displayName('Hyperdynamic RAM Wafer');
     event.create('hyperdynamic_ram_chip_base').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip Base');
     event.create('hyperdynamic_ram_chip').texture('gfs:item/wafer_and_chip/activated_hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip');
+
     event.create('quantum_soc_wafer').texture('gfs:item/wafer_and_chip/quantum_soc_wafer').displayName('Quantum SoC Wafer');
     event.create('quantum_soc_chip_base').texture('gfs:item/wafer_and_chip/quantum_soc_chip_base').displayName('Quantum SoC Chip Base');
     event.create('quantum_soc_chip').texture('gfs:item/wafer_and_chip/quantum_soc_chip').displayName('Quantum SoC Chip');
+
+    event.create('logic_wafer').texture('gfs:item/wafer_and_chip/logic_wafer').displayName('Logic Wafer');
+    event.create('logic_chip').texture('gfs:item/wafer_and_chip/logic_chip').displayName('Logic Chip');
+    event.create('engineering_wafer').texture('gfs:item/wafer_and_chip/engineering_wafer').displayName('Engineering Wafer');
+    event.create('engineering_chip').texture('gfs:item/wafer_and_chip/engineering_chip').displayName('Engineering Chip');
+    event.create('calculation_wafer').texture('gfs:item/wafer_and_chip/calculation_wafer').displayName('Calculation Wafer');
+    event.create('calculation_chip').texture('gfs:item/wafer_and_chip/calculation_chip').displayName('Calculation Chip');
+    event.create('certus_quartz_boule').texture('gfs:item/wafer_and_chip/certus_quartz_boule').displayName('Certus Quartz Boule');
+    event.create('certus_wafer').texture('gfs:item/wafer_and_chip/certus_wafer').displayName('Certus Wafer');
 
         ["uhv","uev","uiv","uxv","opv"].forEach((x)=>{
             event.create(`${x}_emmitter`)

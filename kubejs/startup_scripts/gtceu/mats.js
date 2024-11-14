@@ -142,6 +142,69 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.components('2x lithium')
 		.addOreByproducts('lithium', 'cobalt', 'platinum')
 
+	event.create("fluorite") // Hardmode only
+		.dust().ore()
+		.color(0xFFFC9E).iconSet('rough')
+		.components('calcium', '2x fluorine')
+		.addOreByproducts('sphalerite', 'bastnasite', 'topaz')
+
+	event.create("darmstadtite") // Hardmode only
+		.dust().ore(2, 1)
+		.iconSet('dull')
+		.components('2x darmstadtium', '3x sulfur')
+		.addOreByproducts('rare_earth', 'rhodium_sulfate', 'darmstadtium')
+
+	event.create("dulysite") // Hardmode only
+		.dust().ore(2, 1)
+		.iconSet('dull')
+		.components('duranium', '3x chlorine')
+		.addOreByproducts('sphalerite', 'duranium', 'europium')
+
+	event.create("snowchestite") // Hardmode only
+		.dust().ore()
+		.color(0x274c9f).iconSet('shiny')
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.components('3x naquadah_oxide', 'pyromorphite')
+		.addOreByproducts('chalcopyrite', 'vanadium_magnetite', 'naquadah_hydroxide')
+
+	event.create('dusty_helium')
+		.gas()
+		.color(0xa040af)
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.components('helium_3', 'rare_earth')
+
+	event.create('dioxygen_difluoride')
+		.fluid() // 80
+		.colorAverage()
+		.components('2x oxygen', '2x fluorine')
+
+	event.create('stone_residue')
+		.dust()
+		.color(0x4d4d4d).iconSet('rough')
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+
+	event.create('helium_hydride')
+		.gas()
+		.color(0xe6d62e)
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.components('helium_3', 'hydrogen')
+
+	event.create('hydrogen_peroxide')
+		.liquid()
+		.color(0xd2ffff)
+		.components('2x hydrogen', '2x oxygen')
+
+	event.create('naquadah_oxide')
+		.dust()
+		.color(0x17ddd3).iconSet('rough')
+		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.components('2x naquadah', '3x oxygen')
+
+	event.create('naquadah_hydroxide')
+		.dust()
+		.color(0x1941a6).iconSet('dull')
+		.components('naquadah', '3x hydrogen', '3x oxygen')
+
 	event.create("crystal_matrix")
 		.ingot().fluid()
 		.element(GTElements.get("crystal_matrix"))

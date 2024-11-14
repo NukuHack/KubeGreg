@@ -1,3 +1,7 @@
+
+priority: 10
+
+
 GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	// might replace this with the stuff from "netherite line"

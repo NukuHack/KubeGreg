@@ -1,3 +1,7 @@
+
+priority: -100
+
+
 GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	// fluid from existing stuff

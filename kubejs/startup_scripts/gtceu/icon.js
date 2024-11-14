@@ -1,4 +1,5 @@
 
+priority: 80
 
 
 // Omnium, Infinity, and Monium have animations and thus custom material icon sets.

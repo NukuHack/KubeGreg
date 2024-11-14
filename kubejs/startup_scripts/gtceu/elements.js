@@ -1,4 +1,6 @@
 
+priority: 60
+
 GTCEuStartupEvents.registry('gtceu:element', event => {
 /*
     Elements are the base of gt materials. Registering an element WILL NOT add any items.

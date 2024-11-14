@@ -27,4 +27,10 @@ GTCEuStartupEvents.materialModification(event => {
 	//GTMaterials.Glowstone.setComponents("1x tricalcium_phosphate", "1x gold");
 	//GTMaterials.Glowstone.setFormula('AuCa3(PO4)2', true);
 
+
+	/*
+        let property = material.getProperty(PropertyKey.FLUID);
+        property.getStorage().store(FluidStorageKeys.LIQUID, () -> Fluid.getType("theurgy:sal_ammoniac"), null);
+    */
+
 })

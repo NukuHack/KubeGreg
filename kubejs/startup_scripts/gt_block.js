@@ -2,30 +2,8 @@
 priority: 70
 StartupEvents.registry("block", event => {
 
-    event.create('test_casing')
-        .hardness(10)
-        .resistance(1)
-        .lightLevel(0)
-        //.model('gtceu:block/casings/test_casing')
-        .textureAll('gtceu:block/casings/test_casing');
-
-    event.create('gren_casing')
-        .displayName('Gren Casing')
-        .hardness(10)
-        .resistance(1)
-        .lightLevel(0)
-        //.model('gtceu:block/casings/gren_casing')
-        .textureAll('gtceu:block/casings/gren_casing');
-
-    event.create('treated_wood_log')
-        .woodSoundType()
-        .hardness(2)
-        .property(BlockProperties.AXIS)
-        .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
-        //.model('gtceu:block/misc/treated_log')
-        .tagBlock('minecraft:mineable/axe')
-        .tagBoth('minecraft:logs')
-        .blockstateJson = {
+    /*
+    .blockstateJson = {
         "variants": {
             "axis=x": {
                 "model": "gtceu:block/misc/treated_log",
@@ -40,7 +18,32 @@ StartupEvents.registry("block", event => {
                 "x": 90
             }
         }
-    };
+    }
+    .model('gtceu:block/casings/test_casing')
+    .property(BlockProperties.AXIS)
+    .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
+    .model('gtceu:block/misc/treated_log')
+    */
+    
+    event.create('test_casing')
+        .hardness(10)
+        .resistance(1)
+        .lightLevel(0)
+        .textureAll('gtceu:block/casings/test_casing');
+
+    event.create('gren_casing')
+        .displayName('Gren Casing')
+        .hardness(10)
+        .resistance(1)
+        .lightLevel(0)
+        .textureAll('gtceu:block/casings/gren_casing');
+
+    event.create('treated_wood_log')
+        .woodSoundType()
+        .hardness(2)
+        .tagBlock('minecraft:mineable/axe')
+        .tagBoth('minecraft:logs')
+        .textureAll('gtceu:block/misc/treated_wood_top');
 
     event.create('treated_wood')
         .woodSoundType()
@@ -52,28 +55,10 @@ StartupEvents.registry("block", event => {
     event.create('stripped_treated_wood_log')
         .woodSoundType()
         .hardness(2)
-        .property(BlockProperties.AXIS)
-        .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
-        //.model('gtceu:block/misc/stripped_treated_log')
         .tagBlock('minecraft:mineable/axe')
         .tagBoth('minecraft:logs')
         .tagBoth('forge:stripped_logs')
-        .blockstateJson = {
-        "variants": {
-            "axis=x": {
-                "model": "gtceu:block/misc/stripped_treated_log",
-                "x": 90,
-                "y": 90
-            },
-            "axis=y": {
-                "model": "gtceu:block/misc/stripped_treated_log"
-            },
-            "axis=z": {
-                "model": "gtceu:block/misc/stripped_treated_log",
-                "x": 90
-            }
-        }
-    };
+        .textureAll('gtceu:block/misc/stripped_treated_wood_top');
 
     event.create('stripped_treated_wood')
         .woodSoundType()

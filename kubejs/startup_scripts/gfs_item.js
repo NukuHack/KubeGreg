@@ -65,12 +65,44 @@ StartupEvents.registry("item", (event) => {
     event.create('ultimate_wire_cutter').texture('gfs:item/ultimate/wire_cutter').rarity("epic").maxStackSize(1)
 
     // Infinity Tools
-    event.create('infinity_power_unit').texture('gfs:item/infinity/infinity_power_unit').rarity("epic").maxStackSize(1)
-    event.create('infinity_file').texture('gfs:item/infinity/infinity_file').rarity("epic").maxStackSize(1)
-    event.create('infinity_hammer').texture('gfs:item/infinity/infinity_hammer').rarity("epic").maxStackSize(1)
-    event.create('infinity_screwdriver').texture('gfs:item/infinity/infinity_screwdriver').rarity("epic").maxStackSize(1)
-    event.create('infinity_wrench').texture('gfs:item/infinity/infinity_wrench').rarity("epic").maxStackSize(1)
-    event.create('infinity_wire_cutter').texture('gfs:item/infinity/infinity_wire_cutter').rarity("epic").maxStackSize(1)
+    event.create('infinity_power_unit')
+            .textureJson({
+                layer0: 'gfs:item/infinity/infinity_power_unit_frame',
+                layer1: 'gfs:item/infinity/infinity_power_unit_core'
+            })
+			.rarity("epic").maxStackSize(1);
+			
+    event.create('infinity_file')
+            .textureJson({
+                layer0: 'gfs:item/infinity/infinity_file_handle',
+                layer1: 'gfs:item/infinity/infinity_file_head'
+            })
+			.rarity("epic").maxStackSize(1);
+			
+    event.create('infinity_hammer')
+            .textureJson({
+                layer0: 'gfs:item/infinity/infinity_hammer_handle',
+                layer1: 'gfs:item/infinity/infinity_hammer_head'
+            })
+			.rarity("epic").maxStackSize(1);
+			
+    event.create('infinity_screwdriver')
+            .textureJson({
+                layer0: 'gfs:item/infinity/infinity_screwdriver_handle',
+                layer1: 'gfs:item/infinity/infinity_screwdriver_head'
+            })
+			.rarity("epic").maxStackSize(1);
+			
+    event.create('infinity_wrench')
+		.texture('gfs:item/infinity/infinity_wrench')
+		.rarity("epic").maxStackSize(1);
+		
+    event.create('infinity_wire_cutter')
+            .textureJson({
+                layer0: 'gfs:item/infinity/infinity_wire_cutter_handle',
+                layer1: 'gfs:item/infinity/infinity_wire_cutter_head'
+            })
+			.rarity("epic").maxStackSize(1);
 
     // Post-Tank Wafer items
     event.create('universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule');

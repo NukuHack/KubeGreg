@@ -14,12 +14,12 @@ StartupEvents.registry("block", event => {
             .textureAll("gfs:block/casings/casing-wood");
     */
 
-    event
-        .create("gfs:dust")
-        .soundType("sand")
-        .hardness(0.4)
+    event.create('gfs:dust', 'falling')
+        .soundType('sand')
+        .resistance(0.4).hardness(0.4)
         .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/shovel");
+        .tagBlock("cucumber:mineable/shovel").displayName("Dust Block")
+        .property(BlockProperties.FALLING);
 
     event
         .create("gfs:magical_farmland")

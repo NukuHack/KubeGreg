@@ -32,6 +32,17 @@ StartupEvents.registry("block", event => {
         .textureAll('gtceu:block/casings/test_casing');
 
     event.create('gren_casing')
+
+    event.create('gfs:peek_casing')
+        .displayName('PEEK Casing')
+        .hardness(5)
+        .resistance(1)
+        .soundType('metal')
+        .requiresTool(true)
+        .tagBlock("mineable/pickaxe")
+        .tagBlock('minecraft:needs_iron_tool')
+        .textureAll('gfs:block/casings/machine_casing_peek');
+
         .displayName('Gren Casing')
         .hardness(10)
         .resistance(1)

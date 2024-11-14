@@ -19,7 +19,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('HFFFH', 'FPPPF', ' FFF ', ' MMM ', ' FFF ', 'FEEEF')
             .aisle('FHHHF', 'TFCFT', 'T   T', 'T   T', 'T   T', 'FFFFF')
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('F', Predicates.blocks('kubejs:peek_casing')
+            .where('F', Predicates.blocks('gfs:peek_casing')
                 .or(Predicates.autoAbilities(definition.getRecipeTypes()))
                 .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1)))
@@ -30,8 +30,10 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('T', Predicates.blocks('gtceu:tungsten_frame'))
             .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("kubejs:block/casings/machine_casing_peek",
-            "gtceu:block/multiblock/large_chemical_reactor", false);
+        .workableCasingRenderer(
+            "gfs:block/casings/machine_casing_peek",
+            "gtceu:block/multiblock/large_chemical_reactor", false
+        );
 });
 
 
@@ -55,7 +57,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('FKKKF', ' KCK ', '  K  ', '     ', '  K  ', ' KKK ', 'FEEEF')
             .aisle('TFFFT', 'T   T', 'T   T', 'T   T', 'T   T', 'T   T', 'TFFFT')
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('K', Predicates.blocks('kubejs:peek_casing')
+            .where('K', Predicates.blocks('gfs:peek_casing')
                 .or(Predicates.autoAbilities(definition.getRecipeTypes()))
                 .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
                 .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1)))
@@ -65,6 +67,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('T', Predicates.blocks('gtceu:trinaquadalloy_frame'))
             .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("kubejs:block/casings/machine_casing_peek",
-            "gtceu:block/multiblock/large_chemical_reactor", false);
+        .workableCasingRenderer(
+            "gfs:block/casings/machine_casing_peek",
+            "gtceu:block/multiblock/large_chemical_reactor", false
+        );
 });

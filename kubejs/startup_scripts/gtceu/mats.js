@@ -43,6 +43,9 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.flags(no_decomp)
 		.color(0x704725);
 
+	event.create("potato_slurry")
+		.fluid()
+		.color(0x704725);
 
 
 	event.create("sodium_hydroxide_residue")

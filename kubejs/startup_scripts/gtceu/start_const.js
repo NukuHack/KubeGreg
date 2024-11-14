@@ -180,3 +180,50 @@ function VHA(voltage) {
     }
     return V;
 }
+
+
+function blastProperty(material, temperature, gasTier, voltage, duration) {
+    let mat = GTMaterials.get(material);
+    mat.setProperty(PropertyKey.BLAST, new $BlastProperty(temperature, gasTier, voltage, duration));
+}
+
+
+
+function periodicTableElement(material, type) {
+
+    let mat = GTMaterials.get(material);
+    switch(type) {
+        case 'ingot': mat.setProperty(PropertyKey.INGOT, new $IngotProperty()); break;
+        case 'dust': mat.setProperty(PropertyKey.DUST, new $DustProperty()); break;
+        case 'fluid': case 'gas': case 'plasma': case 'molten': {
+            let prop = new $FluidProperty();
+            switch(type) {
+                case 'fluid': prop.getStorage().enqueueRegistration(GTFluidStorageKeys.LIQUID, new GTFluidBuilder()); break;
+                case 'gas': prop.getStorage().enqueueRegistration(GTFluidStorageKeys.GAS, new GTFluidBuilder()); break;
+                case 'plasma': prop.getStorage().enqueueRegistration(GTFluidStorageKeys.PLASMA, new GTFluidBuilder()); break;
+                case 'molten': prop.getStorage().enqueueRegistration(GTFluidStorageKeys.MOLTEN, new GTFluidBuilder()); break;
+            }
+            mat.setProperty(PropertyKey.FLUID, prop);
+            break;
+        }
+    }
+
+    // let mat = GTMaterials.get(material);
+    // switch(type) {
+    //     case 'ingot': mat.setProperty(PropertyKey.INGOT, new $IngotProperty()); break;
+    //     case 'dust': mat.setProperty(PropertyKey.DUST, new $DustProperty()); break;
+    //     case 'fluid': case 'gas': case 'plasma': case 'molten': {
+    //         let prop = new $FluidProperty();
+    //         let key;
+    //         switch(type) {
+    //             case 'fluid': key = GTFluidStorageKeys.LIQUID;
+    //             case 'gas': key = GTFluidStorageKeys.GAS;
+    //             case 'plasma': key = GTFluidStorageKeys.PLASMA;
+    //             case 'molten': key = GTFluidStorageKeys.MOLTEN;
+    //         }
+    //         prop.getStorage().enqueueRegistration(key, new GTFluidBuilder());
+    //         mat.setProperty(PropertyKey.FLUID, prop);
+    //     }
+    //         break;
+    // }
+}

@@ -1,11 +1,10 @@
 GTCEuStartupEvents.registry("gtceu:material", event => {
 
+	// might replace this with the stuff from "netherite line"
 	event.create("strong_mix")
 		.components("2x platinum","2x palladium","1x palladium_raw","1x diamond","4x black_steel","4x blue_steel")
 		.color(0x291403)
 		.blastTemp(3000,'mid',1800,20*40)
-		.iconSet(GTMaterialIconSet.METALLIC)
-		.flags(GTMaterialFlags.GENERATE_PLATE,GTMaterialFlags.DISABLE_DECOMPOSITION)
 		.iconSet(METALLIC)
 		.flags(plates,no_decomp)
 		.ingot();
@@ -75,7 +74,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
             .burnTime(burn time in ticks) -> this will turn the material into a furnace fuel.
             .fluidBurnTime(burn time in ticks) -> how long the fluid of the material will burn.
             .color(color code) -> gives the material a color. The colo must be providen in the following form: 0xNNNNNN, where N are digits.
-                To chose a color for your material, you can checkout https://www.w3schools.com/colors/colors_picker.asp
+                To chose a color for your material, you can check out https://www.w3schools.com/colors/colors_picker.asp
                 After you select a color with the above tool, copy the 6 digits that follow the # under the color preview.
             .secondaryColor(color code) -> gives the material a secondary color. If this is not being called, the secondary value will default to white(0xffffff).
             .iconSet(set) -> gives the material an icon set. View line 9 to see the posible icon sets.
@@ -208,10 +207,10 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.components('1x chlorine', '3x fluorine')
 		.color(0xb3ff99);
 
-	// event.create('dichloroethane')
-	//     .fluid()
-	//     .components('2x carbon', '4x hydrogen', '2x chlorine')
-	//     .color(0x99ccff);
+	event.create('dichloroethane')
+	     .fluid()
+	     .components('2x carbon', '4x hydrogen', '2x chlorine')
+	     .color(0x99ccff);
 
 	event.create('tetrachloroethylene')
 		.fluid()
@@ -245,7 +244,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	event.create('weapon_grade_naquadah')
 		.ingot()
-		.components('7x naquadria', '2x pure_netherite', '5x neutronium', '16x fluorine')
+		.components('7x naquadria', '2x naquadic_netherite', '5x neutronium', '16x fluorine')
 		.color(0xccff33)
 		.iconSet(DULL)
 		.blastTemp(10500, 'low', VA('uv'), 6000)
@@ -254,7 +253,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	event.create('screret_runic_laser_source_base')
 		.gem(0)
-		.components('2x naquadic_netherite', '10x tritanium', '2x trinium')
+		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
 		.color(0x00ff00)
 		.iconSet(OPAL);
 

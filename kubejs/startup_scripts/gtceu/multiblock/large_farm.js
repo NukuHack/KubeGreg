@@ -15,7 +15,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 			GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
 		.pattern(definition => FactoryBlockPattern.start()
 			.aisle('WEEEW', 'FFFFF', 'FFFFF', 'FFFFF')
-			.aisle('PDDDP', 'F   F', 'F   F', 'FGGGF').setRepeatable(12)
+			.aisle('PDDDP', 'F   F', 'F   F', 'FGGGF').setRepeatable(1,12)
 			.aisle('WEEEW', 'FFCFF', 'FFFFF', 'FFFFF')
 			.where('C', Predicates.controller(Predicates.blocks(definition.get())))
 			.where('P', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())

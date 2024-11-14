@@ -25,13 +25,16 @@ StartupEvents.registry("block", event => {
     .model('gtceu:block/misc/treated_log')
     */
     
-    event.create('test_casing')
+    event.create('gfs:test_casing')
         .hardness(10)
         .resistance(1)
-        .lightLevel(0)
+        .lightLevel(1)
+        .soundType('metal')
+        .requiresTool(true)
+        .tagBlock("mineable/pickaxe")
+        .tagBlock('minecraft:needs_iron_tool')
         .textureAll('gtceu:block/casings/test_casing');
 
-    event.create('gren_casing')
 
     event.create('gfs:peek_casing')
         .displayName('PEEK Casing')
@@ -43,27 +46,33 @@ StartupEvents.registry("block", event => {
         .tagBlock('minecraft:needs_iron_tool')
         .textureAll('gfs:block/casings/machine_casing_peek');
 
+    event.create('gfs:gren_casing')
         .displayName('Gren Casing')
         .hardness(10)
         .resistance(1)
-        .lightLevel(0)
+        .lightLevel(10)
+        .soundType('metal')
+        .requiresTool(true)
+        .tagBlock('minecraft:mineable/axe')
+        .tagBlock("mineable/pickaxe")
+        .tagBlock('minecraft:needs_iron_tool')
         .textureAll('gtceu:block/casings/gren_casing');
 
-    event.create('treated_wood_log')
+    event.create('gfs:treated_wood_log')
         .woodSoundType()
         .hardness(2)
         .tagBlock('minecraft:mineable/axe')
         .tagBoth('minecraft:logs')
         .textureAll('gtceu:block/misc/treated_wood_top');
 
-    event.create('treated_wood')
+    event.create('gfs:treated_wood')
         .woodSoundType()
         .hardness(2)
         .tagBlock('minecraft:mineable/axe')
         .tagBoth('minecraft:logs')
         .textureAll('gtceu:block/misc/treated_wood');
 
-    event.create('stripped_treated_wood_log')
+    event.create('gfs:stripped_treated_wood_log')
         .woodSoundType()
         .hardness(2)
         .tagBlock('minecraft:mineable/axe')
@@ -71,7 +80,7 @@ StartupEvents.registry("block", event => {
         .tagBoth('forge:stripped_logs')
         .textureAll('gtceu:block/misc/stripped_treated_wood_top');
 
-    event.create('stripped_treated_wood')
+    event.create('gfs:stripped_treated_wood')
         .woodSoundType()
         .hardness(2)
         .tagBlock('minecraft:mineable/axe')
@@ -91,7 +100,7 @@ const coils = [
 ];
 
 coils.forEach(([name, temperature, level, energyDiscount, tier, material, texture]) => {
-    event.create(name, 'gtceu:coil')
+    event.create(`gfs:${name}`, 'gtceu:coil')
         .temperature(temperature)
         .level(level)
         .energyDiscount(energyDiscount)

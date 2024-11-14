@@ -150,7 +150,7 @@ StartupEvents.registry("block", event => {
                 .requiresTool(true)
                 .tagBlock("mineable/pickaxe")
                 .tagBlock("cucumber:mineable/paxel")
-                .textureAll(`gfs:block/casings/${texture}`);
+                .textureAll(`gfs:block/coils/plain/${texture}`);
         });
 
 

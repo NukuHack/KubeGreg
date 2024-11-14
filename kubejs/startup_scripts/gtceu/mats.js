@@ -6,6 +6,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.blastTemp(3000,'mid',1800,20*40)
 		.iconSet(GTMaterialIconSet.METALLIC)
 		.flags(GTMaterialFlags.GENERATE_PLATE,GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.iconSet(METALLIC)
+		.flags(plates,no_decomp)
 		.ingot();
 
 
@@ -27,19 +29,19 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create("steam_crack_methane")
 		.components("methane","steam")
 		.fluid()
-		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.flags(no_decomp)
 		.color(0x986839);
 
 	event.create("hydro_crack_methane")
 		.components("methane","6x hydrogen")
 		.fluid()
-		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.flags(no_decomp)
 		.color(0x937670);
 
 	event.create("double_crack_methane")
 		.components("methane","6x hydrogen","2x carbon_monoxide")
 		.fluid()
-		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.flags(no_decomp)
 		.color(0x704725);
 
 
@@ -47,7 +49,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create("sodium_hydroxide_residue")
 		.components("4x sodium","8x oxygen","8x hydrogen","1x gallium")
 		.fluid()
-		.flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
+		.flags(no_decomp)
 		.color(0x969688);
 
 
@@ -121,14 +123,14 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get("cryolobus"))
 		.color(0x042228).iconSet('metallic')
 		.blastTemp(6800, 'higher')
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_DENSE, GTMaterialFlags.GENERATE_FRAME)
+		.flags(plates,rod,gear,dense_plate,frame)
 		.cableProperties(524288, 4, 0, true);
 
 	event.create("cryococcus")
 		.ingot().fluid()
 		.element(GTElements.get("cryococcus"))
 		.color(0x008F92).iconSet('metallic')
-		.flags(GTMaterialFlags.NO_SMELTING, GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_RING, GTMaterialFlags.GENERATE_DENSE)
+		.flags(no_smelt, plates, rod,gear, frame, ring, dense_plate)
 
 	event.create("dilithium")
 		.dust()
@@ -233,7 +235,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.iconSet(DULL)
 		.cableProperties(8388608, 16, 0, true)
 		.fluidPipeProperties(120000, 96000, true, true, true, true)
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_DENSE, GTMaterialFlags.GENERATE_FINE_WIRE, GTMaterialFlags.GENERATE_ROTOR, GTMaterialFlags.GENERATE_SPRING)
+		.flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring)
 
 	event.create('naquadic_netherite')
 		.gem(0)

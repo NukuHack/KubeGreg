@@ -21,7 +21,8 @@ GTCEuStartupEvents.registry('gtceu:element', event => {
 
     // Netherite Line
     event.create('debris', -1, -1, -1, null, '?', false);
-    event.create('pure_netherite', 124, 345, -1, null, '*Nr*', false);
+    event.create('pure_netherite', 124, 345, -1, null, 'Nr', false);
+    event.create('activated_netherite', 124, 345, -1, null, '*Nr*', false);
 	
     event.create('omnium', 130, 234, -1, null, 'Nm', false)
     event.create('infinity', 168, 316, -1, null, '∞', false);

@@ -37,8 +37,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.blocks('minecraft:oak_log'))
             .where('L', Predicates.blocks('minecraft:oak_leaves'))
             .where('D', Predicates.blocks('gfs:magical_farmland'))
-            .where('F', Predicates.blocks('gtceu:steel_frame'))
-            .where('G', Predicates.blocks('minecraft:glass'))
+            .where('F', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID))
+            .where('G', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS))
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(

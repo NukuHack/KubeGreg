@@ -70,7 +70,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         You can change the properties of the material by adding any combination of the following calls:
             .ingot() -> this will make the material have both an ingot and dust form.
             .dust() -> this will make the material have a dust form. Don't use this together with .dust().
-            .gem() -> this will make the material have both a gem form and a dust form. Don't use thos together with .dust() or .ingot()
+            .gem() -> this will make the material have both a gem form and a dust form. Don't use this together with .dust() or .ingot()
             .fluid() -> this will make the material have a fluid form.
             .gas() -> this will make the material have a gas(fluid) form with gas properties.
             .plasma() -> this will make the material have a plasma(fluid) form with plasma properties.
@@ -80,16 +80,15 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
                     2. harvest level, burn time (2x. ingot(2, 2000) will make the material have the harvest level of iron tools and will burn in furnaces as fuel for 2000 ticks or 100 seconds).
             .burnTime(burn time in ticks) -> this will turn the material into a furnace fuel.
             .fluidBurnTime(burn time in ticks) -> how long the fluid of the material will burn.
-            .color(color code) -> gives the material a color. The colo must be providen in the following form: 0xNNNNNN, where N are digits.
-                To chose a color for your material, you can check out https://www.w3schools.com/colors/colors_picker.asp
+            .color(color code) -> gives the material a color. The color must be provided in the following form: 0xNNNNNN, where N are digits.
+                To choose a color for your material, you can check out https://www.w3schools.com/colors/colors_picker.asp
                 After you select a color with the above tool, copy the 6 digits that follow the # under the color preview.
             .secondaryColor(color code) -> gives the material a secondary color. If this is not being called, the secondary value will default to white(0xffffff).
-            .iconSet(set) -> gives the material an icon set. View line 9 to see the posible icon sets.
+            .iconSet(set) -> gives the material an icon set. View constants to see the posible icon sets.
             .components(component1, component2, ...) -> describes the composition. The components are a list of elements of the following form: 'Kx material_name', where K is a positive integer.
                 Depending on the composition, gt will autogenerate an electrolyzer or centrifuge recipe to decompose the material. You can block that by adding the disable decomposition flag.
             .flags(flag1, flag2, ...) -> flags can be used to select certain properties of the material, like generating gears, or disabling decomposition.
             .element(element) -> similar to .components(), but is used when the material represents an element.
-                See line X for a list of posible flags.
             .rotorStats(speed, damage, durability) -> this will create a turbine rotor from this material.
             blastTemp() -> this is meant to be paired together with .ingot(). Will generate a EBF recipe(and an ABS recipe) based on the parameters you give it:
                 1. temperature -> dictates what coil tier it will require(check the coil tooltips for their max temperature).
@@ -97,7 +96,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
                     If temperature is above 1750, a hot ingot will be generated, this requiring a Vacuum Freezer.
                 2. (optional) gas tier -> can be null for none, 'low' for nitrogen, 'mid' for helium, 'high' for argon, 'higher' for neon or 'highest' for krypton.
                 3. (optional) EU per tick -> the recipe voltage
-                    (USEFUL NOTE: gt has some inbuilt functions to ease chosing the voltages, you can use V('tier') for full amp, VA('tier') for full amp, but adjusted for cable loss, VH('tier) for half an amp or VHA('tier) for half an amp adjusted for cable loss).
+                    (USEFUL NOTE: gt has some inbuilt functions to ease choosing the voltages, you can use V('tier') for full amp, VA('tier') for full amp, but adjusted for cable loss, VH('tier) for half an amp or VHA('tier) for half an amp adjusted for cable loss).
                 4. (optional) duration in ticks -> how long the recipe should take
             .ore() -> this will create an ore from the material.
                 Optionally you can add any of these sets of parameters:
@@ -113,7 +112,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
             .maceratesInto()
             .ingotSmeltInto()
             .addOreByproducts()
-            .cableProperties() -> generates wires and cables(if material is not a superconducter). The following parameter sets can be given:
+            .cableProperties() -> The following parameter sets can be given:
                 1. Voltage, amperage, loss per block
                 2. Voltage, amperage, loss per block, is superconductor -> for a super conductor, set loss as 0 and is super conductor as true
                 3. Voltage, amperage, loss per block, is super conductor and critical temperature
@@ -221,13 +220,13 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.color(0x66ffff)
 		.iconSet('shiny')
 		.fluidPipeProperties(100000, 64000, true, true, true, true)
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_FOIL, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_ROTOR, GTMaterialFlags.GENERATE_DENSE);
+		.flags(plates,foil,rod,frame,rotor,dense_plate);
 
 	event.create("omnium")
 		.ingot()
 		.element(GTElements.get("omnium"))
 		.color(0xffffff).iconSet('omnium')
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_LONG_ROD, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_SMALL_GEAR, GTMaterialFlags.GENERATE_RING, GTMaterialFlags.GENERATE_ROUND, GTMaterialFlags.GENERATE_BOLT_SCREW, GTMaterialFlags.GENERATE_FRAME)
+		.flags(plates,rod,long_rod,gear,small_gear,ring,round,bolt_and_screw,frame)
 		.cableProperties(2147483647, 64, 0, true)
 		.liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
 
@@ -236,14 +235,14 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get("infinity"))
 		.color(0xffffff)
 		.iconSet('infinity')
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_LONG_ROD, GTMaterialFlags.GENERATE_RING, GTMaterialFlags.GENERATE_ROUND, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_SMALL_GEAR, GTMaterialFlags.GENERATE_BOLT_SCREW, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_DENSE)
+		.flags(plates,rod,long_rod,ring,round, gear,small_gear,bolt_and_screw,frame,dense_plate)
 
 	event.create('monium')
 		.ingot()
 		.element(GTElements.get("monium"))
 		.color(0xffffff)
 		.iconSet('monium')
-		.flags(GTMaterialFlags.GENERATE_PLATE, GTMaterialFlags.GENERATE_ROD, GTMaterialFlags.GENERATE_FRAME, GTMaterialFlags.GENERATE_GEAR, GTMaterialFlags.GENERATE_SPRING)
+		.flags(plates,rod,frame,gear,spring)
 		.cableProperties(2147483647, 134217727, 0, true)
 
 	event.create('omnic_acid')
@@ -273,7 +272,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	event.create('netherite')
 		.dust()
-		.components('4x debris', '4x gold')
+		.components('8x debris','4x gold',"strong_mix")
 		.color(0x1a0d00)
 		.iconSet(DULL)
 		.flags(no_decomp);
@@ -309,7 +308,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	event.create('naquadic_netherite')
 		.gem(0)
-		.components('3x naquadah', '5x pure_netherite', '2x caesium', '5x cerium', '12x fluorine', '32x oxygen')
+		.components('3x naquadah', '5x activated_netherite', '2x caesium', '5x cerium', '12x fluorine', '32x oxygen')
 		.color(0xffd966)
 		.iconSet(DIAMOND);
 
@@ -325,6 +324,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create('screret_runic_laser_source_base')
 		.gem(0)
 		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
+		.flags(no_decomp)
 		.color(0x00ff00)
 		.iconSet(OPAL);
 
@@ -359,11 +359,13 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create('4_fluorobenzoyl_chloride')
 		.fluid()
 		.components('7x carbon','4x hydrogen','1x chlorine','1x fluorine','1x oxygen')
+		.flags(no_decomp)
 		.color(0xfffff0);
 
 	event.create('benzoyl_chloride')
 		.fluid()
 		.components('7x carbon','5x hydrogen','1x chlorine','1x oxygen')
+		.flags(no_decomp)
 		.color(0xfffadf);
 
 	event.create('benzotrichloride')

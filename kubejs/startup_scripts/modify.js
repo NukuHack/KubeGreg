@@ -1,19 +1,19 @@
 ItemEvents.modification(event => {
     event.modify('gtceu:wrought_iron_ingot', item => {
-      item.maxStackSize = 64
-      item.fireResistant = true
-      item.rarity = "UNCOMMON"
+        item.maxStackSize = 64
+        item.fireResistant = true
+        item.rarity = "UNCOMMON"
     })
     event.modify('minecraft:iron_ingot', item => {
         item.maxStackSize = 64
         item.fireResistant = true
         item.rarity = "UNCOMMON"
-      })
+    })
     event.modify('gtceu:charcoal_dust', item => {
         item.maxStackSize = 64
         item.fireResistant = true
         item.rarity = "UNCOMMON"
-      })
+    })
     /*
     // Make Infinity and Ultimate tools work as unbreakable crafting tools
     const toolTypes = [
@@ -28,4 +28,4 @@ ItemEvents.modification(event => {
         event.modify('gfs:ultimate_' + type, item => { item.craftingRemainder = Item.of('gfs:ultimate_' + type).item })
     })
 	*/
-  })
+})

@@ -66,43 +66,43 @@ StartupEvents.registry("item", (event) => {
 
     // Infinity Tools
     event.create('gfs:infinity_power_unit')
-            .textureJson({
-                layer0: 'gfs:item/infinity/infinity_power_unit_frame',
-                layer1: 'gfs:item/infinity/infinity_power_unit_core'
-            })
-			.rarity("epic").maxStackSize(1);
-			
+        .textureJson({
+            layer0: 'gfs:item/infinity/infinity_power_unit_frame',
+            layer1: 'gfs:item/infinity/infinity_power_unit_core'
+        })
+        .rarity("epic").maxStackSize(1);
+
     event.create('gfs:infinity_file')
-            .textureJson({
-                layer0: 'gfs:item/infinity/infinity_file_handle',
-                layer1: 'gfs:item/infinity/infinity_file_head'
-            })
-			.rarity("epic").maxStackSize(1);
-			
+        .textureJson({
+            layer0: 'gfs:item/infinity/infinity_file_handle',
+            layer1: 'gfs:item/infinity/infinity_file_head'
+        })
+        .rarity("epic").maxStackSize(1);
+
     event.create('gfs:infinity_hammer')
-            .textureJson({
-                layer0: 'gfs:item/infinity/infinity_hammer_handle',
-                layer1: 'gfs:item/infinity/infinity_hammer_head'
-            })
-			.rarity("epic").maxStackSize(1);
-			
+        .textureJson({
+            layer0: 'gfs:item/infinity/infinity_hammer_handle',
+            layer1: 'gfs:item/infinity/infinity_hammer_head'
+        })
+        .rarity("epic").maxStackSize(1);
+
     event.create('gfs:infinity_screwdriver')
-            .textureJson({
-                layer0: 'gfs:item/infinity/infinity_screwdriver_handle',
-                layer1: 'gfs:item/infinity/infinity_screwdriver_head'
-            })
-			.rarity("epic").maxStackSize(1);
-			
+        .textureJson({
+            layer0: 'gfs:item/infinity/infinity_screwdriver_handle',
+            layer1: 'gfs:item/infinity/infinity_screwdriver_head'
+        })
+        .rarity("epic").maxStackSize(1);
+
     event.create('gfs:infinity_wrench')
-		.texture('gfs:item/infinity/infinity_wrench')
-		.rarity("epic").maxStackSize(1);
-		
+        .texture('gfs:item/infinity/infinity_wrench')
+        .rarity("epic").maxStackSize(1);
+
     event.create('gfs:infinity_wire_cutter')
-            .textureJson({
-                layer0: 'gfs:item/infinity/infinity_wire_cutter_handle',
-                layer1: 'gfs:item/infinity/infinity_wire_cutter_head'
-            })
-			.rarity("epic").maxStackSize(1);
+        .textureJson({
+            layer0: 'gfs:item/infinity/infinity_wire_cutter_handle',
+            layer1: 'gfs:item/infinity/infinity_wire_cutter_head'
+        })
+        .rarity("epic").maxStackSize(1);
 
     // Post-Tank Wafer items
     event.create('gfs:universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule');
@@ -130,12 +130,12 @@ StartupEvents.registry("item", (event) => {
     event.create('gfs:certus_wafer').texture('gfs:item/wafer_and_chip/certus_wafer').displayName('Certus Wafer');
 
 
-        // Complex SMDs
-        ["transistor","resistor","capacitor","diode","inductor"].forEach((x)=>{
-			event.create(`gfs:complex_smd_${x}`)
-				.displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
-				.texture(`gfs:item/complex_smd/complex_smd_${x}`);
-		});
+    // Complex SMDs
+    ["transistor","resistor","capacitor","diode","inductor"].forEach((x)=>{
+        event.create(`gfs:complex_smd_${x}`)
+            .displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
+            .texture(`gfs:item/complex_smd/complex_smd_${x}`);
+    });
 
 
     // Post-tank circuits, circuit boards, processing units

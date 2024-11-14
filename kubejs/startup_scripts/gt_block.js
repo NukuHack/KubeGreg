@@ -89,32 +89,32 @@ StartupEvents.registry("block", event => {
         .textureAll('gtceu:block/misc/stripped_treated_wood');
 
 
-const coils = [
-    ['mithril_coil_block', 12600, 16, 16, 8, 'mithril', 'gtceu:block/coils/machine_coil_mithril'],
-    ['chadium_coil_block', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/machine_coil_chadium'],
-    // ['zalloy_coil_block', 13499, 24, 16, 10, 'zalloy', 'gfs:block/coils/machine_coil_zalloy'],
-    ['awakened_draconium_coil_block', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/machine_coil_awakened_draconium'],
-    ['stellar_matter_coil_block', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/machine_coil_stellar_matter'],
-    ['infinity_coil_block', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/machine_coil_infinity'],
-    ['omnic_matrix_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/machine_coil_omnic_matrix']
-];
+    const coils = [
+        ['mithril_coil_block', 12600, 16, 16, 8, 'mithril', 'gtceu:block/coils/machine_coil_mithril'],
+        ['chadium_coil_block', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/machine_coil_chadium'],
+        // ['zalloy_coil_block', 13499, 24, 16, 10, 'zalloy', 'gfs:block/coils/machine_coil_zalloy'],
+        ['awakened_draconium_coil_block', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/machine_coil_awakened_draconium'],
+        ['stellar_matter_coil_block', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/machine_coil_stellar_matter'],
+        ['infinity_coil_block', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/machine_coil_infinity'],
+        ['omnic_matrix_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/machine_coil_omnic_matrix']
+    ];
 
-coils.forEach(([name, temperature, level, energyDiscount, tier, material, texture]) => {
-    event.create(`gfs:${name}`, 'gtceu:coil')
-        .temperature(temperature)
-        .level(level)
-        .energyDiscount(energyDiscount)
-        .tier(tier)
-        .coilMaterial(() => GTMaterials.get(material))
-        .hardness(5)
-        .requiresTool(true)
-        .soundType(SoundType.NETHERITE_BLOCK)
-        .tagBlock('forge:mineable/wrench')
-        .textureAll(texture)
-        .soundType('metal')
-        .tagBlock("mineable/pickaxe");
-});
+    coils.forEach(([name, temperature, level, energyDiscount, tier, material, texture]) => {
+        event.create(`gfs:${name}`, 'gtceu:coil')
+            .temperature(temperature)
+            .level(level)
+            .energyDiscount(energyDiscount)
+            .tier(tier)
+            .coilMaterial(() => GTMaterials.get(material))
+            .hardness(5)
+            .requiresTool(true)
+            .soundType(SoundType.NETHERITE_BLOCK)
+            .tagBlock('forge:mineable/wrench')
+            .textureAll(texture)
+            .soundType('metal')
+            .tagBlock("mineable/pickaxe");
+    });
 
-    
+
 
 });

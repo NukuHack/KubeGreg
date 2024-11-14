@@ -38,8 +38,10 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(2).setMinGlobalLimited(1)
                     .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMaxGlobalLimited(2).setMinGlobalLimited(1))
                     .or(Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get())))
-            .where(' ', Predicates.air())
+            .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("gtceu:block/casings/solid/machine_casing_solid_steel",
-        "gtceu:block/multiblock/implosion_compressor", false);
+        .workableCasingRenderer(
+            "gtceu:block/casings/solid/machine_casing_solid_steel",
+            "gtceu:block/multiblock/implosion_compressor", false
+        );
 });

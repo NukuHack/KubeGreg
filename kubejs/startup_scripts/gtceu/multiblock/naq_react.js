@@ -42,8 +42,10 @@ event.create('naquadah_reactor_i', 'multiblock')
         .where('N', Predicates.blocks("gtceu:duranium_block"))
         .where('O', Predicates.blocks("gtceu:black_steel_block"))
         .build())
-    .workableCasingRenderer("gtceu:block/casings/gcym/reaction_safe_mixing_casing",
-        "gtceu:block/multiblock/generator/large_steam_turbine", false)
+    .workableCasingRenderer(
+        "gtceu:block/casings/gcym/reaction_safe_mixing_casing",
+        "gtceu:block/multiblock/generator/large_steam_turbine", false
+    );
 
 // Naquadah Reactor II
 event.create('naquadah_reactor_ii', 'multiblock')
@@ -64,8 +66,10 @@ event.create('naquadah_reactor_ii', 'multiblock')
         .where('N', Predicates.blocks('gtceu:ruthenium_trinium_americium_neutronate_block'))
         .where('O', Predicates.blocks("gtceu:omnium_block"))
         .build())
-    .workableCasingRenderer("gtceu:block/casings/gcym/reaction_safe_mixing_casing",
-        "gtceu:block/multiblock/generator/large_steam_turbine", false)
+    .workableCasingRenderer(
+        "gtceu:block/casings/gcym/reaction_safe_mixing_casing",
+        "gtceu:block/multiblock/generator/large_steam_turbine", false
+    );
 
 });
 

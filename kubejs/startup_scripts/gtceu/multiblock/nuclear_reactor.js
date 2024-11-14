@@ -24,12 +24,12 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('  HHH SSS HHH  ', '  HHH  K  HHH  ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '  HHH     HHH  ', '  HHH     HHH  ')
             .aisle('  HHH     HHH  ', '   H       H   ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '   H       H   ', '  HHH     HHH  ')
             .where('K', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('N', Predicates.blocks('kubejs:austenitic_stainless_steel_304_casing'))
+            .where('N', Predicates.blocks('gfs:austenitic_stainless_steel_304_casing'))
             .where('F', Predicates.blocks('gtceu:blue_steel_frame'))
             .where('C', Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get()))
             .where('B', Predicates.blocks('gtceu:beryllium_block'))
             .where('H', Predicates.blocks(GTBlocks.CASING_INVAR_HEATPROOF.get()))
-            .where('I', Predicates.blocks('kubejs:inconel_625_casing'))
+            .where('I', Predicates.blocks('gfs:inconel_625_casing'))
             .where('T', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
             .where('S', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())
                 .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setExactLimit(1))
@@ -40,10 +40,12 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(2).setMinGlobalLimited(1)
                     .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMaxGlobalLimited(2).setMinGlobalLimited(1))
                     .or(Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get())))
-            .where(' ', Predicates.air())
+            .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("gtceu:block/casings/solid/machine_casing_solid_steel",
-        "gtceu:block/multiblock/implosion_compressor", false);
+        .workableCasingRenderer(
+            "gtceu:block/casings/solid/machine_casing_solid_steel",
+            "gtceu:block/multiblock/implosion_compressor", false
+        );
 });
 // 15 x 11 x 11
 /* Materials:

@@ -14,7 +14,7 @@ ItemEvents.modification(event => {
         item.fireResistant = true
         item.rarity = "UNCOMMON"
       })
-    
+    /*
     // Make Infinity and Ultimate tools work as unbreakable crafting tools
     const toolTypes = [
         'file',
@@ -27,5 +27,5 @@ ItemEvents.modification(event => {
         event.modify('gfs:infinity_' + type, item => { item.craftingRemainder = Item.of('gfs:infinity_' + type).item })
         event.modify('gfs:ultimate_' + type, item => { item.craftingRemainder = Item.of('gfs:ultimate_' + type).item })
     })
-	
+	*/
   })

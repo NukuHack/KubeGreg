@@ -20,7 +20,7 @@ ServerEvents.recipes(event => {
 	event.shapeless("minecraft:grass_block",["#forge:dirt","minecraft:bone_meal"]);
 	event.shapeless("minecraft:dirt",["minecraft:farmland"]);
 
-	event.remove({input:"minecraft:lapis",output:"minecraft:blue_dye"})
+	event.remove({input:"minecraft:lapis_lazuli",output:"minecraft:blue_dye"})
 	event.shapeless("minecraft:blue_dye",["minecraft:lapis","#forge:tools/mortars"]);
 
 	event.remove({input:"minecraft:bone_meal",output:"minecraft:white_dye"})

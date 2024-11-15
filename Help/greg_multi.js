@@ -226,6 +226,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 				//.setExactLimit(1)
 				//.setMinGlobalLimited(5)
 				//.setMaxGlobalLimited(10)
+				//.setPreviewCount(1)
 
 				//.or(Predicates.autoAbilities(definition.getRecipeTypes())))
 

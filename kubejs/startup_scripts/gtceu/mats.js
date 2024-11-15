@@ -191,11 +191,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 
 
-	event.create("helium_3")
-		.gas()
-		.color(0xa040a0)
-		.flags(no_decomp)
-		.components('3x helium')
 
 	event.create('dusty_helium')
 		.gas()

@@ -25,6 +25,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 // Gasses
 // periodicTableElement('iodine', 'gas');
     periodicTableElement('oganesson', 'gas');
+    //periodicTableElement('helium_3', 'gas');
 
 // PLasmas
 

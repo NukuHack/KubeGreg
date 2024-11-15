@@ -1,12 +1,4 @@
 
-const $EnergyHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.EnergyHatchPartMachine');
-const $ItemBusPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.ItemBusPartMachine');
-const $LaserHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.LaserHatchPartMachine');
-const $CleaningPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.CleaningMaintenanceHatchPartMachine');
-const $FluidHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.FluidHatchPartMachine');
-const $FluidType = Java.loadClass(net.minecraftforge.fluids.FluidType);
-const bucket = FluidType.BUCKET_VOLUME;
-
 
 const $IO = Java.loadClass('com.gregtechceu.gtceu.api.capability.recipe.IO');
 
@@ -30,11 +22,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .abilities(PartAbility.OUTPUT_ENERGY)
         .overlayTieredHullRenderer("energy_hatch.output");
 
-    //.langValue("Cool Hatch")
-    // would be its name but kubejs is just stupid to comprehend it
 
     // works but gregtech handles inputs only up to 100 itemslot so you can not get a better input that the original Max input (actually the UHV already reaches that limit)
-
 
     event.create('max_input_bus_custom', 'custom', (holder, tier) => {
         return new $ItemBusPartMachine(holder, tier, $IO.IN)
@@ -79,6 +68,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
 
 
+    // sterile ?
+
     event.create('super_cleaning_maintenance_hatch', 'custom', (holder) => {
         return new $CleaningPartMachine(holder, CleanroomType.CLEANROOM)
     }, GTValues.MAX)
@@ -86,6 +77,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .rotationState(RotationState.ALL)
         .abilities(PartAbility.MAINTENANCE)
         .renderer(() => new MaintenanceHatchPartRenderer(3, GTCEu.id("block/machine/part/maintenance.cleaning")));
+
 
 
 
@@ -131,135 +123,136 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
 
 
     // the original from github
-/*
-    // input item
-    public static final MachineDefinition[] ITEM_IMPORT_BUS = registerTieredMachines("input_bus",
-        (holder, tier) -> new ItemBusPartMachine(holder, tier, IO.IN),
-        (tier, builder) -> builder
-            .langValue(VNF[tier] + " Input Bus")
-            .rotationState(RotationState.ALL)
-            .abilities([PartAbility.IMPORT_ITEMS, PartAbility.STEAM_IMPORT_ITEMS])
-            .overlayTieredHullRenderer("item_bus.import")
-            .tooltips(Component.translatable("gtceu.machine.item_bus.import.tooltip"),
-                Component.translatable("gtceu.universal.tooltip.item_storage_capacity",(100)))
-            .compassNode("item_bus")
-            .register(),
-        ALL_TIERS);
+    /*
 
-
-    // export item
-    public static final MachineDefinition[] ITEM_EXPORT_BUS = registerTieredMachines("output_bus",
-        (holder, tier) -> new ItemBusPartMachine(holder, tier, IO.OUT),
-        (tier, builder) -> builder
-            .langValue(VNF[tier] + " Output Bus")
-            .rotationState(RotationState.ALL)
-            .abilities([PartAbility.STEAM_EXPORT_ITEMS,PartAbility.EXPORT_ITEMS])
-            .overlayTieredHullRenderer("item_bus.export")
-            .tooltips(Component.translatable("gtceu.machine.item_bus.export.tooltip"))
-            .compassNode("item_bus")
-            .register(),
-        ALL_TIERS);
-
-
-
-
-    // original amounts
-    //INITIAL_TANK_CAPACITY_1X = 8 * FluidType.BUCKET_VOLUME;
-    //INITIAL_TANK_CAPACITY_4X = 2 * FluidType.BUCKET_VOLUME;
-    //INITIAL_TANK_CAPACITY_9X = FluidType.BUCKET_VOLUME;
-
-
-    public final static MachineDefinition[] FLUID_IMPORT_HATCH = registerTieredMachines(
-        "input_hatch",
-        (holder, tier) -> new FluidHatchPartMachine(holder, tier, IO.IN, FluidHatchPartMachine.INITIAL_TANK_CAPACITY_1X, 1),
-        (tier, builder) -> {
-            builder.langValue(VNF[tier] + " Input Hatch")
+        // input item
+        public static final MachineDefinition[] ITEM_IMPORT_BUS = registerTieredMachines("input_bus",
+            (holder, tier) -> new ItemBusPartMachine(holder, tier, IO.IN),
+            (tier, builder) -> builder
+                .langValue(VNF[tier] + " Input Bus")
                 .rotationState(RotationState.ALL)
-                .overlayTieredHullRenderer("fluid_hatch.import")
-                .abilities(PartAbility.IMPORT_FLUIDS, PartAbility.IMPORT_FLUIDS_1X)
-                .compassNode("fluid_hatch")
-                .tooltips(Component.translatable("gtceu.machine.fluid_hatch.import.tooltip"));
+                .abilities([PartAbility.IMPORT_ITEMS, PartAbility.STEAM_IMPORT_ITEMS])
+                .overlayTieredHullRenderer("item_bus.import")
+                .tooltips(Component.translatable("gtceu.machine.item_bus.import.tooltip"),
+                    Component.translatable("gtceu.universal.tooltip.item_storage_capacity",(100)))
+                .compassNode("item_bus")
+                .register(),
+            ALL_TIERS);
 
-            return builder.register();
-        },
-        ALL_TIERS);
 
-    public final static MachineDefinition[] FLUID_EXPORT_HATCH = registerTieredMachines(
-        "output_hatch",
-        (holder, tier) -> new FluidHatchPartMachine(holder, tier, IO.OUT, FluidHatchPartMachine.INITIAL_TANK_CAPACITY_1X, 1),
-        (tier, builder) -> {
-            builder.langValue(VNF[tier] + " Output Hatch")
+        // export item
+        public static final MachineDefinition[] ITEM_EXPORT_BUS = registerTieredMachines("output_bus",
+            (holder, tier) -> new ItemBusPartMachine(holder, tier, IO.OUT),
+            (tier, builder) -> builder
+                .langValue(VNF[tier] + " Output Bus")
                 .rotationState(RotationState.ALL)
-                .overlayTieredHullRenderer("fluid_hatch.export")
-                .abilities(PartAbility.EXPORT_FLUIDS, PartAbility.EXPORT_FLUIDS_1X)
-                .compassNode("fluid_hatch")
-                .tooltips(Component.translatable("gtceu.machine.fluid_hatch.export.tooltip"));
-
-            return builder.register();
-        },
-        ALL_TIERS);
+                .abilities([PartAbility.STEAM_EXPORT_ITEMS,PartAbility.EXPORT_ITEMS])
+                .overlayTieredHullRenderer("item_bus.export")
+                .tooltips(Component.translatable("gtceu.machine.item_bus.export.tooltip"))
+                .compassNode("item_bus")
+                .register(),
+            ALL_TIERS);
 
 
 
 
+        // original amounts
+        //INITIAL_TANK_CAPACITY_1X = 8 * FluidType.BUCKET_VOLUME;
+        //INITIAL_TANK_CAPACITY_4X = 2 * FluidType.BUCKET_VOLUME;
+        //INITIAL_TANK_CAPACITY_9X = FluidType.BUCKET_VOLUME;
+
+
+        public final static MachineDefinition[] FLUID_IMPORT_HATCH = registerTieredMachines(
+            "input_hatch",
+            (holder, tier) -> new FluidHatchPartMachine(holder, tier, IO.IN, FluidHatchPartMachine.INITIAL_TANK_CAPACITY_1X, 1),
+            (tier, builder) -> {
+                builder.langValue(VNF[tier] + " Input Hatch")
+                    .rotationState(RotationState.ALL)
+                    .overlayTieredHullRenderer("fluid_hatch.import")
+                    .abilities(PartAbility.IMPORT_FLUIDS, PartAbility.IMPORT_FLUIDS_1X)
+                    .compassNode("fluid_hatch")
+                    .tooltips(Component.translatable("gtceu.machine.fluid_hatch.import.tooltip"));
+
+                return builder.register();
+            },
+            ALL_TIERS);
+
+        public final static MachineDefinition[] FLUID_EXPORT_HATCH = registerTieredMachines(
+            "output_hatch",
+            (holder, tier) -> new FluidHatchPartMachine(holder, tier, IO.OUT, FluidHatchPartMachine.INITIAL_TANK_CAPACITY_1X, 1),
+            (tier, builder) -> {
+                builder.langValue(VNF[tier] + " Output Hatch")
+                    .rotationState(RotationState.ALL)
+                    .overlayTieredHullRenderer("fluid_hatch.export")
+                    .abilities(PartAbility.EXPORT_FLUIDS, PartAbility.EXPORT_FLUIDS_1X)
+                    .compassNode("fluid_hatch")
+                    .tooltips(Component.translatable("gtceu.machine.fluid_hatch.export.tooltip"));
+
+                return builder.register();
+            },
+            ALL_TIERS);
 
 
 
-    public static final MachineDefinition[] ENERGY_INPUT_HATCH = registerTieredMachines("energy_input_hatch",
-        (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 2),
+
+
+
+
+        public static final MachineDefinition[] ENERGY_INPUT_HATCH = registerTieredMachines("energy_input_hatch",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.IN, 2),
+            (tier, builder) -> builder
+                .langValue(VNF[tier] + " Energy Hatch")
+                .rotationState(RotationState.ALL)
+                .abilities(PartAbility.INPUT_ENERGY)
+                .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
+                .overlayTieredHullRenderer("energy_hatch.input")
+                .compassNode("energy_hatch")
+                .register(),
+            ALL_TIERS);
+
+        public static final MachineDefinition[] ENERGY_OUTPUT_HATCH = registerTieredMachines("energy_output_hatch",
+            (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.OUT, 2),
+            (tier, builder) -> builder
+                .langValue(VNF[tier] + " Dynamo Hatch")
+                .rotationState(RotationState.ALL)
+                .abilities(PartAbility.OUTPUT_ENERGY)
+                .tooltips(Component.translatable("gtceu.machine.energy_hatch.output.tooltip"))
+                .overlayTieredHullRenderer("energy_hatch.output")
+                .compassNode("energy_hatch")
+                .register(),
+            ALL_TIERS);
+
+
+
+
+
+
+
+    public static final MachineDefinition[] LASER_INPUT_HATCH_256 = registerTieredMachines(
+        "256a_laser_target_hatch",
+        (holder, tier) -> new LaserHatchPartMachine(holder, IO.IN, tier, 256),
         (tier, builder) -> builder
-            .langValue(VNF[tier] + " Energy Hatch")
+            .langValue(VNF[tier] + "A Laser Target Hatch")
             .rotationState(RotationState.ALL)
-            .abilities(PartAbility.INPUT_ENERGY)
-            .tooltips(Component.translatable("gtceu.machine.energy_hatch.input.tooltip"))
-            .overlayTieredHullRenderer("energy_hatch.input")
-            .compassNode("energy_hatch")
+            .tooltips(Component.translatable("gtceu.machine.laser_hatch.target.tooltip"))
+            .abilities(PartAbility.INPUT_LASER)
+            .overlayTieredHullRenderer("laser_hatch.target")
             .register(),
-        ALL_TIERS);
+        HIGH_TIERS
+    );
 
-    public static final MachineDefinition[] ENERGY_OUTPUT_HATCH = registerTieredMachines("energy_output_hatch",
-        (holder, tier) -> new EnergyHatchPartMachine(holder, tier, IO.OUT, 2),
+    public static final MachineDefinition[] LASER_OUTPUT_HATCH_256 = registerTieredMachines(
+        "256a_laser_source_hatch",
+        (holder, tier) -> new LaserHatchPartMachine(holder, IO.OUT, tier, 256),
         (tier, builder) -> builder
-            .langValue(VNF[tier] + " Dynamo Hatch")
+            .langValue(VNF[tier] + "A Laser Source Hatch")
             .rotationState(RotationState.ALL)
-            .abilities(PartAbility.OUTPUT_ENERGY)
-            .tooltips(Component.translatable("gtceu.machine.energy_hatch.output.tooltip"))
-            .overlayTieredHullRenderer("energy_hatch.output")
-            .compassNode("energy_hatch")
+            .tooltips(Component.translatable("gtceu.machine.laser_hatch.source.tooltip"))
+            .abilities(PartAbility.OUTPUT_LASER)
+            .overlayTieredHullRenderer("laser_hatch.source")
             .register(),
-        ALL_TIERS);
-
-
-
-
-
-
-
-public static final MachineDefinition[] LASER_INPUT_HATCH_256 = registerTieredMachines(
-    "256a_laser_target_hatch",
-    (holder, tier) -> new LaserHatchPartMachine(holder, IO.IN, tier, 256),
-    (tier, builder) -> builder
-        .langValue(VNF[tier] + "A Laser Target Hatch")
-        .rotationState(RotationState.ALL)
-        .tooltips(Component.translatable("gtceu.machine.laser_hatch.target.tooltip"))
-        .abilities(PartAbility.INPUT_LASER)
-        .overlayTieredHullRenderer("laser_hatch.target")
-        .register(),
-    HIGH_TIERS
-);
-
-public static final MachineDefinition[] LASER_OUTPUT_HATCH_256 = registerTieredMachines(
-    "256a_laser_source_hatch",
-    (holder, tier) -> new LaserHatchPartMachine(holder, IO.OUT, tier, 256),
-    (tier, builder) -> builder
-        .langValue(VNF[tier] + "A Laser Source Hatch")
-        .rotationState(RotationState.ALL)
-        .tooltips(Component.translatable("gtceu.machine.laser_hatch.source.tooltip"))
-        .abilities(PartAbility.OUTPUT_LASER)
-        .overlayTieredHullRenderer("laser_hatch.source")
-        .register(),
-    HIGH_TIERS
-);
+        HIGH_TIERS
+    );
 
 
 
@@ -268,17 +261,17 @@ public static final MachineDefinition[] LASER_OUTPUT_HATCH_256 = registerTieredM
 
 
 
-    public static final MachineDefinition CLEANING_MAINTENANCE_HATCH = REGISTRATE
-        .machine("cleaning_maintenance_hatch",
-            holder -> new CleaningPartMachine(holder, CleanroomType.CLEANROOM))
-        .rotationState(RotationState.ALL)
-        .abilities(PartAbility.MAINTENANCE)
-        .tooltips(Component.translatable("gtceu.universal.disabled"))
-        .renderer(() -> new MaintenanceHatchPartRenderer(3, GTCEu.id("block/machine/part/maintenance.cleaning")))
-        .register();
+        public static final MachineDefinition CLEANING_MAINTENANCE_HATCH = REGISTRATE
+            .machine("cleaning_maintenance_hatch",
+                holder -> new CleaningPartMachine(holder, CleanroomType.CLEANROOM))
+            .rotationState(RotationState.ALL)
+            .abilities(PartAbility.MAINTENANCE)
+            .tooltips(Component.translatable("gtceu.universal.disabled"))
+            .renderer(() -> new MaintenanceHatchPartRenderer(3, GTCEu.id("block/machine/part/maintenance.cleaning")))
+            .register();
 
 
-*/
+    */
 
 
 

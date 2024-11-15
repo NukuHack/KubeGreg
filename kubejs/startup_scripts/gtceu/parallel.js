@@ -24,4 +24,6 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .rotationState(RotationState.ALL)
         .abilities(PartAbility.PARALLEL_HATCH)
         .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk10"))
+
+    // uiv opv max
 })

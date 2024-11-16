@@ -1,45 +1,68 @@
 ServerEvents.recipes(event => {
+	
+const greg = event.recipes.gtceu;
+	
     //Reactor Crafting
-    event.recipes.gtceu.assembly_line('kubejs:naquadah_reactor_i')
-        .itemInputs('gtceu:computer_monitor_cover', '3x ae2:spatial_pylon', '#gtceu:circuits/zpm', '2x gtceu:fusion_glass')
+    greg.assembly_line('gfs:naquadah_reactor_i')
+        .itemInputs('gtceu:computer_monitor_cover', '3x gtceu:fusion_casing', '#gtceu:circuits/zpm', '2x gtceu:fusion_glass')
         .inputFluids('gtceu:soldering_alloy 1152', 'gtceu:omnium 32')
         .itemOutputs('gtceu:naquadah_reactor_i')
         .duration(1500)
         .EUt(122880)
         .stationResearch(b => b.researchStack(Item.of('gtceu:naquadah_bolt')).EUt(30720).CWUt(16,64000))
 
-    event.recipes.gtceu.assembly_line('kubejs:naquadah_reactor_ii')
-        .itemInputs('gtceu:computer_monitor_cover', '3x ae2:spatial_pylon', '#gtceu:circuits/uv', '2x gtceu:fusion_glass')
+    greg.assembly_line('gfs:naquadah_reactor_ii')
+        .itemInputs('gtceu:computer_monitor_cover', '6x gtceu:fusion_casing', '#gtceu:circuits/uv', '4x gtceu:fusion_glass')
         .inputFluids('gtceu:soldering_alloy 1152', 'gtceu:omnium 288')
         .itemOutputs('gtceu:naquadah_reactor_ii')
         .duration(1500)
         .EUt(122880)
-        .stationResearch(b => b.researchStack(Item.of('gtceu:naquadah_reactor_i')).EUt(122880).CWUt(64,256000))
+        .stationResearch(b => b.researchStack(Item.of('gtceu:naquadah_reactor_i')).EUt(122880).CWUt(16*4,64000*4))
+		
+    greg.assembly_line('gfs:naquadah_reactor_iii')
+        .itemInputs('gtceu:computer_monitor_cover', '9x gtceu:fusion_casing', '#gtceu:circuits/uhv', '6x gtceu:fusion_glass')
+        .inputFluids('gtceu:soldering_alloy 4056', 'gtceu:omnium 2048')
+        .itemOutputs('gtceu:naquadah_reactor_iii')
+        .duration(1500)
+        .EUt(122880)
+        .stationResearch(b => b.researchStack(Item.of('gtceu:naquadah_reactor_ii')).EUt(122880*4).CWUt(16*4*4,64000*4*4))
 
     //Reactor usage
     //TODO: Make recipes not overclockable. I looked through the GregTech KJS integration but am too stupid to figure it out -Ciggy
     // @ Ciggy from 3x1t_5tyl3; In startup you just don't add a "GTRecipeModifier" for overclockables. See other multiblocks. As long as ya don't add it it's fine uwu
-    event.recipes.gtceu.naquadah_reactor_i('kubejs:process_naquadah_i')
+    greg.naquadah_reactor_i('gfs:process_naquadah_i')
         .itemInputs('gtceu:enriched_naquadah_bolt') 
         .itemOutputs('gtceu:lead_bolt')
         .duration(938)
         .EUt(-393216)
 
-    event.recipes.gtceu.naquadah_reactor_i('kubejs:process_naquadria_i')
+    greg.naquadah_reactor_i('gfs:process_naquadria_i')
         .itemInputs('gtceu:naquadria_bolt')
         .itemOutputs('gtceu:lead_bolt')
         .duration(3750)
         .EUt(-393216)
 
-    event.recipes.gtceu.naquadah_reactor_ii('kubejs:process_naquadah_ii')
+    greg.naquadah_reactor_ii('gfs:process_naquadah_ii')
         .itemInputs('gtceu:enriched_naquadah_bolt')
         .itemOutputs('gtceu:lead_bolt')
-        .duration(1875)
-        .EUt(-1572864)
+        .duration(938*2)
+        .EUt(-393216*4)
 
-    event.recipes.gtceu.naquadah_reactor_ii('kubejs:process_naquadria_ii')
+    greg.naquadah_reactor_ii('gfs:process_naquadria_ii')
         .itemInputs('gtceu:naquadria_bolt')
         .itemOutputs('gtceu:lead_bolt')
-        .duration(7500)
-        .EUt(-1572864)
+        .duration(3750*2)
+        .EUt(-393216*4)
+		
+    greg.naquadah_reactor_iii('gfs:process_naquadah_iii')
+        .itemInputs('gtceu:enriched_naquadah_bolt')
+        .itemOutputs('gtceu:lead_bolt')
+        .duration(938*2*2)
+        .EUt(-393216*4*4)
+
+    greg.naquadah_reactor_iii('gfs:process_naquadria_iii')
+        .itemInputs('gtceu:naquadria_bolt')
+        .itemOutputs('gtceu:lead_bolt')
+        .duration(3750*2*2)
+        .EUt(-393216*4*4)
 })

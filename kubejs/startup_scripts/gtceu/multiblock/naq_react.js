@@ -17,6 +17,15 @@ event.create('naquadah_reactor_ii')
     .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
     .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, FillDirection.LEFT_TO_RIGHT)
     .setSound(GTSoundEntries.ARC);
+	
+// Naqudah Reactor III Recipe Type
+event.create('naquadah_reactor_iii')
+    .category('multiblock')
+    .setEUIO('out')
+    .setMaxIOSize(1, 1, 0, 0)
+    .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
+    .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, FillDirection.LEFT_TO_RIGHT)
+    .setSound(GTSoundEntries.ARC);
 
 
 });
@@ -38,7 +47,7 @@ event.create('naquadah_reactor_i', 'multiblock')
         .where('G', Predicates.blocks(GTBlocks.FUSION_GLASS.get()))
         .where('C', Predicates.blocks("gtceu:reaction_safe_mixing_casing").setMinGlobalLimited(12)
             .or(Predicates.autoAbilities(definition.getRecipeTypes())))
-        .where('P', Predicates.blocks("ae2:spatial_pylon"))
+        .where('P', Predicates.blocks(GTBlocks.FUSION_CASING.get()))
         .where('N', Predicates.blocks("gtceu:duranium_block"))
         .where('O', Predicates.blocks("gtceu:black_steel_block"))
         .build())
@@ -62,8 +71,31 @@ event.create('naquadah_reactor_ii', 'multiblock')
         .where('G', Predicates.blocks(GTBlocks.FUSION_GLASS.get()))
         .where('C', Predicates.blocks("gtceu:reaction_safe_mixing_casing").setMinGlobalLimited(12)
             .or(Predicates.autoAbilities(definition.getRecipeTypes())))
-        .where('P', Predicates.blocks("ae2:spatial_pylon"))
+        .where('P', Predicates.blocks(GTBlocks.FUSION_CASING_MK2.get()))
         .where('N', Predicates.blocks('gtceu:ruthenium_trinium_americium_neutronate_block'))
+        .where('O', Predicates.blocks("gtceu:omnium_block"))
+        .build())
+    .workableCasingRenderer(
+        "gtceu:block/casings/gcym/reaction_safe_mixing_casing",
+        "gtceu:block/multiblock/generator/large_steam_turbine", false
+    );
+	
+event.create('naquadah_reactor_iii', 'multiblock')
+    .rotationState(RotationState.NON_Y_AXIS)
+    .recipeTypes('naquadah_reactor_iii')
+    .appearanceBlock(GCyMBlocks.CASING_REACTION_SAFE)
+    .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH])    // Modern#2015
+    .generator(true)
+    .pattern(definition => FactoryBlockPattern.start()
+        .aisle("CCC", "PGP", "PGP", "PGP", "PGP", "PGP", "CCC")
+        .aisle("CCC", "GOG", "GOG", "GOG", "GOG", "GIG", "CCC")
+        .aisle("C@C", "PGP", "PGP", "PGP", "PGP", "PGP", "CCC")
+        .where("@", Predicates.controller(Predicates.blocks(definition.get())))
+        .where('G', Predicates.blocks(GTBlocks.FUSION_GLASS.get()))
+        .where('C', Predicates.blocks("gtceu:reaction_safe_mixing_casing").setMinGlobalLimited(12)
+            .or(Predicates.autoAbilities(definition.getRecipeTypes())))
+        .where('P', Predicates.blocks(GTBlocks.FUSION_CASING_MK3.get()))
+        .where('I', Predicates.blocks('gtceu:infinity_block'))
         .where('O', Predicates.blocks("gtceu:omnium_block"))
         .build())
     .workableCasingRenderer(

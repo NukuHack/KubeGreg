@@ -1,9 +1,7 @@
 priority: -1000
 
 ServerEvents.recipes(event => {
-
-    // does work but it's a bit too good
-    // var energy = recipe.get("EUt")
+/*
 
     const stupeed = [
         [0.25,'electric_blast_furnace'],
@@ -30,7 +28,7 @@ ServerEvents.recipes(event => {
         });
     });
 
-    /*
+
     stupeed.forEach(([du, ty]) => {
       event.forEachRecipe({ mod: 'gtceu', type: `gtceu:${ty}` }, recipe => {
           try {
@@ -41,7 +39,7 @@ ServerEvents.recipes(event => {
           }
       });
     });
-    */
+
 
     event.forEachRecipe({ mod: 'gtceu', type: 'gtceu:macerator' }, recipe => {
         try {
@@ -98,6 +96,6 @@ ServerEvents.recipes(event => {
         }
     });
 
-
+*/
 
 })

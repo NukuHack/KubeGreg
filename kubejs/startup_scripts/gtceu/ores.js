@@ -16,7 +16,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xFFFC9E).iconSet('rough')
         .components('calcium', '2x fluorine')
         .addOreByproducts('sphalerite', 'bastnasite', 'topaz')
-
+/*
     event.create("dulysite") // Hardmode only
         .dust().ore(2, 1)
         .iconSet('dull')
@@ -29,5 +29,5 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .flags(GTMaterialFlags.DISABLE_DECOMPOSITION)
         .components('3x naquadah_oxide', 'pyromorphite')
         .addOreByproducts('chalcopyrite', 'vanadium_magnetite', 'naquadah_hydroxide')
-
+*/
 });

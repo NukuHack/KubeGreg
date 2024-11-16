@@ -45,6 +45,9 @@
     "block.gtceu.iv_miniature_pyrolyse_oven": "§1Elite Miniature Pyrolyse Oven§r",
     "block.gtceu.luv_miniature_pyrolyse_oven": "§dElite Miniature Pyrolyse Oven II§r",
     "block.gtceu.zpm_miniature_pyrolyse_oven": "§cElite Miniature Pyrolyse Oven III§r",
-    "block.gtceu.uv_miniature_pyrolyse_oven": "§3Ultimate Miniature Pyrolyse Oven§r"
+    "block.gtceu.uv_miniature_pyrolyse_oven": "§3Ultimate Miniature Pyrolyse Oven§r",
+
+    "block.gtceu.uhv_parallel_hatch":"Uhv Parallel Hatch",
+    "block.gtceu.uev_parallel_hatch":"Uev Parallel Hatch"
 
 }

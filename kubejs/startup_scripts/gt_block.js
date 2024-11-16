@@ -30,8 +30,8 @@ StartupEvents.registry("block", event => {
         ["gren","Agri Casing",4,1,10,"metal",'gtceu:block/casings/gren_casing'],
         ["peek","PEEK Casing",5,1,0,"metal","gfs:block/casings/machine_casing_peek"],
         ["omnic_matrix","Omnic Matrix Casing",8,1,0,"metal","gfs:block/casings/machine_casing_omnic_matrix"],
-        ['austenitic_stainless_steel_304_casing','Austenitic Stainless Steel 304 Nuclear Casing',6,2,0,"metal",'gfs:block/casings/machine_casing_a_s_steel'],
-        ['inconel_625_casing','Inconel 625 Thermal Fluctuation Resistant Casing',5,3,0,"metal",'gfs:block/casings/machine_casing_inconel'],
+        ['austenitic_stainless_steel_304','Austenitic Stainless Steel 304 Nuclear Casing',6,2,0,"metal",'gfs:block/casings/machine_casing_a_s_steel'],
+        ['inconel_625','Inconel 625 Thermal Fluctuation Resistant Casing',5,3,0,"metal",'gfs:block/casings/machine_casing_inconel'],
     ];
     casingS.forEach(([name,Dname,hard,res,light,sound,texture])=>{
         event.create(`gfs:${name}_casing`)
@@ -82,12 +82,12 @@ StartupEvents.registry("block", event => {
 
     const coils = [
         ['mithril_coil_block', 12600, 16, 16, 8, 'mithril', 'gtceu:block/coils/machine_coil_mithril'],
-        ['chadium_coil_block', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/machine_coil_chadium'],
-        // ['zalloy_coil_block', 13499, 24, 16, 10, 'zalloy', 'gfs:block/coils/machine_coil_zalloy'],
-        ['awakened_draconium_coil_block', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/machine_coil_awakened_draconium'],
+        ['omnic_matrix_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/machine_coil_omnic_matrix'],
+        //['chadium_coil_block', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/machine_coil_chadium'],
+        //['zalloy_coil_block', 13499, 24, 16, 10, 'zalloy', 'gfs:block/coils/machine_coil_zalloy'],
+        //['awakened_draconium_coil_block', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/machine_coil_awakened_draconium'],
         ['stellar_matter_coil_block', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/machine_coil_stellar_matter'],
-        ['infinity_coil_block', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/machine_coil_infinity'],
-        ['omnic_matrix_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/machine_coil_omnic_matrix']
+        ['infinity_coil_block', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/machine_coil_infinity']
     ];
 
     coils.forEach(([name, temperature, level, energyDiscount, tier, material, texture]) => {

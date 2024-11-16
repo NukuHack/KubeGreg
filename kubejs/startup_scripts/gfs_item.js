@@ -174,7 +174,7 @@ StartupEvents.registry("item", (event) => {
             .tag(`gtceu:circuits/${x}`)
             .tag("gtceu:circuits/universal")
             .displayName(x.toUpperCase() + " Universal Circuit")
-            .tooltip("§7A Universal Circuit")
+            .tooltip("§7A Universal Circuit&r")
             .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
     })
 

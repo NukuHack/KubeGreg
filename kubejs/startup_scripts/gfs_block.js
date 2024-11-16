@@ -28,7 +28,7 @@ StartupEvents.registry("block", event => {
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("cucumber:mineable/shovel");
 
-    const antiblockColors = [
+[
         ["black", "Black"],
         ["blue", "Blue"],
         ["brown", "Brown"],
@@ -45,90 +45,54 @@ StartupEvents.registry("block", event => {
         ["white", "White"],
         ["yellow", "Yellow"],
         ["pink", "Pink"]
-    ];
-
-    antiblockColors.forEach(([color, colorDisplayName]) => {
+    ].forEach(([color, colorName]) => {
         event.create(`gfs:antiblock_${color}`)
-            .displayName(`${colorDisplayName} Antiblock`)
+            .displayName(`${colorName} Antiblock`)
             .requiresTool()
             .soundType(SoundType.AMETHYST)
             .tagBlock('minecraft:mineable/pickaxe')
             .property(BlockProperties.LIT)
             .lightLevel(1.0)
-            .textureAll(`gfs:block/antiblocks/${colorDisplayName}`);
+            .textureAll(`gfs:block/antiblocks/${color}`);
     });
 
-    event
-        .create("gfs:coke_oven_side")
-        .soundType("stone")
-        .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/co/co_s");
-    event
-        .create("gfs:coke_oven_controller")
-        .soundType("stone")
-        .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/co/co_c");
-    event
-        .create("gfs:compressed_coke_oven")
-        .soundType("stone")
-        .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/co/c_co");
 
+// compressed machines
+
+[
+    ["gfs:coke_oven_side", "gfs:block/co/co_s"],
+    ["gfs:coke_oven_controller", "gfs:block/co/co_c"],
+    ["gfs:compressed_coke_oven", "gfs:block/co/c_co"],
+    ["gfs:primitive_blast_furnace_layer", "gfs:block/pbf/pbf_l"],
+    ["gfs:primitive_blast_furnace_controller", "gfs:block/pbf/pbf_c"],
+    ["gfs:compressed_primitive_blast_furnace", "gfs:block/pbf/c_pbf"]
+].forEach(([id, texture]) => {
     event
-        .create("gfs:primitive_blast_furnace_layer")
+        .create(id)
         .soundType("stone")
         .hardness(0.4)
         .tagBlock("cucumber:mineable/paxel")
         .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/pbf/pbf_l");
-    event
-        .create("gfs:primitive_blast_furnace_controller")
-        .soundType("stone")
-        .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/pbf/pbf_c");
-    event
-        .create("gfs:compressed_primitive_blast_furnace")
-        .soundType("stone")
-        .hardness(0.4)
-        .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/pickaxe")
-        .textureAll("gfs:block/pbf/c_pbf");
+        .textureAll(texture);
+});
 
-
-
-    event.create("gfs:compressed_invar_casing")
-        .hardness(5)
-        .resistance(1)
-        .soundType('stone')
-        .requiresTool(true)
+[
+    ["gfs:compressed_invar_casing", "gfs:block/coils/plain/casing-green", 5, "stone", true],
+    ["gfs:compressed_ulv_casing", "gfs:block/coils/plain/casing-gray", 5, "stone", true],
+    ["gfs:compressed_lv_hatch", "gfs:block/coils/plain/casing-gray", 5, "stone", true]
+].forEach(([id, texture, hardness, soundType, requiresTool]) => {
+    const block = event.create(id)
+        .soundType(soundType)
+        .hardness(hardness)
         .tagBlock("mineable/pickaxe")
         .tagBlock("cucumber:mineable/paxel")
-        .textureAll("gfs:block/casings/casing-green");
-    event.create("gfs:compressed_ulv_casing")
-        .hardness(5)
-        .resistance(1)
-        .soundType('stone')
-        .requiresTool(true)
-        .tagBlock("mineable/pickaxe")
-        .tagBlock("cucumber:mineable/paxel")
-        .textureAll("gfs:block/casings/casing-gray");
+        .textureAll(texture);
 
-    event.create("gfs:compressed_lv_hatch")
-        .hardness(5)
-        .resistance(1)
-        .soundType('stone')
-        .requiresTool(true)
-        .tagBlock("mineable/pickaxe")
-        .tagBlock("cucumber:mineable/paxel")
-        .textureAll("gfs:block/casings/casing-gray");
+    // Add requiresTool only if true
+    if (requiresTool) {
+        block.requiresTool(true).resistance(1);
+    }
+});
 
 
 

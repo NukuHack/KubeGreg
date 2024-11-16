@@ -10,6 +10,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         GTValues.UHV
     )
         .rotationState(RotationState.ALL)
+        .tooltips(Component.translatable("gfs.custom_machines.uhv_parallel"))
         .abilities(PartAbility.PARALLEL_HATCH)
         .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk9"))
 
@@ -22,6 +23,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         GTValues.UEV
     )
         .rotationState(RotationState.ALL)
+        .tooltips(Component.translatable("gfs.custom_machines.uev_parallel"))
         .abilities(PartAbility.PARALLEL_HATCH)
         .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk10"))
 

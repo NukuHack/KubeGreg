@@ -5,7 +5,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .rotationState(RotationState.ALL)
         .recipeTypes('assembly_line')
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-        .appearanceBlock(() => Block.getBlock('gfs:dimensional_stabilization_netherite_casing'))
+        .appearanceBlock(() => Block.getBlock('gtceu:activated_netherite_block'))
         .pattern(definition => FactoryBlockPattern.start()
             .aisle("         ", "   CCC   ", "  CCCCC  ", " CCCCCCC ", " CCCCCCC ", " CCCCCCC ", "  CCCCC  ", "   CCC   ", "         ")
             .aisle("  CCCCC  ", " CCCCCCC ", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", " CCCCCCC ", "  CCCCC  ")
@@ -13,9 +13,9 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle("  CCCCC  ", " CCCCCCC ", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", " CCCCCCC ", "  CCCCC  ")
             .aisle("         ", "   CCC   ", "  CCCCC  ", " CCCCCCC ", " CCC@CCC ", " CCCCCCC ", "  CCCCC  ", "   CCC   ", "         ")
             .where("@", Predicates.controller(Predicates.blocks(definition.get())))
-            .where('C', Predicates.blocks("gtceu:activated_netherite_frame").setMinGlobalLimited(200)
+            .where('C', Predicates.blocks("gtceu:activated_netherite_block").setMinGlobalLimited(200)
                 .or(Predicates.autoAbilities(definition.getRecipeTypes()))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setExactLimit(1)))
+                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1)))
             .where('G', Predicates.blocks(GTBlocks.FUSION_GLASS.get()))
             .where('L', Predicates.blocks(GCyMBlocks.CASING_LARGE_SCALE_ASSEMBLING.get()))
             .where('O', Predicates.blocks(GTBlocks.CASING_ASSEMBLY_LINE.get()))
@@ -27,7 +27,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gfs:block/netherite/casing",
+            "gfs:block/casings/machine_casing_peek",
             "gtceu:block/multiblock/assembly_line", false
         );
 

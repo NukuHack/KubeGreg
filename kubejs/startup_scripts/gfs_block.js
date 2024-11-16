@@ -118,6 +118,4 @@ StartupEvents.registry("block", event => {
 
 
 
-
-
 });

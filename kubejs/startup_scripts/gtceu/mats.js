@@ -367,12 +367,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.flags(foil, plates, ring);
 
 
-	/*
-        event.create("darmstadtite") // Hardmode only
-            .dust().ore(2, 1)
-            .iconSet('dull')
-            .components('2x darmstadtium', '3x sulfur')
-            .addOreByproducts('rare_earth', 'rhodium_sulfate', 'darmstadtium')
-    */
+    
 
 })

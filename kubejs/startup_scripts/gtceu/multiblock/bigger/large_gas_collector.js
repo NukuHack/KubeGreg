@@ -18,7 +18,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.blocks("gtceu:titanium_pipe_casing"))
             .where('C', Predicates.blocks("gtceu:corrosion_proof_casing").setMinGlobalLimited(70)
                 .or(Predicates.autoAbilities(definition.getRecipeTypes()))
-                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setExactLimit(1))
+                .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
                 .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
             )
             .where('#', Predicates.air())

@@ -22,11 +22,11 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('KKHCHKK', 'FFGGGFF', 'FFGGGFF', 'FFGGGFF', 'FFFFFFF')
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))
             .where('H', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID.get())
-                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setMaxGlobalLimited(8))
-                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS).setMaxGlobalLimited(8))
+                .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS))
+                .or(Predicates.abilities(PartAbility.IMPORT_ITEMS))
                 
-                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setMaxGlobalLimited(8))
-                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS).setMaxGlobalLimited(8))
+                .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS))
+                .or(Predicates.abilities(PartAbility.EXPORT_ITEMS))
 
                 .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2))
                 .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1))
@@ -37,8 +37,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.blocks('minecraft:oak_log'))
             .where('L', Predicates.blocks('minecraft:oak_leaves'))
             .where('D', Predicates.blocks('gfs:magical_farmland'))
-            .where('F', Predicates.blocks(GTBlocks.CASING_STEEL_SOLID))
-            .where('G', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS))
+            .where('F', Predicates.blocks('gtceu:steel_frame'))
+            .where('G', Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(

@@ -64,7 +64,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('E', Predicates.blocks(GTBlocks.CASING_EXTREME_ENGINE_INTAKE.get()))
             .where('F', Predicates.blocks(GTBlocks.FIREBOX_TUNGSTENSTEEL.get()))
             .where('P', Predicates.blocks(GTBlocks.CASING_POLYTETRAFLUOROETHYLENE_PIPE.get()))
-            .where('T', Predicates.blocks('gtceu:trinaquadalloy_frame'))
+            .where('T', Predicates.blocks('gtceu:tungsten_frame'))
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(

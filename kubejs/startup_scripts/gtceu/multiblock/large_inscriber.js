@@ -18,7 +18,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH,
             GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()
-            .aisle('EEE', 'HHH', 'HHH')
+            .aisle('EEE', 'EEE', 'EEE')
             .aisle('EEE', 'FGF', 'FGF')
             .aisle('ECE', 'FGF', 'FGF')
             .where('C', Predicates.controller(Predicates.blocks(definition.get())))

@@ -1,5 +1,6 @@
 
 priority: 100
+//priority: 100
 
 const $PropertyKey = Java.loadClass('com.gregtechceu.gtceu.api.data.chemical.material.properties.PropertyKey');
 const $FluidPipeProperty = Java.loadClass('com.gregtechceu.gtceu.api.data.chemical.material.properties.FluidPipeProperties');
@@ -182,7 +183,8 @@ function VHA(voltage) {
 
 function blastProperty(material, temperature, gasTier, voltage, duration) {
     let mat = GTMaterials.get(material);
-    mat.setProperty(PropertyKey.BLAST, new $BlastProperty(temperature, gasTier, voltage, duration));
+	// propably should wourk but it does not ... sadly
+    //mat.setProperty(PropertyKey.BLAST, new $BlastProperty(temperature, gasTier, voltage, duration));
 }
 
 
@@ -238,6 +240,7 @@ function periodicTableElement(material, type) {
 
 // constants for machines
 
+const $IO = Java.loadClass('com.gregtechceu.gtceu.api.capability.recipe.IO');
 
 const WorkableSteamHullRenderer = Java.loadClass("com.gregtechceu.gtceu.client.renderer.machine.WorkableSteamMachineRenderer");
 const $ParallelHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.ParallelHatchPartMachine');
@@ -247,7 +250,105 @@ const $ItemBusPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine
 const $LaserHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.LaserHatchPartMachine');
 const $CleaningPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.CleaningMaintenanceHatchPartMachine');
 const $FluidHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.FluidHatchPartMachine');
-const $FluidType = Java.loadClass(net.minecraftforge.fluids.FluidType);
+const $FluidType = Java.loadClass('net.minecraftforge.fluids.FluidType');
 const bucket = $FluidType.BUCKET_VOLUME;
 
 
+
+
+
+/* // it's stupid and still not work
+
+
+
+const $TextureOverrideRenderer = Java.loadClass('com.gregtechceu.gtceu.client.renderer.block.TextureOverrideRenderer');
+const $ICoverableRenderer = Java.loadClass('com.gregtechceu.gtceu.client.renderer.cover.ICoverableRenderer');
+const $ICTMPredicate = Java.loadClass('com.lowdragmc.lowdraglib.client.model.custommodel.ICTMPredicate');
+const $IModelRenderer = Java.loadClass('com.lowdragmc.lowdraglib.client.renderer.impl.IModelRenderer');
+
+const $Locale = Java.loadClass('java.util.Locale');
+const $Map = Java.loadClass('java.util.Map');
+
+
+//const $Renderer = Java.loadClass('com.gregtechceu.gtceu.client.renderer.machine');
+//const $MaintenanceRenderer = Java.loadClass('com.gregtechceu.gtceu.client.renderer.machine.MaintenanceHatchPartRenderer');
+// da hack ? why is there no class to just call the MaintenanceHatchPartRenderer ????
+
+
+
+
+
+
+// Create a namespace for all related renderers
+const $MyApp = {
+    Renderers: {}
+};
+
+// MachineRenderer
+$MyApp.Renderers.MachineRenderer = function (modelLocation) {
+    // Custom initialization, if necessary
+    this.modelLocation = modelLocation; // Store modelLocation for future use
+};
+$MyApp.Renderers.MachineRenderer.PIPE_OVERLAY = GTCEu.id("block/overlay/machine/overlay_pipe");
+$MyApp.Renderers.MachineRenderer.FLUID_OUTPUT_OVERLAY = GTCEu.id("block/overlay/machine/overlay_fluid_output");
+$MyApp.Renderers.MachineRenderer.ITEM_OUTPUT_OVERLAY = GTCEu.id("block/overlay/machine/overlay_item_output");
+
+// Set up prototype inheritance
+$MyApp.Renderers.MachineRenderer.prototype = Object.create($TextureOverrideRenderer.prototype);
+$MyApp.Renderers.MachineRenderer.prototype.constructor = $MyApp.Renderers.MachineRenderer;
+
+// TieredHullMachineRenderer
+$MyApp.Renderers.TieredHullMachineRenderer = function (tier, modelLocation) {
+    // Initialize the parent "constructor"
+    const parent = new $MyApp.Renderers.MachineRenderer(modelLocation);
+
+    // Inherit parent's properties
+    Object.assign(this, parent);
+
+    // Custom initialization
+    let voltageName = GTValues.VN[tier].toLowerCase($Locale.ROOT);
+    this.setTextureOverride($Map.of(
+                "bottom", GTCEu.id("block/casings/voltage/%s/bottom".formatted(voltageName)),
+                "top", GTCEu.id("block/casings/voltage/%s/top".formatted(voltageName)),
+                "side", GTCEu.id("block/casings/voltage/%s/side".formatted(voltageName))));
+    ));
+};
+
+// Set up prototype inheritance
+$MyApp.Renderers.TieredHullMachineRenderer.prototype = Object.create($MyApp.Renderers.MachineRenderer.prototype);
+$MyApp.Renderers.TieredHullMachineRenderer.prototype.constructor = $MyApp.Renderers.TieredHullMachineRenderer;
+
+// OverlayTieredMachineRenderer
+$MyApp.Renderers.OverlayTieredMachineRenderer = function (tier, overlayModel) {
+    // Initialize the parent "constructor"
+    const parent = new $MyApp.Renderers.TieredHullMachineRenderer(tier, GTCEu.id("block/machine/hull_machine"));
+
+    // Inherit parent's properties
+    Object.assign(this, parent);
+
+    // Custom initialization
+    this.overlayModel = new $IModelRenderer(overlayModel);
+};
+
+// Set up prototype inheritance
+$MyApp.Renderers.OverlayTieredMachineRenderer.prototype = Object.create($MyApp.Renderers.TieredHullMachineRenderer.prototype);
+$MyApp.Renderers.OverlayTieredMachineRenderer.prototype.constructor = $MyApp.Renderers.OverlayTieredMachineRenderer;
+
+// MaintenanceRenderer
+$MyApp.Renderers.MaintenanceRenderer = function (tier, overlayModel) {
+    // Initialize the parent "constructor"
+    const parent = new $MyApp.Renderers.OverlayTieredMachineRenderer(tier, overlayModel);
+
+    // Inherit parent's properties
+    Object.assign(this, parent);
+
+    // Custom initialization, if any
+};
+$MyApp.Renderers.MaintenanceRenderer.MAINTENANCE_OVERLAY_TAPED = GTCEu.id("block/overlay/machine/overlay_maintenance_taped");
+
+// Set up prototype inheritance
+$MyApp.Renderers.MaintenanceRenderer.prototype = Object.create($MyApp.Renderers.OverlayTieredMachineRenderer.prototype);
+$MyApp.Renderers.MaintenanceRenderer.prototype.constructor = $MyApp.Renderers.MaintenanceRenderer;
+
+
+*/

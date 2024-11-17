@@ -25,6 +25,18 @@ Plan :
             regolith < basalt powder + iron oxides
 	
 	realistic ae2
+	
+	sulfur_dichloride
+	
+	polyethyl_cyanoacrylate // replaced with PEEK
+	
+	fine_ruthenium_trinium_americium_neutronate : wire
+	
+	gfs:quasi_stable_neutron_star
+	
+	gfs:the_ultimate_material
+	
+	sculk_superconductor: wire
 
 
 welp some gitting xD

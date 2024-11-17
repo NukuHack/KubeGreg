@@ -5,7 +5,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .rotationState(RotationState.ALL)
         .recipeTypes('assembly_line')
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
-        .appearanceBlock(() => Block.getBlock('gtceu:activated_netherite_block'))
+        .appearanceBlock(() => Block.getBlock('gfs:netherite_casing'))
         .pattern(definition => FactoryBlockPattern.start()
             .aisle("         ", "   CCC   ", "  CCCCC  ", " CCCCCCC ", " CCCCCCC ", " CCCCCCC ", "  CCCCC  ", "   CCC   ", "         ")
             .aisle("  CCCCC  ", " CCCCCCC ", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", "CCCCCCCCC", " CCCCCCC ", "  CCCCC  ")
@@ -27,7 +27,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gfs:block/casings/machine_casing_peek",
+            "gfs:block/casings/machine_casing_netherite",
             "gtceu:block/multiblock/assembly_line", false
         );
 

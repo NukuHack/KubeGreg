@@ -152,7 +152,6 @@ StartupEvents.registry("item", (event) => {
 			
         event.create(`gfs:${theme}_processing_unit`)
 			.tooltip(`Nice ${volts[0].toUpperCase()} Processor`)
-            .tag(`gtceu:circuits/${volts[0]}`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
 
         // Create circuits for each type and corresponding voltage

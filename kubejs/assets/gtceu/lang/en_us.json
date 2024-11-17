@@ -25,7 +25,7 @@
     "material.gtceu.4_fluorobenzoyl_chloride": "4 Fluorobenzoyl Chloride",
     "material.gtceu.benzoyl_chloride": "Benzoyl Chloride",
     "material.gtceu.benzotrichloride": "Benzotrichloride",
-    "material.gtceu.44_difluoeobenzophenone": "4 4 Difluoeobenzophenone",
+    "material.gtceu.44_difluorobenzophenone": "4 4 Difluorobenzophenone",
     "material.gtceu.polyether_ether_ketone": "PEEK",
     "material.gtceu.hydroquinone": "Hydroquinone",
     "material.gtceu.dilithium": "Dilithium",
@@ -61,14 +61,14 @@
     "block.gtceu.large_inscriber": "§uLarge Inscriber§r",
     "block.gtceu.dimensional_superassembler": "§uDimensional Superassembler§r",
     "block.gtceu.atmospheric_accumulator": "§uAtmospheric Accumulator§r",
-    "block.gtceu.imposion_collider": "§Uimposion Collider§r",
+    "block.gtceu.implosion_collider": "§UImplosion Collider§r",
     "block.gtceu.chemical_plant": "§uChemical Plant§r",
     "block.gtceu.chemical_builder": "§uChemical Builder§r",
     "block.gtceu.naquadah_reactor_i": "§uNaquadah Reactor i§r",
     "block.gtceu.naquadah_reactor_ii": "§uNaquadah Reactor ii§r",
     "block.gtceu.naquadah_reactor_iii": "§uNaquadah Reactor iii§r",
-    "block.gtceu.nuclear_reactor": "§unuclear reactor§r",
-    "block.gtceu.nuclear_turbine": "§unuclear turbine§r",
+    "block.gtceu.nuclear_reactor": "§uNuclear Reactor§r",
+    "block.gtceu.nuclear_turbine": "§uNuclear Turbine§r",
 
     "block.gtceu.hv_inscriber": "§6Inscriber§r",
     "block.gtceu.ev_inscriber": "§5Advanced Inscriber§r",
@@ -100,6 +100,7 @@
 
     "block.gtceu.uhv_parallel_hatch":"UHV Parallel Hatch",
     "block.gtceu.uev_parallel_hatch":"UEV Parallel Hatch",
+    "block.gtceu.uev_parallel_hatch_e":"UEV Parallel Hatch",
 
 
 

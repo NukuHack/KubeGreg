@@ -161,7 +161,7 @@ ServerEvents.recipes(event => {
     event.remove({ id: 'gtceu:shaped/opv_machine_hull'})
 
     greg.assembler('uev_hull')
-        .itemInputs('gtceu:uev_machine_casing', '2x gtceu:omnium_single_wire', '2x gtceu:polyethyl_cyanoacrylate_plate')
+        .itemInputs('gtceu:uev_machine_casing', '2x gtceu:activated_netherite_single_wire', '2x gtceu:polyether_ether_ketone_plate')
         .itemOutputs('gtceu:uev_machine_hull')
         .duration(50)
         .EUt(16)
@@ -174,7 +174,7 @@ ServerEvents.recipes(event => {
         .EUt(16)
 
     greg.assembler('uiv_hull')
-        .itemInputs('gtceu:uiv_machine_casing', '2x gtceu:activated_netherite_single_wire', '2x gtceu:polyethyl_cyanoacrylate_plate')
+        .itemInputs('gtceu:uiv_machine_casing', '2x gtceu:omnium_single_wire', '2x gtceu:polyether_ether_ketone_plate')
         .itemOutputs('gtceu:uiv_machine_hull')
         .duration(50)
         .EUt(16)

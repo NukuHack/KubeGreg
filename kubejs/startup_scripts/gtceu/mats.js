@@ -135,12 +135,13 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.color(0x042228).iconSet('metallic')
 		.blastTemp(6800, 'higher')
 		.flags(plates,rod,gear,dense_plate,frame)
-		.cableProperties(524288, 4, 0, true);
+		.cableProperties(524288*4, 12, 0, true);
 
 	event.create("cryococcus")
 		.ingot().fluid()
 		.element(GTElements.get("cryococcus"))
 		.color(0x008F92).iconSet('metallic')
+		.fluidPipeProperties(20000, 20000, true, true, true, true)
 		.flags(no_smelt, plates, rod,gear, frame, ring, dense_plate)
 
 
@@ -157,7 +158,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get("omnium"))
 		.color(0xffffff).iconSet('omnium')
 		.flags(plates,rod,long_rod,gear,small_gear,ring,round,bolt_and_screw,frame)
-		.cableProperties(2147483647, 64, 0, true)
+		.cableProperties(2147483647/64, 128, 0, true)
 		.liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
 
 	event.create('infinity')
@@ -165,6 +166,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get("infinity"))
 		.color(0xffffff)
 		.iconSet('infinity')
+		.cableProperties(33554432*4, 64, 0, true)
 		.flags(plates,rod,long_rod,ring,round, gear,small_gear,bolt_and_screw,frame,dense_plate)
 
 	event.create('monium')
@@ -173,7 +175,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.color(0xffffff)
 		.iconSet('monium')
 		.flags(plates,rod,frame,gear,spring)
-		.cableProperties(2147483647, 134217727, 0, true)
+		.cableProperties(2147483647/16, 1024, 0, true)
 
 	event.create('omnic_acid')
 		.dust()
@@ -181,6 +183,19 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.iconSet('shiny')
 		.components('5x carbon', '4x hydrogen', '3x oxygen', '4x omnium')
 		.flags(no_decomp)
+
+
+
+
+
+
+
+	event.create('holmium')
+		.ingot()
+		.element(GTElements.get("holmium"))
+		.color(0x008F92).iconSet('metallic')
+		.flags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
+
 
 
 
@@ -272,6 +287,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get('pure_netherite'))
 		.color(0x1a0d00)
 		.iconSet(DULL)
+		.cableProperties(8388608/4, 12, 0, true)
 		.blastTemp(3300, 'low', VA('ev'), 1200)
 		.flags(foil, gear, long_rod, plates,
 			rod, rotor, small_gear, ring);
@@ -305,6 +321,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
 		.flags(no_decomp)
 		.color(0x00ff00)
+		.cableProperties(2147483647/64, 1, 0, true)
 		.iconSet(OPAL);
 
 
@@ -367,6 +384,107 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.flags(foil, plates, ring);
 
 
-    
+
+
+
+
+
+
+
+	/*
+// Materials from elements
+event.create('magnetic_zapolgium')
+    .ingot()
+    .element(GTElements.get('zapolgium'))
+    .color(0xcc00cc)
+    .iconSet(magnetic)
+    .ingotSmeltInto(GTMaterials.get('zapolgium'))
+    .arcSmeltInto(GTMaterials.get('zapolgium'))
+    .macerateInto(GTMaterials.get('zapolgium'))
+    .flags(rod, long_rod, magnetic);
+
+event.create('zapolgium')
+    .ingot()
+    .element(GTElements.get('zapolgium'))
+    .color(0xcc00cc)
+    .iconSet(DULL)
+    .polarizesInto(GTMaterials.get('magnetic_zapolgium'))
+    .blastTemp(10799, 'highest', VA('uhv'), 1600);
+
+event.create('xeproda')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('xeproda'))
+    .color(0x1a0d00)
+    .iconSet(DULL)
+    .blastTemp(12499, 'highest', VA('uv'), 3750);
+
+event.create('rhexis')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('rhexis'))
+    .color(0x330000)
+    .iconSet(DULL)
+    .blastTemp(12499, 'highest', VA('uv'), 4750);
+
+event.create('chalyblux')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('chalyblux'))
+    .color(0xffcccc)
+    .iconSet(DULL)
+    .blastTemp(12499, 'highest', VA('uv'), 5750);
+
+event.create('mythril')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('mythril'))
+    .color(0x006666)
+    .blastTemp(10299, 'highest', VA('zpm'), 3000)
+    .iconSet(METALLIC);
+
+event.create('adamantine')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('adamantine'))
+    .color(0xe60000)
+    .blastTemp(10299, 'highest', VA('zpm'), 3000)
+    .iconSet(METALLIC);
+
+event.create('estalt')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('estalt'))
+    .color(0xff5050)
+    .blastTemp(10299, 'highest', VA('zpm'), 3000)
+    .iconSet(DULL);
+
+event.create('calamatium')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('calamatium'))
+    .color(0x660000)
+    .iconSet(DULL)
+    .blastTemp(11799, 'highest', VA('uv'), 2750);
+
+event.create('isovol')
+    .ingot()
+    .fluid()
+    .element(GTElements.get('isovol'))
+    .color(0x290066)
+    .iconSet(DULL)
+    .blastTemp(12499, 'highest', VA('uv'), 2750);
+*/
+
+
+
+
+
+
+
+
+
+
+
 
 })

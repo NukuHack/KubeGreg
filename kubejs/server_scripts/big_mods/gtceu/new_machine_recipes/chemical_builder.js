@@ -13,7 +13,15 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:propene 1000')
         .duration(240)
         .EUt(GTValues.VHA[GTValues.IV])
-        .circuit(0);
+        .circuit(17);
+		
+    event.recipes.gtceu.chemical_builder('methane')
+        .itemInputs('1x gtceu:carbon_dust')
+        .inputFluids('gtceu:hydrogen 4000')
+        .outputFluids('gtceu:methane 1000')
+        .duration(240)
+        .EUt(GTValues.VHA[GTValues.IV])
+        .circuit(20);
 
     event.recipes.gtceu.chemical_builder('ethane')
         .itemInputs('2x gtceu:carbon_dust')

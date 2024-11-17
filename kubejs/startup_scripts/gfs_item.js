@@ -147,15 +147,19 @@ StartupEvents.registry("item", (event) => {
 
     themes.forEach(([ theme, circuits, volts, mainframeVolt ]) => {
         // Create unit for each theme
-        event.create(`gfs:${theme}_processing_unit`)
-            .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
         event.create(`gfs:${theme}_circuit_board`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_circuit_board` });
+			
+        event.create(`gfs:${theme}_processing_unit`)
+			.tooltip(`Nice ${volts[0].toUpperCase()} Processor`)
+            .tag(`gtceu:circuits/${volts[0]}`)
+            .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
             event.create(`gfs:${theme}_${type}`)
                 .textureJson({ layer0: `gfs:item/circuits/${theme}_${type}` })
+				.tooltip(`Good ${volts[index].toUpperCase()} Processor`)
                 .tag(`gtceu:circuits/${volts[index]}`);
         });
 
@@ -165,6 +169,7 @@ StartupEvents.registry("item", (event) => {
                 layer0: `gfs:item/circuits/${theme}_processor_mainframe_base`,
                 layer1: `gfs:item/circuits/${theme}_processor_mainframe_lights`
             })
+            .tooltip(`Best ${mainframeVolt.toUpperCase()} Processor`)
             .tag(`gtceu:circuits/${mainframeVolt}`);
     });
 
@@ -174,7 +179,7 @@ StartupEvents.registry("item", (event) => {
             .tag(`gtceu:circuits/${x}`)
             .tag("gtceu:circuits/universal")
             .displayName(x.toUpperCase() + " Universal Circuit")
-            .tooltip("§7A Universal Circuit&r")
+            .tooltip("§7A Universal Circuit")
             .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
     })
 

@@ -156,7 +156,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create("omnium")
 		.ingot()
 		.element(GTElements.get("omnium"))
-		.color(0xffffff).iconSet('omnium')
+		.color(0xffffff)
+		.iconSet('omnium')
 		.flags(plates,rod,long_rod,gear,small_gear,ring,round,bolt_and_screw,frame)
 		.cableProperties(2147483647/64, 128, 0, true)
 		.liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
@@ -193,7 +194,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create('holmium')
 		.ingot()
 		.element(GTElements.get("holmium"))
-		.color(0x008F92).iconSet('metallic')
+		.color(0x008F92)
+		.iconSet('metallic')
 		.flags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
 
 
@@ -305,6 +307,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.gem(0)
 		.components('3x naquadah', '5x activated_netherite', '2x caesium', '5x cerium', '12x fluorine', '32x oxygen')
 		.color(0xffd966)
+		.blastTemp(10500, 'high', VA('uv'), 6000)
 		.iconSet(DIAMOND);
 
 	event.create('weapon_grade_naquadah')
@@ -312,7 +315,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.components('7x naquadria', '2x naquadic_netherite', '5x neutronium', '16x fluorine')
 		.color(0xccff33)
 		.iconSet(DULL)
-		.blastTemp(10500, 'low', VA('uv'), 6000)
+		.blastTemp(15000, 'high', VA('uv'), 6000)
 		.flags(foil, gear, long_rod, plates,
 			rod, rotor, small_gear, ring, frame);
 
@@ -321,7 +324,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
 		.flags(no_decomp)
 		.color(0x00ff00)
-		.cableProperties(2147483647/64, 1, 0, true)
 		.iconSet(OPAL);
 
 

@@ -26,17 +26,17 @@ StartupEvents.registry("block", event => {
     */
 
     const casingS = [
-        ["test","Test Casing",10,1,1,"metal","gtceu:block/casings/test_casing"],
-        ["gren","Agri Casing",4,1,10,"metal",'gtceu:block/casings/gren_casing'],
-        ["netherite","Netherite Casing",5,1,0,"metal","gfs:block/casings/machine_casing_peek"],
-        ["peek","PEEK Casing",7,2,0,"metal","gfs:block/casings/machine_casing_netherite"],
-        ["omnic_matrix","Omnic Matrix Casing",8,1,0,"metal","gfs:block/casings/machine_casing_omnic_matrix"],
-        ['austenitic_stainless_steel_304','Austenitic Stainless Steel 304 Nuclear Casing',6,2,0,"metal",'gfs:block/casings/machine_casing_a_s_steel'],
-        ['inconel_625','Inconel 625 Thermal Fluctuation Resistant Casing',5,3,0,"metal",'gfs:block/casings/machine_casing_inconel'],
+        ["test","Test",10,1,1,"metal","gtceu:block/casings/test_casing"],
+        ["gren","Agri",4,1,10,"metal",'gtceu:block/casings/gren_casing'],
+        ["netherite","Netherite",5,1,0,"metal","gfs:block/casings/machine_casing_peek"],
+        ["peek","PEEK",7,2,0,"metal","gfs:block/casings/machine_casing_netherite"],
+        ["omnic_matrix","Omnic Matrix",8,1,0,"metal","gfs:block/casings/machine_casing_omnic_matrix"],
+        ['austenitic_stainless_steel_304','Austenitic Stainless Steel 304 Nuclear',6,2,0,"metal",'gfs:block/casings/machine_casing_a_s_steel'],
+        ['inconel_625','Inconel 625 Thermal Fluctuation Resistant',5,3,0,"metal",'gfs:block/casings/machine_casing_inconel'],
     ];
     casingS.forEach(([name,Dname,hard,res,light,sound,texture])=>{
         event.create(`gfs:${name}_casing`)
-            .displayName(Dname)
+            .displayName(`${Dname} Casing`)
             .hardness(hard)
             .resistance(res)
             .lightLevel(light)

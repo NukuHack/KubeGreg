@@ -149,16 +149,16 @@ StartupEvents.registry("item", (event) => {
         // Create unit for each theme
         event.create(`gfs:${theme}_circuit_board`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_circuit_board` });
-			
+
         event.create(`gfs:${theme}_processing_unit`)
-			.tooltip(`Nice ${volts[0].toUpperCase()} Processor`)
+            .tooltip(`Nice ${volts[0].toUpperCase()} Processor`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
             event.create(`gfs:${theme}_${type}`)
                 .textureJson({ layer0: `gfs:item/circuits/${theme}_${type}` })
-				.tooltip(`Good ${volts[index].toUpperCase()} Processor`)
+                .tooltip(`Good ${volts[index].toUpperCase()} Processor`)
                 .tag(`gtceu:circuits/${volts[index]}`);
         });
 

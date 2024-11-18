@@ -16,9 +16,10 @@ StartupEvents.registry("block", event => {
 
     event.create('gfs:dust', 'falling')
         .soundType('sand')
+        .displayName("Dust Block")
         .resistance(0.4).hardness(0.4)
         .tagBlock("cucumber:mineable/paxel")
-        .tagBlock("cucumber:mineable/shovel").displayName("Dust Block")
+        .tagBlock("cucumber:mineable/shovel")
         .property(BlockProperties.FALLING);
 
     event
@@ -45,16 +46,17 @@ StartupEvents.registry("block", event => {
         ["white", "White"],
         ["yellow", "Yellow"],
         ["pink", "Pink"]
-    ].forEach(([color, colorName]) => {
-        event.create(`gfs:antiblock_${color}`)
-            .displayName(`${colorName} Antiblock`)
-            .requiresTool()
-            .soundType(SoundType.AMETHYST)
-            .tagBlock('minecraft:mineable/pickaxe')
-            .property(BlockProperties.LIT)
-            .lightLevel(1.0)
-            .textureAll(`gfs:block/antiblocks/${color}`);
-    });
+    ]
+        .forEach(([color, colorName]) => {
+            event.create(`gfs:antiblock_${color}`)
+                .displayName(`${colorName} Antiblock`)
+                .requiresTool()
+                .soundType(SoundType.AMETHYST)
+                .tagBlock('minecraft:mineable/pickaxe')
+                .property(BlockProperties.LIT)
+                .lightLevel(1.0)
+                .textureAll(`gfs:block/antiblocks/${color}`);
+        });
 
 
 // compressed machines

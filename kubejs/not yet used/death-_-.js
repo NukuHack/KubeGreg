@@ -77,8 +77,11 @@ event.create("dimensionally_transcendent_plasma_forge", "multiblock", (holder) =
             let temp = controller.getCoilType().getCoilTemperature()
             components.add(Component.translatable("gtceu.multiblock.blast_furnace.max_temperature", Text.of($FormattingUtil.formatNumbers((temp == 273 ? 32000 : temp)) + "K").blue()))
             if (controller.getRecipeType() == GTRecipeTypes.get("stellar_forge") && temp != 273) {
-                components.add(Component.literal("当前配方模式无法使用该线圈").red())
+                components.add(Component.literal("Be careful").red())
             }
         }
     })
-    .workableCasingRenderer("kubejs:block/dimensionally_transcendent_casing", "gtceu:block/dimensionally_transcendent_plasma_forge")
+    .workableCasingRenderer(
+        "kubejs:block/dimensionally_transcendent_casing",
+        "gtceu:block/dimensionally_transcendent_plasma_forge"
+    );

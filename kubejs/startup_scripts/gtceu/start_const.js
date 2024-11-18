@@ -183,7 +183,7 @@ function VHA(voltage) {
 
 function blastProperty(material, temperature, gasTier, voltage, duration) {
     let mat = GTMaterials.get(material);
-	// propably should wourk but it does not ... sadly
+    // propably should wourk but it does not ... sadly
     //mat.setProperty(PropertyKey.BLAST, new $BlastProperty(temperature, gasTier, voltage, duration));
 }
 

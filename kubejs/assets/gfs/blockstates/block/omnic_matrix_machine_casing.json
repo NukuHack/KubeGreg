@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "kubejs:block/omnic_matrix_machine_casing.json"
+      "model": "gfs:block/casings/machine_casing_omnic_matrix.json"
     }
   }
 }

@@ -15,7 +15,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk9"))
 
     event.create(
-        "parallel_hatch_e",
+        "parallel_hatch_better",
         "custom",
         (holder, tier) => {
             return new $ParallelHatchPartMachine(holder, tier);

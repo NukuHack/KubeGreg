@@ -26,6 +26,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	GTMaterials.Zirconium.addFlags(fine_wire);
 	GTMaterials.RedSteel.addFlags(rod, frame);
 	GTMaterials.SterlingSilver.addFlags(rod, frame);
+	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
+	GTMaterials.EnrichedHaquadah.addFlags(bolt);
 
 
 });
@@ -41,7 +43,7 @@ GTCEuStartupEvents.materialModification(event => {
 	GTMaterials.Glowstone.setComponents("1x redstone", "1x gold");
 	GTMaterials.Glowstone.setFormula('AuSi(FeS2)5(CrAl2O3)Hg3', true);
 
-	//GTMaterials.EnrichedHaquadah.setProperty(bolt, true);
+	// will have to make minecraft netherite be gt netherite
 
 	//GTMaterials.RhodiumSulfate.setProperty($PropertyKey.DUST, new $DustProperty(2,0));
 

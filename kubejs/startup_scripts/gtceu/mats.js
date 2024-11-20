@@ -58,7 +58,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.flags(no_decomp)
 		.color(0x969688);
 
-
+	
 
 
 	/*
@@ -142,7 +142,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.element(GTElements.get("cryococcus"))
 		.color(0x008F92).iconSet('metallic')
 		.fluidPipeProperties(20000, 20000, true, true, true, true)
-		.flags(no_smelt, plates, rod,gear, frame, ring, dense_plate)
+		.flags(no_smelt, plates, rod,gear, frame, ring, dense_plate);
 
 
 	event.create("crystal_matrix")
@@ -160,7 +160,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.iconSet('omnium')
 		.flags(plates,rod,long_rod,gear,small_gear,ring,round,bolt_and_screw,frame)
 		.cableProperties(2147483647/64, 128, 0, true)
-		.liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
+		.liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill());
 
 	event.create('infinity')
 		.ingot()
@@ -168,7 +168,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.color(0xffffff)
 		.iconSet('infinity')
 		.cableProperties(33554432*4, 64, 0, true)
-		.flags(plates,rod,long_rod,ring,round, gear,small_gear,bolt_and_screw,frame,dense_plate)
+		.flags(plates,rod,long_rod,ring,round, gear,small_gear,bolt_and_screw,frame,dense_plate);
 
 	event.create('monium')
 		.ingot()
@@ -176,27 +176,18 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.color(0xffffff)
 		.iconSet('monium')
 		.flags(plates,rod,frame,gear,spring)
-		.cableProperties(2147483647/16, 1024, 0, true)
+		.cableProperties(2147483647/16, 1024, 0, true);
 
 	event.create('omnic_acid')
 		.dust()
 		.color(0xff00ff)
 		.iconSet('shiny')
 		.components('5x carbon', '4x hydrogen', '3x oxygen', '4x omnium')
-		.flags(no_decomp)
+		.flags(no_decomp);
 
 
 
 
-
-
-
-	event.create('holmium')
-		.ingot()
-		.element(GTElements.get("holmium"))
-		.color(0x008F92)
-		.iconSet('metallic')
-		.flags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
 
 
 
@@ -213,39 +204,44 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.gas()
 		.color(0xa040af)
 		.flags(no_decomp)
-		.components('helium_3', 'rare_earth')
+		.components('helium_3', 'rare_earth');
 
 	event.create('dioxygen_difluoride')
 		.fluid() // 80
 		.colorAverage()
-		.components('2x oxygen', '2x fluorine')
+		.components('2x oxygen', '2x fluorine');
 
 	event.create('stone_residue')
 		.dust()
 		.color(0x4d4d4d).iconSet('rough')
-		.flags(no_decomp)
+		.flags(no_decomp);
 
 	event.create('helium_hydride')
 		.gas()
 		.color(0xe6d62e)
 		.flags(no_decomp)
-		.components('helium_3', 'hydrogen')
+		.components('helium_3', 'hydrogen');
 
 	event.create('hydrogen_peroxide')
 		.liquid()
 		.color(0xd2ffff)
-		.components('2x hydrogen', '2x oxygen')
+		.components('2x hydrogen', '2x oxygen');
 
 	event.create('naquadah_oxide')
 		.dust()
 		.color(0x17ddd3).iconSet('rough')
 		.flags(no_decomp)
-		.components('2x naquadah', '3x oxygen')
+		.components('2x naquadah', '3x oxygen');
 
 	event.create('naquadah_hydroxide')
 		.dust()
 		.color(0x1941a6).iconSet('dull')
-		.components('naquadah', '3x hydrogen', '3x oxygen')
+		.components('naquadah', '3x hydrogen', '3x oxygen');
+
+	event.create("sulfur_dichloride")
+		.components("1x sulfur","1x chlorine")
+		.fluid()
+		.color(0x969688);
 
 
 
@@ -301,16 +297,18 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		.iconSet(DULL)
 		.cableProperties(8388608, 16, 0, true)
 		.fluidPipeProperties(120000, 96000, true, true, true, true)
-		.flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring)
+		.flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring);
 
 	event.create('naquadic_netherite')
 		.gem(0)
-		.components('3x naquadah', '5x activated_netherite', '2x caesium', '5x cerium', '12x fluorine', '32x oxygen')
+		//.ingot()
+		.components('3x enriched_naquadah', '5x activated_netherite', '2x caesium', '5x cerium', '12x fluorine', '32x oxygen')
 		.color(0xffd966)
-		.blastTemp(10500, 'high', VA('uv'), 6000)
-		.iconSet(DIAMOND);
+		.iconSet(DIAMOND)
+		//.blastTemp(10500, 'high', VA('uv'), 6000)
+		.flags(plates,lens,no_block_craft);
 
-	event.create('weapon_grade_naquadah')
+	event.create('weapon_grade_naquadaria')
 		.ingot()
 		.components('7x naquadria', '2x naquadic_netherite', '5x neutronium', '16x fluorine')
 		.color(0xccff33)
@@ -322,7 +320,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	event.create('screret_runic_laser_source_base')
 		.gem(0)
 		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
-		.flags(no_decomp)
+		.flags(no_decomp,no_block_craft,plates,lens)
 		.color(0x00ff00)
 		.iconSet(OPAL);
 

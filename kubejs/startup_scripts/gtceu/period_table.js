@@ -13,6 +13,9 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
     periodicTableElement('seaborgium', 'ingot');
     periodicTableElement('flerovium', 'ingot');
     periodicTableElement('rhenium', 'ingot');
+    periodicTableElement('holmium', 'ingot');
+
+
 
 // Dusts
     periodicTableElement('selenium', 'dust');

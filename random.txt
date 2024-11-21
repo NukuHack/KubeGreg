@@ -12,22 +12,22 @@ max int : 2,147,483,647 .... 2147483647
 
 
 Plan :
-	Large pyro-oven
+
 	maybe a big vanilla crafter
 
 	sea pickles to Large Farm ... or
-	maybe a multiblock like Flower Garden for dies
+	    maybe a multiblock like Flower Garden for dies
+
 	make the mixtures like magenta craftable from basic elements like red
 
     potato concrete
         potato starch + Regolith (lifeless dirt) + salt = best concrete
             potato starch < wet potato s. < potato slurry < crushed potato
             regolith < basalt powder + iron oxides
-	
-	realistic ae2
-	
-	polyethyl_cyanoacrylate // replaced with PEEK
-	
+
+
+	(more) realistic ae2
+
 	fine_ruthenium_trinium_americium_neutronate : wire
 	
 	gfs:quasi_stable_neutron_star

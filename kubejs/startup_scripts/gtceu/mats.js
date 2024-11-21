@@ -319,7 +319,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	event.create('screret_runic_laser_source_base')
 		.gem(0)
-		.components('4x weapon_grade_naquadah', '10x tritanium', '2x trinium')
+		.components('4x weapon_grade_naquadaria', '10x tritanium', '2x trinium')
 		.flags(no_decomp,no_block_craft,plates,lens)
 		.color(0x00ff00)
 		.iconSet(OPAL);

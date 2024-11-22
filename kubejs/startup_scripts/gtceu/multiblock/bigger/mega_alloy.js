@@ -1,7 +1,6 @@
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
 
-
     event.create("mega_alloy_blast_smelter", "multiblock", (holder) => new $CoilWorkableElectricMultiblockMachine(holder))
         .rotationState(RotationState.NON_Y_AXIS)
         .allowExtendedFacing(false)

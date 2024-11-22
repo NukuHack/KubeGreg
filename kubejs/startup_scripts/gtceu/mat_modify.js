@@ -27,17 +27,21 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	GTMaterials.RedSteel.addFlags(rod, frame);
 	GTMaterials.SterlingSilver.addFlags(rod, frame);
 	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
-	GTMaterials.EnrichedHaquadah.addFlags(bolt);
+	GTMaterials.NaquadahEnriched.addFlags(bolt_and_screw);
 
 
 });
 
 GTCEuStartupEvents.materialModification(event => {
 
-
-	GTMaterials.Holmium.setProperty($PropertyKey.WIRE, new $WireProperty(33554432, 64, 0, true))
-	GTMaterials.Holmium.setProperty($PropertyKey.FLUID_PIPE, new $FluidPipeProperty(120000, 128000, true, true, true, true))
-	GTMaterials.Holmium.setProperty($PropertyKey.BLAST, new $BlastProperty(12500, 'highest', 1000000, 1000));
+	// volt, amp, loss , (is superconductor), crit temp 	 by defa = (8, 1, 1, false);
+	GTMaterials.Holmium.setProperty($PropertyKey.WIRE, new $WireProperty(33554432, 64, 0, true));
+	// temp, speed, gas, acid, cryo, plasma, channel			by defa = (no,no,false,false,false,false,9)
+	GTMaterials.Holmium.setProperty($PropertyKey.FLUID_PIPE, new $FluidPipeProperty(120000, 128000, true, true, true, true, 9));
+	// temp , tier , time , eut , vacuum t, vacuum eut		by defa = (no,no,-1,-1,-1,-1)
+	GTMaterials.Holmium.setProperty($PropertyKey.BLAST, new $BlastProperty(12500, 'highest', 200*60*20, 480*4, -1, -1));
+	// priority, trans				by defa = (1, 0.25f)
+	//GTMaterials.XYZ.setProperty($PropertyKey.ITEM_PIPE, new $ItemPipeProperties(1, 64*2));
 
 
 	GTMaterials.Glowstone.setComponents("1x redstone", "1x gold");

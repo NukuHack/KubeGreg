@@ -362,7 +362,7 @@ $MyApp.Renderers.MaintenanceRenderer.prototype.constructor = $MyApp.Renderers.Ma
 //multiblocks :
 
 
-const $SpaceElevator = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.SpaceElevator");
+//const $SpaceElevator = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.SpaceElevator");
 const $LargeBoilerMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.steam.LargeBoilerMachine");
 const $LargeTurbineMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.generator.LargeTurbineMachine");
 const $SteamParallelMultiblockMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultiblockMachine");

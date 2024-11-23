@@ -42,12 +42,13 @@ GTCEuStartupEvents.materialModification(event => {
 	GTMaterials.Holmium.setProperty($PropertyKey.BLAST, new $BlastProperty(12500, 'highest', 200*60*20, 480*4, -1, -1));
 	// priority, trans				by defa = (1, 0.25f)
 	//GTMaterials.XYZ.setProperty($PropertyKey.ITEM_PIPE, new $ItemPipeProperties(1, 64*2));
+	// an item can not be fluid and item pipe in the same time ... sadly
 
 
 	GTMaterials.Glowstone.setComponents("1x redstone", "1x gold");
 	GTMaterials.Glowstone.setFormula('AuSi(FeS2)5(CrAl2O3)Hg3', true);
 
-	// will have to make minecraft netherite be gt netherite
+	// will have to make minecraft netherite be gt netherite and other stuff like the crap to be debris
 
 	//GTMaterials.RhodiumSulfate.setProperty($PropertyKey.DUST, new $DustProperty(2,0));
 

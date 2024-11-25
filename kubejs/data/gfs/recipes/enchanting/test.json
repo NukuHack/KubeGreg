@@ -1,0 +1,16 @@
+{
+    "type": "apotheosis:enchanting",
+    "input": {
+        "item": "gtceu:steel_ingot"
+    },
+    "requirements": {
+        "eterna": 50,
+        "quanta": 85,
+        "arcana": 100
+    },
+    "display_level": 5,
+    "result": {
+        "item": "gtceu:steel_block",
+        "count": 1
+    }
+}

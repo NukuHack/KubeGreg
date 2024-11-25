@@ -87,7 +87,7 @@ ServerEvents.recipes(event => {
 
   greg
       .assembler('gfs:wither_skeleton_skull')
-      //.itemInputs('8x wstweaks:fragment')
+      //.itemInputs('8x gfs:wither_fragment')
       .itemInputs('64x #forge:storage_blocks/bone', "64x minecraft:skeleton_skull")
       .inputFluids(Fluid.of('gtceu:sulfuric_acid', 32000))
       .itemOutputs('minecraft:wither_skeleton_skull')

@@ -81,7 +81,7 @@
         {
           "type": "minecraft:item",
           "weight": 10,
-          "name": "wstweaks:fragment",
+          "name": "gfs:wither_fragment",
           "functions": [
             {
               "function": "minecraft:set_count",

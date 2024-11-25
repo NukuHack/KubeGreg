@@ -50,7 +50,7 @@ ServerEvents.recipes((event) => {
   greg
       .chemical_reactor('gfs:soul_sand')
       .itemInputs('#forge:sand')
-      .itemInputs('wstweaks:fragment')
+      .itemInputs('gfs:wither_fragment')
       .inputFluids(Fluid.of('gtceu:nitric_acid', 250))
       .itemOutputs('minecraft:soul_sand')
       .duration(5*20)
@@ -61,7 +61,7 @@ ServerEvents.recipes((event) => {
   greg
       .chemical_reactor('gfs:soul_soil')
       .itemInputs('#minecraft:dirt')
-      .itemInputs('wstweaks:fragment')
+      .itemInputs('gfs:wither_fragment')
       .inputFluids(Fluid.of('gtceu:nitric_acid', 250))
       .itemOutputs('minecraft:soul_soil')
       .duration(5*20)

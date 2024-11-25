@@ -8,7 +8,7 @@ ServerEvents.recipes(event => {
     greg
         .macerator("gfs:skull_fragments")
         .itemInputs("minecraft:wither_skeleton_skull")
-        .itemOutputs("9x wstweaks:fragment")
+        .itemOutputs("9x gfs:wither_fragment")
         .EUt(30)
         .duration(240);
 

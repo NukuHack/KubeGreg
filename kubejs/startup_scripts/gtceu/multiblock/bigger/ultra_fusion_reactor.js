@@ -23,7 +23,7 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
 
-    event.create('giant_fusion_reactor', 'multiblock', (holder) => new FusionReactorMachine(holder, GTValues.UHV))
+    event.create('giant_fusion_reactor', 'multiblock', (holder) => new $FusionReactorMachine(holder, GTValues.UHV))
         .rotationState(RotationState.ALL)
         .recipeTypes(GTRecipeTypes.FUSION_RECIPES)
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH])

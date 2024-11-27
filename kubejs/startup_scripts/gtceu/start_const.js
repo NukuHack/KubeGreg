@@ -373,6 +373,7 @@ const $CoilWorkableElectricMultiblockMachine = Java.loadClass("com.gregtechceu.g
 //const $StorageMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.StorageMachine");
 const $AssemblyLineMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.AssemblyLineMachine");
 //const $FissionReactorMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.FissionReactorMachine");
+const $FusionReactorMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.FusionReactorMachine");
 const $ItemRecipeCapability = Java.loadClass("com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability");
 const $RecipeHelper = Java.loadClass("com.gregtechceu.gtceu.api.recipe.RecipeHelper");
 //const $TeamUtil = Java.loadClass("com.hepdd.gtmthings.utils.TeamUtil");

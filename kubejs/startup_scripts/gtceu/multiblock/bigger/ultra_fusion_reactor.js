@@ -9,13 +9,14 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
         .setMaxIOSize(2, 2, 4, 2)
         .setProgressBar(GuiTextures.PROGRESS_BAR_FUSION, FillDirection.LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.ARC);
-
+    /*
     GTRecipeTypes.FUSION_RECIPES.onRecipeBuild((builder, provider) => {
         GTRecipeTypes.get('mega_fusion_reactor').copyFrom(builder)
             .duration(Math.max((builder.duration / 2), 1))
             .EUt(builder.EUt() * 1.5)
             .save(provider);
     });
+    */
 })
 
 

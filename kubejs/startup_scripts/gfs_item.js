@@ -2,7 +2,7 @@
 * greg_sky.js - Register Items.
 */
 
-Platform.mods.kubejs.name = "Gfs";
+Platform.mods.gfs.name = "Gfs";
 
 priority: 90
 
@@ -291,6 +291,34 @@ StartupEvents.registry("item", (event) => {
 
 */
 
+
+
+
+    event.create('thorium_fuel_rod')
+        .displayName('Thorium Fuel Rod')
+        .texture('gfs:item/thorium_fuel_rod');
+
+    event.create('highly_enriched_uranium_fuel_rod')
+        .displayName('Highly Enriched Uranium Fuel Rod')
+        .tooltip('20 BILLION CALORIES :trolllaugh:')
+        .texture('gfs:item/high_enriched_uranium_fuel_rod');
+
+    event.create('low_enriched_uranium_fuel_rod')
+        .displayName('Low Enriched Uranium Fuel Rod')
+        .texture('gfs:item/low_enriched_uranium_fuel_rod');
+
+    event.create('depleted_thorium_fuel_rod')
+        .displayName('Depleted Thorium Fuel Rod')
+        .texture('gfs:item/depleted_thorium_fuel_rod');
+
+    event.create('depleted_highly_enriched_uranium_fuel_rod')
+        .displayName('Depleted Highly Enriched Uranium Fuel Rod')
+        .tooltip('No more 20 billion calories :waaaaaaaaah')
+        .texture('gfs:item/depleted_high_enriched_uranium_rod');
+
+    event.create('depleted_low_enriched_uranium_fuel_rod')
+        .displayName('Depleted Low Enriched Uranium Fuel Rod')
+        .texture('gfs:item/depleted_low_enriched_uranium_rod');
 
 
 

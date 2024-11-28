@@ -181,7 +181,118 @@ StartupEvents.registry("item", (event) => {
             .displayName(x.toUpperCase() + " Universal Circuit")
             .tooltip("§7A Universal Circuit")
             .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
-    })
+    });
+
+
+
+
+
+/*
+
+//Line four (dark grey)
+    event.create('singularity_processing_unit')
+    //.displayName()
+    //.texture()
+    //.tooltip()
+
+    event.create('singularity_circuit_board')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_circuit_board')
+        .tooltip('A board carved from the heart of a star')
+
+    event.create('singularity_printed_circuit_board')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_printed_circuit_board')
+        .tooltip('A board printed out of the heart of a star')
+
+    event.create('singularity_processor')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_processor')
+        .tooltip('§fUEV-tier Circuit')
+
+    event.create('singularity_processor_assembly')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_processor_assembly')
+        .tooltip('§fUIV-tier Circuit')
+
+    event.create('singularity_processor_computer')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_processor_computer')
+        .tooltip('§fUXV-tier Circuit')
+
+    event.create('singularity_processor_mainframe')
+        //.displayName()
+        .texture('gtceu:item/singularity_circuits/singularity_processor_mainframe')
+        .tooltip('§fOPV-tier Circuit')
+
+//Line five (gold)
+    event.create('4d_processing_unit')
+    //.displayName()
+    //.texture()
+    //.tooltip()
+
+    event.create('4d_circuit_board')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_printed_circuit_board')
+        .tooltip('It hurts to look at')
+
+    event.create('4d_printed_circuit_board')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_printed_circuit_board')
+        .tooltip('It hurts to look at')
+
+    event.create('4d_processor')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_processor')
+        .tooltip('§6UIV-tier Circuit')
+
+    event.create('4d_processor_assembly')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_processor_assembly')
+        .tooltip('§6UXV-tier Circuit')
+
+    event.create('4d_processor_computer')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_processor_computer')
+        .tooltip('§6OPV-tier Circuit')
+
+    event.create('4d_processor_mainframe')
+        //.displayName()
+        .texture('gtceu:item/4d_circuits/4d_processor_mainframe')
+        .tooltip('§6MAX-tier Circuit')
+
+//Optical SMD
+    event.create('optical_smd_transistor')
+        //.displayName()
+        .texture('gtceu:item/circuit_comp/optical_smd_transistor')
+    //.tooltip()
+
+    event.create('optical_smd_resistor')
+        //.displayName()
+        .texture('gtceu:item/circuit_comp/optical_smd_resistor')
+    //.tooltip()
+
+    event.create('optical_smd_capacitor')
+        //.displayName()
+        .texture('gtceu:item/circuit_comp/optical_smd_capacitor')
+    //.tooltip()
+
+    event.create('optical_smd_diode')
+        //.displayName()
+        .texture('gtceu:item/circuit_comp/optical_smd_diode')
+    //.tooltip()
+
+    event.create('optical_smd_inductor')
+        //.displayName()
+        .texture('gtceu:item/circuit_comp/optical_smd_inductor')
+    //.tooltip()
+
+
+
+*/
+
+
+
 
 });
 

@@ -141,4 +141,42 @@ ServerEvents.recipes(event => {
       .EUt(92160)
       .duration(480);
 
+
+
+
+  const CellHelp = [
+    ["ae2:item_storage_cell"+"k"+'ae2:item_cell_housing'+"ae2:cell_component"],
+    ["ae2:fluid_storage_cell"+"k"+'ae2:fluid_cell_housing'+"ae2:cell_component"],
+    ["megacells:item_storage_cell"+"m"+'megacells:mega_item_cell_housing'+"megacells:cell_component"],
+    ["megacells:fluid_storage_cell"+"m"+'megacells:mega_fluid_cell_housing'+"megacells:cell_component"],
+  ];
+
+
+
+
+
+
+  [
+    '1',
+    '4',
+    '16',
+    '64',
+    '256'
+  ].forEach(AEsizes => {
+    event.remove({ output: `ae2:item_storage_cell_${AEsizes}k` });
+    event.remove({ output: `ae2:fluid_storage_cell_${AEsizes}k` });
+    // fluix cells
+    event.remove({ output: `megacells:item_storage_cell_${AEsizes}m` });
+    event.remove({ output: `megacells:fluid_storage_cell_${AEsizes}m` });
+
+    CellHelp.forEach(([outputPrefix, sizeSuffix, housing, componentPrefix]) => {
+      event.shapeless(`${outputPrefix}_${AEsizes}${sizeSuffix}`, [
+        housing,
+        `${componentPrefix}_${AEsizes}${sizeSuffix}`
+      ]);
+    });
+
+  });
+  
+
 });

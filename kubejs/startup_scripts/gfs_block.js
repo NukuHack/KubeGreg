@@ -14,6 +14,16 @@ StartupEvents.registry("block", event => {
             .textureAll("gfs:block/casings/casing-wood");
     */
 
+    event.create(`witherproof_block`)
+        .displayName(`Witherproof Block`)
+        .hardness(8.0)
+        .resistance(1200)
+        .requiresTool(true)
+        .tagBlock('forge:obsidian')
+        .tagBlock('minecraft:wither_immune')
+        .tagBlock('minecraft:dragon_immune')
+        .textureAll(`gfs:block/witherproof_block`);
+
     event.create('gfs:dust', 'falling')
         .soundType('sand')
         .displayName("Dust Block")

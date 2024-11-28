@@ -31,3 +31,9 @@ GTCEuStartupEvents.registry('gtceu:element', event => {
     event.create('cryolobus', 149, 234, -1, null, 'Cy', false);
     event.create('cryococcus', 149, 264, -1, null, 'Cy*', false);
 })
+    event.create('mana',            -1, -1, -1, null, '★', false);
+    event.create('stardust',            -1, -1, -1, null, 'Sd', false);
+    event.create('ember',           -1, -1, -1, null, '🔥', false);
+    event.create('wissen',          -1, -1, -1, null, '⚙', false);
+
+});

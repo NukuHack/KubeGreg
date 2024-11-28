@@ -189,6 +189,40 @@ event.create('isovol')
 */
 
 
+	event.create('mana')
+		// mana
+		.element(GTElements.get("mana"))
+		.fluid()
+		.gem()
+		.color(0x20DAFF);
+
+	//Arcane Element for Ember
+	event.create('ember')
+		//🔥
+		.element(GTElements.get("ember"))
+		.color(0xFF5200).secondaryColor(0xFFAA5C).iconSet(LAPIS)
+		.gem()
+		.flags(
+			lens
+		);
+
+	event.create('wissen')
+		//⚙
+		.element(GTElements.get("wissen"))
+		.color(0x577FB8).secondaryColor(0xCDEDFE).iconSet(NETHERSTAR)
+		.gem()
+		.flags(
+			fine_wire,
+			lens
+		);
+
+	//Stardust
+	event.create('stardust')
+		//Sd
+		.element(GTElements.get("stardust"))
+		.color(0x42599D).secondaryColor(0xCCF2FF).iconSet(NETHERSTAR)
+		.dust();
+
 
 
 })

@@ -24,7 +24,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('  HHH SSS HHH  ', '  HHH  K  HHH  ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '   F       F   ', '  HHH     HHH  ', '  HHH     HHH  ')
             .aisle('  HHH     HHH  ', '   H       H   ', '               ', '               ', '               ', '               ', '               ', '               ', '               ', '   H       H   ', '  HHH     HHH  ')
             .where('K', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('N', Predicates.blocks('gfs:austenitic_stainless_steel_304_casing'))
+            .where('N', Predicates.blocks('gfs:steel_304_casing'))
             .where('F', Predicates.blocks('gtceu:blue_steel_frame'))
             .where('C', Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get()))
             .where('B', Predicates.blocks('gtceu:beryllium_block'))

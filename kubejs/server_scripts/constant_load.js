@@ -117,6 +117,7 @@ const items = [
 	"megacells:mega_interface",
 
 	"merequester:requester",
+	
 ];
 
 
@@ -137,6 +138,9 @@ const ids = [
 	"gtceu:shapeless/rubber_wood_planks",
 
 	"ae2:transform/certus_quartz_crystal",
+	"ae2:transform/certus_quartz_crystal",
+	"ae2:transform/entangled_singularity",
+	"ae2:transform/entangled_singularity_from_pearl",
 
 	'gtceu:primitive_blast_furnace/steel_from_coal_gem',
 	'gtceu:primitive_blast_furnace/steel_from_coal_dust',

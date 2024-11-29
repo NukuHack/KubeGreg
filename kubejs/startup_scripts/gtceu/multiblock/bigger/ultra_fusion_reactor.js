@@ -1,7 +1,4 @@
 
-
-const $FusionReactorMachine = Java.loadClass("com.gregtechceu.gtceu.common.machine.multiblock.electric.FusionReactorMachine")
-
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('mega_fusion_reactor')
         .category('gfs')

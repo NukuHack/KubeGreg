@@ -150,31 +150,25 @@ const CellHelp = [
     ["megacells:fluid_storage_cell", "m", "megacells:mega_fluid_cell_housing", "megacells:cell_component"]
 ];
 
-
-
-
-
-  [
-    '1',
-    '4',
-    '16',
-    '64',
-    '256'
-  ].forEach(AEsizes => {
-    event.remove({ output: `ae2:item_storage_cell_${AEsizes}k` });
-    event.remove({ output: `ae2:fluid_storage_cell_${AEsizes}k` });
-    // fluix cells
-    event.remove({ output: `megacells:item_storage_cell_${AEsizes}m` });
-    event.remove({ output: `megacells:fluid_storage_cell_${AEsizes}m` });
-
-    CellHelp.forEach(([outputPrefix, sizeSuffix, housing, componentPrefix]) => {
-      event.shapeless(`${outputPrefix}_${AEsizes}${sizeSuffix}`, [
-        housing,
-        `${componentPrefix}_${AEsizes}${sizeSuffix}`
-      ]);
+[
+    "1",
+    "4",
+    "16",
+    "64",
+    "256"
+].forEach((AEsize) => {
+    CellHelp.forEach(([out, Suffix, housing, component]) => {
+        // Remove existing recipes for this output
+        event.remove({ output: `${out}_${AEsize}${Suffix}` });
+        // Add new shapeless recipe for the storage cell
+        event.shapeless(`${out}_${AEsize}${Suffix}`, [
+            housing,
+            `${component}_${AEsize}${Suffix}`
+        ]);
     });
+	// fluix cells
+});
 
-  });
   
 
 });

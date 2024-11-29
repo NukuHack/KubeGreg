@@ -342,8 +342,9 @@ ServerEvents.recipes(event => {
     P: "gtceu:hv_robot_arm",
     C: "ae2:fluix_glass_cable",
   });
-
-  greg.assembly_line('assline_creative_cell_recipe')
+  
+	// Crea cell
+  greg.assembly_line('gfs:creative_cell_recipe')
       .itemInputs('32x megacells:mega_energy_cell', '2x #gtceu:circuits/luv', 'gtceu:superconducting_coil', '64x ae2:fluix_smart_dense_cable')
       .itemOutputs('ae2:creative_energy_cell')
       .inputFluids(
@@ -353,10 +354,18 @@ ServerEvents.recipes(event => {
       .duration(500)
       .EUt(GTValues.VA[GTValues.LuV])
 
-  event.recipes.gtceu.assembler(`ae2:singularity_creation`)
-      .itemInputs(['ae2:dense_energy_cell', '4x gtceu:hv_emitter', '4x gtceu:hv_sensor', 'gtceu:hv_field_generator'])
+	// singularity
+  greg.assembler(`gfs:singularity_creation`)
+      .itemInputs(['megacells:mega_energy_cell', '4x gtceu:ev_emitter', '4x gtceu:ev_sensor', '2x gtceu:ev_field_generator'])
       .itemOutputs('ae2:singularity')
-      .duration(12000)
-      .EUt(GTValues.VA[GTValues.HV]);
+      .duration(600*20)
+      .EUt(GTValues.VA[GTValues.EV]);
+	  
+
+	greg.imposion_compressor("gfs:quantum_entangled_singularity")
+      .itemInputs(['2x ae2:singularity','4x gtceu:industrial_tnt',"16x #forge:plates/ender_eye"])
+      .itemOutputs('ae2:quantum_entangled_singularity')
+      .duration(800*20)
+      .EUt(GTValues.VA[GTValues.EV]);
 
 });

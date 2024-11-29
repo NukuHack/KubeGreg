@@ -143,13 +143,12 @@ ServerEvents.recipes(event => {
 
 
 
-
-  const CellHelp = [
-    ["ae2:item_storage_cell"+"k"+'ae2:item_cell_housing'+"ae2:cell_component"],
-    ["ae2:fluid_storage_cell"+"k"+'ae2:fluid_cell_housing'+"ae2:cell_component"],
-    ["megacells:item_storage_cell"+"m"+'megacells:mega_item_cell_housing'+"megacells:cell_component"],
-    ["megacells:fluid_storage_cell"+"m"+'megacells:mega_fluid_cell_housing'+"megacells:cell_component"],
-  ];
+const CellHelp = [
+    ["ae2:item_storage_cell", "k", "ae2:item_cell_housing", "ae2:cell_component"],
+    ["ae2:fluid_storage_cell", "k", "ae2:fluid_cell_housing", "ae2:cell_component"],
+    ["megacells:item_storage_cell", "m", "megacells:mega_item_cell_housing", "megacells:cell_component"],
+    ["megacells:fluid_storage_cell", "m", "megacells:mega_fluid_cell_housing", "megacells:cell_component"]
+];
 
 
 

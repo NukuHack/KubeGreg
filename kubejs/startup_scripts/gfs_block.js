@@ -90,9 +90,9 @@ StartupEvents.registry("block", event => {
         });
 
     [
-        ["gfs:compressed_invar_casing", "gfs:block/coils/plain/casing-green", 5, "stone"],
-        ["gfs:compressed_ulv_casing", "gfs:block/coils/plain/casing-gray", 5, "stone"],
-        ["gfs:compressed_lv_hatch", "gfs:block/coils/plain/casing-gray", 5, "stone"]
+        ["gfs:compressed_invar_casing", "gfs:block/casings/simple/casing-green", 5, "stone"],
+        ["gfs:compressed_ulv_casing", "gfs:block/casings/simple/casing-gray", 5, "stone"],
+        ["gfs:compressed_lv_hatch", "gfs:block/casings/simple/casing-gray", 5, "stone"]
     ]
         .forEach(([id, texture, hardness, soundType]) => {
             event.create(id)
@@ -125,7 +125,7 @@ StartupEvents.registry("block", event => {
                 .requiresTool(true)
                 .tagBlock("mineable/pickaxe")
                 .tagBlock("cucumber:mineable/paxel")
-                .textureAll(`gfs:block/coils/plain/${texture}`);
+                .textureAll(`gfs:block/casings/simple/${texture}`);
         });
 
 

@@ -8,14 +8,14 @@ ServerEvents.recipes(event => {
         ["dark_oak","minecraft:apple"],
         ["mangrove",""],
         ["rubber","gtceu:sticky_resin"],
-        ["jungle","minecraft:cocobeans"],
+        ["jungle","minecraft:cocoa_beans"],
         ["cherry",""],
         ["acacia",""],
         ["spruce",""],
         ["birch",""]
     ]
         .forEach(([type,extra])=>{
-            extra = (extra==""?"minecraft:dirt":extra); // should change it to some more natural thing
+            extra = (extra==""?"gtceu:plant_ball":extra); // should change it to some more natural thing
             greg.tree_greenhouse(`gfs:${type}_grow_co2_2`)
                 .notConsumable(`#forge:saplings/${type}`)
                 .chancedInput('gtceu:fertilizer', 2500, 0)

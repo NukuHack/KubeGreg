@@ -1,6 +1,6 @@
 {
     "ldlib": {
-        "connection": "gfs:block/casings/machine_casing_omnic_matrix_ctm"
+        "connection": "gfs:block/casings/omnic_ctm"
     },
     "animation": {
         "interpolate": true,

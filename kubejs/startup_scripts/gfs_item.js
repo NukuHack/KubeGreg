@@ -136,6 +136,10 @@ StartupEvents.registry("item", (event) => {
         event.create(`gfs:complex_smd_${x}`)
             .displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
             .texture(`gfs:item/complex_smd/complex_smd_${x}`);
+			
+        event.create(`gfs:hypeflux_smd_${x}`)
+            .displayName(`Hypeflux SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
+            .texture(`gfs:item/complex_smd/hypeflux_smd_${x}`);
     });
 
 

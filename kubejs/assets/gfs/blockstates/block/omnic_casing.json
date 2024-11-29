@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "gfs:block/casings/omnic/omnic.json"
+    }
+  }
+}

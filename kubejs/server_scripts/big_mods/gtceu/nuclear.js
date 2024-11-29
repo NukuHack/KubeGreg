@@ -65,11 +65,11 @@ ServerEvents.recipes(event => {
     ];
 
 // Add centrifuge recipes
-    centrifugeRecipes.forEach(recipe => {
-        greg.centrifuge(recipe[0])
-            .itemInputs(recipe[1])
-            .itemOutputs(...recipe[2]) // Spread operator for multiple outputs
-            .outputFluids(recipe[3])
+    centrifugeRecipes.forEach(([id,inp,out,liq]) => {
+        greg.centrifuge(id)
+            .itemInputs(inp)
+            .itemOutputs(out)
+            .outputFluids(liq)
             .duration(1200)
             .EUt(420);
     });
@@ -98,7 +98,5 @@ ServerEvents.recipes(event => {
         H: 'gtceu:hv_machine_hull',
         P: 'gtceu:aluminium_large_fluid_pipe'
     });
-
-
 
 });

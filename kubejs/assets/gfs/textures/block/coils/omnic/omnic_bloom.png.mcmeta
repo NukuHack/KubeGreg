@@ -1,6 +1,6 @@
 {
     "ldlib": {
-        "connection": "gfs:block/coils/machine_coil_omnic_bloom_ctm",
+        "connection": "gfs:block/coils/omnic/omnic_bloom_ctm",
         "emissive": true
     },
     "shimmer": {

@@ -1,6 +1,6 @@
 {
     "ldlib": {
-        "connection": "gfs:block/coils/machine_coil_omnic_ctm"
+        "connection": "gfs:block/coils/omnic/omnic_ctm"
     },
     "animation": {
         "interpolate": true,

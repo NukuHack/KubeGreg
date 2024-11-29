@@ -3,6 +3,16 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
+
+// netherite scrap
+
+    greg
+        .forge_hammer('gfs:nether_scrap')
+        .itemInputs('4x gtceu:double_strong_mix_plate')
+        .itemOutputs('minecraft:netherite_scrap')
+        .duration(10*20)
+        .EUt(500);
+
     greg.electric_blast_furnace('netherite')
         .itemInputs('gtceu:debris_dust', 'minecraft:gold_ingot')
         .inputFluids('gtceu:argon 100')

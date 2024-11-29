@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "gfs:block/coils/mithril/mithril_ctm"
+    }
+}

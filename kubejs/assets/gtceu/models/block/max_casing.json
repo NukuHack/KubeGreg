@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "gtceu:block/casings/max/top",
+    "side": "gtceu:block/casings/max/side"
+  }
+}

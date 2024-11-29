@@ -1,15 +1,5 @@
-/*
-GTCEuStartupEvents.registry("gtceu:recipe_type", event => {
-	
-    event.create("inscriber")
-        .category("gfs")
-        .setEUIO("in")
-        .setMaxIOSize(4, 1, 2, 0)
-        .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
-        .setProgressBar(GuiTextures.PROGRESS_BAR_COMPRESS, FillDirection.LEFT_TO_RIGHT)
-        .setSound(GTSoundEntries.COMPRESSOR);
-});
-*/
+
+
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('large_inscriber', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)

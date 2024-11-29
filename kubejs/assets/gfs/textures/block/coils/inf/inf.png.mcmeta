@@ -1,6 +1,6 @@
 {
     "ldlib": {
-        "connection": "gtceu:block/coils/machine_coil_infinity_ctm"
+        "connection": "gfs:block/coils/inf/inf_ctm"
     },
     "animation": {
         "frametime": 1,

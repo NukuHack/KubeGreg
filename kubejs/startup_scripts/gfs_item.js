@@ -2,7 +2,7 @@
 * greg_sky.js - Register Items.
 */
 
-Platform.mods.gfs.name = "Gfs";
+Platform.mods.kubejs.name = "Gfs";
 
 priority: 90
 

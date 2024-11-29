@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "gfs:block/omnic_coil"
+    },
+    "active=true": {
+      "model": "gfs:block/omnic_coil_active"
+    }
+  }
+}

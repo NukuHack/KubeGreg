@@ -188,140 +188,22 @@ StartupEvents.registry("item", (event) => {
 
 
 
+const fuelRods = [
+    ['thorium_fuel_rod', 'Thorium Fuel Rod', "Starter fuel rod", 'gfs:item/nuclear/thorium_fuel_rod'],
+    ['highly_enriched_uranium_fuel_rod', 'Highly Enriched Uranium Fuel Rod', '20 BILLION CALORIES :trolllaugh:', 'gfs:item/nuclear/h_e_uranium_fuel_rod'],
+    ['low_enriched_uranium_fuel_rod', 'Low Enriched Uranium Fuel Rod', "Slight radiactivity", 'gfs:item/nuclear/l_e_uranium_fuel_rod'],
+    ['depleted_thorium_fuel_rod', 'Depleted Thorium Fuel Rod', "Should not be eaten", 'gfs:item/nuclear/d_thorium_fuel_rod'],
+    ['depleted_highly_enriched_uranium_fuel_rod', 'Depleted Highly Enriched Uranium Fuel Rod', 'No more 20 billion calories :waaaaaaaaah:', 'gfs:item/nuclear/d_h_e_uranium_rod'],
+    ['depleted_low_enriched_uranium_fuel_rod', 'Depleted Low Enriched Uranium Fuel Rod', "Looks like a stick", 'gfs:item/nuclear/d_l_e_uranium_rod']
+];
 
 
-/*
-
-//Line four (dark grey)
-    event.create('singularity_processing_unit')
-    //.displayName()
-    //.texture()
-    //.tooltip()
-
-    event.create('singularity_circuit_board')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_circuit_board')
-        .tooltip('A board carved from the heart of a star')
-
-    event.create('singularity_printed_circuit_board')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_printed_circuit_board')
-        .tooltip('A board printed out of the heart of a star')
-
-    event.create('singularity_processor')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_processor')
-        .tooltip('§fUEV-tier Circuit')
-
-    event.create('singularity_processor_assembly')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_processor_assembly')
-        .tooltip('§fUIV-tier Circuit')
-
-    event.create('singularity_processor_computer')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_processor_computer')
-        .tooltip('§fUXV-tier Circuit')
-
-    event.create('singularity_processor_mainframe')
-        //.displayName()
-        .texture('gtceu:item/singularity_circuits/singularity_processor_mainframe')
-        .tooltip('§fOPV-tier Circuit')
-
-//Line five (gold)
-    event.create('4d_processing_unit')
-    //.displayName()
-    //.texture()
-    //.tooltip()
-
-    event.create('4d_circuit_board')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_printed_circuit_board')
-        .tooltip('It hurts to look at')
-
-    event.create('4d_printed_circuit_board')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_printed_circuit_board')
-        .tooltip('It hurts to look at')
-
-    event.create('4d_processor')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_processor')
-        .tooltip('§6UIV-tier Circuit')
-
-    event.create('4d_processor_assembly')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_processor_assembly')
-        .tooltip('§6UXV-tier Circuit')
-
-    event.create('4d_processor_computer')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_processor_computer')
-        .tooltip('§6OPV-tier Circuit')
-
-    event.create('4d_processor_mainframe')
-        //.displayName()
-        .texture('gtceu:item/4d_circuits/4d_processor_mainframe')
-        .tooltip('§6MAX-tier Circuit')
-
-//Optical SMD
-    event.create('optical_smd_transistor')
-        //.displayName()
-        .texture('gtceu:item/circuit_comp/optical_smd_transistor')
-    //.tooltip()
-
-    event.create('optical_smd_resistor')
-        //.displayName()
-        .texture('gtceu:item/circuit_comp/optical_smd_resistor')
-    //.tooltip()
-
-    event.create('optical_smd_capacitor')
-        //.displayName()
-        .texture('gtceu:item/circuit_comp/optical_smd_capacitor')
-    //.tooltip()
-
-    event.create('optical_smd_diode')
-        //.displayName()
-        .texture('gtceu:item/circuit_comp/optical_smd_diode')
-    //.tooltip()
-
-    event.create('optical_smd_inductor')
-        //.displayName()
-        .texture('gtceu:item/circuit_comp/optical_smd_inductor')
-    //.tooltip()
-
-
-
-*/
-
-
-
-
-    event.create('thorium_fuel_rod')
-        .displayName('Thorium Fuel Rod')
-        .texture('gfs:item/thorium_fuel_rod');
-
-    event.create('highly_enriched_uranium_fuel_rod')
-        .displayName('Highly Enriched Uranium Fuel Rod')
-        .tooltip('20 BILLION CALORIES :trolllaugh:')
-        .texture('gfs:item/high_enriched_uranium_fuel_rod');
-
-    event.create('low_enriched_uranium_fuel_rod')
-        .displayName('Low Enriched Uranium Fuel Rod')
-        .texture('gfs:item/low_enriched_uranium_fuel_rod');
-
-    event.create('depleted_thorium_fuel_rod')
-        .displayName('Depleted Thorium Fuel Rod')
-        .texture('gfs:item/depleted_thorium_fuel_rod');
-
-    event.create('depleted_highly_enriched_uranium_fuel_rod')
-        .displayName('Depleted Highly Enriched Uranium Fuel Rod')
-        .tooltip('No more 20 billion calories :waaaaaaaaah')
-        .texture('gfs:item/depleted_high_enriched_uranium_rod');
-
-    event.create('depleted_low_enriched_uranium_fuel_rod')
-        .displayName('Depleted Low Enriched Uranium Fuel Rod')
-        .texture('gfs:item/depleted_low_enriched_uranium_rod');
+fuelRods.forEach(([id, displayName, tooltip, texture]) => {
+    event.create(id)
+		.displayName(displayName)
+		.texture(texture)
+		.tooltip(tooltip);
+});
 
 
 

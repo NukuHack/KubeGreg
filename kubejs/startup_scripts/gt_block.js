@@ -86,10 +86,10 @@ StartupEvents.registry("block", event => {
 
     const coils = [
         ['mithril_coil_block', 12600, 16, 16, 8, 'mithril', 'gfs:block/coils/mithril/mithril'],
-        ['omnic_matrix_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/omnic/omnic'],
+        ['omnic_coil_block', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/omnic/omnic'],
         ['chadium_coil_block', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/chad/chad'],
         ['awakened_draconium_coil_block', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/awakened_draconium/awakened_draconium'],
-        ['stellar_matter_coil_block', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/stellar/stellar'],
+        ['stellar_coil_block', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/stellar/stellar'],
         ['infinity_coil_block', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/inf/inf']
     ];
 

@@ -143,38 +143,41 @@ StartupEvents.registry("item", (event) => {
     const themes = [
         ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev' ],
         ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv' ],
-        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'max' ]
+        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv' ],
+		['singularity', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
+		['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
     ];
 
     themes.forEach(([ theme, circuits, volts, mainframeVolt ]) => {
-        // Create unit for each theme
+        // Create unit for each theme	(is used to create processing unit)
         event.create(`gfs:${theme}_circuit_board`)
             .textureJson({ layer0: `gfs:item/circuits/${theme}_circuit_board` });
-
+		// also create a processing unti for eatch theme (is used to create processors)
         event.create(`gfs:${theme}_processing_unit`)
-            .tooltip(`Nice ${volts[0].toUpperCase()} Processor`)
+            //.tooltip(`Nice ${volts[0].toUpperCase()} Processor`) this is not a processor
             .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
             event.create(`gfs:${theme}_${type}`)
                 .textureJson({ layer0: `gfs:item/circuits/${theme}_${type}` })
-                .tooltip(`Good ${volts[index].toUpperCase()} Processor`)
+                .tooltip(`Good §6${volts[index].toUpperCase()} Circuit`)
                 .tag(`gtceu:circuits/${volts[index]}`);
         });
 
         // Create mainframe for each theme with specified voltage
+		//this is the best processor of eatch tier and will be needed to make the new ones
         event.create(`gfs:${theme}_processor_mainframe`)
             .textureJson({
                 layer0: `gfs:item/circuits/${theme}_processor_mainframe_base`,
                 layer1: `gfs:item/circuits/${theme}_processor_mainframe_lights`
             })
-            .tooltip(`Best ${mainframeVolt.toUpperCase()} Processor`)
+            .tooltip(`Best §6${mainframeVolt.toUpperCase()} Circuit`)
             .tag(`gtceu:circuits/${mainframeVolt}`);
     });
 
     //Universal Circuits
-    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv"].forEach((x) => {
+    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"].forEach((x) => {
         event.create(`gfs:${x}_universal_circuit`)
             .tag(`gtceu:circuits/${x}`)
             .tag("gtceu:circuits/universal")

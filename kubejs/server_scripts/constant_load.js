@@ -11,20 +11,9 @@ const items = [
 
 	"minecraft:barrel",
 
-	"sfm:cable",
-	"sfm:water_tank",
 
-	"megacells:sky_steel_ingot",
-	"megacells:sky_steel_block",
-	"megacells:accumulation_processor_press",
-	"megacells:printed_accumulation_processor",
-	"megacells:accumulation_processor",
-
-	"simple_resource_generators:simple_water_condenser",
-	"simple_resource_generators:simple_lava_condenser",
-
+	// ae2 stuff
 	"ae2:inscriber",
-	"ae2:blank_pattern",
 	"ae2:logic_processor_press",
 	"ae2:calculation_processor_press",
 	"ae2:engineering_processor_press",
@@ -58,8 +47,6 @@ const items = [
 	"ae2:cell_component_1k",
 	"ae2:pattern_provider",
 	"ae2:interface",
-	"ae2:formation_core",
-	"ae2:annihilation_core",
 	"ae2:spatial_cell_component_2",
 	"ae2:nether_quartz_hoe",
 	"ae2:nether_quartz_pickaxe",
@@ -76,6 +63,7 @@ const items = [
 	"ae2:energy_level_emitter",
 	"ae2:view_cell",
 
+	// cell stuff
 	"ae2:spatial_cell_component_2",
 	"ae2:spatial_cell_component_16",
 	"ae2:spatial_cell_component_128",

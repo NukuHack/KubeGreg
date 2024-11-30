@@ -139,7 +139,7 @@ StartupEvents.registry("item", (event) => {
 
         event.create(`gfs:hypeflux_smd_${x}`)
             .displayName(`Hypeflux SMD ${x.slice(0, 1).toUpperCase() + x.slice(1)}`)
-            .texture(`gfs:item/complex_smd/hypeflux_smd_${x}`);
+            .texture(`gfs:item/complex_smd/smd_${x}_exotic`);
     });
 
 
@@ -165,18 +165,18 @@ StartupEvents.registry("item", (event) => {
         event.create(`gfs:${theme}_circuit_board`)
             .tooltip("Just a slice of a strong material")
             .tooltip(tierTooltip[theme])
-            .textureJson({layer0: `gfs:item/circuits/${theme}_circuit_board`});
+            .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_circuit_board`});
 
         // also create a processing unti for eatch theme (is used to create processors)
         event.create(`gfs:${theme}_processing_unit`)
             .tooltip("All wired up!")
             .tooltip(tierTooltip[theme])
-            .textureJson({layer0: `gfs:item/circuits/${theme}_processing_unit`});
+            .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_processing_unit`});
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
             event.create(`gfs:${theme}_${type}`)
-                .textureJson({layer0: `gfs:item/circuits/${theme}_${type}`})
+                .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_${type}`})
                 .tooltip((index==0?`§7Best §6${volts[index].toUpperCase()}-tier§7 Circuit`:
                     `§7Good §6${volts[index].toUpperCase()}-tier§7 Circuit`))
                 .tooltip(tierTooltip[theme])
@@ -187,8 +187,8 @@ StartupEvents.registry("item", (event) => {
         //this is the best processor of eatch tier and will be needed to make the new ones
         event.create(`gfs:${theme}_processor_mainframe`)
             .textureJson({
-                layer0: `gfs:item/circuits/${theme}_processor_mainframe_base`,
-                layer1: `gfs:item/circuits/${theme}_processor_mainframe_lights`
+                layer0: `gfs:item/circuits/${theme}/${theme}_processor_mainframe_base`,
+                layer1: `gfs:item/circuits/${theme}/${theme}_processor_mainframe_lights`
             })
             .tooltip(`§7Barely §6${mainframeVolt.toUpperCase()}-tier§7 Circuit`)
             .tooltip(tierTooltip[theme])
@@ -207,14 +207,14 @@ StartupEvents.registry("item", (event) => {
 
 
     const fuelRods = [
-        ['thorium_fuel', 'Thorium Fuel', "Starter fuel", 'thorium'],
-        ['depleted_thorium_fuel', 'Depleted Thorium Fuel', "Should not be eaten", 'd_thorium'],
+        ['thorium_fuel', 'Thorium Fuel', "Starter fuel", 'thorium_fuel'],
+        ['depleted_thorium_fuel', 'Depleted Thorium Fuel', "Should not be eaten", 'depleted_thorium_fuel'],
 
-        ['low_enriched_uranium_fuel', 'Low Enriched Uranium Fuel', "Slight radiactivity", 'l_uranium'],
-        ['depleted_low_enriched_uranium_fuel', 'Depleted Low Enriched Uranium Fuel', "Looks tasty", 'd_l_uranium'],
+        ['low_enriched_uranium_fuel', 'Low Enriched Uranium Fuel', "Slight radiactivity", 'low_enriched_uranium_fuel'],
+        ['depleted_low_enriched_uranium_fuel', 'Depleted Low Enriched Uranium Fuel', "Looks tasty", 'depleted_low_enriched_uranium_fuel'],
 
-        ['highly_enriched_uranium_fuel', 'Highly Enriched Uranium Fuel', '20 BILLION CALORIES :trolllaugh:', 'h_uranium'],
-        ['depleted_highly_enriched_uranium_fuel', 'Depleted Highly Enriched Uranium Fuel', 'No more 20 billion calories :waaaaaaaaah:', 'd_h_uranium'],
+        ['highly_enriched_uranium_fuel', 'Highly Enriched Uranium Fuel', '20 BILLION CALORIES :trolllaugh:', 'highly_enriched_uranium_fuel'],
+        ['depleted_highly_enriched_uranium_fuel', 'Depleted Highly Enriched Uranium Fuel', 'No more 20 billion calories :waaaaaaaaah:', 'depleted_highly_enriched_uranium_fuel'],
 
         ['high_radioactive_fuel', 'High Radioactive Fuel', "Should not be touched", 'h_radioactive'],
         ['depleted_high_radioactive_fuel', 'Depleted High Radioactive Fuel', "Might be touched ...", 'd_h_radioactive'],

@@ -96,27 +96,6 @@ const items = [
 	"megacells:cell_component_256m",
 	"megacells:bulk_item_cell",
 
-	"expatternprovider:ex_drive",
-	"expatternprovider:drive_upgrade",
-	"expatternprovider:ex_interface",
-	"expatternprovider:interface_upgrade",
-	"expatternprovider:ex_pattern_provider",
-	"expatternprovider:pattern_provider_upgrade",
-	"expatternprovider:ex_molecular_assembler",
-	"expatternprovider:patterns_provider_upgrade",
-	"expatternprovider:interface_upgrade",
-	"expatternprovider:pattern_modifier",
-	"expatternprovider:intercafe_upgrade",
-	"expatternprovider:wireless_connect",
-
-	"megacells:mega_energy_cell",
-	"megacells:bulk_cell_component",
-	"megacells:mega_crafting_monitor",
-	"megacells:mega_crafting_accelerator",
-	"megacells:mega_pattern_provider",
-	"megacells:mega_interface",
-
-	"merequester:requester",
 	
 ];
 

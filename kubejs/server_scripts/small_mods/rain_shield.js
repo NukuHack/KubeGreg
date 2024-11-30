@@ -7,19 +7,19 @@ ServerEvents.recipes(event => {
 
 // rain_shield
 
-    event.remove ({mod: 'rainshield'})
+    event.remove({mod: 'rainshield'})
     event.shaped('rainshield:rain_shield', [
-    ' C ',
-    ' A ',
-    'BAB',
-  ], {
-    A: '#forge:rods/long/electrum',
-    B: '#forge:plates/red_alloy',
-    C: 'gtceu:lv_sensor',
-  }
-)
+            ' C ',
+            ' A ',
+            'BAB',
+        ], {
+            A: '#forge:rods/long/electrum',
+            B: '#forge:plates/red_alloy',
+            C: 'gtceu:lv_sensor',
+        }
+    )
 
 
 // fin //
 
-  })
+})

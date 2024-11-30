@@ -2,6 +2,11 @@ ServerEvents.recipes(event => {
 
 	const greg = event.recipes.gtceu;
 
+	event.remove({ output: `mae2:4x_crafting_accelerator` });
+	event.remove({ output: `mae2:16x_crafting_accelerator` });
+	event.remove({ output: `mae2:64x_crafting_accelerator` });
+	event.remove({ output: `mae2:256x_crafting_accelerator` });
+
 	// Crafting Unit
 	event.remove({ id: "ae2:network/crafting/cpu_crafting_unit" });
 	greg.assembler('gfs:crafting_unit')
@@ -44,7 +49,6 @@ ServerEvents.recipes(event => {
 	// Crafting Acc ++
 	const nums_cpu = ["4","16","64","256"];
 	nums_cpu.forEach((k,index) => {
-		event.remove({ output: `mae2:${k}x_crafting_accelerator` });
 		greg
 			.canner(`gfs:crafting_accelerator_${k}`)
 			.itemInputs((index==0?"ae2:crafting_accelerator":

@@ -1,5 +1,5 @@
 
-priority: -100
+priority: 0
 
 
 GTCEuStartupEvents.registry("gtceu:material", event => {

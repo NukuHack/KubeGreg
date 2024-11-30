@@ -6,19 +6,13 @@ ServerEvents.recipes((event) => {
 	
 	event.remove({output:"expatternprovider:ex_interface"});
 	event.remove({output:"expatternprovider:interface_upgrade"});
-	
     event.remove({output:"expatternprovider:ex_pattern_provider"});
     event.remove({output:"expatternprovider:pattern_provider_upgrade"});
-	
     event.remove({output:"expatternprovider:wireless_connect"});
-	
     event.remove({output:"expatternprovider:ingredient_buffer"});
-
     event.remove({output:"expatternprovider:ex_drive"});
     event.remove({output:"expatternprovider:drive_upgrade"});
-	
     event.remove({output:"expatternprovider:ex_molecular_assembler"});
-	
     event.remove({output:"expatternprovider:pattern_modifier"});
 
 

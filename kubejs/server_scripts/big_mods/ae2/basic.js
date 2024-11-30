@@ -364,8 +364,16 @@ ServerEvents.recipes(event => {
       )
       ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Item.of('megacells:mega_energy_cell')).EUt(GTValues.VA[GTValues.IV]).duration(1000))
       .duration(500)
-      .EUt(GTValues.VA[GTValues.LuV])
+      .EUt(GTValues.VA[GTValues.LuV]);
 
+	// balls
+  greg.assembler(`gfs:ball_creation`)
+      .itemInputs(['ae2:energy_cell', '2x gtceu:lv_emitter', '2x gtceu:lv_sensor', 'gtceu:lv_field_generator'])
+      .itemOutputs('4x ae2:matter_ball')
+	  .circuit(20)
+      .duration(60*20)
+      .EUt(GTValues.VA[GTValues.HV]);
+	
 	// singularity
   greg.assembler(`gfs:singularity_creation`)
       .itemInputs(['megacells:mega_energy_cell', '4x gtceu:ev_emitter', '4x gtceu:ev_sensor', '2x gtceu:ev_field_generator'])
@@ -374,10 +382,10 @@ ServerEvents.recipes(event => {
       .EUt(GTValues.VA[GTValues.EV]);
 	  
 
-	greg.imposion_compressor("gfs:quantum_entangled_singularity")
+	greg.implosion_compressor("gfs:quantum_entangled_singularity")
       .itemInputs(['2x ae2:singularity','4x gtceu:industrial_tnt',"16x #forge:plates/ender_eye"])
       .itemOutputs('ae2:quantum_entangled_singularity')
       .duration(800*20)
-      .EUt(GTValues.VA[GTValues.EV]);
+      .EUt(GTValues.VA[GTValues.IV]);
 
 });

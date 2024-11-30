@@ -24,6 +24,21 @@ ServerEvents.recipes((event) => {
 
     const greg = event.recipes.gtceu;
 
+    event.shaped(
+        "expatternprovider:ex_interface",
+        ["ABC", "DEF", "GHG"],
+        {
+            A: "gtceu:ev_robot_arm",
+            B: "ae2:interface",
+            C: "gtceu:ev_conveyor_module",
+            D: "ae2:annihilation_core",
+            E: "gtceu:ev_machine_hull",
+            F: "ae2:formation_core",
+            G: "ae2:fluix_glass_cable",
+            H: "ae2:logic_processor",
+        }
+    );
+
     // extended shits
     event.shaped(
         "expatternprovider:ex_pattern_provider",
@@ -40,23 +55,8 @@ ServerEvents.recipes((event) => {
         }
     );
 
-    event.shaped(
-        "expatternprovider:ex_interface",
-        ["ABC", "DEF", "GHG"],
-        {
-            A: "gtceu:ev_robot_arm",
-            B: "ae2:interface",
-            C: "gtceu:ev_conveyor_module",
-            D: "ae2:annihilation_core",
-            E: "gtceu:ev_machine_hull",
-            F: "ae2:formation_core",
-            G: "ae2:fluix_glass_cable",
-            H: "ae2:logic_processor",
-        }
-    );
-
     greg
-        .assembly_line("gfs:extended_card")
+        .assembly_line("gfs:wireless_connector")
         .itemInputs(
             "gtceu:luv_machine_casing",
             "2x gtceu:luv_sensor",
@@ -67,15 +67,19 @@ ServerEvents.recipes((event) => {
         .itemOutputs("2x expatternprovider:wireless_connect")
         .duration(200)
         .EUt(8192);
-
-    event.shaped("expatternprovider:pattern_modifier", ["PDP", "AKB", "PCP"], {
-        P: "#forge:plates/ultimet",
-        D: "gtceu:computer_monitor_cover",
-        A: "ae2:logic_processor",
-        K: "#gtceu:circuits/luv",
-        B: "ae2:engineering_processor",
-        C: "ae2:calculation_processor",
-    });
+	
+    event.shaped(
+        "expatternprovider:ingredient_buffer",
+        ["GMG", "AEC", "GHG"],
+        {
+            A: "gtceu:hv_robot_arm",
+            C: "gtceu:ev_conveyor_module",
+            E: "gtceu:ev_machine_hull",
+            G: "ae2:fluix_glass_cable",
+            H: "ae2:logic_processor",
+            M: "ae2:calculation_processor"
+        }
+    );
 
     greg.assembler("gfs:ex_drive")
         .itemInputs("2x gtceu:ev_machine_hull", "8x ae2:engineering_processor",
@@ -99,7 +103,25 @@ ServerEvents.recipes((event) => {
         }
     );
 
-    // extended upgrade shit
+    event.shaped("expatternprovider:pattern_modifier", ["PDP", "AKB", "PCP"], {
+        P: "#forge:plates/ultimet",
+        D: "gtceu:computer_monitor_cover",
+        A: "ae2:logic_processor",
+        K: "#gtceu:circuits/luv",
+        B: "ae2:engineering_processor",
+        C: "ae2:calculation_processor",
+    });
+
+
+
+
+
+
+
+
+
+
+
 
 
 

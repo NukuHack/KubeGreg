@@ -1,8 +1,20 @@
+priority : 1
+
 ServerEvents.recipes(event => {
 
   const greg = event.recipes.gtceu;
 
 
+	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
+		"#forge:ingots/iron", "#forge:plates/stainless_steel");
+	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
+		"#forge:ingots/gold", "#forge:plates/gold");
+	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
+		"#forge:ingots/copper", "#forge:plates/bronze");
+	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" },{mod:"megacells"}],
+		"#forge:dusts/redstone","#forge:foils/red_alloy");
+	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" },{mod:"megacells"}],
+		"#forge:dusts/glowstone","#forge:plates/glowstone");
 
 
   // Basic Materials gregified

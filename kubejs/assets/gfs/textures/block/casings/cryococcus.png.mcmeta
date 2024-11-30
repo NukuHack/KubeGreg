@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "gfs:block/casings/cryococcus_ctm"
+    }
+}

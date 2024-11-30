@@ -3,14 +3,10 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
 
-    event.shaped(
-        "ae2:charger",
-        ["ABA", "A  ", "ABA"],
-        {
-            A: "gtceu:stainless_steel_plate",
-            B: "gtceu:annealed_copper_plate"
-        }
-    );
+    event.remove({output: "megacells:accumulation_processor_press"});
+    event.remove({output: "megacells:printed_accumulation_processor"});
+    event.remove({output: "megacells:accumulation_processor"});
+
     event.shaped(
         "ae2:inscriber",
         ["ABA", "A C", "ABA"],
@@ -21,7 +17,15 @@ ServerEvents.recipes(event => {
         }
     );
 
-    function press_recipe(mod, name, color, ingredient) {
+    const inscriber_greg = [
+        ["ae2:", "logic_processor", "yellow", "electrum"],
+        ["ae2:", "calculation_processor", "white", "certus_quartz"],
+        ["ae2:", "engineering_processor", "blue", "diamond"],
+        ["megacells:", "accumulation_processor", "black", "black_steel"],
+        ["ae2:", "silicon", "gray", "silicon"]
+    ];
+
+    inscriber_greg.forEatch(([mod, name, color, ingredient]) => {
         greg.laser_engraver("gfs:" + name + "_press")
             .itemInputs("gtceu:stainless_steel_plate")
             .notConsumable("#forge:lenses/" + color)
@@ -42,7 +46,7 @@ ServerEvents.recipes(event => {
             .inputFluids(Fluid.of("gtceu:lubricant", 500))
             .EUt(240)
             .duration(160);
-        if (!(name=="silicon")) {
+        if (!(name == "silicon")) {
             greg.inscriber("gfs:" + name + "_tin")
                 .itemInputs(mod + "printed_" + name, "ae2:printed_silicon", "#gtceu:circuits/hv")
                 .inputFluids(Fluid.of("gtceu:tin", 576))
@@ -62,52 +66,29 @@ ServerEvents.recipes(event => {
                 .EUt(240)
                 .duration(120);
         }
-    }
-    press_recipe("ae2:", "logic_processor", "yellow", "electrum");
-    press_recipe("ae2:", "calculation_processor", "white", "certus_quartz");
-    press_recipe("ae2:", "engineering_processor", "blue", "diamond");
-    press_recipe("megacells:", "accumulation_processor", "black", "black_steel");
-    press_recipe("ae2:", "silicon", "gray", "silicon");
+    });
 
 
+    event.shapeless("gfs:stupid_press", ["ae2:logic_processor_press", "ae2:calculation_processor_press",
+        "ae2:silicon_press", "ae2:engineering_processor_press", "megacells:accumulation_processor_press"]);
 
-    event.shapeless("gfs:stupid_press",["ae2:logic_processor_press","ae2:calculation_processor_press",
-        "ae2:silicon_press","ae2:engineering_processor_press","megacells:accumulation_processor_press"]);
+    const Bad_inscriber = [
+        ["gfs:stupid_print_logic", "#forge:plates/electrum", "ae2:printed_logic_processor"],
+        ["gfs:stupid_print_calculation", "#forge:plates/certus_quartz", "ae2:printed_calculation_processor"],
+        ["gfs:stupid_print_silicon", "#forge:plates/silicon", "ae2:printed_silicon"],
+        ["gfs:stupid_print_engineering", "#forge:plates/diamond", "ae2:printed_engineering_processor"],
+        ["gfs:stupid_print_accumulation", "#forge:plates/black_steel", "megacells:printed_accumulation_processor"]
+    ];
 
-    greg.inscriber("gfs:stupid_print_logic")
-        .itemInputs("#forge:plates/electrum")
-        .notConsumable("gfs:stupid_press")
-        .itemOutputs("ae2:printed_logic_processor")
-        .inputFluids(Fluid.of("gtceu:lubricant", 500))
-        .EUt(240)
-        .duration(240);
-    greg.inscriber("gfs:stupid_print_calculation")
-        .itemInputs("#forge:plates/certus_quartz")
-        .notConsumable("gfs:stupid_press")
-        .itemOutputs("ae2:printed_calculation_processor")
-        .inputFluids(Fluid.of("gtceu:lubricant", 500))
-        .EUt(240)
-        .duration(240);
-    greg.inscriber("gfs:stupid_print_silicon")
-        .itemInputs("#forge:plates/silicon")
-        .notConsumable("gfs:stupid_press")
-        .itemOutputs("ae2:printed_silicon")
-        .inputFluids(Fluid.of("gtceu:lubricant", 500))
-        .EUt(240)
-        .duration(240);
-    greg.inscriber("gfs:stupid_print_engineering")
-        .itemInputs("#forge:plates/diamond")
-        .notConsumable("gfs:stupid_press")
-        .itemOutputs("ae2:printed_engineering_processor")
-        .inputFluids(Fluid.of("gtceu:lubricant", 500))
-        .EUt(240)
-        .duration(240);
-    greg.inscriber("gfs:stupid_print_accumulation")
-        .itemInputs("#forge:plates/black_steel")
-        .notConsumable("gfs:stupid_press")
-        .itemOutputs("megacells:printed_accumulation_processor")
-        .inputFluids(Fluid.of("gtceu:lubricant", 500))
-        .EUt(240)
-        .duration(240);
+    Bad_inscriber.forEach(([id, inp, outp, eu, dur]) => {
+        greg.inscriber(id)
+            .itemInputs(inp)
+            .notConsumable("gfs:stupid_press")
+            .itemOutputs(outp)
+            .inputFluids("gtceu:lubricant 500")
+            .EUt(240)
+            .duration(20 * 15);
+    });
+
 
 });

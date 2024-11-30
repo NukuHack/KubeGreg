@@ -106,18 +106,17 @@ StartupEvents.registry("block", event => {
         });
 
 
-
     [
-        ["cupronickel", "casing-yellow" ],
-        ["kanthal", "casing-light_blue" ],
-        ["nichrome", "casing-white" ],
-        ["rtm_alloy", "casing-purple" ],
-        ["hssg", "casing-blue" ],
-        ["naquadah", "casing-black" ],
-        ["trinium", "casing-pink" ],
-        ["tritanium", "casing-red" ]
+        ["cupronickel", "casing-yellow"],
+        ["kanthal", "casing-light_blue"],
+        ["nichrome", "casing-white"],
+        ["rtm_alloy", "casing-purple"],
+        ["hssg", "casing-blue"],
+        ["naquadah", "casing-black"],
+        ["trinium", "casing-pink"],
+        ["tritanium", "casing-red"]
     ]
-        .forEach(([ name, texture ]) => {
+        .forEach(([name, texture]) => {
             event.create(`gfs:compressed_${name}_coil`)
                 .hardness(5)
                 .resistance(1)
@@ -127,7 +126,6 @@ StartupEvents.registry("block", event => {
                 .tagBlock("cucumber:mineable/paxel")
                 .textureAll(`gfs:block/casings/simple/${texture}`);
         });
-
 
 
 });

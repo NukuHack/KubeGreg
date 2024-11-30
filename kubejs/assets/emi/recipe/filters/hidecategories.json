@@ -1,0 +1,39 @@
+{
+    "filters": [
+        {
+            "category": "enderio:alloy_smelting"
+        },
+        {
+            "id": "/bucket/",
+            "category": "emi:world_interaction"
+        },
+        {
+            "id": "/repair/",
+            "category": "emi:anvil_repairing"
+        },
+        {
+            "category": "emi_loot:archaeology_drops"
+        },
+        {
+            "category": "emi_loot:gameplay_drops"
+        },
+        {
+            "category": "minecraft:carpenters_table"
+        },
+        {
+            "category": "minecraft:loom_table"
+        },
+        {
+            "category": "minecraft:mason_table"
+        },
+        {
+            "category": "minecraft:tinkering_table"
+        },
+        {
+            "category": "enderio:primitive_alloy_smelting" 
+        },
+        {
+            "category": "enderio:sagmilling" 
+        }
+    ]
+}

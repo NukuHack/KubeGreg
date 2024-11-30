@@ -132,51 +132,66 @@ StartupEvents.registry("item", (event) => {
 
 
     // Complex SMDs
-    ["transistor","resistor","capacitor","diode","inductor"].forEach((x)=>{
+    ["transistor", "resistor", "capacitor", "diode", "inductor"].forEach((x) => {
         event.create(`gfs:complex_smd_${x}`)
-            .displayName(`Complex SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
+            .displayName(`Complex SMD ${x.slice(0, 1).toUpperCase() + x.slice(1)}`)
             .texture(`gfs:item/complex_smd/complex_smd_${x}`);
-			
+
         event.create(`gfs:hypeflux_smd_${x}`)
-            .displayName(`Hypeflux SMD ${x.slice(0,1).toUpperCase()+x.slice(1)}`)
+            .displayName(`Hypeflux SMD ${x.slice(0, 1).toUpperCase() + x.slice(1)}`)
             .texture(`gfs:item/complex_smd/hypeflux_smd_${x}`);
     });
 
 
     // Post-tank circuits, circuit boards, processing units
     const themes = [
-        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev' ],
-        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv' ],
-        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv' ],
-		['singularity', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
-		['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
+        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev'],
+        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv'],
+        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv'],
+        ['singularity', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
+        ['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
     ];
 
-    themes.forEach(([ theme, circuits, volts, mainframeVolt ]) => {
+    const tierTooltip = [
+        {'matter':"§1Cool looking"},
+        {'dimensional':"§fFom another dimension"},
+        {'monic':"§9Purest material"},
+        {'singularity':"§aInsainly Compressed"},
+        {'4d':"§dError_Display_404"}
+    ];
+
+    themes.forEach(([theme, circuits, volts, mainframeVolt]) => {
         // Create unit for each theme	(is used to create processing unit)
         event.create(`gfs:${theme}_circuit_board`)
-            .textureJson({ layer0: `gfs:item/circuits/${theme}_circuit_board` });
-		// also create a processing unti for eatch theme (is used to create processors)
+            .tooltip("Just a slice of a strong material")
+            .tooltip(tierTooltip[theme])
+            .textureJson({layer0: `gfs:item/circuits/${theme}_circuit_board`});
+
+        // also create a processing unti for eatch theme (is used to create processors)
         event.create(`gfs:${theme}_processing_unit`)
-            //.tooltip(`Nice ${volts[0].toUpperCase()} Processor`) this is not a processor
-            .textureJson({ layer0: `gfs:item/circuits/${theme}_processing_unit` });
+            .tooltip("All wired up!")
+            .tooltip(tierTooltip[theme])
+            .textureJson({layer0: `gfs:item/circuits/${theme}_processing_unit`});
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
             event.create(`gfs:${theme}_${type}`)
-                .textureJson({ layer0: `gfs:item/circuits/${theme}_${type}` })
-                .tooltip(`Good §6${volts[index].toUpperCase()} Circuit`)
+                .textureJson({layer0: `gfs:item/circuits/${theme}_${type}`})
+                .tooltip((index==0?`§7Best §6${volts[index].toUpperCase()}-tier§7 Circuit`:
+                    `§7Good §6${volts[index].toUpperCase()}-tier§7 Circuit`))
+                .tooltip(tierTooltip[theme])
                 .tag(`gtceu:circuits/${volts[index]}`);
         });
 
         // Create mainframe for each theme with specified voltage
-		//this is the best processor of eatch tier and will be needed to make the new ones
+        //this is the best processor of eatch tier and will be needed to make the new ones
         event.create(`gfs:${theme}_processor_mainframe`)
             .textureJson({
                 layer0: `gfs:item/circuits/${theme}_processor_mainframe_base`,
                 layer1: `gfs:item/circuits/${theme}_processor_mainframe_lights`
             })
-            .tooltip(`Best §6${mainframeVolt.toUpperCase()} Circuit`)
+            .tooltip(`§7Barely §6${mainframeVolt.toUpperCase()}-tier§7 Circuit`)
+            .tooltip(tierTooltip[theme])
             .tag(`gtceu:circuits/${mainframeVolt}`);
     });
 
@@ -187,28 +202,34 @@ StartupEvents.registry("item", (event) => {
             .tag("gtceu:circuits/universal")
             .displayName(x.toUpperCase() + " Universal Circuit")
             .tooltip("§7A Universal Circuit")
-            .textureJson({ layer0: `gfs:item/circuits/universal/${x}_universal_circuit` })
+            .textureJson({layer0: `gfs:item/circuits/universal/${x}_universal_circuit`})
     });
 
 
+    const fuelRods = [
+        ['thorium_fuel', 'Thorium Fuel', "Starter fuel", 'thorium'],
+        ['depleted_thorium_fuel', 'Depleted Thorium Fuel', "Should not be eaten", 'd_thorium'],
 
-const fuelRods = [
-    ['thorium_fuel_rod', 'Thorium Fuel Rod', "Starter fuel rod", 'gfs:item/nuclear/thorium_fuel_rod'],
-    ['highly_enriched_uranium_fuel_rod', 'Highly Enriched Uranium Fuel Rod', '20 BILLION CALORIES :trolllaugh:', 'gfs:item/nuclear/h_e_uranium_fuel_rod'],
-    ['low_enriched_uranium_fuel_rod', 'Low Enriched Uranium Fuel Rod', "Slight radiactivity", 'gfs:item/nuclear/l_e_uranium_fuel_rod'],
-    ['depleted_thorium_fuel_rod', 'Depleted Thorium Fuel Rod', "Should not be eaten", 'gfs:item/nuclear/d_thorium_fuel_rod'],
-    ['depleted_highly_enriched_uranium_fuel_rod', 'Depleted Highly Enriched Uranium Fuel Rod', 'No more 20 billion calories :waaaaaaaaah:', 'gfs:item/nuclear/d_h_e_uranium_rod'],
-    ['depleted_low_enriched_uranium_fuel_rod', 'Depleted Low Enriched Uranium Fuel Rod', "Looks like a stick", 'gfs:item/nuclear/d_l_e_uranium_rod']
-];
+        ['low_enriched_uranium_fuel', 'Low Enriched Uranium Fuel', "Slight radiactivity", 'l_uranium'],
+        ['depleted_low_enriched_uranium_fuel', 'Depleted Low Enriched Uranium Fuel', "Looks tasty", 'd_l_uranium'],
+
+        ['highly_enriched_uranium_fuel', 'Highly Enriched Uranium Fuel', '20 BILLION CALORIES :trolllaugh:', 'h_uranium'],
+        ['depleted_highly_enriched_uranium_fuel', 'Depleted Highly Enriched Uranium Fuel', 'No more 20 billion calories :waaaaaaaaah:', 'd_h_uranium'],
+
+        ['high_radioactive_fuel', 'High Radioactive Fuel', "Should not be touched", 'h_radioactive'],
+        ['depleted_high_radioactive_fuel', 'Depleted High Radioactive Fuel', "Might be touched ...", 'd_h_radioactive'],
+
+        ['low_radioactive_fuel', 'Low Radioactive Fuel', "Feels a bit stingy", 'l_radio'],
+        ['depleted_low_radioactive_fuel', 'Depleted Low Radioactive Fuel', "Just a piece of rock", 'd_l_radio'],
+    ];
 
 
-fuelRods.forEach(([id, displayName, tooltip, texture]) => {
-    event.create(id)
-		.displayName(displayName)
-		.texture(texture)
-		.tooltip(tooltip);
-});
-
+    fuelRods.forEach(([id, displayName, tooltip, texture]) => {
+        event.create(id)
+            .displayName(displayName)
+            .texture("gfs:item/nuclear/" + texture)
+            .tooltip(tooltip);
+    });
 
 
 });

@@ -2,6 +2,21 @@ ServerEvents.recipes((event) => {
 
 	const greg = event.recipes.gtceu;
 
+	event.remove({output:"megacells:mega_energy_cell"});
+	event.remove({output:"megacells:bulk_cell_component"});
+	event.remove({output:"megacells:mega_crafting_monitor"});
+	event.remove({output:"megacells:mega_crafting_accelerator"});
+	event.remove({output:"megacells:mega_pattern_provider"});
+	event.remove({output:"megacells:mega_interface"});
+	
+
+	event.replaceInput({mod:"megacells"}, "megacells:sky_steel_ingot","#forge:plates/black_steel");
+	event.replaceInput({mod:"megacells"}, "#forge:ingots/iron","#forge:plates/black_steel");
+	event.replaceInput({mod:"megacells"}, "megacells:sky_steel_block","#forge:plates/black_steel");
+	event.replaceInput({mod:"megacells"}, "#forge:ingots/copper","#forge:plates/beryllium");
+	event.replaceInput({mod:"megacells"}, "#forge:storage_blocks/copper","#forge:plates/beryllium");
+
+
 	// Mega Crafting Monitor
 	greg
 		.canner("gfs:mega_crafting_monitor")
@@ -62,24 +77,6 @@ ServerEvents.recipes((event) => {
 		.duration(200);
 
 
-
-	event.replaceInput({mod:"megacells"}, "megacells:sky_steel_ingot","#forge:plates/black_steel");
-	event.replaceInput({mod:"megacells"}, "#forge:ingots/iron","#forge:plates/black_steel");
-	event.replaceInput({mod:"megacells"}, "megacells:sky_steel_block","#forge:plates/black_steel");
-	event.replaceInput({mod:"megacells"}, "#forge:ingots/copper","#forge:plates/beryllium");
-	event.replaceInput({mod:"megacells"}, "#forge:storage_blocks/copper","#forge:plates/beryllium");
-
-
-	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
-		"#forge:ingots/iron", "#forge:plates/stainless_steel");
-	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
-		"#forge:ingots/gold", "#forge:plates/gold");
-	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" }],
-		"#forge:ingots/copper", "#forge:plates/bronze");
-	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" },{mod:"megacells"}],
-		"#forge:dusts/redstone","#forge:foils/red_alloy");
-	event.replaceInput([{ mod: "ae2" },{ mod: "expatternprovider" },{mod:"megacells"}],
-		"#forge:dusts/glowstone","#forge:plates/glowstone");
 
 
 

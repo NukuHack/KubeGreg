@@ -36,7 +36,7 @@ ServerEvents.recipes(event => {
             .itemInputs("#forge:plates/" + ingredient)
             .notConsumable(mod + name + "_press")
             .itemOutputs(mod + "printed_" + name)
-            .inputFluids(Fluid.of("minecraft:water", 500))
+            .inputFluids(Fluid.of("minecraft:water", 1000))
             .EUt(240)
             .duration(300);
         greg.inscriber("gfs:" + name + "_print_fast")
@@ -80,7 +80,7 @@ ServerEvents.recipes(event => {
         ["gfs:stupid_print_accumulation", "#forge:plates/black_steel", "megacells:printed_accumulation_processor"]
     ];
 
-    Bad_inscriber.forEach(([id, inp, outp, eu, dur]) => {
+    Bad_inscriber.forEach(([id, inp, outp]) => {
         greg.inscriber(id)
             .itemInputs(inp)
             .notConsumable("gfs:stupid_press")

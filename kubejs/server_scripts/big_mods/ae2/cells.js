@@ -45,8 +45,18 @@ ServerEvents.recipes(event => {
       .EUt(600)
       .duration(160);
 
+// flux Cell
+// inf Cell
 
-  event.shapeless("megacells:bulk_item_cell",["8x megacells:mega_item_cell_housing","megacells:bulk_cell_component"]);
+
+
+  greg.assembler("gfs:bulk_item_cell")
+      .itemInputs("4x ae2:logic_processor","4x ae2:calculation_processor","4x ae2:engineering_processor", "megacells:bulk_cell_component",
+	  "16x ae2:item_cell_housing","4x megacells:item_cell_housing")
+      .itemOutputs("megacells:bulk_item_cell")
+      .EUt(360)
+      .duration(160);
+
 
 
 
@@ -141,6 +151,7 @@ ServerEvents.recipes(event => {
       .EUt(92160)
       .duration(480);
 
+	// flux cell component
 
 
 const CellHelp = [

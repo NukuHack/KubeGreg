@@ -44,6 +44,10 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0x969688);
 
 
+
+
+
+
     // more useful stuff
 
     event.create('dusty_helium')
@@ -178,7 +182,7 @@ event.create('isovol')
     // magic stuff
 
     event.create('mana')
-        // mana
+        // ★
         .element(GTElements.get("mana"))
         .fluid()
         .gem()
@@ -186,36 +190,41 @@ event.create('isovol')
 
     //Arcane Element for Ember
     event.create('ember')
-        //🔥
+        // 🔥
         .element(GTElements.get("ember"))
         .color(0xFF5200)
         .secondaryColor(0xFFAA5C)
         .iconSet(LAPIS)
         .gem()
-        .flags(
-            lens
-        );
+        .flags(lens);
 
     event.create('wissen')
-        //⚙
+        // ⚙
         .element(GTElements.get("wissen"))
         .color(0x577FB8)
         .secondaryColor(0xCDEDFE)
         .iconSet(NETHERSTAR)
         .gem()
-        .flags(
-            fine_wire,
-            lens
-        );
+        .flags(fine_wire,lens);
 
     //Stardust
     event.create('stardust')
-        //Sd
+        // ☆
         .element(GTElements.get("stardust"))
         .color(0x42599D)
         .secondaryColor(0xCCF2FF)
         .iconSet(NETHERSTAR)
         .dust();
+	
+	// Stellar
+    event.create('stellar')
+		// ✵
+        .components('stardust','wissen','ember','mana')
+        .element(GTElements.get("stellar"))
+        .color(0x42599D)
+        .secondaryColor(0xCCF2FF)
+        .iconSet(NETHERSTAR)
+        .ingot();
 
 
     // nuclear stuff

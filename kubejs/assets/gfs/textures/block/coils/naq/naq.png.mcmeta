@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "gfs:block/coils/naq/naq_ctm"
+    }
+}

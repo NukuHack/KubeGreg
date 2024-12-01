@@ -18,15 +18,8 @@ ServerEvents.recipes((event) => {
     event.replaceInput({mod: "megacells"}, "#forge:ingots/copper", "#forge:plates/beryllium");
     event.replaceInput({mod: "megacells"}, "#forge:storage_blocks/copper", "#forge:plates/beryllium");
 
-
-    // Mega Crafting Monitor
-    greg
-        .canner("gfs:mega_crafting_monitor")
-        .itemInputs("megacells:mega_crafting_unit", "ae2:crafting_monitor")
-        .itemOutputs("megacells:mega_crafting_monitor")
-        .duration(100)
-        .EUt(600);
-
+/*
+    // removed these because other mods have much-much better for each of these
     // Mega Crafting Accelerator
     greg
         .canner("gfs:mega_crafting_accelerator")
@@ -35,8 +28,6 @@ ServerEvents.recipes((event) => {
         .duration(100)
         .EUt(600);
 
-    // removed this 2 because extended has a much-much better one for both
-    /*
     // Mega Pattern Provider
     greg
         .canner("gfs:mega_pattern_provider")
@@ -52,7 +43,16 @@ ServerEvents.recipes((event) => {
         .itemOutputs("megacells:mega_interface")
         .duration(100)
         .EUt(600);
-    */
+*/
+
+    // Mega Crafting Monitor
+    greg
+        .canner("gfs:mega_crafting_monitor")
+        .itemInputs("megacells:mega_crafting_unit", "ae2:crafting_monitor")
+        .itemOutputs("megacells:mega_crafting_monitor")
+        .duration(100)
+        .EUt(600);
+		
     // Mega Crafting Storage(s)
     ["1m", "4m", "16m", "64m", "256m"].forEach((k) => {
         event.remove({output: `megacells:${k}_crafting_storage`});

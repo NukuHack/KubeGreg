@@ -35,7 +35,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 GTCEuStartupEvents.materialModification(event => {
 
 	// volt, amp, loss , (is superconductor), crit temp 	 by defa = (8, 1, 1, false);
-	GTMaterials.Holmium.setProperty($PropertyKey.WIRE, new $WireProperty(33554432, 64, 0, true));
+	GTMaterials.Holmium.setProperty($PropertyKey.WIRE, new $WireProperty(33554432*2, 8, 0, true));
 	// temp, speed, gas, acid, cryo, plasma, channel			by defa = (no,no,false,false,false,false,9)
 	GTMaterials.Holmium.setProperty($PropertyKey.FLUID_PIPE, new $FluidPipeProperty(120000, 128000, true, true, true, true, 9));
 	// temp , tier , time , eut , vacuum t, vacuum eut		by defa = (no,no,-1,-1,-1,-1)

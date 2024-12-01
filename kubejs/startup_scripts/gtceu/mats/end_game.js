@@ -18,7 +18,7 @@ event.create("cryolobus")
     .color(0x042228).iconSet('metallic')
     .blastTemp(6800, 'higher')
     .flags(plates,rod,gear,dense_plate,frame)
-    .cableProperties(524288*4, 12, 0, true);
+    .cableProperties(8388608, 12, 0, true);
 
 event.create("cryococcus")
     .ingot().fluid()
@@ -42,7 +42,7 @@ event.create("omnium")
     .color(0xffffff)
     .iconSet('omnium')
     .flags(plates,rod,long_rod,gear,small_gear,ring,round,bolt_and_screw,frame)
-    .cableProperties(2147483647/64, 128, 0, true)
+    .cableProperties(2147483647/16, 14, 0, true)
     .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill());
 
 event.create('infinity')
@@ -50,7 +50,7 @@ event.create('infinity')
     .element(GTElements.get("infinity"))
     .color(0xffffff)
     .iconSet('infinity')
-    .cableProperties(33554432*4, 64, 0, true)
+    .cableProperties(2147483647, 32, 0, true)
     .flags(plates,rod,long_rod,ring,round, gear,small_gear,bolt_and_screw,frame,dense_plate);
 
 event.create('monium')
@@ -59,7 +59,7 @@ event.create('monium')
     .color(0xffffff)
     .iconSet('monium')
     .flags(plates,rod,frame,gear,spring)
-    .cableProperties(2147483647/16, 1024, 0, true);
+    .cableProperties(2147483647/4, 20, 0, true);
 
 event.create('omnic_acid')
     .dust()

@@ -40,7 +40,7 @@ ServerEvents.recipes(event => {
     });
 
     Stages.slice(0, -1).forEach((stage, j) => {
-
+        let nextStage = Stages[j + 1];
         wax.forEach((waxe) => {
             Variants.forEach((vari) => {
                 // Oxidizing Variants / Waxed Variants

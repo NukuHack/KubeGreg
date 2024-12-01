@@ -19,10 +19,8 @@ StartupEvents.registry("block", event => {
             }
         }
     }
-    .model('gtceu:block/casings/test_casing')
     .property(BlockProperties.AXIS)
     .placementState(event => event.set(BlockProperties.AXIS, event.clickedFace.axis))
-    .model('gtceu:block/misc/treated_log')
     */
 
     const casingS = [
@@ -58,7 +56,7 @@ StartupEvents.registry("block", event => {
         .hardness(2)
         .tagBlock('minecraft:mineable/axe')
         .tagBoth('minecraft:logs')
-        .textureAll('gtceu:block/misc/treated_wood_top');
+		.model('gtceu:block/misc/treated_wood_log');
 
     event.create('gfs:treated_wood')
         .woodSoundType()
@@ -73,7 +71,7 @@ StartupEvents.registry("block", event => {
         .tagBlock('minecraft:mineable/axe')
         .tagBoth('minecraft:logs')
         .tagBoth('forge:stripped_logs')
-        .textureAll('gtceu:block/misc/stripped_treated_wood_top');
+		.model('gtceu:block/misc/stripped_treated_wood_log');
 
     event.create('gfs:stripped_treated_wood')
         .woodSoundType()

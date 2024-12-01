@@ -1,0 +1,5 @@
+{
+    "ldlib": {
+        "connection": "gfs:block/coils/star/star_ctm"
+    }
+}

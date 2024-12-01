@@ -250,12 +250,12 @@ ServerEvents.recipes(event => {
 
     // calling and doing waaaaaay too fucking much
     Post_UV_Components.forEach(([BigArray, craft_item], index_array) => {
-        BigArray.forEach(({parts, liquids}, index) => {
+        BigArray.forEach(([parts, liquids], index) => {
             let tier = index + 8;
             let [help, eut] = [voltage_lesser(tier), voltage_to_eu[tier]];
             let [res_cwu, res_dur, res_eut] = tier_to_research[tier];
             let [[material, materialSecond, wireSecond], wire] = [volt_to_material[tier], voltage_to_cable[tier]];
-            // 2/3                  // 2                            // 2                    // 2/+
+            //                                          // 2/3                         // 2                    // 2                                   // 2
             let fluids = ['gtceu:soldering_alloy', 5760, 'gtceu:crystal_matrix', 2304, 'gtceu:naquadria', 691, 'gtceu:styrene_butadiene_rubber', 2304]
             greg.assembly_line(`gfs:${tier}_${craft_item}_n_research`)
                 .itemInputs(inp)

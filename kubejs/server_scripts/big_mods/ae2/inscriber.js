@@ -17,7 +17,6 @@ ServerEvents.recipes(event => {
         }
     );
 
-
     const plasticS = [
         ["polyethynele", "gtceu:polyethynele"],
         ["silicone_rubber", "gtceu:silicone_rubber"],

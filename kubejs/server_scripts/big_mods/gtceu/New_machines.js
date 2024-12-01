@@ -44,7 +44,7 @@ ServerEvents.recipes(event => {
 
 // Create machine recipes for a specific voltage
     voltages.forEach((volt, index) => {
-        if (index!=0){
+        if (index!=0&&!(index>7)){
             event.shaped(
                 "gtceu:" + volt + "_miniature_ebf",
                 ["AXB", "YXD", " E "],

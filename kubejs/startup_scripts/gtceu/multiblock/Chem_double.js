@@ -1,9 +1,14 @@
-
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('chemical_plant')
         .category('chemical_plant')
         .setEUIO('in')
         .setMaxIOSize(9, 9, 9, 9)
+        .setSound(GTSoundEntries.CHEMICAL);
+
+    event.create('chemical_builder')
+        .category('chemical_builder')
+        .setEUIO('in')
+        .setMaxIOSize(3, 1, 3, 1)
         .setSound(GTSoundEntries.CHEMICAL);
 });
 
@@ -34,18 +39,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             "gfs:block/casings/peek",
             "gtceu:block/multiblock/large_chemical_reactor", false
         );
-});
 
-
-GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
-    event.create('chemical_builder')
-        .category('chemical_builder')
-        .setEUIO('in')
-        .setMaxIOSize(3, 1, 3, 1)
-        .setSound(GTSoundEntries.CHEMICAL);
-});
-
-GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('chemical_builder', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType('chemical_builder')

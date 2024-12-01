@@ -128,6 +128,15 @@ ServerEvents.recipes(event => {
 
 
 
+    // Define the fluid regulator configurations as arrays
+    [
+        [voltages[8], voltage_to_eu[voltages[8]]],
+        [voltages[9], voltage_to_eu[voltages[9]]],
+        [voltages[10], voltage_to_eu[voltages[10]]],
+    ].forEach(([tier, eut]) => {
+        let craft_item = "fluid_regulator";
+        greg.assembler(`gfs:${tier}_${craft_item}`)
+            .itemInputs(`gtceu:${tier}_electric_pump`, `2x #gtceu:circuits/${tier}`)
             .circuit(1)
     // Motors
     greg.assembly_line('uhv_motor')
@@ -275,6 +284,10 @@ ServerEvents.recipes(event => {
             .CWUt(128, 512000)
             .EUt(524288)
         )
+            .itemOutputs(`gtceu:${tier}_${craft_item}`)
+            .duration(5 * 20)
+            .EUt(eut);
+    });
 
     greg.assembly_line('uiv_sensor')
         .itemInputs('gtceu:infinity_frame', 'gtceu:uiv_electric_motor', '4x gtceu:infinity_plate', '2x gfs:quasi_stable_neutron_star', '#gtceu:circuits/uiv', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:holmium_double_wire')
@@ -452,26 +465,4 @@ ServerEvents.recipes(event => {
             .CWUt(144, 576000)
             .EUt(1048576)
         )
-
-    // Fluid Regulators
-    greg.assembler('uhv_fluid_regulator')
-        .itemInputs('gtceu:uhv_electric_pump', '2x #gtceu:circuits/uhv')
-        .circuit(1)
-        .itemOutputs('gtceu:uhv_fluid_regulator')
-        .duration(50)
-        .EUt(1966080)
-
-    greg.assembler('uev_fluid_regulator')
-        .itemInputs('gtceu:uev_electric_pump', '2x #gtceu:circuits/uev')
-        .circuit(1)
-        .itemOutputs('gtceu:uev_fluid_regulator')
-        .duration(50)
-        .EUt(3932160)
-
-    greg.assembler('uiv_fluid_regulator')
-        .itemInputs('gtceu:uiv_electric_pump', '2x #gtceu:circuits/uiv')
-        .circuit(1)
-        .itemOutputs('gtceu:uiv_fluid_regulator')
-        .duration(50)
-        .EUt(15728640)
-})
+});

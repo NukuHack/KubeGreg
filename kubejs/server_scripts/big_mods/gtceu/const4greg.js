@@ -18,14 +18,37 @@ const voltage_to_cable = {
     "luv": "niobium_titanium",
     "zpm": "vanadium_gallium",
     "uv": "yttrium_barium_cuprate",
-    //uhv                               // neutronium
-    "uev":"activated_netherite",        // omnium
-    "uiv":"holmium",                    // infinity
-    "uxv":"monium",    // omnium ?
-    //opv
-    "max":"infinity",
+    "uhv": "europium",
+    "uev": "activated_netherite",
+    "uiv": "weapon_grade_naquadaria",
+    "uxv": "omnium",
+    "opv": "monium",
+    "max": "infinity",
 };
 
+const voltage_lesser = ((x) => {
+    return voltages[voltages.indexOf(x) + 1];
+});
+
+
+const volt_to_material = {
+    // mat 1 wire 2 (wire 1 is in "voltage_to_cable")
+    "lv": ["steel", "copper"],
+    "mv": ["aluminium", "cupronickel"],
+    "hv": ["stainless_steel", "electrum"],
+    "ev": ["titanium", "kanthal"],
+    "iv": ["tngsten_steel", "rtm_alloy"],
+    "luv": ["rhodium_plated_palladium", "hssg"],
+    // mat 1 mat 2 wire 2 (wire 1 is in "voltage_to_cable")
+    "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],// ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
+    "uv": ["darmstadtium", "tritanium", "naquadah_alloy"],
+    "uhv": ["neutronium", "cryobous", "trinium"],
+    "uev": ["pure_netherite", "crystal_matrix", "holmium"],
+    "uiv": ["infinity", "holmium", "crystal_matrix"],
+    "uxv": ["graphenium", "crystal_matrix", "ruthenium_trinium_americium_neutronate"],
+    "opv": ["stellar", "monium", "super_sculk"],
+    "max": ["void", "infinity", "awakened_draconium"],
+};
 
 
 const coilS = [
@@ -58,22 +81,10 @@ const voltage_to_eu = {
 };
 
 
-
-const fluid_to_type = {
-    "no": "air",
-    "nit": "gtceu:nitrogen",
-    "arg": "gtceu:argon",
-    "neo": "gtceu:neon",
-    "hel": "gtceu:helium",
+const tier_to_research = {
+    "uv": [32 * 2, 18200 * 1.8 * 20, voltage_to_eu[voltages[7]]],
+    "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
+    "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
+    "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],
 };
-
-const fluid_to_amount = {
-    "no": 0,
-    "nit": 1000,
-    "arg": 50,
-    "neo": 25,
-    "hel": 100,
-};
-
-
 

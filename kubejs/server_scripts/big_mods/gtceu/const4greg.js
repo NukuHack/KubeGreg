@@ -19,27 +19,6 @@ const voltage_to_cable = {
 };
 
 
-const tierCable = [
-    'tin',
-    'copper',
-    'gold',
-    'aluminium',
-    'platinum',
-    'niobium_titanium',
-    'vanadium_gallium',
-    'yttrium_barium_cuprate'
-]
-const lamFluids = [
-    'tin',
-    'annealed_copper',
-    'gold',
-    'aluminium',
-    'platinum',
-    'niobium_titanium',
-    'vanadium_steel',
-    'yttrium_barium_cuprate'
-]
-
 
 const coilS = [
     "cupronickel",

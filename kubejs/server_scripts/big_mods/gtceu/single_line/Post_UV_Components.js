@@ -2,190 +2,133 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
-    const converter = [
-        ['uev', 'omnium', 'activated_netherite', '1966080'],
-        ['uiv', 'holmium', 'holmium', '3932160'],
-        ['max', 'monium', 'monium', '80000000'],
-    ]
-    // no MAX tier laserhatch :1984:
-    const laserhatch = [
-        ['uev', 'activated_netherite', '1966080'],
-        ['uiv', 'holmium', '3932160'],
-    ]
-
-    converter.forEach(([tier, mat1, mat2, eut]) => {
-        event.remove({ output:[`gtceu:${tier}_1a_energy_converter`, `gtceu:${tier}_4a_energy_converter`, `gtceu:${tier}_8a_energy_converter`, `gtceu:${tier}_16a_energy_converter` ] })
-        event.shaped(Item.of(`gtceu:${tier}_1a_energy_converter`), [
-            ' BB',
-            'AHC',
-            ' BB'
-        ], {
-            A: `gtceu:red_alloy_single_wire`,
-            B: `gtceu:${mat2}_single_wire`,
-            H: `gtceu:${tier}_machine_hull`,
-            C: `#gtceu:circuits/${tier}`
-        })
+    const EnergyHatchHelper = [
+        // in
+        ['gtceu:sodium_potassium 12000', 'gtceu:omnium 1152', 'gtceu:soldering_alloy 576'],
+        // out
+        ['gtceu:crystal_matrix 11520', 'gtceu:soldering_alloy 5760'],
+    ];
 
 
-        event.shaped(Item.of(`gtceu:${tier}_4a_energy_converter`), [
-            ' BB',
-            'AHC',
-            ' BB'
-        ], {
-            A: `gtceu:red_alloy_quadruple_wire`,
-            B: `gtceu:${mat2}_quadruple_wire`,
-            H: `gtceu:${tier}_machine_hull`,
-            C: `#gtceu:circuits/${tier}`
-        })
+    [
+        [voltages[9], 'omnium', voltage_to_cable[voltages[9]], voltage_to_eu[voltages[8]]],
+        [voltages[10], 'holmium', voltage_to_cable[voltages[10]], voltage_to_eu[voltages[9]]],
+        [voltages[11], 'monium', voltage_to_cable[voltages[11]], voltage_to_eu[voltages[10]]],
+    ].forEach(([tier, mat, mat_wire, eut], index) => {
+        // energy converters
+        amper_list.forEach((suffix, index_a) => {
+            let wireType = wire_list[index_a];
+            event.remove({output: `gtceu:${tier}_${suffix}_energy_converter`});
+            event.shaped(Item.of(`gtceu:${tier}_${suffix}_energy_converter`),
+                [' BB', 'AHC', ' BB'], {
+                    A: `gtceu:red_alloy_${wireType}`,
+                    B: `gtceu:${mat_wire}_${wireType}`,
+                    H: `gtceu:${tier}_machine_hull`,
+                    C: `#gtceu:circuits/${tier}`
+                });
+        });
 
-        event.shaped(Item.of(`gtceu:${tier}_8a_energy_converter`), [
-            ' BB',
-            'AHC',
-            ' BB'
-        ], {
-            A: `gtceu:red_alloy_octal_wire`,
-            B: `gtceu:${mat2}_octal_wire`,
-            H: `gtceu:${tier}_machine_hull`,
-            C: `#gtceu:circuits/${tier}`
-        })
+        // energy hatches
+        io.forEach((type, index_io) => {
+            // removing energy hatches
+            ["", "_4a", "_16a"].forEach((v) =>
+                event.remove({output: `gtceu:${tier}_energy_${type}_hatch${v}`})
+            )
+            // single energy hatches
+            greg.assembly_line(`gtceu:${tier}_energy_${type}_hatch`)
+                .itemInputs(
+                    `gtceu:${tier}_machine_hull`,
+                    `4x gtceu:${mat_wire}_spring`,
+                    `2x gtceu:uhpic_chip`,
+                    `#gtceu:circuits/${tier}`,
+                    `2x gtceu:${mat}_double_wire`
+                )
+                .inputFluids(EnergyHatchHelper[index_io])
+                .itemOutputs(`gtceu:${tier}_energy_${type}_hatch`)
+                .duration(50 * 20)
+                .EUt(eut);
 
-        event.shaped(Item.of(`gtceu:${tier}_16a_energy_converter`), [
-            ' BB',
-            'AHC',
-            ' BB'
-        ], {
-            A: `gtceu:red_alloy_hex_wire`,
-            B: `gtceu:${mat2}_hex_wire`,
-            H: `gtceu:${tier}_machine_hull`,
-            C: `#gtceu:circuits/${tier}`
+            [
+                [amper_list[1], wire_list[2]],
+                [amper_list[3], wire_list[4]],
+            ].forEach(([v, w], index_amper) =>
+                // multi energy hatches
+                greg.assembler(`${tier}_energy_${type}_hatch_${v}`)
+                    .itemInputs(
+                        `gtceu:${tier}_energy_${type}_hatch_${v == "4a" ? "" : "4a"}`,
+                        `2x gtceu:${mat}_plate`,
+                        `2x gtceu:${mat_wire}_${w}`
+                    )
+                    .itemOutputs(`${tier}_energy_${type}_hatch_${v}`)
+                    .duration(10 * 20)
+                    .EUt(eut * (4 ** (1 + index_amper)))
+            );
+        });
+
+        // lasers
+        if (voltages.indexOf(tier) < 11) {
+            [
+                // [suffix, input_multiplier, circuit, wireType]
+                ["256a", 1, wire_list[0]],
+                ["1024a", 2, wire_list[2]],
+                ["4096a", 4, wire_list[4]],
+            ].forEach(([suffix, multi, wire], index_laser) =>
+                [
+                    // [type, specialInput]
+                    ["target", "emitter"],
+                    ["source", "sensor"],
+                ].forEach(([type, specialInput], index_io) =>
+                    greg.assembler(`${tier}_${suffix}_laser_${type}_hatch`)
+                        .itemInputs(
+                            `gtceu:${tier}_machine_hull`,
+                            `${multi}x gtceu:diamond_lens`,
+                            `${multi}x gtceu:${tier}_${specialInput}`,
+                            `${multi}x gtceu:${tier}_electric_pump`,
+                            `4x gtceu:${mat_wire}_${wire}`
+                        )
+                        .itemOutputs(`gtceu:${tier}_${suffix}_laser_${type}_hatch`)
+                        .circuit(index_laser + 1 * (index_io == 0 ? 1 : 6))
+                        .duration(400)
+                        .EUt(eut)
+                )
+            );
+        }
+
+    });
 
 
-        })
+    // casing & machine hull
+    [
+        [voltages[9], 'omnium', voltage_to_cable[voltages[9]]],
+        [voltages[10], 'infinity', voltage_to_cable[voltages[10]]],
+        [voltages[11], 'monium', voltage_to_cable[voltages[11]]],
+    ].forEach(([tier, mat_casing, mat_wire]) => {
+        event.remove({output: `gtceu:${tier}_machine_hull`});
+        event.remove({output: `gtceu:${tier}_machine_casing`});
 
+        // Hull assembler
+        greg.assembler(`${tier}_hull`)
+            .itemInputs(
+                `gtceu:${tier}_machine_casing`,
+                `2x gtceu:${mat_wire}_single_wire`,
+                `2x gtceu:polyether_ether_ketone_plate`
+            )
+            .itemOutputs(`gtceu:${tier}_machine_hull`)
+            .duration(5 * 20)
+            .EUt(16);
 
-        event.remove({ output:[`gtceu:${tier}_energy_output_hatch`, `gtceu:${tier}_energy_output_hatch_4a`, `gtceu:${tier}_energy_output_hatch_16a`] })
-        greg.assembly_line(`gtceu:${tier}_energy_output_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, `4x gtceu:${mat2}_spring`, `2x gtceu:uhpic_chip`, `#gtceu:circuits/${tier}`, `2x gtceu:${mat1}_double_wire`)
-            .itemOutputs(`gtceu:${tier}_energy_output_hatch`)
-            .inputFluids('gtceu:crystal_matrix 11520', 'gtceu:soldering_alloy 5760')
-            .duration(1000)
-            .EUt(eut)
-
-        greg.assembler(`gtceu:${tier}_energy_output_hatch_4a`)
-            .itemInputs(`gtceu:${tier}_energy_output_hatch`, `2x gtceu:${mat1}_plate`, `2x gtceu:${mat2}_quadruple_wire`)
-            .itemOutputs(`gtceu:${tier}_energy_output_hatch_4a`)
-            .duration(100)
-            .EUt(eut)
-
-        greg.assembler(`gtceu:${tier}_energy_output_hatch_16a`)
-            .itemInputs(`gtceu:${tier}_energy_output_hatch_4a`, `2x gtceu:${mat1}_plate`, `2x gtceu:${mat2}_octal_wire`)
-            .itemOutputs(`gtceu:${tier}_energy_output_hatch_16a`)
-            .duration(100)
-            .EUt(eut)
-
-
-        event.remove({ output:[`gtceu:${tier}_energy_input_hatch`, `gtceu:${tier}_energy_input_hatch_4a`, `gtceu:${tier}_energy_input_hatch_16a`] })
-        greg.assembly_line(`gtceu:${tier}_energy_input_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, `4x gtceu:${mat2}_single_wire`, '16x gtceu:uhpic_chip', `#gtceu:circuits/${tier}`, `2x gtceu:${mat2}_double_wire`)
-            .itemOutputs(`gtceu:${tier}_energy_input_hatch`)
-            .inputFluids('gtceu:sodium_potassium 12000', 'gtceu:omnium 1152', 'gtceu:soldering_alloy 576')
-            .duration(100)
-            .EUt(eut)
-
-        greg.assembler(`gtceu:${tier}_energy_input_hatch_4a`)
-            .itemInputs(`gtceu:${tier}_energy_input_hatch`, `2x gtceu:${mat1}_plate`, `2x gtceu:${mat2}_quadruple_wire`)
-            .itemOutputs(`gtceu:${tier}_energy_input_hatch_4a`)
-            .duration(100)
-            .EUt(eut)
-
-        greg.assembler(`gtceu:${tier}_energy_input_hatch_16a`)
-            .itemInputs(`2x gtceu:${tier}_energy_input_hatch_4a`, `4x gtceu:${mat1}_plate`, `2x gtceu:${mat2}_octal_wire`, `2x gtceu:uhpic_chip`)
-            .itemOutputs(`gtceu:${tier}_energy_input_hatch_16a`)
-            .duration(100)
-            .EUt(eut)
-    })
+        // Casing assembler
+        greg.assembler(`${tier}_casing`)
+            .itemInputs(`8x gtceu:${mat_casing}_plate`)
+            .itemOutputs(`gtceu:${tier}_machine_casing`)
+            .circuit(8)
+            .duration(5 * 20)
+            .EUt(16);
+    });
 
 
 
-
-    laserhatch.forEach(([tier, mat1, eut]) => {
-        greg.assembler(`${tier}_256a_laser_target_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, 'gtceu:diamond_lens', `gtceu:${tier}_emitter`, `gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_single_wire`)
-            .itemOutputs(`gtceu:${tier}_256a_laser_target_hatch`)
             .circuit(1)
-            .duration(400)
-            .EUt(eut)
-
-        greg.assembler(`${tier}_256a_laser_source_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, 'gtceu:diamond_lens', `gtceu:${tier}_sensor`, `gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_single_wire`)
-            .itemOutputs(`gtceu:${tier}_256a_laser_target_hatch`)
-            .circuit(1)
-            .duration(400)
-            .EUt(eut)
-
-        greg.assembler(`${tier}_1024a_laser_target_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, '2x gtceu:diamond_lens', `2x gtceu:${tier}_emitter`, `2x gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_single_wire`)
-            .itemOutputs(`gtceu:${tier}_1024a_laser_target_hatch`)
-            .circuit(2)
-            .duration(400)
-            .EUt(eut)
-
-        greg.assembler(`${tier}_1024a_laser_source_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, '2x gtceu:diamond_lens', `2x gtceu:${tier}_sensor`, `2x gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_double_wire`)
-            .itemOutputs(`gtceu:${tier}_1024a_laser_target_hatch`)
-            .circuit(2)
-            .duration(400)
-            .EUt(eut)
-
-        greg.assembler(`${tier}_4096a_laser_target_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, '4x gtceu:diamond_lens', `4x gtceu:${tier}_emitter`, `4x gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_quadruple_wire`)
-            .itemOutputs(`gtceu:${tier}_4096a_laser_target_hatch`)
-            .circuit(3)
-            .duration(400)
-            .EUt(eut)
-
-        greg.assembler(`${tier}_4096a_laser_source_hatch`)
-            .itemInputs(`gtceu:${tier}_machine_hull`, '4x gtceu:diamond_lens', `4x gtceu:${tier}_sensor`, `4x gtceu:${tier}_electric_pump`, `4x gtceu:${mat1}_quadruple_wire`)
-            .itemOutputs(`gtceu:${tier}_4096a_laser_target_hatch`)
-            .circuit(3)
-            .duration(400)
-            .EUt(eut)
-
-
-    })
-
-
-    // UEV/UIV/MAX Hulls and Casing
-    event.remove({ id: 'gtceu:shaped/uev_machine_hull'})
-    event.remove({ id: 'gtceu:shaped/uiv_machine_hull'})
-    event.remove({ id: 'gtceu:shaped/opv_machine_hull'})
-
-    greg.assembler('uev_hull')
-        .itemInputs('gtceu:uev_machine_casing', '2x gtceu:activated_netherite_single_wire', '2x gtceu:polyether_ether_ketone_plate')
-        .itemOutputs('gtceu:uev_machine_hull')
-        .duration(50)
-        .EUt(16)
-
-    greg.assembler('uev_casing')
-        .itemInputs('8x gtceu:omnium_plate')
-        .itemOutputs('gtceu:uev_machine_casing')
-        .circuit(8)
-        .duration(50)
-        .EUt(16)
-
-    greg.assembler('uiv_hull')
-        .itemInputs('gtceu:uiv_machine_casing', '2x gtceu:omnium_single_wire', '2x gtceu:polyether_ether_ketone_plate')
-        .itemOutputs('gtceu:uiv_machine_hull')
-        .duration(50)
-        .EUt(16)
-
-    greg.assembler('uiv_casing')
-        .itemInputs('8x gtceu:infinity_plate')
-        .itemOutputs('gtceu:uiv_machine_casing')
-        .circuit(8)
-        .duration(50)
-        .EUt(16)
-
     // Motors
     greg.assembly_line('uhv_motor')
         .itemInputs('gtceu:long_magnetic_samarium_rod', '8x gtceu:long_neutronium_rod', '8x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '32x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '4x gtceu:tritanium_quadruple_cable')

@@ -6,6 +6,7 @@ const voltages = [
     "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv",
 ];
 
+// acces just like you would voltage_to_cable["lv"] = "tin"
 const voltage_to_cable = {
     "lv": "tin",
     "mv": "copper",
@@ -16,7 +17,6 @@ const voltage_to_cable = {
     "zpm": "vanadium_gallium",
     "uv": "yttrium_barium_cuprate",
 };
-
 
 
 const tierCable = [
@@ -41,7 +41,6 @@ const lamFluids = [
 ]
 
 
-
 const coilS = [
     "cupronickel",
     "kanthal",
@@ -52,7 +51,6 @@ const coilS = [
     "trinium",
     "tritanium",
 ];
-
 
 
 const voltage_to_eu = {
@@ -67,13 +65,12 @@ const voltage_to_eu = {
 };
 
 
-
 const fluid_to_type = {
-    "no":"air",
-    "nit":"gtceu:nitrogen",
-    "arg":"gtceu:argon",
-    "neo":"gtceu:neon",
-    "hel":"gtceu:helium",
+    "no": "air",
+    "nit": "gtceu:nitrogen",
+    "arg": "gtceu:argon",
+    "neo": "gtceu:neon",
+    "hel": "gtceu:helium",
 };
 
 const fluid_to_amount = {

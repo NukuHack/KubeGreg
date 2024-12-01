@@ -52,7 +52,7 @@ event.create('pure_netherite')
     .element(GTElements.get('pure_netherite'))
     .color(0x1a0d00)
     .iconSet(DULL)
-    .cableProperties(8388608/4, 12, 0, true)
+    .cableProperties(8388608/2, 8, 0, true)
     .blastTemp(3300, 'low', VA('ev'), 1200)
     .flags(foil, gear, long_rod, plates,
         rod, rotor, small_gear, ring);
@@ -62,7 +62,6 @@ event.create('activated_netherite')
     .element(GTElements.get("activated_netherite"))
     .color(0x4C484C)
     .iconSet(DULL)
-    .cableProperties(8388608, 16, 0, true)
     .fluidPipeProperties(120000, 96000, true, true, true, true)
     .flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring);
 
@@ -80,7 +79,8 @@ event.create('weapon_grade_naquadaria')
     .components('7x naquadria', '2x naquadic_netherite', '5x neutronium', '16x fluorine')
     .color(0xccff33)
     .iconSet(DULL)
-    .blastTemp(15000, 'high', VA('uv'), 6000)
+    .cableProperties(8388608*4, 8, 0, true)
+    .blastTemp(10000, 'high', VA('uv'), 6000)
     .flags(foil, gear, long_rod, plates,
         rod, rotor, small_gear, ring, frame);
 

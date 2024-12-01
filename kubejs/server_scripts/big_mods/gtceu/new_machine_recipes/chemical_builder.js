@@ -1,7 +1,7 @@
 ServerEvents.recipes(event => {
 
     event.recipes.gtceu.assembly_line('chemical_builder')
-        .itemInputs('gtceu:uv_machine_hull', '4x gtceu:uv_electric_motor', 'gtceu:weapon_grade_naquadah_rotor', '2x gtceu:duranium_large_fluid_pipe', '4x #gtceu:circuits/uv')
+        .itemInputs('gtceu:uv_machine_hull', '4x gtceu:uv_electric_motor', 'gtceu:weapon_grade_naquadaria_rotor', '2x gtceu:duranium_large_fluid_pipe', '4x #gtceu:circuits/uv')
         .inputFluids('gtceu:soldering_alloy 1872', 'gtceu:naquadria 288', 'gtceu:polyether_ether_ketone 1008')
         .itemOutputs('gtceu:chemical_builder')
         .duration(950)

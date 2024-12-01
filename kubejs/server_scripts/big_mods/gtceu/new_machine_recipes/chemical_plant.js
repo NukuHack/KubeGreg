@@ -5,7 +5,7 @@ ServerEvents.recipes(event => {
 
     greg.assembly_line('gfs:chemical_plant_controller')
         .itemInputs('gtceu:zpm_machine_hull', '4x gtceu:zpm_electric_motor', 'gtceu:naquadah_alloy_rotor', '2x gtceu:niobium_titanium_large_fluid_pipe', '4x #gtceu:circuits/zpm')
-        .inputFluids('gtceu:soldering_alloy 1872', 'gtceu:naquadria 288')
+        .inputFluids('gtceu:soldering_alloy 1872', 'gtceu:naquadria 288', 'gtceu:polyether_ether_ketone 1008')
         .itemOutputs('gtceu:chemical_plant')
         .duration(1200)
         .EUt(GTValues.VHA[GTValues.UV]);
@@ -76,8 +76,8 @@ ServerEvents.recipes(event => {
         .duration(800)
         .EUt(GTValues.VHA[GTValues.ZPM]);
 		
-    greg.chemical_plant('gfs:uranite_processing')
-        .itemInputs('15x #forge:dusts/uranite')
+    greg.chemical_plant('gfs:uraninite_processing')
+        .itemInputs('15x #forge:dusts/uraninite')
         .inputFluids('gtceu:hydrofluoric_acid 20000')
         .inputFluids('gtceu:fluorine 10000')
         .outputFluids('gtceu:uranium_hexafluoride 30000')
@@ -85,7 +85,7 @@ ServerEvents.recipes(event => {
         .duration(80*20)
         .EUt(GTValues.VHA[GTValues.MV]);
 		
-    greg.chemical_plant('gfs:uranium_sludge_processing')
+    greg.chemical_plant('gfs:uranium_processing')
         .inputFluids('gtceu:uranium_hexafluoride 10000')
         .itemOutputs('1x #forge:dusts/uranium_235')
         .outputFluids('gtceu:fluorine 6000')

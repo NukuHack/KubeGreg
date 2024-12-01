@@ -28,6 +28,7 @@ GTCEuStartupEvents.registry('gtceu:element', event => {
     event.create('omnium', 130, 234, -1, null, 'Nm', false)
     event.create('infinity', 168, 316, -1, null, '∞', false);
     event.create('monium', 69, 420, -1, null, 'Mu', false);
+    event.create('stellar',      -1, -1, -1, null, '✵', false);
     event.create('crystal_matrix', 6, 6, -1, null, 'C*', false);
     event.create('cryolobus', 149, 234, -1, null, 'Cy', false);
     event.create('cryococcus', 149, 264, -1, null, 'Cy*', false);
@@ -38,8 +39,7 @@ GTCEuStartupEvents.registry('gtceu:element', event => {
     event.create('void', 39, 189, -1, null, 'χάος', false);
 
     event.create('mana',            -1, -1, -1, null, '★', false);
-    event.create('stardust',            -1, -1, -1, null, 'Sd', false);
-    event.create('creativity',      -1, -1, -1, null, 'Create', false);
+    event.create('stardust',            -1, -1, -1, null, '☆', false);
     event.create('ember',           -1, -1, -1, null, '🔥', false);
     event.create('wissen',          -1, -1, -1, null, '⚙', false);
 

@@ -49,3 +49,27 @@ Hastelloy: Another nickel-based alloy that offers high strength and resistance t
 Ceramics: Advanced ceramics could also be used in areas where high thermal stability and chemical resistance are critical.
 
 
+let a = [0,1];
+let welp = 0;
+
+function fibo(a){
+    if (x<2){
+        return a[x]
+    }
+    else{
+        welp = a[0]+a[1];
+        return (welp);
+        a[0]=a[1];
+        a[1]=welp;
+    }
+}
+
+let x = 0;
+while (true){
+    console.log(fibo(x));
+    x++;
+}
+
+
+
+

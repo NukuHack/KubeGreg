@@ -2,7 +2,7 @@
 // Giga, Omega Parallel Hatches
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create(
-        "parallel_hatch",
+        "uhv_parallel_hatch",
         "custom",
         (holder, tier) => {
             return new $ParallelHatchPartMachine(holder, tier);
@@ -15,7 +15,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .workableTieredHullRenderer(GTCEu.id("block/machines/parallel_hatch_mk9"))
 
     event.create(
-        "parallel_hatch_better",
+        "uev_parallel_hatch",
         "custom",
         (holder, tier) => {
             return new $ParallelHatchPartMachine(holder, tier);

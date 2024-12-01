@@ -195,7 +195,7 @@ ServerEvents.recipes(event => {
 
 // Create machine recipes for a specific voltage
     voltages.forEach((volt, index) => {
-        if (index >= 2) {
+        if (!(index>7)&&index>1) {
             event.shaped(
                 "gtceu:" + volt + "_inscriber",
                 ["AXA", "BYC", "DED"],
@@ -209,7 +209,7 @@ ServerEvents.recipes(event => {
                     E: `gtceu:${voltage_to_cable[volt]}_single_cable`
                 }
             );
-        };
+        }
     });
 
 });

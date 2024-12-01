@@ -1,109 +1,96 @@
-
 priority: 10
 
 
 GTCEuStartupEvents.registry("gtceu:material", event => {
 
 
-
-
 // stupid shit by myself
 
-	event.create("xbutane")
-		.fluid()
-		.color(0x333333);
+    event.create("xbutane")
+        .fluid()
+        .color(0x333333);
 
-	event.create("xpropana")
-		.fluid()
-		.color(0x333333);
+    event.create("xpropana")
+        .fluid()
+        .color(0x333333);
 
-	event.create("steam_crack_methane")
-		.components("methane","steam")
-		.fluid()
-		.flags(no_decomp)
-		.color(0x986839);
+    event.create("steam_crack_methane")
+        .components("methane", "steam")
+        .fluid()
+        .flags(no_decomp)
+        .color(0x986839);
 
-	event.create("hydro_crack_methane")
-		.components("methane","6x hydrogen")
-		.fluid()
-		.flags(no_decomp)
-		.color(0x937670);
+    event.create("hydro_crack_methane")
+        .components("methane", "6x hydrogen")
+        .fluid()
+        .flags(no_decomp)
+        .color(0x937670);
 
-	event.create("double_crack_methane")
-		.components("methane","6x hydrogen","2x carbon_monoxide")
-		.fluid()
-		.flags(no_decomp)
-		.color(0x704725);
+    event.create("double_crack_methane")
+        .components("methane", "6x hydrogen", "2x carbon_monoxide")
+        .fluid()
+        .flags(no_decomp)
+        .color(0x704725);
 
-	event.create("potato_slurry")
-		.fluid()
-		.color(0x704725);
-
-
-	event.create("sodium_hydroxide_residue")
-		.components("4x sodium","8x oxygen","8x hydrogen","1x gallium")
-		.fluid()
-		.flags(no_decomp)
-		.color(0x969688);
-
-	
+    event.create("potato_slurry")
+        .fluid()
+        .color(0x704725);
 
 
+    event.create("sodium_hydroxide_residue")
+        .components("4x sodium", "8x oxygen", "8x hydrogen", "1x gallium")
+        .fluid()
+        .flags(no_decomp)
+        .color(0x969688);
 
 
+    // more useful stuff
+
+    event.create('dusty_helium')
+        .gas()
+        .color(0xa040af)
+        .flags(no_decomp)
+        .components('helium_3', 'rare_earth');
+
+    event.create('dioxygen_difluoride')
+        .fluid() // 80
+        .colorAverage()
+        .components('2x oxygen', '2x fluorine');
+
+    event.create('stone_residue')
+        .dust()
+        .color(0x4d4d4d).iconSet('rough')
+        .flags(no_decomp);
+
+    event.create('helium_hydride')
+        .gas()
+        .color(0xe6d62e)
+        .flags(no_decomp)
+        .components('helium_3', 'hydrogen');
+
+    event.create('hydrogen_peroxide')
+        .liquid()
+        .color(0xd2ffff)
+        .components('2x hydrogen', '2x oxygen');
+
+    event.create('naquadah_oxide')
+        .dust()
+        .color(0x17ddd3).iconSet('rough')
+        .flags(no_decomp)
+        .components('2x naquadah', '3x oxygen');
+
+    event.create('naquadah_hydroxide')
+        .dust()
+        .color(0x1941a6).iconSet('dull')
+        .components('naquadah', '3x hydrogen', '3x oxygen');
+
+    event.create("sulfur_dichloride")
+        .components("1x sulfur", "1x chlorine")
+        .fluid()
+        .color(0x969688);
 
 
-
-
-	// more useful stuff
-
-	event.create('dusty_helium')
-		.gas()
-		.color(0xa040af)
-		.flags(no_decomp)
-		.components('helium_3', 'rare_earth');
-
-	event.create('dioxygen_difluoride')
-		.fluid() // 80
-		.colorAverage()
-		.components('2x oxygen', '2x fluorine');
-
-	event.create('stone_residue')
-		.dust()
-		.color(0x4d4d4d).iconSet('rough')
-		.flags(no_decomp);
-
-	event.create('helium_hydride')
-		.gas()
-		.color(0xe6d62e)
-		.flags(no_decomp)
-		.components('helium_3', 'hydrogen');
-
-	event.create('hydrogen_peroxide')
-		.liquid()
-		.color(0xd2ffff)
-		.components('2x hydrogen', '2x oxygen');
-
-	event.create('naquadah_oxide')
-		.dust()
-		.color(0x17ddd3).iconSet('rough')
-		.flags(no_decomp)
-		.components('2x naquadah', '3x oxygen');
-
-	event.create('naquadah_hydroxide')
-		.dust()
-		.color(0x1941a6).iconSet('dull')
-		.components('naquadah', '3x hydrogen', '3x oxygen');
-
-	event.create("sulfur_dichloride")
-		.components("1x sulfur","1x chlorine")
-		.fluid()
-		.color(0x969688);
-
-
-
-
-	/*
+    /*
 // Materials from elements
 event.create('magnetic_zapolgium')
     .ingot()
@@ -188,41 +175,67 @@ event.create('isovol')
     .blastTemp(12499, 'highest', VA('uv'), 2750);
 */
 
+    // magic stuff
 
-	event.create('mana')
-		// mana
-		.element(GTElements.get("mana"))
-		.fluid()
-		.gem()
-		.color(0x20DAFF);
+    event.create('mana')
+        // mana
+        .element(GTElements.get("mana"))
+        .fluid()
+        .gem()
+        .color(0x20DAFF);
 
-	//Arcane Element for Ember
-	event.create('ember')
-		//🔥
-		.element(GTElements.get("ember"))
-		.color(0xFF5200).secondaryColor(0xFFAA5C).iconSet(LAPIS)
-		.gem()
-		.flags(
-			lens
-		);
+    //Arcane Element for Ember
+    event.create('ember')
+        //🔥
+        .element(GTElements.get("ember"))
+        .color(0xFF5200)
+        .secondaryColor(0xFFAA5C)
+        .iconSet(LAPIS)
+        .gem()
+        .flags(
+            lens
+        );
 
-	event.create('wissen')
-		//⚙
-		.element(GTElements.get("wissen"))
-		.color(0x577FB8).secondaryColor(0xCDEDFE).iconSet(NETHERSTAR)
-		.gem()
-		.flags(
-			fine_wire,
-			lens
-		);
+    event.create('wissen')
+        //⚙
+        .element(GTElements.get("wissen"))
+        .color(0x577FB8)
+        .secondaryColor(0xCDEDFE)
+        .iconSet(NETHERSTAR)
+        .gem()
+        .flags(
+            fine_wire,
+            lens
+        );
 
-	//Stardust
-	event.create('stardust')
-		//Sd
-		.element(GTElements.get("stardust"))
-		.color(0x42599D).secondaryColor(0xCCF2FF).iconSet(NETHERSTAR)
-		.dust();
+    //Stardust
+    event.create('stardust')
+        //Sd
+        .element(GTElements.get("stardust"))
+        .color(0x42599D)
+        .secondaryColor(0xCCF2FF)
+        .iconSet(NETHERSTAR)
+        .dust();
 
+
+    // nuclear stuff
+
+
+    event.create('hot_pcbcoolant')
+        .liquid()
+        .color(0xd2ffff);
+
+    event.create('hot_sodium_potassium')
+        .liquid()
+        .color(0xd2ffff);
+
+    event.create('nuclear_pure_steam')
+        .liquid()
+        .color(0xd2ffff);
+
+    event.create('nuclear_steam')
+        .liquid()
+        .color(0xd2ffff);
 
 
 })

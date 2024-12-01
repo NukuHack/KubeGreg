@@ -7,6 +7,7 @@ const voltages = [
     "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
 ];
 
+
 // acces just like you would voltage_to_cable["lv"] = "tin"
 const voltage_to_cable = {
     "lv": "tin",

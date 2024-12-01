@@ -26,14 +26,17 @@ StartupEvents.registry("block", event => {
     const casingS = [
 		// name , Displayname, hard, resistance, light, sound, texture
         ["test","Test",10,1,1,"metal","gfs:block/casings/test_casing"],
-        ["green","Agri",4,1,10,"metal",'gfs:block/casings/green_casing'],
-        ["yellow","Yellow",5,1,15,"metal",'gfs:block/casings/yellow_casing'],
+        ["green","Agriculture",4,1,10,"metal",'gfs:block/casings/green'],
+        ["blue","Deep",4,1,1,"metal",'gfs:block/casings/blue'],
+        ["yellow","Gilded",5,1,15,"metal",'gfs:block/casings/yellow'],
         ["netherite","Netherite",5,1,0,"metal","gfs:block/casings/peek"],
         ["peek","PEEK",7,2,0,"metal","gfs:block/casings/netherite"],
         ["omnic","Omnic Matrix",8,1,0,"metal","gfs:block/casings/omnic"],
-        ["high_temperature","High Temperature Fusion Casing (MKII)",10,2,0,"metal","gfs:block/casings/high_temperature"],
+        ["high_temperature","High Temperature Fusion (MKIV)",10,2,0,"metal","gfs:block/casings/high_temperature"],
         ['steel_304','Austenitic Stainless Steel 304 Nuclear',6,2,0,"metal",'gfs:block/casings/hard_steel'],
         ['inconel_625','Inconel 625 Thermal Fluctuation Resistant',5,3,0,"metal",'gfs:block/casings/inconel'],
+        ["void","Void",6,3,0,"metal",'gfs:block/casings/void'],
+        ["cryococcus","Cryococcus",5,3,0,"metal",'gfs:block/casings/cryococcus'],
     ];
     casingS.forEach(([name,Dname,hard,res,light,sound,texture])=>{
         event.create(`gfs:${name}_casing`)
@@ -81,6 +84,18 @@ StartupEvents.registry("block", event => {
         .tagBoth('forge:stripped_logs')
         .textureAll('gtceu:block/misc/stripped_treated_wood');
 
+    event.create('gfs:dark_fusion_coil')
+        .hardness(2)
+        .hardness(7)
+        .resistance(3)
+        .soundType("metal")
+        .requiresTool(true)
+        .tagBlock('minecraft:mineable/axe')
+        .tagBlock("minecraft:mineable/pickaxe")
+        .tagBlock("cucumber:mineable/paxel")
+        .tagBlock('minecraft:needs_iron_tool')
+        .textureAll('gfs:block/dark_fusion_coil');
+		
 
     const coils = [
         ['mithril_coil', 12600, 16, 16, 8, 'mithril', 'gfs:block/coils/mithril/mithril'],

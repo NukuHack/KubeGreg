@@ -57,6 +57,7 @@ const voltage_to_eu = {
 };
 
 
+
 const fluid_to_type = {
     "no": "air",
     "nit": "gtceu:nitrogen",

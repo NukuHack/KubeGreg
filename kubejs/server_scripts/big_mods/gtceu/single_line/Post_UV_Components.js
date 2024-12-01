@@ -10,6 +10,14 @@ ServerEvents.recipes(event => {
     ];
 
 
+
+    const wire_list = ["single","double","quadruple","octal","hex"];
+    // probably does not need the 2a and the default is just that
+    const amper_list = ["1a","2a","4a","8a","16a"];
+    const io = ["output","input"];
+
+
+
     [
         [voltages[9], 'omnium', voltage_to_cable[voltages[9]], voltage_to_eu[voltages[8]]],
         [voltages[10], 'holmium', voltage_to_cable[voltages[10]], voltage_to_eu[voltages[9]]],

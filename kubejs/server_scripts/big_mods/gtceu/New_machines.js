@@ -5,15 +5,7 @@
 ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
-    /*
-        // Wood Casing
-        greg.assembler('gfs:wood_casing')
-            .itemInputs('4x gtceu:brass_screw', '2x gtceu:treated_wood_plate', 'gtceu:treated_wood_frame')
-            .itemOutputs('2x gfs:wood_casing')
-            .circuit(6)
-            .duration(50)
-            .EUt(16);
-    */
+	
     greg.assembler('gfs:huge_chemical_reactor')
         .itemInputs('gtceu:large_chemical_reactor',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
         .itemOutputs('gtceu:huge_chemical_reactor')
@@ -156,24 +148,24 @@ ServerEvents.recipes(event => {
 
 
     event.replaceInput({output: 'gtceu:electric_blast_furnace' },"gtceu:heatproof_machine_casing","gfs:compressed_primitive_blast_furnace");
-    /*
+    
         greg.assembler('gfs:electric_blast_furnace')
             .itemInputs("gfs:compressed_primitive_blast_furnace","3x minecraft:furnace","3x #gtceu:circuit/lv",`2x gtceu:tin_single_cable`)
             .itemOutputs('gtceu:electric_blast_furnace')
             .circuit(6)
             .duration(60)
             .EUt(120);
-    */
+    
     event.replaceInput({output: 'gtceu:pyrolyse_oven' },"gtceu:mv_machine_hull","gfs:compressed_coke_oven");
-    /*
+    
         greg.assembler('gfs:pyrolyse_oven')
-            .itemInputs("gfs:compressed_coke_oven","3x #gtceu:circuit/mv","2x gtceu:cupronickel_quadruple_cable",
+            .itemInputs("gfs:compressed_coke_oven","3x #gtceu:circuit/mv","2x gtceu:cupronickel_quadruple_wire",
                 "2x gtceu:mv_electric_piston","gtceu:mv_electric_pump")
             .itemOutputs('gtceu:pyrolyse_oven')
             .circuit(6)
             .duration(60)
             .EUt(120);
-    */
+
     //event.shapeless(Item.of("gfs:coke_oven_side"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks"]);
     //event.shapeless(Item.of("gfs:coke_oven_controller"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven","3x gtceu:coke_oven_bricks"]);
     //event.shapeless(Item.of("gfs:compressed_coke_oven"), ["gfs:coke_oven_side","gfs:coke_oven_controller","gfs:coke_oven_side"]);

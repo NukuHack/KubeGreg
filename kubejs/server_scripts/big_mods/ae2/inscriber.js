@@ -22,10 +22,10 @@ ServerEvents.recipes(event => {
         ["ae2:", "calculation_processor", "white", "certus_quartz"],
         ["ae2:", "engineering_processor", "blue", "diamond"],
         ["megacells:", "accumulation_processor", "black", "black_steel"],
-        ["ae2:", "silicon", "gray", "silicon"]
+        ["ae2:", "silicon", "gray", "silicon"],
     ];
 
-    inscriber_greg.forEatch(([mod, name, color, ingredient]) => {
+    inscriber_greg.forEach(([mod, name, color, ingredient]) => {
         greg.laser_engraver("gfs:" + name + "_press")
             .itemInputs("gtceu:stainless_steel_plate")
             .notConsumable("#forge:lenses/" + color)

@@ -8,7 +8,7 @@ const voltages = [
 ];
 
 
-// acces just like you would voltage_to_cable["lv"] = "tin"
+// access just like you would voltage_to_cable["lv"] = "tin"
 const voltage_to_cable = {
     "lv": "tin",
     "mv": "copper",

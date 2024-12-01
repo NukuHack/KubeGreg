@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "gfs:block/casings/omnic/omnic.json"
+      "model": "gfs:block/omnic_casing.json"
     }
   }
 }

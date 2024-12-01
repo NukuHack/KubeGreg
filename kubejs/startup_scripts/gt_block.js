@@ -98,21 +98,22 @@ StartupEvents.registry("block", event => {
 		
 
     const coils = [
-        ['mithril_coil', 12600, 16, 16, 8, 'mithril', 'gfs:block/coils/mithril/mithril'],
-        ['omnic_coil', 15000, 24, 16, 9, 'omnium', 'gfs:block/coils/omnic/omnic'],
-        ['chadium_coil', 14400, 32, 32, 9, 'chadium', 'gtceu:block/coils/chad/chad'],
-        ['awakened_draconium_coil', 16200, 32, 32, 9, 'awakened_draconium', 'gtceu:block/coils/awakened_draconium/awakened_draconium'],
-        ['stellar_coil', 18000, 32, 32, 9, 'stellar_matter', 'gtceu:block/coils/stellar/stellar'],
-        ['infinity_coil', 19800, 32, 32, 9, 'infinity', 'gtceu:block/coils/inf/inf']
+        ['mithril', 12600, 16, 16, 8, 'gfs:block/coils/mithril/mithril'],
+        ['naquadria', 12500, 16,16,8, 'gtceu:block/coils/naq/naq'],
+        ['omnic', 15000, 24, 16, 9,'gfs:block/coils/omnic/omnic'],
+        ['chadium', 14400, 32, 32, 9, 'gtceu:block/coils/chad/chad'],
+        ['awakened_draconium', 16200, 32, 32, 9, 'gtceu:block/coils/awakened_draconium/awakened_draconium'],
+        ['stellar', 18000, 32, 32, 9, 'gtceu:block/coils/star/star'],
+        ['infinity', 19800, 32, 32, 9, 'gtceu:block/coils/inf/inf'],
     ];
 
-    coils.forEach(([name, temperature, level, energyDiscount, tier, material, texture]) => {
-        event.create(`gfs:${name}`, 'gtceu:coil')
+    coils.forEach(([name, temperature, level, energyDiscount, tier,texture]) => {
+        event.create(`gfs:${name}_coil`, 'gtceu:coil')
             .temperature(temperature)
             .level(level)
             .energyDiscount(energyDiscount)
             .tier(tier)
-            .coilMaterial(() => GTMaterials.get(material))
+            .coilMaterial(() => GTMaterials.get(name))
             .hardness(5)
             .requiresTool(true)
             .soundType(SoundType.NETHERITE_BLOCK)

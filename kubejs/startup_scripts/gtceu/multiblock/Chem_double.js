@@ -31,7 +31,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gfs:block/casings/machine_casing_peek",
+            "gfs:block/casings/peek",
             "gtceu:block/multiblock/large_chemical_reactor", false
         );
 });
@@ -68,7 +68,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gfs:block/casings/machine_casing_peek",
+            "gfs:block/casings/peek",
             "gtceu:block/multiblock/large_chemical_reactor", false
         );
 });

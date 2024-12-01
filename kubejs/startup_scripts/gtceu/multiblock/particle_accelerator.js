@@ -12,7 +12,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('particle_accelerator', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType('particle_accelerator')
-        .appearanceBlock(() => Block.getBlock("gtceu:activated_netherite_frame"))
+        .appearanceBlock(() => Block.getBlock("gfs:void_casing"))
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.NON_PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()
             .aisle(' C            CCC            C ', 'COC         CCCXCCC         CIC', ' C            CCC            C ')
@@ -47,7 +47,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle(' C        CCCCCCCCCCC        C ', 'CPC      CCCPPPPPPPCCC      CPC', ' C        CCCCCCCCCCC        C ')
             .aisle(' C            CCC            C ', 'CIC         CCCACCC         COC', ' C            CCC            C ')
             .where('A', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('C', Predicates.blocks("gtceu:activated_netherite_frame")
+            .where('C', Predicates.blocks("gfs:void_casing")
                     .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2))
                     .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))
             .where('P', Predicates.blocks('gtceu:long_distance_fluid_pipeline'))
@@ -55,14 +55,14 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('O', Predicates.abilities(PartAbility.EXPORT_FLUIDS_1X))
             .where('G', Predicates.abilities(PartAbility.IMPORT_ITEMS))
             .where('K', Predicates.abilities(PartAbility.EXPORT_ITEMS))
-            .where('X', Predicates.blocks("gtceu:activated_netherite_frame")
-                        .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
+            .where('X', Predicates.blocks("gfs:void_casing")
+                        //.or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
             )
             .where(' ', Predicates.any())
             .build()
         )
         .workableCasingRenderer(
-            'gfs:block/casings/machine_casing_netherite',
+            'gfs:block/casings/void',
             'gtceu:block/multiblock/large_chemical_reactor', false
         )
 })

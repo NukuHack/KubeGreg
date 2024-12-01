@@ -27,7 +27,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where(' ', Predicates.any())
             .build())
         .workableCasingRenderer(
-            "gfs:block/casings/machine_casing_netherite",
+            "gfs:block/casings/netherite",
             "gtceu:block/multiblock/assembly_line", false
         );
 

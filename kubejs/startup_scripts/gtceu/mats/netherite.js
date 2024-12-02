@@ -62,7 +62,7 @@ event.create('activated_netherite')
     .element(GTElements.get("activated_netherite"))
     .color(0x4C484C)
     .iconSet(DULL)
-    .cableProperties(8388608/2, 8, 0, true)
+    .cableProperties(8388608, 8, 0, true)
     .flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring);
 
 event.create('naquadic_netherite')

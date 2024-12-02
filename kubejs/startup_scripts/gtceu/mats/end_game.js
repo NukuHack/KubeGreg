@@ -25,7 +25,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .element(GTElements.get("cryococcus"))
         .color(0x008F92)
         .iconSet('metallic')
-        .cableProperties(8388608, 12, 0, true)
+        .cableProperties(8388608/4, 8, 0, true)
         .flags(no_smelt, plates, rod, gear, frame, ring, dense_plate);
 
 
@@ -36,7 +36,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0x66ffff)
         .iconSet('shiny')
         .fluidPipeProperties(100000, 64000, true, true, true, true)
-        .cableProperties(2147483647 / 16, 3, 0, true)
+        .cableProperties(2147483647 / 16, 4, 0, true)
         .flags(plates, foil, rod, frame, rotor, dense_plate);
 
     event.create("omnium")
@@ -45,7 +45,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xffffff)
         .iconSet('omnium')
         .flags(plates, rod, long_rod, gear, small_gear, ring, round, bolt_and_screw, frame)
-        .cableProperties(2147483647 / 16, 14, 0, true)
+        .cableProperties(2147483647 / 16, 10, 0, true)
         .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill());
 
     event.create('infinity')
@@ -53,7 +53,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .element(GTElements.get("infinity"))
         .color(0xffffff)
         .iconSet('infinity')
-        .cableProperties(2147483647, 32, 0, true)
+        .cableProperties(2147483647, 24, 0, true)
         .flags(plates, rod, long_rod, ring, round, gear, small_gear, bolt_and_screw, frame, dense_plate);
 
     event.create('monium')
@@ -62,7 +62,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xffffff)
         .iconSet('monium')
         .flags(plates, rod, frame, gear, spring)
-        .cableProperties(2147483647 / 4, 20, 0, true);
+        .cableProperties(2147483647 / 4, 16, 0, true);
 
     event.create('omnic_acid')
         .dust()
@@ -123,42 +123,20 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .ingot()
         .flags(no_smelt, no_decomp, plates, rod,gear, frame, ring, dense_plate);
 
-
+//TODO : draconium and awakened draconium
+// 	opv wire (2147483647/4), max wire (2147483647)
 
 
 
     // my take on it
-
+/*
     event.create('graphenium')
-        .ingot()
-        .color(0xff00ff)
-        .iconSet('metallic')
-        .components('5x carbon')
-        .flags(no_decomp);
-
     event.create('quanton')
-        .ingot()
-        .color(0xff00ff)
-        .iconSet('metallic')
-        .components('5x carbon')
-        .flags(no_decomp);
-
     event.create('photonite')
-        .ingot()
-        .color(0xff00ff)
-        .iconSet('metallic')
-        .components('5x carbon')
-        .flags(no_decomp);
-
-
     event.create('antimatter')
-        .ingot()
-        .color(0xff00ff)
-        .iconSet('metallic')
-        .components('5x carbon')
-        .flags(no_decomp);
+*/
 
-})
+});
 
 
 

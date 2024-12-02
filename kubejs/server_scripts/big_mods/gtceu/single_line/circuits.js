@@ -35,10 +35,10 @@ ServerEvents.recipes(event => {
                 `${32 * multi}x #forge:foils/${wire1}`,
                 `${32 * multi}x #forge:foils/${mat2}`,
                 `${4 * multi}x gfs:${voltages[tierN - 1]}_processing_unit`,
-                `${1 * multi}xgregtech:circuits/${voltages[tierN - 3]}`,
+                `${1 * multi}x gregtech:circuits/${voltages[tierN - 3]}`,
                 `${8 * multi}x #forge:dusts/${mat2}`
             ],
-            [mat2, 144 * multi / 2],
+            [`${mat2} ${144 * multi / 2}`],
             [4, 30],
         ],
         ['processing_unit',
@@ -48,7 +48,7 @@ ServerEvents.recipes(event => {
                 `${4 * multi}x #forge:doublewires/${wire2}`,
                 `${2 * small_multi}x ${soc_type}`
             ],
-            [solder, 576 * multi / 2],
+            [`${solder} ${576 * multi / 2}`],
             [4, 5],
         ],
         ['processor',
@@ -59,7 +59,7 @@ ServerEvents.recipes(event => {
                 `${4 * small_multi}x ${chip_type}`,
                 `${4 * multi}x #forge:wires/${wire1}`
             ],
-            [solder, 144 * multi / 2],
+            [`${solder} ${144 * multi / 2}`],
             [4, 7],
         ],
         ['processor_assembly',
@@ -73,7 +73,7 @@ ServerEvents.recipes(event => {
                 `${4 * multi}x #forge:doublewires/${wire1}`,
                 `${4 * multi}x #forge:doublewires/${wire2}`
             ],
-            [solder, 576 * multi / 2],
+            [`${solder} ${576 * multi / 2}`],
             [4, 10],
         ],
         ['processor_computer',
@@ -90,7 +90,7 @@ ServerEvents.recipes(event => {
                 `${4 * multi}x #forge:doublewires/${wire2}`,
                 `${8 * multi}x #forge:foils/${rubber}`
             ],
-            [solder, 576 * multi / 2, mat2, 144 * multi / 2],
+            [`${solder} ${576 * multi / 2}`,`${mat2} ${144 * multi / 2}`],
             [1, 15],
         ],
         ['processor_mainframe',
@@ -108,7 +108,7 @@ ServerEvents.recipes(event => {
                 `${8 * multi}x #forge:doublewires/${wire2}`,
                 `${8 * multi}x #forge:plates/${mat2}`
             ],
-            [solder, 1152 * multi / 2, mat2, 288 * multi / 2],
+            [`${solder} ${1152 * multi / 2}`,`${mat2} ${288 * multi / 2}`],
             [1, 30],
         ],
     ];
@@ -116,15 +116,18 @@ ServerEvents.recipes(event => {
 
     // Define crafting themes and tiers
     [
-        ['matter', "uhv"],
-        ['dimensional', "uev"],
-        ['monic', "uiv"],
-    ].forEach(([type, tier], index_stuff) => {
+        'matter',
+        'dimensional',
+        'monic',
+        'cosmic',
+        "4d",
+    ].forEach((type, index_stuff) => {
         Materials.forEach(([name, inp, flui, [out_multi, dur]], index) => {
+            let tier = index + 8;
             let tierN = voltages.indexOf(tier);
             let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], voltage_to_cable[tier]];
             let [solder, rubber] = [volt_to_extra[tier]];
-            let [smd_type, multi, ram_type, small_multi, soc_type, chip_type] = MatTypesHelp[tier];
+            let [smd_type, multi, ram_type, small_multi, soc_type, chip_type,uhcp_type] = MatTypesHelp[tier];
 
             if (name == 'circuit_board') {
                 // something like : monic_circuit_board
@@ -138,7 +141,8 @@ ServerEvents.recipes(event => {
             } else {
                 // decided to go with uv for every research (for now atleast)
                 let [res_cwu, res_dur, res_eut] = tier_to_research["uv"];
-                let help = (type == "matter" ? `gtceu:neuro_${name}` : `gfs:${Materials[index + 1][0]}_${name}`);
+                let last_name = (index>0)?Materials[index-1][0]:"not_available";
+                let help = (type == "matter" ? `gtceu:neuro_${name}` : `gfs:${tier}_${last_name}`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(inp)
                     .inputFluids(flui)

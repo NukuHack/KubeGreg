@@ -123,6 +123,7 @@ ServerEvents.recipes(event => {
             .duration(5 * 20)
             .EUt(16);
 
+
         // Casing assembler
         greg.assembler(`${tier}_casing`)
             .itemInputs(`8x gtceu:${mat_casing}_plate`)
@@ -137,11 +138,11 @@ ServerEvents.recipes(event => {
     const motorConfigs = [
         // 1x magnet long rod, 4x mat2 long rod, 4x mat2 ring, 8x mat2 round, 2x64 wire2 fine wire, 2x wire1 wire
         [['gtceu:long_magnetic_samarium_rod', '8x gtceu:long_neutronium_rod', '8x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '32x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '4x gtceu:tritanium_quadruple_cable'],
-            ['gtceu:soldering_alloy', 5760, 'gtceu:lubricant', 2000, 'gtceu:crystal_matrix', 1152, 'gtceu:naquadria', 576],],
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['gtceu:long_magnetic_samarium_rod', '8x gtceu:long_omnium_rod', '8x gtceu:omnium_ring', '16x gtceu:omnium_round', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '4x gtceu:tritanium_octal_cable'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:lubricant', 3000, 'gtceu:crystal_matrix', 1152 * 2, 'gtceu:naquadria', 576 * 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
         [['gtceu:long_magnetic_samarium_rod', '12x gtceu:long_infinity_rod', '12x gtceu:infinity_ring', '24x gtceu:infinity_round', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '4x gtceu:tritanium_hex_cable'],
-            ['gtceu:soldering_alloy', 5760 * 2, 'gtceu:lubricant', 4000, 'gtceu:crystal_matrix', 1152 * 4, 'gtceu:naquadria', 576 * 4],],
+            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -149,11 +150,11 @@ ServerEvents.recipes(event => {
     const pistonConfigs = [
         // 4x mat2 plate, 4x mat2 ring, 16x mat2 round,4x mat2 rod, 1x wire2 gear, 2x wire2 small_gear
         [['4x gtceu:neutronium_plate', '4x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '4x gtceu:neutronium_rod', 'gtceu:neutronium_gear', '2x gtceu:small_neutronium_gear', '2x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 5760, 'gtceu:lubricant', 2000, 'gtceu:crystal_matrix', 1152, 'gtceu:naquadria', 576],],
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['4x gtceu:omnium_plate', '4x gtceu:omnium_ring', '16x gtceu:omnium_round', '4x gtceu:omnium_rod', 'gtceu:omnium_gear', '2x gtceu:small_omnium_gear', '2x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:lubricant', 3000, 'gtceu:crystal_matrix', 1152 * 2, 'gtceu:naquadria', 576 * 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
         [['4x gtceu:infinity_plate', '4x gtceu:infinity_ring', '16x gtceu:infinity_round', '4x gtceu:infinity_rod', 'gtceu:infinity_gear', '2x gtceu:small_infinity_gear', '2x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 5760 * 2, 'gtceu:lubricant', 4000, 'gtceu:crystal_matrix', 1152 * 4, 'gtceu:naquadria', 576 * 4],],
+            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -161,11 +162,11 @@ ServerEvents.recipes(event => {
     const conveyorConfigs = [
         // 2x motor, 2x mat2 plate, 4x mat2 ring, 16x mat2 round,4x mat2 screw, 2x wire1 wire
         [['2x gtceu:uhv_electric_motor', '2x gtceu:neutronium_plate', '4x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '4x gtceu:neutronium_screw', '2x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 5760, 'gtceu:lubricant', 2000, 'gtceu:crystal_matrix', 1152, 'gtceu:naquadria', 576],], // rubber not crystal
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:polyether_ether_ketone'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['2x gtceu:uev_electric_motor', '2x gtceu:omnium_plate', '4x gtceu:omnium_ring', '16x gtceu:omnium_round', '4x gtceu:omnium_screw', '2x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:lubricant', 3000, 'gtceu:crystal_matrix', 1152 * 2, 'gtceu:naquadria', 576 * 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:polyether_ether_ketone'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
         [['2x gtceu:uiv_electric_motor', '2x gtceu:infinity_plate', '4x gtceu:infinity_ring', '16x gtceu:infinity_round', '4x gtceu:infinity_screw', '2x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 5760 * 2, 'gtceu:lubricant', 4000, 'gtceu:crystal_matrix', 1152 * 4, 'gtceu:naquadria', 576 * 4],],
+            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:polyether_ether_ketone'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -173,11 +174,11 @@ ServerEvents.recipes(event => {
     const pumpConfigs = [
         // wire2 large_fluid, 2x mat2 plate, 8x mat2 screw, 16x rubber ring, wire2 rotor, 2x wire1 wire
         [['gtceu:uhv_electric_motor', 'gtceu:crystal_matrix_huge_fluid_pipe', '2x gtceu:neutronium_plate', '8x gtceu:neutronium_screw', '32x gtceu:neutronium_ring', 'gtceu:crystal_matrix_rotor', '2x gtceu:europium_double_cable',],
-            ['gtceu:soldering_alloy', 5760, 'gtceu:lubricant', 2000, 'gtceu:crystal_matrix', 1152, 'gtceu:naquadria', 576],],
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['gtceu:uev_electric_motor', 'gtceu:activated_netherite_huge_fluid_pipe', '2x gtceu:omnium_plate', '8x gtceu:omnium_screw', '48x gtceu:omnium_ring', 'gtceu:activated_netherite_rotor', '2x gtceu:activated_netherite_double_wire',],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:lubricant', 3000, 'gtceu:crystal_matrix', 1152 * 2, 'gtceu:naquadria', 576 * 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
         [['gtceu:uiv_electric_motor', 'gtceu:holmium_huge_fluid_pipe', '2x gtceu:infinity_plate', '8x gtceu:infinity_screw', '64x gtceu:infinity_ring', 'gtceu:holmium_rotor', '2x gtceu:holmium_double_wire',],
-            ['gtceu:soldering_alloy', 5760 * 2, 'gtceu:lubricant', 4000, 'gtceu:crystal_matrix', 1152 * 4, 'gtceu:naquadria', 576 * 4],],
+            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -185,11 +186,11 @@ ServerEvents.recipes(event => {
     const robotArmConfigs = [
         // 4x mat2 long rod, 1x mat1 gear, 3x mat1 small_gear, 2 motor, 1 piston, circuit, 2 circuit-1, 4 circuit-2, 4x wire1 wire
         [['4x gtceu:long_neutronium_rod', 'gtceu:neutronium_gear', '3x gtceu:small_neutronium_gear', '3x gtceu:uhv_electric_motor', 'gtceu:uhv_electric_piston', '#gtceu:circuits/uhv', '2x #gtceu:circuits/uv', '4x #gtceu:circuits/zpm', '4x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 5760, 'gtceu:lubricant', 2000, 'gtceu:crystal_matrix', 1152, 'gtceu:naquadria', 576],],
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['4x gtceu:long_omnium_rod', 'gtceu:omnium_gear', '3x gtceu:small_omnium_gear', '3x gtceu:uev_electric_motor', 'gtceu:uev_electric_piston', '#gtceu:circuits/uev', '2x #gtceu:circuits/uhv', '4x #gtceu:circuits/uv', '4x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:lubricant', 3000, 'gtceu:crystal_matrix', 1152 * 2, 'gtceu:naquadria', 576 * 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
         [['4x gtceu:long_infinity_rod', 'gtceu:infinity_gear', '3x gtceu:small_infinity_gear', '3x gtceu:uiv_electric_motor', 'gtceu:uiv_electric_piston', '#gtceu:circuits/uiv', '2x #gtceu:circuits/uev', '4x #gtceu:circuits/uhv', '4x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 5760 * 2, 'gtceu:lubricant', 4000, 'gtceu:crystal_matrix', 1152 * 4, 'gtceu:naquadria', 576 * 4],],
+            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -197,11 +198,11 @@ ServerEvents.recipes(event => {
     const sensorConfigs = [
         // mat1 frame, motor, 4x mat2 plate, gravi_star, 2x circuit, 2,5x64 wire2 foil, 4x wire1 wire
         [['gtceu:neutronium_frame', 'gtceu:uhv_electric_motor', '4x gtceu:neutronium_plate', '2x gtceu:gravi_star', '#gtceu:circuits/uhv', '64x gtceu:naquadria_foil', '32x gtceu:naquadria_foil', '4x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 11520 / 2, 'gtceu:crystal_matrix', 5760 / 4, 'gtceu:naquadria', 2304 / 4],],
+            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
         [['gtceu:omnium_frame', 'gtceu:uev_electric_motor', '4x gtceu:omnium_plate', 'gfs:quasi_stable_neutron_star', '#gtceu:circuits/uev', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:crystal_matrix', 5760 / 2, 'gtceu:naquadria', 2304 / 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
         [['gtceu:infinity_frame', 'gtceu:uiv_electric_motor', '4x gtceu:infinity_plate', '2x gfs:quasi_stable_neutron_star', '#gtceu:circuits/uiv', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 11520, 'gtceu:crystal_matrix', 5760, 'gtceu:naquadria', 2304],],
+            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -209,11 +210,11 @@ ServerEvents.recipes(event => {
     const emitterConfigs = [
         // mat1 frame, motor, 4x mat2 long rod, gravi_star, 2x circuit, 2,5x64 wire2 foil, 4x wire1 wire
         [['gtceu:neutronium_frame', 'gtceu:uhv_electric_motor', '4x gtceu:neutronium_rod', '2x gtceu:gravi_star', '#gtceu:circuits/uhv', '64x gtceu:naquadria_foil', '32x gtceu:naquadria_foil', '4x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 11520 / 2, 'gtceu:crystal_matrix', 5760 / 4, 'gtceu:naquadria', 2304 / 4],],
+            [`${'gtceu:soldering_alloy'} ${11520 / 2}`, `${'gtceu:crystal_matrix'} ${5760 / 4}`, `${'gtceu:naquadria'} ${2304 / 4}`],],
         [['gtceu:omnium_frame', 'gtceu:uev_electric_motor', '4x gtceu:omnium_rod', 'gfs:quasi_stable_neutron_star', '#gtceu:circuits/uev', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:crystal_matrix', 5760 / 2, 'gtceu:naquadria', 2304 / 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
         [['gtceu:infinity_frame', 'gtceu:uiv_electric_motor', '4x gtceu:infinity_rod', '2x gfs:quasi_stable_neutron_star', '#gtceu:circuits/uiv', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 11520, 'gtceu:crystal_matrix', 5760, 'gtceu:naquadria', 2304],],
+            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -221,11 +222,11 @@ ServerEvents.recipes(event => {
     const fieldGeneratorConfigs = [
         // mat1 frame, motor, 6x mat2 plate, gravi_star, 2x emitter, 2x circuit, 2x64 wire1 fine_wire, 4x wire1 wire
         [['gtceu:neutronium_frame', '6x gtceu:neutronium_plate', '2x gtceu:gravi_star', '2x gtceu:uhv_emitter', '2x #gtceu:circuits/uhv', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '4x gtceu:europium_double_cable'],
-            ['gtceu:soldering_alloy', 11520 / 2, 'gtceu:crystal_matrix', 5760 / 4, 'gtceu:naquadria', 2304 / 4],],
+            [`${'gtceu:soldering_alloy'} ${11520 / 2}`, `${'gtceu:crystal_matrix'} ${5760 / 4}`, `${'gtceu:naquadria'} ${2304 / 4}`],],
         [['gtceu:omnium_frame', '6x gtceu:omnium_plate', 'gfs:quasi_stable_neutron_star', '2x gtceu:uev_emitter', '2x #gtceu:circuits/uev', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '4x gtceu:activated_netherite_double_wire'],
-            ['gtceu:soldering_alloy', 7680, 'gtceu:crystal_matrix', 5760 / 2, 'gtceu:naquadria', 2304 / 2],],
+            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
         [['gtceu:infinity_frame', '6x gtceu:infinity_plate', '2x gfs:quasi_stable_neutron_star', '2x gtceu:uiv_emitter', '2x #gtceu:circuits/uiv', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '4x gtceu:holmium_double_wire'],
-            ['gtceu:soldering_alloy', 11520, 'gtceu:crystal_matrix', 5760, 'gtceu:naquadria', 2304],],
+            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
     ];
 
 
@@ -249,14 +250,17 @@ ServerEvents.recipes(event => {
     ];
 
     // calling and doing waaaaaay too fucking much
-    Post_UV_Components.forEach(([BigArray, craft_item], index_array) => {
+    Post_UV_Components.forEach(([craft_item, BigArray], index_array) => {
         BigArray.forEach(([parts, liquids], index) => {
             let tier = index + 8;
+            //let tierN = voltages.indexOf(tier);
+            //let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], voltage_to_cable[tier]];
+            //let [solder, rubber] = [volt_to_extra[tier]];
+            //let [smd_type, multi, ram_type, small_multi, soc_type, chip_type] = MatTypesHelp[tier];
+
             let [help, eut] = [voltage_lesser(tier), voltage_to_eu[tier]];
             let [res_cwu, res_dur, res_eut] = tier_to_research[tier];
-            let [[material, materialSecond, wireSecond], wire] = [volt_to_material[tier], voltage_to_cable[tier]];
-            //                                          // 2/3                         // 2                    // 2                                   // 2
-            let fluids = ['gtceu:soldering_alloy', 5760, 'gtceu:crystal_matrix', 2304, 'gtceu:naquadria', 691, 'gtceu:styrene_butadiene_rubber', 2304]
+
             greg.assembly_line(`gfs:${tier}_${craft_item}_n_research`)
                 .itemInputs(inp)
                 .inputFluids(in_f)

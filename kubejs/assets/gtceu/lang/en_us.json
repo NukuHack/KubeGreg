@@ -51,6 +51,11 @@
     "material.gtceu.ember": "Ember",
     "material.gtceu.wissen": "Wissen",
     "material.gtceu.stardust": "Stardust",
+    "material.gtceu.stellar": "Stellar Matter",
+    "material.gtceu.hot_sodium_potassium": "Hot Sodium Potassium",
+    "material.gtceu.hot_pcbcoolant": "Hot PCB Coolant",
+    "material.gtceu.nuclear_pure_steam": "Nuclear Pure Steam",
+    "material.gtceu.nuclear_steam": "Nuclear Steam",
 
     "gtceu.inscriber": "Inscriber",
     "gtceu.rock_generator": "Rock Generator",

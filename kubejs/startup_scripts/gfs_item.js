@@ -84,29 +84,79 @@ StartupEvents.registry("item", (event) => {
         .rarity("epic").maxStackSize(1);
 
     // Post-Tank Wafer items
-    event.create('gfs:universe_boule').texture('gfs:item/wafer_and_chip/universal_boule').displayName('Universe-doped Monocrystalline Silicon Boule');
-    event.create('gfs:universe_wafer').texture('gfs:item/wafer_and_chip/universal_wafer').displayName('Universe-doped Wafer');
+    event.create('gfs:universe_boule')
+        .tooltip('§7One single-crystallized material')
+		.texture('gfs:item/wafer_and_chip/universal_boule')
+		.displayName('Universe-doped Monocrystalline Silicon Boule');
+    event.create('gfs:universe_wafer')
+        .tooltip('§7A slice of a boule')
+		.texture('gfs:item/wafer_and_chip/universal_wafer')
+		.displayName('Universe-doped Wafer');
 
-    event.create('gfs:unactivated_multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/unactivated_multidimensional_cpu_wafer').displayName('Unactivated Multidimensional CPU Wafer');
-    event.create('gfs:multidimensional_cpu_wafer').texture('gfs:item/wafer_and_chip/multidimensional_cpu_wafer').displayName('Multidimensional CPU Wafer');
-    event.create('gfs:multidimensional_cpu_chip').texture('gfs:item/wafer_and_chip/multidimensional_cpu_chip').displayName('Multidimensional CPU Chip');
+    event.create('gfs:unactivated_multidimensional_cpu_wafer')
+        .tooltip("§7Unactivated Multidimensional Central Processing Unit")
+		.texture('gfs:item/wafer_and_chip/unactivated_multidimensional_cpu_wafer')
+		.displayName('Unactivated Multidimensional CPU Wafer');
+    event.create('gfs:multidimensional_cpu_wafer')
+        .tooltip("§7Raw Multidimensional Central Processing Unit")
+		.texture('gfs:item/wafer_and_chip/multidimensional_cpu_wafer')
+		.displayName('Multidimensional CPU Wafer');
+    event.create('gfs:multidimensional_cpu_chip')
+        .tooltip("§7Multidimensional Central Processing Unit")
+		.texture('gfs:item/wafer_and_chip/multidimensional_cpu_chip')
+		.displayName('Multidimensional CPU Chip');
 
-    event.create('gfs:hyperdynamic_ram_wafer').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_wafer').displayName('Hyperdynamic RAM Wafer');
-    event.create('gfs:hyperdynamic_ram_chip_base').texture('gfs:item/wafer_and_chip/hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip Base');
-    event.create('gfs:hyperdynamic_ram_chip').texture('gfs:item/wafer_and_chip/activated_hyperdynamic_ram_chip').displayName('Hyperdynamic RAM Chip');
+    event.create('gfs:hyperdynamic_ram_wafer')
+        .tooltip("§7Raw Hyperdynamic Random Acces Memory")
+		.texture('gfs:item/wafer_and_chip/hyperdynamic_ram_wafer')
+		.displayName('Hyperdynamic RAM Wafer');
+    event.create('gfs:hyperdynamic_ram_chip_base')
+        .tooltip("§7Hyperdynamic Random Acces Memory Base")
+		.texture('gfs:item/wafer_and_chip/hyperdynamic_ram_chip')
+		.displayName('Hyperdynamic RAM Chip Base');
+    event.create('gfs:hyperdynamic_ram_chip')
+        .tooltip("§7Hyperdynamic Random Acces Memory")
+		.texture('gfs:item/wafer_and_chip/activated_hyperdynamic_ram_chip')
+		.displayName('Hyperdynamic RAM Chip');
 
-    event.create('gfs:quantum_soc_wafer').texture('gfs:item/wafer_and_chip/quantum_soc_wafer').displayName('Quantum SoC Wafer');
-    event.create('gfs:quantum_soc_chip_base').texture('gfs:item/wafer_and_chip/quantum_soc_chip_base').displayName('Quantum SoC Chip Base');
-    event.create('gfs:quantum_soc_chip').texture('gfs:item/wafer_and_chip/quantum_soc_chip').displayName('Quantum SoC Chip');
+    event.create('gfs:quantum_soc_wafer')
+        .tooltip("§7Raw Quantum System on Chip")
+		.texture('gfs:item/wafer_and_chip/quantum_soc_wafer')
+		.displayName('Quantum SoC Wafer');
+    event.create('gfs:quantum_soc_chip_base')
+        .tooltip("§7Quantum System on Chip Base")
+		.texture('gfs:item/wafer_and_chip/quantum_soc_chip_base')
+		.displayName('Quantum SoC Chip Base');
+    event.create('gfs:quantum_soc_chip')
+        .tooltip("§7Quantum System on Chip")
+		.texture('gfs:item/wafer_and_chip/quantum_soc_chip')
+		.displayName('Quantum SoC Chip');
 
-    event.create('gfs:logic_wafer').texture('gfs:item/wafer_and_chip/logic_wafer').displayName('Logic Wafer');
-    event.create('gfs:logic_chip').texture('gfs:item/wafer_and_chip/logic_chip').displayName('Logic Chip');
-    event.create('gfs:engineering_wafer').texture('gfs:item/wafer_and_chip/engineering_wafer').displayName('Engineering Wafer');
-    event.create('gfs:engineering_chip').texture('gfs:item/wafer_and_chip/engineering_chip').displayName('Engineering Chip');
-    event.create('gfs:calculation_wafer').texture('gfs:item/wafer_and_chip/calculation_wafer').displayName('Calculation Wafer');
-    event.create('gfs:calculation_chip').texture('gfs:item/wafer_and_chip/calculation_chip').displayName('Calculation Chip');
-    event.create('gfs:certus_quartz_boule').texture('gfs:item/wafer_and_chip/certus_quartz_boule').displayName('Certus Quartz Boule');
-    event.create('gfs:certus_wafer').texture('gfs:item/wafer_and_chip/certus_wafer').displayName('Certus Wafer');
+    event.create('gfs:logic_wafer')
+		.texture('gfs:item/wafer_and_chip/logic_wafer')
+		.displayName('Logic Wafer');
+    event.create('gfs:logic_chip')
+		.texture('gfs:item/wafer_and_chip/logic_chip')
+		.displayName('Logic Chip');
+    event.create('gfs:engineering_wafer')
+		.texture('gfs:item/wafer_and_chip/engineering_wafer')
+		.displayName('Engineering Wafer');
+    event.create('gfs:engineering_chip')
+		.texture('gfs:item/wafer_and_chip/engineering_chip')
+		.displayName('Engineering Chip');
+    event.create('gfs:calculation_wafer')
+		.texture('gfs:item/wafer_and_chip/calculation_wafer')
+		.displayName('Calculation Wafer');
+    event.create('gfs:calculation_chip')
+		.texture('gfs:item/wafer_and_chip/calculation_chip')
+		.displayName('Calculation Chip');
+    event.create('gfs:certus_quartz_boule')
+		.texture('gfs:item/wafer_and_chip/certus_quartz_boule')
+		.displayName('Certus Quartz Boule');
+    event.create('gfs:certus_wafer')
+        .tooltip("§7Raw Circuit")
+		.texture('gfs:item/wafer_and_chip/certus_wafer')
+		.displayName('Certus Wafer');
 
 
     // Complex SMDs

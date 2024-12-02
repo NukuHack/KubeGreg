@@ -21,8 +21,8 @@ ServerEvents.recipes(event => {
 
         [
             ['gfs:thorium_fuel', 'gfs:depleted_thorium_fuel', 20],
-            ['gfs:highly_enriched_uranium_fuel', 'gfs:depleted_highly_enriched_uranium_fuel', 15],
-            ['gfs:low_enriched_uranium_fuel', 'gfs:depleted_low_enriched_uranium_fuel', 10],
+            ['gfs:high_uranium_fuel', 'gfs:depleted_high_uranium_fuel', 15],
+            ['gfs:low_uranium_fuel', 'gfs:depleted_low_uranium_fuel', 10],
             ['gfs:high_radioactive_fuel', 'gfs:depleted_high_radioactive_fuel', 5],
             ['gfs:low_radioactive_fuel', 'gfs:depleted_low_radioactive_fuel', 3],
         ]
@@ -44,9 +44,9 @@ ServerEvents.recipes(event => {
 
     // Add shapeless crafting recipes
     [
-        ['thorium_fuel', ['9x #forge:dust/thorium']],
-        ['low_enriched_uranium_fuel', ['#forge:dusts/uranium_235', '8x #forge:dusts/uraniumt']],
-        ['highly_enriched_uranium_fuel', ['4x #forge:dusts/uranium_235', '5x #forge:dusts/uranium']],
+        ['thorium_fuel', ['9x #forge:dusts/thorium']],
+        ['low_uranium_fuel', ['1x #forge:dusts/uranium_235', '8x #forge:dusts/uranium']],
+        ['high_uranium_fuel', ['4x #forge:dusts/uranium_235', '5x #forge:dusts/uranium']],
         ['high_radioactive_fuel', ['6x #forge:dusts/uranium']],
         ['low_radioactive_fuel', ['3x #forge:dusts/uranium']],
     ]
@@ -62,8 +62,8 @@ ServerEvents.recipes(event => {
     // doing stuff with the depleted variants
     [
         ['thorium_fuel', ['3x gtceu:lead_dust', '2x gtceu:bismuth_dust'], 'gtceu:radon 4000'],
-        ['low_enriched_uranium_fuel', ['3x gtceu:plutonium_dust', '2x gtceu:barium_dust'], 'gtceu:krypton 4000'],
-        ['highly_enriched_uranium_fuel', ['5x gtceu:plutonium_dust', '1x gtceu:barium_dust'], 'gtceu:krypton 2000'],
+        ['low_uranium_fuel', ['3x gtceu:plutonium_dust', '2x gtceu:barium_dust'], 'gtceu:krypton 4000'],
+        ['high_uranium_fuel', ['5x gtceu:plutonium_dust', '1x gtceu:barium_dust'], 'gtceu:krypton 2000'],
         ['low_radioactive_fuel', ['3x gtceu:lead_dust'], 'gtceu:krypton 80'],
         ['high_radioactive_fuel', ['6x gtceu:lead_dust'], 'gtceu:krypton 200'],
     ]

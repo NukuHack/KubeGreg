@@ -34,28 +34,6 @@ StartupEvents.registry("item", (event) => {
     event.create("gfs:stupid_press");
     event.create("gfs:wither_fragment");
 
-    /*
-    // Infinity
-    event.create('infinity_catalyst').rarity("epic")
-    event.create('dormant_furious_infinity_catalyst')
-    event.create('furious_infinity_catalyst').rarity("epic")
-    event.create('inert_serene_infinity_catalyst')
-    event.create('serene_infinity_catalyst').rarity("epic")
-    event.create('dormant_infinity_compound_ingot')
-
-    // Dense Hydrogen (Solidified Hydrogen is part of Solidified Elements section)
-    event.create('dense_hydrogen').rarity('Uncommon')
-    event.create('ultra_dense_hydrogen').rarity('Rare')
-
-    // Monium
-    event.create('field_stabilised_omnic_pulsar_compound')
-    event.create('quasi_stable_neutron_star').displayName('Quasi-Stable Neutron Star')
-
-
-    // Singularities
-    event.create('singularity_containment_unit')
-    event.create('contained_singularity')
-    */
 
     // Ultimate Tools
     event.create('gfs:ultimate_core').texture('gfs:item/ultimate/core')
@@ -229,23 +207,23 @@ StartupEvents.registry("item", (event) => {
         ['thorium_fuel', 'Thorium Fuel', "Starter fuel"],
         ['depleted_thorium_fuel', 'Depleted Thorium Fuel', "Should not be eaten"],
 
-        ['low_enriched_uranium_fuel', 'Low Enriched Uranium Fuel', "Slight radiactivity"],
-        ['depleted_low_enriched_uranium_fuel', 'Depleted Low Enriched Uranium Fuel', "Looks tasty"],
+        ['low_uranium_fuel', 'Low Enriched Uranium Fuel', "Slight radiactivity"],
+        ['depleted_low_uranium_fuel', 'Depleted Low Enriched Uranium Fuel', "Looks tasty"],
 
-        ['highly_enriched_uranium_fuel', 'Highly Enriched Uranium Fuel', '20 BILLION CALORIES :trolllaugh:'],
-        ['depleted_highly_enriched_uranium_fuel', 'Depleted Highly Enriched Uranium Fuel', 'No more 20 billion calories :waaaaaaaaah:'],
+        ['high_uranium_fuel', 'Highly Enriched Uranium Fuel', '20 BILLION CALORIES :trolllaugh:'],
+        ['depleted_high_uranium_fuel', 'Depleted Highly Enriched Uranium Fuel', 'No more 20 billion calories :waaaaaaaaah:'],
 
-        ['low_radioactive_fuel', 'Low Radioactive Fuel', "Feels a bit stingy"],
-        ['depleted_low_radioactive_fuel', 'Depleted Low Radioactive Fuel', "Just a piece of rock"],
+        ['low_radioactive_fuel', 'Low Enriched Radioactive Fuel', "Feels a bit stingy"],
+        ['depleted_low_radioactive_fuel', 'Depleted Low Enriched Radioactive Fuel', "Just a piece of rock"],
 
-        ['high_radioactive_fuel', 'High Radioactive Fuel', "Should not be touched"],
-        ['depleted_high_radioactive_fuel', 'Depleted High Radioactive Fuel', "Might be touched ..."],
+        ['high_radioactive_fuel', 'Highly Enriched Radioactive Fuel', "Should not be touched"],
+        ['depleted_high_radioactive_fuel', 'Depleted Highly Enriched Radioactive Fuel', "Might be touched ..."],
 
     ].forEach(([id, displayName, tooltip]) => {
         event.create(`gfs:${id}`)
             .displayName(displayName)
-            .texture("gfs:item/nuclear/" + id)
-            .tooltip(tooltip);
+            .texture(`gfs:item/nuclear/${id}`)
+            .tooltip(`§7${tooltip}`);
     });
 
 

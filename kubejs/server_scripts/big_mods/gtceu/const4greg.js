@@ -50,62 +50,76 @@ const volt_to_material = {
 };
 
 const volt_to_extra = {
-	//styrene_butadiene_rubber ?
-    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole"],
-    "uev": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
-    "uiv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
-    "uxv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
-    "opv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
-    "max": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole", "styrene_butadiene_rubber"],
+    "uev": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uiv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uxv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "opv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "max": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+};
+
+const volt_to_assembly = {
+    "uhv": [`gtceu:naquadria`, 'gtceu:lubricant'],
+    "uev": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
+    "uiv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
+    "uxv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
+    "opv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
+    "max": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
 };
 
 
 //TODO : make this better
+// this is only needed inside the circuits
 const MatTypesHelp = {
     "uhv": [
-        "gfs:xyz_smd", 1,  // smd_type, multi
-        "gfs:xyz_ram", 1,  // ram_type, small_multi
-        "gfs:xyz_soc",  // soc_type
-        "gfs:xyz_chip",  // chip_type
-        "gfs:xyz_uhcp_chip",        //uhcp_type
+        1, 1,
+        "gfs:xyz_smd",
+        "gfs:xyz_ram",
+        "gfs:xyz_soc",
+        "gfs:xyz_chip",
+        "gfs:xyz_uhcp_chip",
     ],
     "uev": [
-        "gfs:xyz_smd", 2,
-        "gfs:xyz_ram", 2,
+        2, 2,
+        "gfs:xyz_smd",
+        "gfs:xyz_ram",
         "gfs:xyz_soc",
         "gfs:xyz_chip",
         "gfs:xyz_uhcp_chip",
     ],
     "uiv": [
-        "gfs:xy_smd", 1,
-        "gfs:xy_ram", 1,
+        1, 1,
+        "gfs:xy_smd",
+        "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
     "uxv": [
-        "gfs:xy_smd", 2,
-        "gfs:xy_ram", 2,
+        2, 2,
+        "gfs:xy_smd",
+        "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
     "opv": [
-        "gfs:xy_smd", 3,
-        "gfs:xy_ram", 3,
+        3, 3,
+        "gfs:xy_smd",
+        "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
     "max": [
-        "gfs:xy_smd", 4,
-        "gfs:xy_ram", 4,
+        4, 4,
+        "gfs:xy_smd",
+        "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ]
 };
-
 
 
 const coilS = [

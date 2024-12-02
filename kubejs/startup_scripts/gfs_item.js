@@ -146,16 +146,6 @@ StartupEvents.registry("item", (event) => {
             .texture(`gfs:item/complex_smd/smd_${x}_exotic`);
     });
 
-
-    // Post-tank circuits, circuit boards, processing units
-    const themes = [
-        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev'],
-        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv'],
-        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv'],
-        ['cosmic', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
-        ['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
-    ];
-
     const tierTooltip = {
         'matter': "§1Cool looking",
         'dimensional': "§fFom another dimension",
@@ -164,22 +154,44 @@ StartupEvents.registry("item", (event) => {
         '4d': "§dError_Display_404",
     };
 
-    themes.forEach(([theme, circuits, volts, mainframeVolt]) => {
+    // Post-tank circuits, circuit boards, processing units
+    [
+        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev'],
+        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv'],
+        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv'],
+        ['cosmic', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
+        ['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
+    ].forEach(([theme, circuits, volts, mainframeVolt]) => {
         // Create unit for each theme	(is used to create processing unit)
-        event.create(`gfs:${theme}_circuit_board`)
+        let ThemeName = theme.slice(0, 1).toUpperCase() + theme.slice(1);
+        event.create(`gfs:${mainframeVolt}_circuit_board`)
+            .displayName(`${ThemeName} Circuit Board`)
             .tooltip("§7Just a slice of a strong material")
             .tooltip(`§7${tierTooltip[theme]}`)
             .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_circuit_board`});
 
         // also create a processing unti for eatch theme (is used to create processors)
-        event.create(`gfs:${theme}_processing_unit`)
+        event.create(`gfs:${mainframeVolt}_processing_unit`)
+            .displayName(`${ThemeName} Processing Unit`)
             .tooltip("§7All wired up!")
             .tooltip(`§7${tierTooltip[theme]}`)
             .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_processing_unit`});
 
         // Create circuits for each type and corresponding voltage
         circuits.forEach((type, index) => {
-            event.create(`gfs:${theme}_${type}`)
+            let TypeName = (() => {
+                if (type.indexOf("_") != -1)
+                    return type.slice(0, 1).toUpperCase() + type.slice(1);
+                else {
+                    let typef = type.split(0, type.indexOf("_"));
+                    let typeb = type.split(type.indexOf("_") + 1);
+                    typef = typef.slice(0, 1).toUpperCase() + typef.slice(1);
+                    typeb = typeb.slice(0, 1).toUpperCase() + typeb.slice(1);
+                    return (typef + " " + typeb);
+                }
+            })
+            event.create(`gfs:${mainframeVolt}_${type}`)
+                .displayName(`${ThemeName} ${TypeName}`)
                 .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_${type}`})
                 .tooltip((index == 0 ? `§7Best §6${volts[index].toUpperCase()}-tier§7 Circuit` :
                     `§7Good §6${volts[index].toUpperCase()}-tier§7 Circuit`))
@@ -189,7 +201,8 @@ StartupEvents.registry("item", (event) => {
 
         // Create mainframe for each theme with specified voltage
         //this is the best processor of eatch tier and will be needed to make the new ones
-        event.create(`gfs:${theme}_processor_mainframe`)
+        event.create(`gfs:${mainframeVolt}_processor_mainframe`)
+            .displayName(`${ThemeName} Processor Mainframe`)
             .textureJson({
                 layer0: `gfs:item/circuits/${theme}/${theme}_processor_mainframe_base`,
                 layer1: `gfs:item/circuits/${theme}/${theme}_processor_mainframe_lights`
@@ -201,17 +214,18 @@ StartupEvents.registry("item", (event) => {
 
 
     //Universal Circuits
-    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"].forEach((x) => {
-        event.create(`gfs:${x}_universal_circuit`)
-            .tag(`gtceu:circuits/${x}`)
-            .tag("gtceu:circuits/universal")
-            .displayName(x.toUpperCase() + " Universal Circuit")
-            .tooltip("§7A Universal Circuit")
-            .textureJson({layer0: `gfs:item/circuits/universal/${x}_universal_circuit`})
-    });
+    ["ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"]
+        .forEach((x) => {
+            event.create(`gfs:${x}_universal_circuit`)
+                .tag(`gtceu:circuits/${x}`)
+                .tag("gtceu:circuits/universal")
+                .displayName(x.toUpperCase() + " Universal Circuit")
+                .tooltip("§7A Universal Circuit")
+                .textureJson({layer0: `gfs:item/circuits/universal/${x}_universal_circuit`})
+        });
 
 
-    const fuelRods = [
+    [
         ['thorium_fuel', 'Thorium Fuel', "Starter fuel"],
         ['depleted_thorium_fuel', 'Depleted Thorium Fuel', "Should not be eaten"],
 
@@ -227,10 +241,7 @@ StartupEvents.registry("item", (event) => {
         ['high_radioactive_fuel', 'High Radioactive Fuel', "Should not be touched"],
         ['depleted_high_radioactive_fuel', 'Depleted High Radioactive Fuel', "Might be touched ..."],
 
-    ];
-
-
-    fuelRods.forEach(([id, displayName, tooltip]) => {
+    ].forEach(([id, displayName, tooltip]) => {
         event.create(`gfs:${id}`)
             .displayName(displayName)
             .texture("gfs:item/nuclear/" + id)

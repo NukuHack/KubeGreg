@@ -26,7 +26,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 	GTMaterials.Zirconium.addFlags(fine_wire);
 	GTMaterials.RedSteel.addFlags(rod, frame);
 	GTMaterials.SterlingSilver.addFlags(rod, frame);
-	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
+	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring, fine_wire);
 	GTMaterials.NaquadahEnriched.addFlags(bolt_and_screw);
 
 

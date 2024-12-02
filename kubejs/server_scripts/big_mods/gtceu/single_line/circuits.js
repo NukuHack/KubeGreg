@@ -29,8 +29,8 @@ ServerEvents.recipes(event => {
     });
 
 
-    const Materials = [
-        ['circuit_board',
+    let Materials = [
+        () => ['circuit_board',
             [
                 `${8 * multi}x #forge:plates/${mat1}`,
                 `${32 * multi}x #forge:foils/${wire1}`,
@@ -42,7 +42,7 @@ ServerEvents.recipes(event => {
             [`${mat2} ${144 * multi / 2}`],
             [4, 30],
         ],
-        ['processing_unit',
+        () => ['processing_unit',
             [
                 `${2 * multi}x gfs:${tier}_circuit_board`,
                 `${2 * multi}x #forge:plates/${mat2}`,
@@ -52,7 +52,7 @@ ServerEvents.recipes(event => {
             [`${solder} ${576 * multi / 2}`],
             [4, 5],
         ],
-        ['processor',
+        () => ['processor',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${8 * small_multi}x ${smd_type}_capacitor`,
@@ -63,7 +63,7 @@ ServerEvents.recipes(event => {
             [`${solder} ${144 * multi / 2}`],
             [4, 7],
         ],
-        ['processor_assembly',
+        () => ['processor_assembly',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${4 * multi}x gfs:${tier}_processor`,
@@ -77,7 +77,7 @@ ServerEvents.recipes(event => {
             [`${solder} ${576 * multi / 2}`],
             [4, 10],
         ],
-        ['processor_computer',
+        () => ['processor_computer',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${2 * multi}x gfs:${tier}_processor_assembly`,
@@ -94,7 +94,7 @@ ServerEvents.recipes(event => {
             [`${solder} ${576 * multi / 2}`, `${mat2} ${144 * multi / 2}`],
             [1, 15],
         ],
-        ['processor_mainframe',
+        () => ['processor_mainframe',
             [
                 `${4 * multi}x #forge:frames/${mat1}`,
                 `${8 * multi}x gfs:${tier}_processor_computer`,
@@ -123,12 +123,16 @@ ServerEvents.recipes(event => {
         'cosmic',
         "4d",
     ].forEach((type, index_stuff) => {
-        Materials.forEach(([name, inp, flui, [out_multi, dur]], index) => {
-            let tier = index + 8;
+        Materials.forEach((MaterialHelper, index) => {
+
+            let tier = voltages[index + 8];
             let tierN = voltages.indexOf(tier);
             let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], voltage_to_cable[tier]];
             let [solder, rubber] = [volt_to_extra[tier]];
             let [smd_type, multi, ram_type, small_multi, soc_type, chip_type, uhcp_type] = MatTypesHelp[tier];
+            // maybe I will just make a function for every type of circuit stuff, so it will just calculate it that time when it's called ....
+            // I just hate function calls inside recipe creations
+            let [name, inp, flui, [out_multi, dur]] = MaterialHelper();
 
             if (name == 'circuit_board') {
                 // something like : monic_circuit_board

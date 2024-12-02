@@ -26,7 +26,7 @@ const voltage_to_cable = {
     "uev": "activated_netherite",
     "uiv": "weapon_grade_naquadaria",
     "uxv": "omnium",
-    "opv": "super_sculk",
+    "opv": "monium",
     "max": "infinity",
 };
 
@@ -41,8 +41,8 @@ const volt_to_material = {
     // mat 1 mat 2 wire 2 (wire 1 is in "voltage_to_cable")
     "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],// ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
     "uv": ["darmstadtium", "tritanium", "naquadah_alloy"],
-    "uhv": ["neutronium", "cryobous", "trinium"],
-    "uev": ["pure_netherite", "holmium", "ruthenium_trinium_americium_neutronate"],
+    "uhv": ["neutronium", "cryolobus", "ruthenium_trinium_americium_neutronate"],
+    "uev": ["pure_netherite", "holmium", "cryococcus"],
     "uiv": ["infinity", "crystal_matrix", "holmium"],
     "uxv": ["monium", "omnium", "crystal_matrix"],
     "opv": ["stellar", "monium", "draconium"],
@@ -50,7 +50,8 @@ const volt_to_material = {
 };
 
 const volt_to_extra = {
-    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole"],//styrene_butadiene_rubber ?
+	//styrene_butadiene_rubber ?
+    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole"],
     "uev": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
     "uiv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
     "uxv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],

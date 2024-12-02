@@ -7,6 +7,10 @@ const voltages = [
     "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
 ];
 
+const voltage_lesser = ((x) => {
+    return voltages[voltages.indexOf(x) + 1];
+});
+
 
 // access just like you would voltage_to_cable["lv"] = "tin"
 const voltage_to_cable = {
@@ -22,14 +26,9 @@ const voltage_to_cable = {
     "uev": "activated_netherite",
     "uiv": "weapon_grade_naquadaria",
     "uxv": "omnium",
-    "opv": "monium",
+    "opv": "super_sculk",
     "max": "infinity",
 };
-
-const voltage_lesser = ((x) => {
-    return voltages[voltages.indexOf(x) + 1];
-});
-
 
 const volt_to_material = {
     // mat 1 wire 2 (wire 1 is in "voltage_to_cable")
@@ -43,12 +42,69 @@ const volt_to_material = {
     "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],// ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
     "uv": ["darmstadtium", "tritanium", "naquadah_alloy"],
     "uhv": ["neutronium", "cryobous", "trinium"],
-    "uev": ["pure_netherite", "crystal_matrix", "holmium"],
-    "uiv": ["infinity", "holmium", "crystal_matrix"],
-    "uxv": ["graphenium", "crystal_matrix", "ruthenium_trinium_americium_neutronate"],
-    "opv": ["stellar", "monium", "super_sculk"],
+    "uev": ["pure_netherite", "holmium", "ruthenium_trinium_americium_neutronate"],
+    "uiv": ["infinity", "crystal_matrix", "holmium"],
+    "uxv": ["monium", "omnium", "crystal_matrix"],
+    "opv": ["stellar", "monium", "draconium"],
     "max": ["void", "infinity", "awakened_draconium"],
 };
+
+const volt_to_extra = {
+    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole"],//styrene_butadiene_rubber ?
+    "uev": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+    "uiv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+    "uxv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+    "opv": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+    "max": ["soldering_alloy", "gtceu:polyether_ether_ketone"],
+};
+
+
+//TODO : make this better
+const MatTypesHelp = {
+    "uhv": [
+        "gfs:xyz_smd", 1,  // smd_type, multi
+        "gfs:xyz_ram", 1,  // ram_type, small_multi
+        "gfs:xyz_soc",  // soc_type
+        "gfs:xyz_chip",  // chip_type
+        "gfs:xyz_uhcp_chip",        //uhcp_type
+    ],
+    "uev": [
+        "gfs:xyz_smd", 2,
+        "gfs:xyz_ram", 2,
+        "gfs:xyz_soc",
+        "gfs:xyz_chip",
+        "gfs:xyz_uhcp_chip",
+    ],
+    "uiv": [
+        "gfs:xy_smd", 1,
+        "gfs:xy_ram", 1,
+        "gfs:xy_soc",
+        "gfs:xy_chip",
+        "gfs:xy_uhcp_chip",
+    ],
+    "uxv": [
+        "gfs:xy_smd", 2,
+        "gfs:xy_ram", 2,
+        "gfs:xy_soc",
+        "gfs:xy_chip",
+        "gfs:xy_uhcp_chip",
+    ],
+    "opv": [
+        "gfs:xy_smd", 3,
+        "gfs:xy_ram", 3,
+        "gfs:xy_soc",
+        "gfs:xy_chip",
+        "gfs:xy_uhcp_chip",
+    ],
+    "max": [
+        "gfs:xy_smd", 4,
+        "gfs:xy_ram", 4,
+        "gfs:xy_soc",
+        "gfs:xy_chip",
+        "gfs:xy_uhcp_chip",
+    ]
+};
+
 
 
 const coilS = [
@@ -82,7 +138,7 @@ const voltage_to_eu = {
 
 
 const tier_to_research = {
-    "uv": [32 * 2, 18200 * 1.8 * 20, voltage_to_eu[voltages[7]]],
+    "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],
     "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
     "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
     "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],

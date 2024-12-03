@@ -5,10 +5,11 @@ ServerEvents.recipes(event => {
     // Wetware tweaks
     event.remove({output: 'gtceu:neuro_processing_unit'})
     greg.circuit_assembler('gfs:neuro_processing_unit')
-        .itemInputs('gtceu:wetware_printed_circuit_board', '4x gtceu:stem_cells', '8x gtceu:polybenzimidazole_small_fluid_pipe', '4x gtceu:neutronium_plate', '16x gtceu:silicone_rubber_foil', '8x gtceu:hsse_bolt')
+        .itemInputs('gtceu:wetware_printed_circuit_board', '4x gtceu:stem_cells', '8x gtceu:polybenzimidazole_small_fluid_pipe',
+            '4x gtceu:neutronium_plate', '16x gtceu:silicone_rubber_foil', '8x gtceu:hsse_bolt')
         .inputFluids('gtceu:sterilized_growth_medium 100')
         .itemOutputs('gtceu:neuro_processing_unit')
-        .duration(5 * 20)
+        .duration(10 * 20)
         .EUt(voltage_to_eu["zpm"])
         .cleanroom(CleanroomType.CLEANROOM);
 
@@ -30,40 +31,44 @@ ServerEvents.recipes(event => {
 
 
     let Materials = [
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['circuit_board',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['circuit_board',
             [
                 `${4 * multi}x #forge:plates/${mat1}`,
                 `${16 * multi}x #forge:foils/${wire1}`,
                 `${16 * multi}x #forge:foils/${mat2}`,
                 `${2 * multi}x ${tierN == 8 ? `gtceu:neuro` : `gfs:${voltages[tierN - 1]}`}_processing_unit`,
                 `${1 * multi}x gregtech:circuits/${voltages[tierN - 3]}`,
-                `${4 * multi}x #forge:dusts/${mat2}`
+                `${4 * multi}x #forge:dusts/${mat2}`,
             ],
             [`${mat2} ${144 * multi / 2}`],
             [4, 30],
         ],
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['processing_unit',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['processing_unit',
             [
                 `${1 * multi}x gfs:${tier}_circuit_board`,
                 `${1 * multi}x #forge:plates/${mat2}`,
                 `${2 * multi}x gtceu:${wire2}_double_wire`,
-                `${1 * small_multi}x ${soc_type}`
+                `${1 * small_multi}x ${soc_type}`,
             ],
             [`${solder} ${576 * multi / 2}`],
             [4, 5],
         ],
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['processor',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['processor',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${4 * small_multi}x ${smd_type}_capacitor`,
                 `${2 * small_multi}x ${smd_type}_transistor`,
                 `${2 * small_multi}x ${chip_type}`,
-                `${2 * multi}x gtceu:${wire1}_single_wire`
+                `${2 * multi}x gtceu:${wire1}_single_wire`,
             ],
             [`${solder} ${144 * multi / 2}`],
             [4, 7],
         ],
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['processor_assembly',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['processor_assembly',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${2 * multi}x gfs:${tier}_processor`,
@@ -72,12 +77,13 @@ ServerEvents.recipes(event => {
                 `${3 * small_multi}x ${smd_type}_transistor`,
                 `${2 * small_multi}x ${smd_type}_resistor`,
                 `${2 * multi}x gtceu:${wire1}_double_wire`,
-                `${2 * multi}x gtceu:${wire2}_double_wire`
+                `${2 * multi}x gtceu:${wire2}_double_wire`,
             ],
             [`${solder} ${576 * multi / 2}`],
             [4, 10],
         ],
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['processor_computer',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['processor_computer',
             [
                 `${1 * multi}x gfs:${tier}_processing_unit`,
                 `${1 * multi}x gfs:${tier}_processor_assembly`,
@@ -94,12 +100,13 @@ ServerEvents.recipes(event => {
             [`${solder} ${576 * multi / 2}`, `${mat2} ${144 * multi / 2}`],
             [1, 15],
         ],
-        (tier, [mat1, mat2, wire2], wire1, [multi, small_multi, smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], tierN) => ['processor_mainframe',
+        (tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
+         [solder, plastic, rubber]) => ['processor_mainframe',
             [
                 `${2 * multi}x #forge:frames/${mat1}`,
                 `${4 * multi}x gfs:${tier}_processor_computer`,
-                `${4 * multi}x #forge:plates/${mat2}`
-                    `${12 * small_multi}x ${smd_type}_capacitor`,
+                `${4 * multi}x #forge:plates/${mat2}`,
+                `${12 * small_multi}x ${smd_type}_capacitor`,
                 `${6 * small_multi}x ${smd_type}_transistor`,
                 `${6 * small_multi}x ${smd_type}_diode`,
                 `${6 * small_multi}x ${smd_type}_resistor`,
@@ -125,15 +132,21 @@ ServerEvents.recipes(event => {
     ].forEach((type, index_stuff) => {
         Materials.forEach((MaterialHelper, index) => {
 
-            let tier = voltages[index + 8];
+            let tier = voltages[index + 9];
+            let lessr = voltages[index + 8];
+            let [mat1, mat2, wire2] = volt_to_material[tier];
+            let wire1 = volt_to_cable[tier];
+            let liq_help = volt_to_extra[tier];
+            let [multi_s, type_s] = MatTypesHelp[tier];
             // maybe I will just make a function for every type of circuit stuff, so it will just calculate it that time when it's called ....
             // I just hate function calls inside recipe creations
             let [name, inp, flui, [out_multi, dur]] = MaterialHelper(
-                tier,
-                volt_to_material[tier], voltage_to_cable[tier],
-                MatTypesHelp[tier],
-                volt_to_extra[tier],
-                voltages.indexOf(tier)
+                //(tier,tierN,[mat1,mat2,wire1,wire2],[multi,small_multi],
+                //[smd_type,ram_type,soc_type,chip_type,uhcp_type],[solder,plastic,rubber])
+                tier, (index + 9),
+                [mat1, mat2, wire1, wire2],
+                multi_s, type_s,
+                liq_help
             );
 
             if (name == 'circuit_board') {
@@ -144,7 +157,7 @@ ServerEvents.recipes(event => {
                     // something like : uev_circuit_board
                     .itemOutputs(`${out_multi}x gfs:${tier}_${name}`)
                     .duration(dur * 20)
-                    .EUt(voltage_to_eu[tier]);
+                    .EUt(voltage_to_eu[lessr]);
             } else {
                 // decided to go with uv for every research (for now atleast)
                 let [res_cwu, res_dur, res_eut] = tier_to_research["uv"];
@@ -155,9 +168,9 @@ ServerEvents.recipes(event => {
                     .inputFluids(flui)
                     .itemOutputs(`${out_multi}x gfs:${tier}_${name}`)
                     .duration(dur * 20)
-                    .EUt(voltage_to_eu[voltage_lesser[tier]])
-                    .stationResearch(b => b
-                        .researchStack(help)
+                    .EUt(voltage_to_eu[lessr])
+                    .stationResearch((b) => b
+                        .researchStack(Item.of(help))
                         .CWUt(res_cwu, res_dur)
                         .EUt(res_eut)
                     );

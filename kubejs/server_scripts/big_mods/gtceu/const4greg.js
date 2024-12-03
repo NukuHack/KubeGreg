@@ -153,6 +153,8 @@ const voltage_to_eu = {
 
 
 const tier_to_research = {
+    "luv": [16, 18200 * 0.4 * 20, voltage_to_eu[voltages[5]]],
+    "zpm": [32, 18200 * 0.6 * 20, voltage_to_eu[voltages[6]]],
     "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],
     "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
     "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],

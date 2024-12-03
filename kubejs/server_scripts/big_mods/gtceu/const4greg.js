@@ -7,13 +7,8 @@ const voltages = [
     "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
 ];
 
-const voltage_lesser = ((x) => {
-    return voltages[voltages.indexOf(x) + 1];
-});
-
-
 // access just like you would voltage_to_cable["lv"] = "tin"
-const voltage_to_cable = {
+const volt_to_cable = {
     "lv": "tin",
     "mv": "copper",
     "hv": "gold",
@@ -71,48 +66,48 @@ const volt_to_assembly = {
 //TODO : make this better
 // this is only needed inside the circuits
 const MatTypesHelp = {
-    "uhv": [
-        1, 1,
+    "uhv": [[
+        1, 1],
         "gfs:xyz_smd",
         "gfs:xyz_ram",
         "gfs:xyz_soc",
         "gfs:xyz_chip",
         "gfs:xyz_uhcp_chip",
     ],
-    "uev": [
-        2, 2,
+    "uev": [[
+        2, 2],
         "gfs:xyz_smd",
         "gfs:xyz_ram",
         "gfs:xyz_soc",
         "gfs:xyz_chip",
         "gfs:xyz_uhcp_chip",
     ],
-    "uiv": [
-        1, 1,
+    "uiv": [[
+        1, 1],
         "gfs:xy_smd",
         "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
-    "uxv": [
-        2, 2,
+    "uxv": [[
+        2, 2],
         "gfs:xy_smd",
         "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
-    "opv": [
-        3, 3,
+    "opv": [[
+        2, 2],
         "gfs:xy_smd",
         "gfs:xy_ram",
         "gfs:xy_soc",
         "gfs:xy_chip",
         "gfs:xy_uhcp_chip",
     ],
-    "max": [
-        4, 4,
+    "max": [[
+        2, 2],
         "gfs:xy_smd",
         "gfs:xy_ram",
         "gfs:xy_soc",
@@ -160,4 +155,25 @@ const tier_to_research = {
     "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
     "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],
 };
+
+
+const plantSeeds = [
+    ['wheat_seeds', 'wheat'],
+    ['', 'carrot'],
+    ['', 'potato'],
+    ['pumpkin_seeds', 'pumpkin'],
+    ['melon_seeds', 'melon'],
+    ['', 'cocoa_beans'],
+    ['beetroot_seeds', 'beetroot'],
+    ['', 'bamboo'],
+    ['', 'sweet_berries'],
+    ['', 'kelp'],
+    ['', 'glow_berries'],
+    ['', 'sugar_cane'],
+    ['torchflower_seeds', 'torchflower'],
+    ['pitcher_pod', 'pitcher_plant']
+];
+
+
+
 

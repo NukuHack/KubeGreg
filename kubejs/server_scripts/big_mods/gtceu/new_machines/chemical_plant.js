@@ -1,7 +1,6 @@
-
 ServerEvents.recipes(event => {
 
-    const greg=event.recipes.gtceu;
+    const greg = event.recipes.gtceu;
 
     greg.assembly_line('gfs:chemical_plant_controller')
         .itemInputs('gtceu:zpm_machine_hull', '4x gtceu:zpm_electric_motor', 'gtceu:naquadah_alloy_rotor', '2x gtceu:niobium_titanium_large_fluid_pipe', '4x #gtceu:circuits/zpm')
@@ -38,7 +37,7 @@ ServerEvents.recipes(event => {
         .duration(400)
         .EUt(GTValues.VHA[GTValues.ZPM]);
 
-        greg.chemical_plant('gfs:plat_line')
+    greg.chemical_plant('gfs:plat_line')
         .itemInputs('6x gtceu:platinum_group_sludge_dust')
         .inputFluids('gtceu:aqua_regia 1500')
         .itemOutputs('gtceu:platinum_dust', 'gtceu:palladium_dust', 'gtceu:ruthenium_dust', 'gtceu:rhodium_dust', 'gtceu:osmium_dust', 'gtceu:iridium_dust')
@@ -75,23 +74,23 @@ ServerEvents.recipes(event => {
         .outputFluids('gtceu:hydrogen 2000', 'gtceu:fluorine 7000')
         .duration(800)
         .EUt(GTValues.VHA[GTValues.ZPM]);
-		
+
     greg.chemical_plant('gfs:uraninite_processing')
         .itemInputs('15x #forge:dusts/uraninite')
         .inputFluids('gtceu:hydrofluoric_acid 20000')
         .inputFluids('gtceu:fluorine 10000')
         .outputFluids('gtceu:uranium_hexafluoride 30000')
         .outputFluids('minecraft:water 10000')
-        .duration(80*20)
+        .duration(80 * 20)
         .EUt(GTValues.VHA[GTValues.MV]);
-		
+
     greg.chemical_plant('gfs:uranium_processing')
         .inputFluids('gtceu:uranium_hexafluoride 10000')
         .itemOutputs('1x #forge:dusts/uranium_235')
         .outputFluids('gtceu:fluorine 6000')
         .itemOutputs('9x #forge:dusts/uranium')
-        .outputFluids(Fluid.of('gtceu:fluorine',6000*9))
-        .duration(40*20)
+        .outputFluids(Fluid.of('gtceu:fluorine', 6000 * 9))
+        .duration(40 * 20)
         .EUt(GTValues.VHA[GTValues.HV]);
 
 });

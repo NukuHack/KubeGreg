@@ -1,5 +1,5 @@
 // Listen to player login event
-PlayerEvents.loggedIn( event => {
+PlayerEvents.loggedIn(event => {
 
     const player_name = event.player.getName().getString()              //assign player name string to player_name
 

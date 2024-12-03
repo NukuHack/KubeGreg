@@ -6,7 +6,7 @@ ServerEvents.recipes(event => {
         .itemOutputs('gtceu:chemical_builder')
         .duration(950)
         .EUt(GTValues.VA[GTValues.UEV]);
-    
+
     event.recipes.gtceu.chemical_builder('propene')
         .itemInputs('3x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 6000')
@@ -14,7 +14,7 @@ ServerEvents.recipes(event => {
         .duration(240)
         .EUt(GTValues.VHA[GTValues.IV])
         .circuit(17);
-		
+
     event.recipes.gtceu.chemical_builder('methane')
         .itemInputs('1x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 4000')

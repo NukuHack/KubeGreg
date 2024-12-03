@@ -6,7 +6,7 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
 
-    event.remove({ output: "gtceu:hp_steam_solid_boiler" });
+    event.remove({output: "gtceu:hp_steam_solid_boiler"});
 // hp_steam_solid_boiler
 
     event.shaped('gtceu:hp_steam_solid_boiler', [
@@ -21,7 +21,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:hp_steam_liquid_boiler" });
+    event.remove({output: "gtceu:hp_steam_liquid_boiler"});
 // hp_steam_solid_boiler
 
     event.shaped('gtceu:hp_steam_liquid_boiler', [
@@ -37,7 +37,7 @@ ServerEvents.recipes(event => {
     )
 
 
-    event.remove({ output: "gtceu:hp_steam_solar_boiler" });
+    event.remove({output: "gtceu:hp_steam_solar_boiler"});
 // hp_steam_solid_boiler
 
     event.shaped('gtceu:hp_steam_solar_boiler', [
@@ -52,7 +52,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:lv_bender" });
+    event.remove({output: "gtceu:lv_bender"});
 // lv_bender
 
     event.shaped('gtceu:lv_bender', [
@@ -69,7 +69,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:mv_bender" });
+    event.remove({output: "gtceu:mv_bender"});
 // mv_bender
 
     event.shaped('gtceu:mv_bender', [
@@ -86,7 +86,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:hv_bender" });
+    event.remove({output: "gtceu:hv_bender"});
 // hv_bender
 
     event.shaped('gtceu:hv_bender', [
@@ -103,7 +103,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:ev_bender" });
+    event.remove({output: "gtceu:ev_bender"});
 // ev_bender
 
     event.shaped('gtceu:ev_bender', [
@@ -120,7 +120,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:iv_bender" });
+    event.remove({output: "gtceu:iv_bender"});
 // iv_bender
 
     event.shaped('gtceu:iv_bender', [
@@ -137,7 +137,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:luv_bender" });
+    event.remove({output: "gtceu:luv_bender"});
 // luv_bender
 
     event.shaped('gtceu:luv_bender', [
@@ -154,7 +154,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:zpm_bender" });
+    event.remove({output: "gtceu:zpm_bender"});
 // zpm_bender
 
     event.shaped('gtceu:zpm_bender', [
@@ -171,7 +171,7 @@ ServerEvents.recipes(event => {
         }
     )
 
-    event.remove({ output: "gtceu:uv_bender" });
+    event.remove({output: "gtceu:uv_bender"});
 // uv_bender
 
     event.shaped('gtceu:uv_bender', [
@@ -189,13 +189,12 @@ ServerEvents.recipes(event => {
     )
 
 
-
 // Inscribers
 
 
 // Create machine recipes for a specific voltage
     voltages.forEach((volt, index) => {
-        if (!(index>7)&&index>1) {
+        if (!(index > 7) && index > 1) {
             event.shaped(
                 "gtceu:" + volt + "_inscriber",
                 ["AXA", "BYC", "DED"],
@@ -206,7 +205,7 @@ ServerEvents.recipes(event => {
                     Y: `gtceu:${volt}_machine_hull`,
                     C: `gtceu:${volt}_conveyor_module`,
                     D: `#gtceu:circuits/${volt}`,
-                    E: `gtceu:${voltage_to_cable[volt]}_single_cable`
+                    E: `gtceu:${volt_to_cable[volt]}_single_cable`
                 }
             );
         }

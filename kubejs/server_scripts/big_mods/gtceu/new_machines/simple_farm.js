@@ -1,8 +1,6 @@
-
 ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
-
 
 
     event.shaped(Item.of('gtceu:simple_farm'), [
@@ -16,34 +14,18 @@ ServerEvents.recipes(event => {
     });
 
 
-    const plantSeeds = [
-        ['wheat_seeds', 'wheat'],
-        ['', 'carrot'],
-        ['', 'potato'],
-        ['pumpkin_seeds', 'pumpkin'],
-        ['melon_seeds', 'melon'],
-        ['', 'cocoa_beans'],
-        ['beetroot_seeds', 'beetroot'],
-        ['', 'bamboo'],
-        ['', 'sweet_berries'],
-        ['', 'kelp'],
-        ['', 'glow_berries'],
-        ['', 'sugar_cane'],
-        ['torchflower_seeds', 'torchflower'],
-        ['pitcher_pod', 'pitcher_plant']
-    ];
 
-    plantSeeds.forEach(([seed,crop])=>{
-		if (seed=="")
-			seed = crop;
-		
+    plantSeeds.forEach(([seed, crop]) => {
+        if (seed == "")
+            seed = crop;
+
         greg.simple_farm(`gfs:${crop}_harvest`)
             .notConsumable(`minecraft:${seed}`)
             .itemOutputs(`1x minecraft:${crop}`)
             .inputFluids('minecraft:water 500')
             .circuit(1)
             .EUt(30)
-            .duration(20*10);
+            .duration(20 * 10);
 
         greg.simple_farm(`gfs:${crop}_w_bone_meal`)
             .notConsumable(`minecraft:${seed}`)
@@ -52,7 +34,7 @@ ServerEvents.recipes(event => {
             .inputFluids('minecraft:water 1000')
             .circuit(2)
             .EUt(30)
-            .duration(20*10);
+            .duration(20 * 10);
 
         greg.simple_farm(`gfs:${crop}_w_compost`)
             .notConsumable(`minecraft:${seed}`)
@@ -61,7 +43,7 @@ ServerEvents.recipes(event => {
             .inputFluids('minecraft:water 2500')
             .circuit(3)
             .EUt(30)
-            .duration(20*10);
+            .duration(20 * 10);
 
         greg.simple_farm(`gfs:${crop}_w_fertilizer`)
             .notConsumable(`minecraft:${seed}`)
@@ -70,7 +52,7 @@ ServerEvents.recipes(event => {
             .inputFluids('minecraft:water 5000')
             .circuit(4)
             .EUt(30)
-            .duration(20*10);
+            .duration(20 * 10);
     });
 
 });

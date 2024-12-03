@@ -2,8 +2,8 @@ ServerEvents.recipes((event) => {
 
     const greg = event.recipes.gtceu;
 
-	event.remove({output: "megacells:sky_steel_ingot"});
-	event.remove({output: "megacells:sky_steel_block"});
+    event.remove({output: "megacells:sky_steel_ingot"});
+    event.remove({output: "megacells:sky_steel_block"});
 
     event.remove({output: "megacells:mega_energy_cell"});
     event.remove({output: "megacells:bulk_cell_component"});
@@ -18,32 +18,32 @@ ServerEvents.recipes((event) => {
     event.replaceInput({mod: "megacells"}, "#forge:ingots/copper", "#forge:plates/beryllium");
     event.replaceInput({mod: "megacells"}, "#forge:storage_blocks/copper", "#forge:plates/beryllium");
 
-/*
-    // removed these because other mods have much-much better for each of these
-    // Mega Crafting Accelerator
-    greg
-        .canner("gfs:mega_crafting_accelerator")
-        .itemInputs("megacells:mega_crafting_unit", "ae2:crafting_accelerator")
-        .itemOutputs("megacells:mega_crafting_accelerator")
-        .duration(100)
-        .EUt(600);
+    /*
+        // removed these because other mods have much-much better for each of these
+        // Mega Crafting Accelerator
+        greg
+            .canner("gfs:mega_crafting_accelerator")
+            .itemInputs("megacells:mega_crafting_unit", "ae2:crafting_accelerator")
+            .itemOutputs("megacells:mega_crafting_accelerator")
+            .duration(100)
+            .EUt(600);
 
-    // Mega Pattern Provider
-    greg
-        .canner("gfs:mega_pattern_provider")
-        .itemInputs("megacells:mega_crafting_unit", "expatternprovider:ex_pattern_provider")
-        .itemOutputs("megacells:mega_pattern_provider")
-        .duration(100)
-        .EUt(600);
+        // Mega Pattern Provider
+        greg
+            .canner("gfs:mega_pattern_provider")
+            .itemInputs("megacells:mega_crafting_unit", "expatternprovider:ex_pattern_provider")
+            .itemOutputs("megacells:mega_pattern_provider")
+            .duration(100)
+            .EUt(600);
 
-    // Mega Interface
-    greg
-        .canner("gfs:mega_interface")
-        .itemInputs("megacells:mega_crafting_unit", "expatternprovider:ex_interface")
-        .itemOutputs("megacells:mega_interface")
-        .duration(100)
-        .EUt(600);
-*/
+        // Mega Interface
+        greg
+            .canner("gfs:mega_interface")
+            .itemInputs("megacells:mega_crafting_unit", "expatternprovider:ex_interface")
+            .itemOutputs("megacells:mega_interface")
+            .duration(100)
+            .EUt(600);
+    */
 
     // Mega Crafting Monitor
     greg
@@ -52,7 +52,7 @@ ServerEvents.recipes((event) => {
         .itemOutputs("megacells:mega_crafting_monitor")
         .duration(100)
         .EUt(600);
-		
+
     // Mega Crafting Storage(s)
     ["1m", "4m", "16m", "64m", "256m"].forEach((k) => {
         event.remove({output: `megacells:${k}_crafting_storage`});
@@ -77,7 +77,7 @@ ServerEvents.recipes((event) => {
         .itemInputs("5x megacells:accumulation_processor", "10x ae2:dense_energy_cell"
             , "gtceu:lapotronic_energy_orb")
         .itemOutputs("megacells:mega_energy_cell")
-        .EUt(480*5)
+        .EUt(480 * 5)
         .duration(200);
 
 

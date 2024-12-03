@@ -87,7 +87,7 @@ ServerEvents.recipes(event => {
     event.shapeless("gfs:stupid_press", [
         "ae2:logic_processor_press", "ae2:calculation_processor_press",
         "ae2:silicon_press", "ae2:engineering_processor_press",
-        "megacells:accumulation_processor_press","appflux:energy_processor_press"
+        "megacells:accumulation_processor_press", "appflux:energy_processor_press"
     ]);
 
 

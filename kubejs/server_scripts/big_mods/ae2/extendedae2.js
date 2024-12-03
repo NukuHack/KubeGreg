@@ -1,19 +1,19 @@
 ServerEvents.recipes((event) => {
 
-    event.remove({output:"expatternprovider:infinity_cell"});
-	// removing old inf-water and inf-cobble cells
+    event.remove({output: "expatternprovider:infinity_cell"});
+    // removing old inf-water and inf-cobble cells
 
-	
-	event.remove({output:"expatternprovider:ex_interface"});
-	event.remove({output:"expatternprovider:interface_upgrade"});
-    event.remove({output:"expatternprovider:ex_pattern_provider"});
-    event.remove({output:"expatternprovider:pattern_provider_upgrade"});
-    event.remove({output:"expatternprovider:wireless_connect"});
-    event.remove({output:"expatternprovider:ingredient_buffer"});
-    event.remove({output:"expatternprovider:ex_drive"});
-    event.remove({output:"expatternprovider:drive_upgrade"});
-    event.remove({output:"expatternprovider:ex_molecular_assembler"});
-    event.remove({output:"expatternprovider:pattern_modifier"});
+
+    event.remove({output: "expatternprovider:ex_interface"});
+    event.remove({output: "expatternprovider:interface_upgrade"});
+    event.remove({output: "expatternprovider:ex_pattern_provider"});
+    event.remove({output: "expatternprovider:pattern_provider_upgrade"});
+    event.remove({output: "expatternprovider:wireless_connect"});
+    event.remove({output: "expatternprovider:ingredient_buffer"});
+    event.remove({output: "expatternprovider:ex_drive"});
+    event.remove({output: "expatternprovider:drive_upgrade"});
+    event.remove({output: "expatternprovider:ex_molecular_assembler"});
+    event.remove({output: "expatternprovider:pattern_modifier"});
 
 
     const greg = event.recipes.gtceu;
@@ -61,7 +61,7 @@ ServerEvents.recipes((event) => {
         .itemOutputs("2x expatternprovider:wireless_connect")
         .duration(200)
         .EUt(8192);
-	
+
     event.shaped(
         "expatternprovider:ingredient_buffer",
         ["GMG", "AEC", "GHG"],
@@ -107,25 +107,12 @@ ServerEvents.recipes((event) => {
     });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // infinite cells
     greg
         .assembler("gfs:infinite_cell_water")
-        .itemInputs("64x ae2:fluid_cell_housing","64x megacells:mega_fluid_cell_housing","2x megacells:fluid_storage_cell_256m",
+        .itemInputs("64x ae2:fluid_cell_housing", "64x megacells:mega_fluid_cell_housing", "2x megacells:fluid_storage_cell_256m",
             "2x megacells:bulk_item_cell", "32x gtceu:infinite_water_cover")
-        .inputFluids(Fluid.of("minecraft:water",32000))
+        .inputFluids(Fluid.of("minecraft:water", 32000))
         .itemOutputs(
             Item.of(
                 "expatternprovider:infinity_cell",
@@ -136,12 +123,11 @@ ServerEvents.recipes((event) => {
         .EUt(50000);
 
 
-
     greg
         .assembler("gfs:infinite_cell_milk")
-        .itemInputs("64x ae2:fluid_cell_housing","64x megacells:mega_fluid_cell_housing","megacells:fluid_storage_cell_256m",
+        .itemInputs("64x ae2:fluid_cell_housing", "64x megacells:mega_fluid_cell_housing", "megacells:fluid_storage_cell_256m",
             "megacells:bulk_item_cell", "32x cookingforblockheads:cow_jar")
-        .inputFluids(Fluid.of("minecraft:milk",32000))
+        .inputFluids(Fluid.of("minecraft:milk", 32000))
         .itemOutputs(
             Item.of(
                 "expatternprovider:infinity_cell",
@@ -152,13 +138,12 @@ ServerEvents.recipes((event) => {
         .EUt(50000);
 
 
-
     greg
         .assembler("gfs:infinite_cell_lava")
-        .itemInputs("64x ae2:fluid_cell_housing","64x megacells:mega_fluid_cell_housing","4x megacells:fluid_storage_cell_256m",
-            "8x megacells:bulk_item_cell","32x cobblefordays:tier_5",
+        .itemInputs("64x ae2:fluid_cell_housing", "64x megacells:mega_fluid_cell_housing", "4x megacells:fluid_storage_cell_256m",
+            "8x megacells:bulk_item_cell", "32x cobblefordays:tier_5",
             "32x lava_source:diamond_lava_source_furnace")
-        .inputFluids(Fluid.of("minecraft:lava",32000))
+        .inputFluids(Fluid.of("minecraft:lava", 32000))
         .itemOutputs(
             Item.of(
                 "expatternprovider:infinity_cell",
@@ -169,12 +154,11 @@ ServerEvents.recipes((event) => {
         .EUt(50000);
 
 
-
     greg
         .assembler("gfs:infinite_cell_cobble")
-        .itemInputs("64x ae2:item_cell_housing","64x megacells:mega_item_cell_housing","16x megacells:item_storage_cell_256m",
-            "16x megacells:bulk_item_cell","64x cobblefordays:tier_5"
-            ,Item.of(
+        .itemInputs("64x ae2:item_cell_housing", "64x megacells:mega_item_cell_housing", "16x megacells:item_storage_cell_256m",
+            "16x megacells:bulk_item_cell", "64x cobblefordays:tier_5"
+            , Item.of(
                 "expatternprovider:infinity_cell",
                 '{record:{"#c":"ae2:f",id:"minecraft:lava"}}'
             ),
@@ -182,7 +166,7 @@ ServerEvents.recipes((event) => {
                 "expatternprovider:infinity_cell",
                 '{record:{"#c":"ae2:f",id:"minecraft:water"}}'
             ))
-        .inputFluids(Fluid.of("gtceu:oxigen",32000))
+        .inputFluids(Fluid.of("gtceu:oxigen", 32000))
         .itemOutputs(
             Item.of(
                 "expatternprovider:infinity_cell",

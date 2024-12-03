@@ -13,12 +13,6 @@ ServerEvents.recipes(event => {
         .duration(20*80)
         .EUt(480);
 
-    greg
-        .macerator('gfs:huge_chemical_reactor')
-        .itemInputs('gtceu:huge_chemical_reactor')
-        .itemOutputs('gtceu:large_chemical_reactor',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .EUt(30)
-        .duration(600);
 
     event.shaped("gfs:compressed_lv_hatch",
         ["ABA", "D F", "GJH"],
@@ -40,6 +34,7 @@ ServerEvents.recipes(event => {
         event.shaped(`gfs:compressed_${coilType}_coil`,
             ["AAA", "A A", "AAA"],
             {A: `gtceu:${coilType}_coil_block`});
+        event.shapeless(`8x gtceu:${coilType}_coil_block`,`gfs:compressed_${coilType}_coil`);
     });
 
 // Create machine recipes for a specific voltage
@@ -71,16 +66,6 @@ ServerEvents.recipes(event => {
             );
 
             greg
-                .macerator("gfs:"+volt +"miniature_pyrolyse_oven")
-                .itemInputs("gtceu:" + volt + "_miniature_pyrolyse_oven")
-                .itemOutputs(
-                    `2x gfs:compressed_${coilS[index-1]}_coil`,
-                    `gfs:compressed_ulv_casing`,
-                    `gfs:compressed_lv_hatch`,
-                    `gtceu:pyrolyse_oven`)
-                .EUt(30)
-                .duration(600);
-            greg
                 .macerator("gfs:"+volt +"miniature_ebf")
                 .itemInputs("gtceu:" + volt + "_miniature_ebf")
                 .itemOutputs(
@@ -111,12 +96,6 @@ ServerEvents.recipes(event => {
         .duration(20*80)
         .EUt(480);
 
-    greg
-        .macerator('gfs:large_cracker')
-        .itemInputs('gtceu:large_cracker')
-        .itemOutputs('gtceu:cracker',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .EUt(30)
-        .duration(600);
 
     greg.assembler('gfs:large_farm')
         .itemInputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
@@ -125,12 +104,6 @@ ServerEvents.recipes(event => {
         .duration(20*80)
         .EUt(480);
 
-    greg
-        .macerator('gfs:large_farm')
-        .itemInputs('gtceu:large_farm')
-        .itemOutputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .EUt(30)
-        .duration(600);
 
     event.shaped(Item.of('gtceu:tree_greenhouse'), [
         'WAW',

@@ -121,6 +121,7 @@ ServerEvents.recipes(event => {
         ],
     ];
 
+    let lastName = "not_available";
 
     // Define crafting themes and tiers
     [
@@ -132,8 +133,9 @@ ServerEvents.recipes(event => {
     ].forEach((type, index_stuff) => {
         Materials.forEach((MaterialHelper, index) => {
 
-            let tier = voltages[index + 9];
-            let lessr = voltages[index + 8];
+            let tier = voltages[index_stuff + 9];
+            let lesser = voltages[index_stuff + 8];
+            let tierNumber = index_stuff + 10;
             let [mat1, mat2, wire2] = volt_to_material[tier];
             let wire1 = volt_to_cable[tier];
             let liq_help = volt_to_extra[tier];
@@ -143,7 +145,7 @@ ServerEvents.recipes(event => {
             let [name, inp, flui, [out_multi, dur]] = MaterialHelper(
                 //(tier,tierN,[mat1,mat2,wire1,wire2],[multi,small_multi],
                 //[smd_type,ram_type,soc_type,chip_type,uhcp_type],[solder,plastic,rubber])
-                tier, (index + 9),
+                tier, tierNumber,
                 [mat1, mat2, wire1, wire2],
                 multi_s, type_s,
                 liq_help
@@ -157,24 +159,24 @@ ServerEvents.recipes(event => {
                     // something like : uev_circuit_board
                     .itemOutputs(`${out_multi}x gfs:${tier}_${name}`)
                     .duration(dur * 20)
-                    .EUt(voltage_to_eu[lessr]);
+                    .EUt(voltage_to_eu[lesser]);
             } else {
                 // decided to go with uv for every research (for now atleast)
-                let [res_cwu, res_dur, res_eut] = tier_to_research["uv"];
-                let last_name = (index > 0) ? Materials[index - 1][0] : "not_available";
-                let help = (type == "matter" ? `gtceu:neuro_${name}` : `gfs:${tier}_${last_name}`);
+                let [res_cwu, res_dur, res_eut] = volt_to_research["uv"];
+                let help = (type == "matter" ? name == "processing_unit" ? `gtceu:neuro_${name}` : `gtceu:wetware_${name}` : `gfs:${tier}_${last_name}`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(inp)
                     .inputFluids(flui)
                     .itemOutputs(`${out_multi}x gfs:${tier}_${name}`)
                     .duration(dur * 20)
-                    .EUt(voltage_to_eu[lessr])
+                    .EUt(voltage_to_eu[lesser])
                     .stationResearch((b) => b
                         .researchStack(Item.of(help))
                         .CWUt(res_cwu, res_dur)
                         .EUt(res_eut)
                     );
             }
+            lastName=name;
         });
     });
 

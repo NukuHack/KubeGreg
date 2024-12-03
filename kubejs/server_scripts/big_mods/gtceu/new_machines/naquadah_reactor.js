@@ -2,7 +2,7 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
-    let [res_cwu, res_dur, res_eut] = tier_to_research["uhv"];
+    let [res_cwu, res_dur, res_eut] = volt_to_research["uhv"];
 
     //Reactor Crafting
     greg.assembly_line('gfs:naquadah_reactor_i')

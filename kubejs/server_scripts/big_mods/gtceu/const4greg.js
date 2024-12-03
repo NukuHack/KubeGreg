@@ -7,7 +7,24 @@ const voltages = [
     "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
 ];
 
-// access just like you would voltage_to_cable["lv"] = "tin"
+const voltage_to_eu = {
+    "lv": 30,//lv
+    "mv": 120,//mv
+    "hv": 480,//hv
+    "ev": 1920,//ev
+    "iv": 7680,//iv
+    "luv": 30720,//luv
+    "zpm": 122880,//zpm
+    "uv": 491520,//uv
+    "uhv": 1966080,//uhv
+    "uev": 7864320,//uev
+    "uiv": 31457280,//uiv
+    "uxv": 125829120,//uxv
+    "opv": 503316480,//opv
+    "max": 2013265920//max
+};
+
+// access just like you would volt_to_cable["lv"] = "tin"
 const volt_to_cable = {
     "lv": "tin",
     "mv": "copper",
@@ -26,14 +43,14 @@ const volt_to_cable = {
 };
 
 const volt_to_material = {
-    // mat 1 wire 2 (wire 1 is in "voltage_to_cable")
+    // mat 1 wire 2 (wire 1 is in "volt_to_cable")
     "lv": ["steel", "copper"],
     "mv": ["aluminium", "cupronickel"],
     "hv": ["stainless_steel", "electrum"],
     "ev": ["titanium", "kanthal"],
     "iv": ["tngsten_steel", "rtm_alloy"],
     "luv": ["rhodium_plated_palladium", "hssg"],
-    // mat 1 mat 2 wire 2 (wire 1 is in "voltage_to_cable")
+    // mat 1 mat 2 wire 2 (wire 1 is in "volt_to_cable")
     "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],// ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
     "uv": ["darmstadtium", "tritanium", "naquadah_alloy"],
     "uhv": ["neutronium", "cryolobus", "ruthenium_trinium_americium_neutronate"],
@@ -52,6 +69,16 @@ const volt_to_extra = {
     "opv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
     "max": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
 };
+
+const volt_to_research = {
+    "luv": [16, 18200 * 0.4 * 20, voltage_to_eu[voltages[5]]],
+    "zpm": [32, 18200 * 0.6 * 20, voltage_to_eu[voltages[6]]],
+    "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],
+    "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
+    "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
+    "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],
+};
+
 
 const volt_to_assembly = {
     "uhv": [`gtceu:naquadria`, 'gtceu:lubricant'],
@@ -128,33 +155,6 @@ const coilS = [
     "tritanium",
 ];
 
-
-const voltage_to_eu = {
-    "lv": 30,//lv
-    "mv": 120,//mv
-    "hv": 480,//hv
-    "ev": 1920,//ev
-    "iv": 7680,//iv
-    "luv": 30720,//luv
-    "zpm": 122880,//zpm
-    "uv": 491520,//uv
-    "uhv": 1966080,//uhv
-    "uev": 7864320,//uev
-    "uiv": 31457280,//uiv
-    "uxv": 125829120,//uxv
-    "opv": 503316480,//opv
-    "max": 2013265920//max
-};
-
-
-const tier_to_research = {
-    "luv": [16, 18200 * 0.4 * 20, voltage_to_eu[voltages[5]]],
-    "zpm": [32, 18200 * 0.6 * 20, voltage_to_eu[voltages[6]]],
-    "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],
-    "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
-    "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
-    "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],
-};
 
 
 const plantSeeds = [

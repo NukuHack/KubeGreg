@@ -58,6 +58,82 @@ ServerEvents.recipes(event => {
                 .EUt(420)
         );
 
+    /*
+
+
+    greg.LCR("gfs:reprocessing_spent_uranium_fuel")
+        .itemInputs("gtceu:spent_uranium_fuel_rod", "gtceu:sulfuric_acid 1000", "gtceu:hydrochloric_acid 1000")
+        .itemOutputs("gtceu:plutonium_dust", "gtceu:reprocessed_uranium 864")
+        .duration(40*20)
+        .EUt(1920); // energy to extract plutonium from spent fuel
+
+    greg.LCR("gfs:reprocessing_uranium")
+        .itemOutputs("gtceu:reprocessed_uranium_dust")
+        .inputFluids("gtceu:sulfuric_acid 1000","gtceu:reprocessed_uranium 1000", "gtceu:hydrochloric_acid 1000")
+        .outputFluids("gtceu:uranium_waste 1000")
+        .duration(40*20)
+        .EUt(7680); // energy to reprocess spent fuel and separate uranium
+
+    greg.assembler("gfs:uranium_fuel")
+        .itemInputs("9x gtceu:uranium_235_dust", "2x gtceu:steel_rod", "gfs:boron_casing")
+        .itemOutputs("gfs:uranium_fuel")
+        .duration(30*20)
+        .EUt(7680); // energy to assemble the fuel rod
+
+    greg.assembler("gfs:uranium_fuel_reprocessed")
+        .itemInputs("9x gtceu:reprocessed_uranium_dust", "2x gtceu:steel_rod", "gfs:boron_casing")
+        .itemOutputs("gfs:uranium_fuel")
+        .duration(40*20)
+        .EUt(7680); // energy to form the reprocessed uranium into fuel rods
+
+
+
+    greg.chemicalReactor("gfs:thorium_fuel")
+        .inputFluids("gtceu:oxygen 24000")
+        .itemInputs("9x gtceu:thorium_dust", "gfs:boron_casing")
+        .itemOutputs("gfs:thorium_fuel")
+        .duration(60*20) // 60 seconds
+        .EUt(7680); // energy to create thorium-based fuel rods
+
+
+    greg.LCR("gfs:reprocessing_spent_thorium_fuel")
+        .itemInputs("gtceu:spent_thorium_fuel_rod", "gtceu:sulfuric_acid 1000", "gtceu:hydrochloric_acid 1000")
+        .itemOutputs("gtceu:uranium_233_dust", "gtceu:reprocessed_thorium 864")
+        .duration(40*20)
+        .EUt(1920);
+
+    greg.LCR("gfs:reprocessing_thorium")
+        .itemOutputs("gtceu:reprocessed_thorium_dust")
+        .inputFluids("gtceu:sulfuric_acid 1000","gtceu:reprocessed_thorium 864", "gtceu:hydrochloric_acid 1000")
+        .outputFluids("gtceu:thorium_waste 1000", "8x gtceu:thorium_dust")
+        .duration(40*20)
+        .EUt(7680);
+
+
+
+    greg.chemicalReactor("gtceu:plutonium_fuel")
+        .itemInputs("9x gtceu:plutonium_dust", "3x gtceu:carbon", "gfs:boron_casing")
+        .itemOutputs("gfs:plutonium_fuel")
+        .duration(60*20)
+        .EUt(7680); // energy to convert plutonium into usable fuel
+
+
+    greg.LCR("gfs:reprocessing_spent_thorium_fuel")
+        .itemInputs("gtceu:spent_thorium_fuel_rod", "gtceu:sulfuric_acid 1000", "gtceu:hydrochloric_acid 1000")
+        .itemOutputs("gtceu:reprocessed_plutonium 864")
+        .duration(40*20)
+        .EUt(1920);
+
+    greg.LCR("gfs:reprocessing_thorium")
+        .itemOutputs("gtceu:reprocessed_thorium_dust")
+        .inputFluids("gtceu:sulfuric_acid 1000","gtceu:reprocessed_plutonium 864", "gtceu:hydrochloric_acid 1000")
+        .outputFluids("gtceu:plutonium_waste 1000","8x gtceu:plutonium_dust")
+        .duration(40*20)
+        .EUt(7680);
+
+
+     */
+
 
     // doing stuff with the depleted variants
     [

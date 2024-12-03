@@ -3,6 +3,21 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
 
+    event.shaped(Item.of('gtceu:tree_greenhouse'), [
+        'WAW',
+        'MHM',
+        'SCS'
+    ], {
+        W: 'gtceu:wrought_iron_plate',
+        A: 'gtceu:iron_axe',
+        M: 'gtceu:lv_electric_motor',
+        H: 'gtceu:lv_machine_hull',
+        S: 'gtceu:steel_plate',
+        C: '#gtceu:circuits/mv'
+    });
+
+
+
     [
         ["oak","minecraft:apple"],
         ["dark_oak","minecraft:apple"],

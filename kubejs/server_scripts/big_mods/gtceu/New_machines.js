@@ -5,13 +5,6 @@
 ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
-	
-    greg.assembler('gfs:huge_chemical_reactor')
-        .itemInputs('gtceu:large_chemical_reactor',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .itemOutputs('gtceu:huge_chemical_reactor')
-        .circuit(23)
-        .duration(20*80)
-        .EUt(480);
 
 
     event.shaped("gfs:compressed_lv_hatch",
@@ -78,45 +71,6 @@ ServerEvents.recipes(event => {
         }
     });
 
-
-    event.shaped(Item.of('gtceu:simple_farm'), [
-        'SPS',
-        'PBP',
-        'SPS'
-    ], {
-        S: 'gtceu:treated_wood_rod',
-        P: 'gtceu:treated_wood_planks',
-        B: '#gtceu:circuits/lv'
-    });
-
-    greg.assembler('gfs:large_cracker')
-        .itemInputs('gtceu:cracker',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .itemOutputs('gtceu:large_cracker')
-        .circuit(23)
-        .duration(20*80)
-        .EUt(480);
-
-
-    greg.assembler('gfs:large_farm')
-        .itemInputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
-        .itemOutputs('gtceu:large_farm')
-        .circuit(23)
-        .duration(20*80)
-        .EUt(480);
-
-
-    event.shaped(Item.of('gtceu:tree_greenhouse'), [
-        'WAW',
-        'MHM',
-        'SCS'
-    ], {
-        W: 'gtceu:wrought_iron_plate',
-        A: 'gtceu:iron_axe',
-        M: 'gtceu:lv_electric_motor',
-        H: 'gtceu:lv_machine_hull',
-        S: 'gtceu:steel_plate',
-        C: '#gtceu:circuits/mv'
-    });
 
 
 

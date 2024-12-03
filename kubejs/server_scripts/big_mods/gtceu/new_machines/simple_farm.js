@@ -3,7 +3,20 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
-    const plants = [
+
+
+    event.shaped(Item.of('gtceu:simple_farm'), [
+        'SPS',
+        'PBP',
+        'SPS'
+    ], {
+        S: 'gtceu:treated_wood_rod',
+        P: 'gtceu:treated_wood_planks',
+        B: '#gtceu:circuits/lv'
+    });
+
+
+    const plantSeeds = [
         ['wheat_seeds', 'wheat'],
         ['', 'carrot'],
         ['', 'potato'],
@@ -20,7 +33,7 @@ ServerEvents.recipes(event => {
         ['pitcher_pod', 'pitcher_plant']
     ];
 
-    plants.forEach(([seed,crop])=>{
+    plantSeeds.forEach(([seed,crop])=>{
 		if (seed=="")
 			seed = crop;
 		

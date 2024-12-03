@@ -3,6 +3,16 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
+
+    greg.assembler('gfs:large_farm')
+        .itemInputs('gtceu:simple_farm',"6x #forge:plates/polyethylene","6x #forge:plates/polytetrafluoroethylene")
+        .itemOutputs('gtceu:large_farm')
+        .circuit(23)
+        .duration(20*80)
+        .EUt(480);
+
+
+
     const plants = [
         ['wheat_seeds', 'wheat'],
         ['', 'carrot'],

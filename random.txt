@@ -12,29 +12,22 @@ max int : 2,147,483,647 .... 2147483647
 
 
 Plan :
-
 	maybe a big vanilla crafter
 
-	sea pickles to Large Farm ... or
-	    maybe a multiblock like Flower Garden for dies
+	maybe a multiblock like Flower Garden for dies (and other related nature stuff)
 
-	make the mixtures like magenta craftable from basic elements like red
+	make the dye mixtures like magenta craftable from basic elements like red
 
     potato concrete
         potato starch + Regolith (lifeless dirt) + salt = best concrete
             potato starch < wet potato s. < potato slurry < crushed potato
             regolith < basalt powder + iron oxides
 
+	void - infinity tier
+
+	ways of getting to the uhv++
 
 	(more) realistic ae2
-
-	fine_ruthenium_trinium_americium_neutronate : wire
-	
-	gfs:quasi_stable_neutron_star
-	
-	gfs:the_ultimate_material
-	
-	sculk_superconductor: wire
 
 
 welp some gitting xD
@@ -49,26 +42,6 @@ Hastelloy: Another nickel-based alloy that offers high strength and resistance t
 Ceramics: Advanced ceramics could also be used in areas where high thermal stability and chemical resistance are critical.
 
 
-let a = [0,1];
-let welp = 0;
-
-function fibo(a){
-    if (x<2){
-        return a[x]
-    }
-    else{
-        welp = a[0]+a[1];
-        return (welp);
-        a[0]=a[1];
-        a[1]=welp;
-    }
-}
-
-let x = 0;
-while (true){
-    console.log(fibo(x));
-    x++;
-}
 
 
 

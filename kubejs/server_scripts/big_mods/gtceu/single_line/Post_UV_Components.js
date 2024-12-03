@@ -17,21 +17,23 @@ ServerEvents.recipes(event => {
 
 
     [
-        [voltages[9], 'omnium', voltage_to_cable[voltages[9]], voltage_to_eu[voltages[8]]],
-        [voltages[10], 'holmium', voltage_to_cable[voltages[10]], voltage_to_eu[voltages[9]]],
-        [voltages[11], 'monium', voltage_to_cable[voltages[11]], voltage_to_eu[voltages[10]]],
+        [voltages[9], 'omnium', volt_to_cable[voltages[9]], voltage_to_eu[voltages[8]]],
+        [voltages[10], 'holmium', volt_to_cable[voltages[10]], voltage_to_eu[voltages[9]]],
+        [voltages[11], 'monium', volt_to_cable[voltages[11]], voltage_to_eu[voltages[10]]],
     ].forEach(([tier, mat, mat_wire, eut], index) => {
         // energy converters
         amper_list.forEach((suffix, index_a) => {
-            let wireType = wire_list[index_a];
-            event.remove({output: `gtceu:${tier}_${suffix}_energy_converter`});
-            event.shaped(Item.of(`gtceu:${tier}_${suffix}_energy_converter`),
-                [' BB', 'AHC', ' BB'], {
-                    A: `gtceu:red_alloy_${wireType}_wire`,
-                    B: `gtceu:${mat_wire}_${wireType}_wire`,
-                    H: `gtceu:${tier}_machine_hull`,
-                    C: `#gtceu:circuits/${tier}`
-                });
+            if (index_a != 1 && index_a != 3) {
+                let wireType = wire_list[index_a];
+                event.remove({output: `gtceu:${tier}_${suffix}_energy_converter`});
+                event.shaped(Item.of(`gtceu:${tier}_${suffix}_energy_converter`),
+                    [' BB', 'AHC', ' BB'], {
+                        A: `gtceu:red_alloy_${wireType}_wire`,
+                        B: `gtceu:${mat_wire}_${wireType}_wire`,
+                        H: `gtceu:${tier}_machine_hull`,
+                        C: `#gtceu:circuits/${tier}`
+                    });
+            }
         });
 
         // energy hatches
@@ -105,9 +107,9 @@ ServerEvents.recipes(event => {
 
     // casing & machine hull
     [
-        [voltages[9], 'omnium', voltage_to_cable[voltages[9]]],
-        [voltages[10], 'infinity', voltage_to_cable[voltages[10]]],
-        [voltages[11], 'monium', voltage_to_cable[voltages[11]]],
+        [voltages[9], 'omnium', volt_to_cable[voltages[9]]],
+        [voltages[10], 'infinity', volt_to_cable[voltages[10]]],
+        [voltages[11], 'monium', volt_to_cable[voltages[11]]],
     ].forEach(([tier, mat_casing, mat_wire]) => {
         event.remove({output: `gtceu:${tier}_machine_hull`});
         event.remove({output: `gtceu:${tier}_machine_casing`});
@@ -252,23 +254,23 @@ ServerEvents.recipes(event => {
     // calling and doing waaaaaay too fucking much
     Post_UV_Components.forEach(([craft_item, BigArray], index_array) => {
         BigArray.forEach(([parts, liquids], index) => {
-            let tier = index + 8;
+            let tier = voltages[index + 8];
             //let tierN = voltages.indexOf(tier);
-            //let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], voltage_to_cable[tier]];
+            //let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], volt_to_cable[tier]];
             //let [solder, rubber] = [volt_to_extra[tier]];
             //let [smd_type, multi, ram_type, small_multi, soc_type, chip_type] = MatTypesHelp[tier];
 
-            let [help, eut] = [voltage_lesser(tier), voltage_to_eu[tier]];
-            let [res_cwu, res_dur, res_eut] = tier_to_research[tier];
+            let [help, eut] = [voltages[index + 7], voltage_to_eu[tier]];
+            let [res_cwu, res_dur, res_eut] = volt_to_research[tier];
 
             greg.assembly_line(`gfs:${tier}_${craft_item}_n_research`)
-                .itemInputs(inp)
-                .inputFluids(in_f)
+                .itemInputs(parts)
+                .inputFluids(liquids)
                 .itemOutputs(`gtceu:${tier}_${craft_item}`)
                 .duration(10 * 20 * (index + 1))
                 .EUt(eut)
-                .stationResearch(b => b
-                    .researchStack(`gtceu:${help}_${craft_item}`)
+                .stationResearch((b) => b
+                    .researchStack(Item.of(`gtceu:${help}_${craft_item}`))
                     .CWUt(res_cwu, res_dur)
                     .EUt(res_eut)
                 );

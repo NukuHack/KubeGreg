@@ -362,7 +362,13 @@ ServerEvents.recipes(event => {
         .inputFluids(
             Fluid.of('gtceu:soldering_alloy', 8192),
         )
-        ["scannerResearch(java.util.function.UnaryOperator)"](b => b.researchStack(Item.of('megacells:mega_energy_cell')).EUt(GTValues.VA[GTValues.IV]).duration(1000))
+        ["scannerResearch(java.util.function.UnaryOperator)"](b => 
+			b.researchStack(Item.of('megacells:mega_energy_cell'))
+			.dataStack(Item.of("gtceu:data_orb"))
+			.EUt(GTValues.VA[GTValues.IV])
+			.duration(1000)
+			)
+			//.stationResearch(b=>b)
         .duration(500)
         .EUt(GTValues.VA[GTValues.LuV]);
 

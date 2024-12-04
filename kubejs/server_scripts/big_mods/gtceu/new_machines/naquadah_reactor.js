@@ -13,6 +13,7 @@ ServerEvents.recipes(event => {
         .EUt(voltage_to_eu["zpm"])
         .stationResearch(b =>
             b.researchStack(Item.of('gtceu:naquadah_bolt'))
+				.dataStack(Item.of("gtceu:data_orb"))
                 .CWUt(res_cwu, res_dur)
                 .EUt(res_eut)
         );
@@ -25,6 +26,7 @@ ServerEvents.recipes(event => {
         .EUt(voltage_to_eu["uv"])
         .stationResearch(b =>
             b.researchStack(Item.of('gtceu:naquadah_reactor_i'))
+				.dataStack(Item.of("gtceu:data_orb"))
                 .CWUt(res_cwu, res_dur)
                 .EUt(res_eut)
         );
@@ -37,6 +39,7 @@ ServerEvents.recipes(event => {
         .EUt(voltage_to_eu["uhv"])
         .stationResearch(b =>
             b.researchStack(Item.of('gtceu:naquadah_reactor_ii'))
+				.dataStack(Item.of("gtceu:data_orb"))
                 .CWUt(res_cwu, res_dur)
                 .EUt(res_eut)
         );

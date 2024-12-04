@@ -270,6 +270,8 @@ ServerEvents.recipes(event => {
                 .duration(10 * 20 * (index + 1))
                 .EUt(eut)
                 .stationResearch((b) => b
+					.researchId(`${Item.of(`gtceu:${help}_${craft_item}`)}_to_gtceu:${tier}_${craft_item}`)
+					.dataStack(Item.of("gtceu:data_orb"))//gtceu:data_module
                     .researchStack(Item.of(`gtceu:${help}_${craft_item}`))
                     .CWUt(res_cwu, res_dur)
                     .EUt(res_eut)

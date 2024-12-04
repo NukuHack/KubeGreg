@@ -121,7 +121,7 @@ ServerEvents.recipes(event => {
         ],
     ];
 
-    let lastName = "not_available";
+	var lastName = "not_available";
 
     // Define crafting themes and tiers
     [
@@ -132,6 +132,8 @@ ServerEvents.recipes(event => {
         "4d",
     ].forEach((type, index_stuff) => {
         Materials.forEach((MaterialHelper, index) => {
+			if (!lastName)
+				let lastName = "not_available";
 
             let tier = voltages[index_stuff + 9];
             let lesser = voltages[index_stuff + 8];
@@ -163,7 +165,8 @@ ServerEvents.recipes(event => {
             } else {
                 // decided to go with uv for every research (for now atleast)
                 let [res_cwu, res_dur, res_eut] = volt_to_research["uv"];
-                let help = (type == "matter" ? name == "processing_unit" ? `gtceu:neuro_${name}` : `gtceu:wetware_${name}` : `gfs:${tier}_${last_name}`);
+                let resHelp = (type == "matter" ? (name == "processing_unit" ? `gtceu:neuro_${name}` : `gtceu:wetware_${name}`) : `gfs:${tier}_${lastName}`);
+				console.log(`${resHelp} is what i try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${lastName}" - Yeah`)
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(inp)
                     .inputFluids(flui)
@@ -171,7 +174,9 @@ ServerEvents.recipes(event => {
                     .duration(dur * 20)
                     .EUt(voltage_to_eu[lesser])
                     .stationResearch((b) => b
-                        .researchStack(Item.of(help))
+						.researchId(`${Item.of(resHelp)}_to_gfs:${tier}_${name}`)
+						.dataStack(Item.of("gtceu:data_module"))
+                        .researchStack(Item.of(resHelp))
                         .CWUt(res_cwu, res_dur)
                         .EUt(res_eut)
                     );

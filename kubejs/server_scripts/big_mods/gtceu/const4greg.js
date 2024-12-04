@@ -62,12 +62,12 @@ const volt_to_material = {
 };
 
 const volt_to_extra = {
-    "uhv": ["soldering_alloy", "gtceu:polybenzimidazole", "styrene_butadiene_rubber"],
-    "uev": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "uiv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "uxv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "opv": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "max": ["soldering_alloy", "gtceu:polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber"],
+    "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
 };
 
 const volt_to_research = {

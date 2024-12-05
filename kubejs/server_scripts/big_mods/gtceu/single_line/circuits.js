@@ -29,6 +29,8 @@ ServerEvents.recipes(event => {
             .EUt(voltage_to_eu["uhv"]);
     });
 
+    function CircuitMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi],
+                              [smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], name) {
         console.log("Fucntion called !!!!!!!!!!! :::");
         console.log([tier, tierN]);
         console.log([mat1, mat2, wire1, wire2]);
@@ -37,9 +39,6 @@ ServerEvents.recipes(event => {
         console.log([[solder, plastic, rubber]]);
         console.log("Done function calls");
 
-    function CircuitMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
-                              [solder, plastic, rubber]) {
-        if (tier == circuitHelp[0])
 
         if (name == circuitHelp[0]) {
             console.log("fist thing run");
@@ -54,11 +53,10 @@ ServerEvents.recipes(event => {
                 ],
                 [`${mat2} ${Math.round(144 * multi / 2)}`],
                 [4, 30],
-            ]
-
-        else if (tier == circuitHelp[1])
-
-            return [
+            ];
+        } else if (name == circuitHelp[1]) {
+            console.log("second thing run");
+            ReturnOutput = [
                 [
                     `${1 * multi}x gfs:${tier}_circuit_board`,
                     `${1 * multi}x #forge:plates/${mat2}`,
@@ -67,10 +65,10 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`],
                 [4, 5],
-            ]
-        else if (tier == circuitHelp[2])
-
-            return [
+            ];
+        } else if (name == circuitHelp[2]) {
+            console.log("3rd thing run");
+            ReturnOutput = [
                 [
                     `${1 * multi}x gfs:${tier}_processing_unit`,
                     `${4 * small_multi}x ${smd_type}_capacitor`,
@@ -80,10 +78,10 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(144 * multi / 2)}`],
                 [4, 7],
-            ]
-        else if (tier == circuitHelp[3])
-
-            return [
+            ];
+        } else if (name == circuitHelp[3]) {
+            console.log("4th thing run");
+            ReturnOutput = [
                 [
                     `${1 * multi}x gfs:${tier}_processing_unit`,
                     `${2 * multi}x gfs:${tier}_processor`,
@@ -96,10 +94,10 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`],
                 [4, 10],
-            ]
-        else if (tier == circuitHelp[4])
-
-            return [
+            ];
+        } else if (name == circuitHelp[4]) {
+            console.log("5th thing run");
+            ReturnOutput = [
                 [
                     `${1 * multi}x gfs:${tier}_processing_unit`,
                     `${1 * multi}x gfs:${tier}_processor_assembly`,
@@ -115,10 +113,10 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`, `${mat2} ${Math.round(144 * multi / 2)}`],
                 [1, 15],
-            ]
-        else if (tier == circuitHelp[5])
-
-            return [
+            ];
+        } else if (name == circuitHelp[5]) {
+            console.log("6th thing run");
+            ReturnOutput = [
                 [
                     `${2 * multi}x #forge:frames/${mat1}`,
                     `${4 * multi}x gfs:${tier}_processor_computer`,
@@ -135,9 +133,13 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(1152 * multi / 2)}`, `${mat2} ${Math.round(288 * multi / 2)}`],
                 [1, 30],
-            ]
+            ];
+        }
+        ;
+        console.log(ReturnOutput);
+        return ReturnOutput;
 
-    }
+    };
 
 
     // Define crafting themes and tiers
@@ -197,8 +199,12 @@ ServerEvents.recipes(event => {
             } else {
                 // decided to go with uv for every research (for now atleast)
                 let [res_cwu, res_dur, res_eut] = volt_to_research["uv"];
-                let resHelp = (type == "matter" ? (name == "processing_unit" ? `gtceu:neuro_${name}` : `gtceu:wetware_${name}`) : `gfs:${lesser}_${nameLesser}`);
                 //console.log(`${res_cwu},${res_dur},${res_eut} is the stuff for research res_cwu,res_dur,res_eut - Assembly`);
+                let resHelp = (name == "processing_unit") ?
+                    ((type == "matter") ?
+                        `gtceu:wetware_processor_mainframe` :
+                        `gfs:${lesser}_processor_mainframe`) :
+                    (`gfs:${tier}_${nameLesser}`);
                 //console.log(`${resHelp} is what I try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${nameLesser}" - Assembly`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(inp)

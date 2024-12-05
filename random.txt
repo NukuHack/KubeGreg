@@ -29,6 +29,10 @@ Plan :
 
 	(more) realistic ae2
 
+mat1 : frame,gear,small_gear,plate,double_plate
+mat2 : plate,long rod,rod,ring,round,screw,dusts
+wire2 : fine_wire,gear,small_gear,large_fluid,rotor,foil
+wire1 : wire,fine_wire
 
 welp some gitting xD
 

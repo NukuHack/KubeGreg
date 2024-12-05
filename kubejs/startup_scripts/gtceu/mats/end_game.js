@@ -17,7 +17,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('metallic')
         .blastTemp(6800, 'higher')
         .fluidPipeProperties(20000, 20000, true, true, true, true)
-        .flags(no_smelt, plates, rod, gear, dense_plate, frame);
+        .flags(no_smelt, plates, rod, gear, dense_plate, frame, long_rod,
+            ring,round,bolt_and_screw );
 
     event.create("cryococcus")
         .ingot()
@@ -37,16 +38,18 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('shiny')
         .fluidPipeProperties(100000, 64000, true, true, true, true)
         .cableProperties(2147483647 / 16, 4, 0, true)
-        .flags(plates, foil, rod, frame, rotor, dense_plate);
+        .flags(plates, foil, rod, frame, rotor, dense_plate,fine_wire,round,
+            bolt_and_screw,ring);
 
     event.create("omnium")
         .ingot()
         .element(GTElements.get("omnium"))
         .color(0xffffff)
         .iconSet('omnium')
-        .flags(plates, rod, long_rod, gear, small_gear, ring, round, bolt_and_screw, frame)
         .cableProperties(2147483647 / 16, 10, 0, true)
-        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill());
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
+        .flags(plates, rod, long_rod, gear, small_gear, ring, round,
+            bolt_and_screw, frame);
 
     event.create('infinity')
         .ingot()
@@ -54,15 +57,17 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xffffff)
         .iconSet('infinity')
         .cableProperties(2147483647, 24, 0, true)
-        .flags(plates, rod, long_rod, ring, round, gear, small_gear, bolt_and_screw, frame, dense_plate);
+        .flags(plates, rod, long_rod, ring, round, gear, small_gear,
+            bolt_and_screw, frame, dense_plate);
 
     event.create('monium')
         .ingot()
         .element(GTElements.get("monium"))
         .color(0xffffff)
         .iconSet('monium')
-        .flags(plates, rod, frame, gear, spring)
-        .cableProperties(2147483647 / 4, 16, 0, true);
+        .cableProperties(2147483647 / 4, 16, 0, true)
+        .flags(plates, rod, frame, gear, spring, small_gear, foil, dense_plate,
+            long_rod,ring,round, bolt_and_screw,fine_wire);
 
     event.create('omnic_acid')
         .dust()
@@ -121,10 +126,12 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .secondaryColor(0x111111)
         .iconSet(NETHERSTAR)
         .ingot()
-        .flags(no_smelt, no_decomp, plates, rod,gear, frame, ring, dense_plate);
+        .flags(no_smelt, no_decomp, plates, rod,gear, frame, ring, dense_plate,
+            gear, small_gear, dense_plate);
 
-//TODO : draconium and awakened draconium
-// 	opv wire (2147483647/4), max wire (2147483647)
+    //TODO : draconium and awakened draconium
+    // opv wire (2147483647/4), max wire (2147483647)
+    // both with atleast with : wire,fine_wire + stellar's because it's fun
 
 
 

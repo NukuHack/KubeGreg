@@ -42,45 +42,6 @@ const volt_to_cable = {
     "max": "infinity",
 };
 
-const circuitHelp = [
-    [
-        // name , out multi, dur
-        'circuit_board',
-        [2, 30],
-    ],
-    [
-        'processing_unit',
-        [2, 5],
-    ],
-    [
-        'processor',
-        [2, 7],
-    ],
-    [
-        'processor_assembly',
-        [2, 10],
-    ],
-    [
-        'processor_computer',
-        [1, 15],
-    ],
-    [
-        'processor_mainframe',
-        [1, 30],
-    ],
-];
-
-const machinePartHelp = [
-    "electric_motor",
-    "electric_piston",
-    "robot_arm",
-    "sensor",
-    "emitter",
-    "field_generator",
-    "conveyor_module",
-    "electric_pump"
-];
-
 const volt_to_material = {
     // mat 1 wire 2 (wire 1 is in "volt_to_cable")
     "lv": ["steel", "copper"],
@@ -109,6 +70,45 @@ const volt_to_extra = {
     "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
     "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
 };
+
+const machinePartHelp = [
+    "electric_motor",
+    "electric_piston",
+    "robot_arm",
+    "sensor",
+    "emitter",
+    "field_generator",
+    "conveyor_module",
+    "electric_pump"
+];
+
+const circuitHelp = [
+    [
+        // name , out multi, dur
+        'circuit_board',
+        [2, 30],
+    ],
+    [
+        'processing_unit',
+        [2, 5],
+    ],
+    [
+        'processor',
+        [2, 7],
+    ],
+    [
+        'processor_assembly',
+        [2, 10],
+    ],
+    [
+        'processor_computer',
+        [1, 15],
+    ],
+    [
+        'processor_mainframe',
+        [1, 30],
+    ],
+];
 
 const volt_to_research = {
     "luv": [16, 18200 * 0.4 * 20, voltage_to_eu[voltages[5]]],

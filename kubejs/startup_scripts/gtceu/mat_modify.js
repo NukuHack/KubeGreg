@@ -15,19 +15,22 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
 	addFluid(GTMaterials.SodiumHydroxide, $FluidStorageKeys.LIQUID);
 	addFluid(GTMaterials.Salt, $FluidStorageKeys.LIQUID);
+	addFluid(GTMaterials.Holmium, $FluidStorageKeys.MOLTEN);
+	addFluid(GTMaterials.Naquadah, $FluidStorageKeys.MOLTEN);
 	// Can be LIQUID, GAS, PLASMA or MOLTEN
 
 
 	GTMaterials.Lead.addFlags(gear);
 	GTMaterials.Silver.addFlags(gear);
 	GTMaterials.Naquadah.addFlags(dense_plate);
-	GTMaterials.NaquadahEnriched.addFlags(dense_plate);
-	GTMaterials.Neutronium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring);
+	GTMaterials.NaquadahEnriched.addFlags(dense_plate,bolt_and_screw);
+	GTMaterials.NaquadahAlloy.addFlags(fine_wire,plates);
+	GTMaterials.Neutronium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring,frame,dense_plate);
 	GTMaterials.Zirconium.addFlags(fine_wire);
 	GTMaterials.RedSteel.addFlags(rod, frame);
 	GTMaterials.SterlingSilver.addFlags(rod, frame);
-	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring, fine_wire);
-	GTMaterials.NaquadahEnriched.addFlags(bolt_and_screw);
+	GTMaterials.Holmium.addFlags(foil, gear, long_rod, plates,rod, rotor, small_gear, ring,round,bolt_and_screw, fine_wire);
+
 
 
 });

@@ -63,7 +63,9 @@ event.create('activated_netherite')
     .color(0x4C484C)
     .iconSet(DULL)
     .cableProperties(8388608, 8, 0, true)
-    .flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring);
+    .fluidPipeProperties(140000, 100000, true, true, true, true)
+    .flags(plates, rod, frame, dense_plate, fine_wire, rotor, spring,
+        gear, small_gear, foil);
 
 event.create('naquadic_netherite')
     .gem(0)
@@ -81,7 +83,7 @@ event.create('weapon_grade_naquadaria')
     .iconSet(DULL)
     .cableProperties(8388608*4, 8, 0, true)
     .blastTemp(10000, 'high', VA('uv'), 6000)
-    .flags(foil, gear, long_rod, plates,
+    .flags(foil, gear, long_rod, plates, fine_wire,
         rod, rotor, small_gear, ring, frame);
 
 event.create('screret_runic_laser_source_base')

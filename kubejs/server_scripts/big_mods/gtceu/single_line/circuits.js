@@ -186,9 +186,10 @@ ServerEvents.recipes(event => {
                 //console.log(`${res_cwu},${res_dur},${res_eut} is the stuff for research res_cwu,res_dur,res_eut - Assembly`);
                 let resHelp = (name == "processing_unit") ?
                     ((type == "matter") ?
-                        `gtceu:wetware_processor_mainframe` :
-                        `gfs:${lesser}_processor_mainframe`) :
-                    (`gfs:${tier}_${nameLesser}`);
+                        `wetware_processor_mainframe` :
+                        `${lesser}_processor_mainframe`) :
+                    (`${tier}_${nameLesser}`);
+				let resHelpSecond = resHelp=="wetware_processor_mainframe"?"gtceu":`gfs`;
                 //console.log(`${resHelp} is what I try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${nameLesser}" - Assembly`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(solids)
@@ -197,9 +198,9 @@ ServerEvents.recipes(event => {
                     .duration(dur * 20)
                     .EUt(voltage_to_eu[lesser])
                     .stationResearch((b) => b
-                        .researchId(`${Item.of(resHelp)}_to_gfs:${tier}_${name}`)
-                        .dataStack(Item.of("gtceu:data_module"))
-                        .researchStack(Item.of(resHelp))
+                        .researchId(`research/${resHelpSecond}_${resHelp}_to_gfs_${tier}_${name}`)
+                        .dataStack("gtceu:data_module")
+						.researchStack(`${resHelpSecond}:${resHelp}`)
                         .CWUt(res_cwu, res_dur)
                         .EUt(res_eut)
                     );

@@ -39,6 +39,7 @@ ServerEvents.recipes(event => {
         console.log([[solder, plastic, rubber]]);
         console.log("Done function calls");
 
+        let ReturnOutput = [];
 
         if (name == circuitHelp[0]) {
             console.log("fist thing run");

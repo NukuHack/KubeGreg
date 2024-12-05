@@ -29,7 +29,6 @@ ServerEvents.recipes(event => {
             .EUt(voltage_to_eu["uhv"]);
     });
 
-    const circuitHelp = ['circuit_board', 'processing_unit', 'processor', 'processor_assembly', 'processor_computer', 'processor_mainframe',];
 
     function CircuitMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
                               [solder, plastic, rubber]) {

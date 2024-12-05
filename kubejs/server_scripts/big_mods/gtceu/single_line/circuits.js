@@ -177,11 +177,11 @@ ServerEvents.recipes(event => {
             // I just hate function calls inside recipe creations
             let [inp, flui, [out_multi, dur]] = CircuitMaterials(
                 //((tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi],
-                //[smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber])
+                //[smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], name)
                 tier, tierNumber,
                 [mat1, mat2, wire1, wire2],
                 multi_s, type_s,
-                liq_help
+                liq_help, name
             );
             //console.log(`${index} ID ${out_multi} try for a out_multi`);
             //console.log(`${index} ID ${dur} try for a duration`);

@@ -42,7 +42,43 @@ const volt_to_cable = {
     "max": "infinity",
 };
 
-const circuitHelp = ['circuit_board', 'processing_unit', 'processor', 'processor_assembly', 'processor_computer', 'processor_mainframe',];
+const circuitHelp = [
+    [
+        'circuit_board',
+        [4, 30],
+    ],
+    [
+        'processing_unit',
+        [4, 5],
+    ],
+    [
+        'processor',
+        [4, 7],
+    ],
+    [
+        'processor_assembly',
+        [4, 10],
+    ],
+    [
+        'processor_computer',
+        [1, 15],
+    ],
+    [
+        'processor_mainframe',
+        [1, 30],
+    ],
+];
+
+const machinePartHelp = [
+    "electric_motor",
+    "electric_piston",
+    "robot_arm",
+    "sensor",
+    "emitter",
+    "field_generator",
+    "conveyor_module",
+    "electric_pump"
+];
 
 const volt_to_material = {
     // mat 1 wire 2 (wire 1 is in "volt_to_cable")
@@ -64,12 +100,12 @@ const volt_to_material = {
 };
 
 const volt_to_extra = {
-    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber"],
-    "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
-    "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber"],
+    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:gtceu:naquada', 'gtceu:tin'],
+    "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
+    "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
+    "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
+    "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
+    "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
 };
 
 const volt_to_research = {
@@ -82,66 +118,57 @@ const volt_to_research = {
 };
 
 
-const volt_to_assembly = {
-    "uhv": [`gtceu:naquadria`, 'gtceu:lubricant'],
-    "uev": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
-    "uiv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
-    "uxv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
-    "opv": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
-    "max": [`gtceu:crystal_matrix`, `gtceu:naquadria`, 'gtceu:lubricant'],
-};
-
-
 //TODO : make this better
 // this is only needed inside the circuits
-const MatTypesHelp = {
+const volt_to_small = {
     "uhv": [[
-        1, 1],
+        // main stuff, circuit and stuff, liquid or soc
+        1, 1, 1],
         ["gfs:xyz_smd",
-        "gfs:xyz_ram",
-        "gfs:xyz_soc",
-        "gfs:xyz_chip",
-        "gfs:xyz_uhcp_chip",],
+            "gfs:xyz_ram",
+            "gfs:xyz_soc",
+            "gfs:xyz_chip",
+            "gfs:xyz_uhcp_chip",],
     ],
     "uev": [[
-        2, 2],
+        1.2, 1, 1.5],
         ["gfs:xyz_smd",
-        "gfs:xyz_ram",
-        "gfs:xyz_soc",
-        "gfs:xyz_chip",
-        "gfs:xyz_uhcp_chip",],
+            "gfs:xyz_ram",
+            "gfs:xyz_soc",
+            "gfs:xyz_chip",
+            "gfs:xyz_uhcp_chip",],
     ],
     "uiv": [[
-        1, 1],
+        1.4, 1, 2],
         ["gfs:xy_smd",
-        "gfs:xy_ram",
-        "gfs:xy_soc",
-        "gfs:xy_chip",
-        "gfs:xy_uhcp_chip",],
+            "gfs:xy_ram",
+            "gfs:xy_soc",
+            "gfs:xy_chip",
+            "gfs:xy_uhcp_chip",],
     ],
     "uxv": [[
-        2, 2],
+        1.6, 1, 2.5],
         ["gfs:xy_smd",
-        "gfs:xy_ram",
-        "gfs:xy_soc",
-        "gfs:xy_chip",
-        "gfs:xy_uhcp_chip",],
+            "gfs:xy_ram",
+            "gfs:xy_soc",
+            "gfs:xy_chip",
+            "gfs:xy_uhcp_chip",],
     ],
     "opv": [[
-        2, 2],
+        1.8, 1, 3],
         ["gfs:xy_smd",
-        "gfs:xy_ram",
-        "gfs:xy_soc",
-        "gfs:xy_chip",
-        "gfs:xy_uhcp_chip",],
+            "gfs:xy_ram",
+            "gfs:xy_soc",
+            "gfs:xy_chip",
+            "gfs:xy_uhcp_chip",],
     ],
     "max": [[
-        2, 2],
+        2, 1, 3.5],
         ["gfs:xy_smd",
-        "gfs:xy_ram",
-        "gfs:xy_soc",
-        "gfs:xy_chip",
-        "gfs:xy_uhcp_chip",],
+            "gfs:xy_ram",
+            "gfs:xy_soc",
+            "gfs:xy_chip",
+            "gfs:xy_uhcp_chip",],
     ],
 };
 
@@ -156,7 +183,6 @@ const coilS = [
     "trinium",
     "tritanium",
 ];
-
 
 
 const plantSeeds = [

@@ -136,100 +136,170 @@ ServerEvents.recipes(event => {
     });
 
 
-    // Define motor configurations in an array
-    const motorConfigs = [
-        // 1x magnet long rod, 4x mat2 long rod, 4x mat2 ring, 8x mat2 round, 2x64 wire2 fine wire, 2x wire1 wire
-        [['gtceu:long_magnetic_samarium_rod', '8x gtceu:long_neutronium_rod', '8x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '32x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '4x gtceu:tritanium_quadruple_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['gtceu:long_magnetic_samarium_rod', '8x gtceu:long_omnium_rod', '8x gtceu:omnium_ring', '16x gtceu:omnium_round', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '4x gtceu:tritanium_octal_cable'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
-        [['gtceu:long_magnetic_samarium_rod', '12x gtceu:long_infinity_rod', '12x gtceu:infinity_ring', '24x gtceu:infinity_round', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '4x gtceu:tritanium_hex_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
+// Function for defining machine part materials
+    function MachinePartsMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, multi_small, multi_l],
+                                   [solder, lube, assembling, extra], name) {
+        console.log("MachinePartsMaterials Function called!");
+        //console.log([tier, tierN]);
 
+        let ReturnOutput = [];
 
-    // Define piston configurations in an array
-    const pistonConfigs = [
-        // 4x mat2 plate, 4x mat2 ring, 16x mat2 round,4x mat2 rod, 1x wire2 gear, 2x wire2 small_gear
-        [['4x gtceu:neutronium_plate', '4x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '4x gtceu:neutronium_rod', 'gtceu:neutronium_gear', '2x gtceu:small_neutronium_gear', '2x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['4x gtceu:omnium_plate', '4x gtceu:omnium_ring', '16x gtceu:omnium_round', '4x gtceu:omnium_rod', 'gtceu:omnium_gear', '2x gtceu:small_omnium_gear', '2x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
-        [['4x gtceu:infinity_plate', '4x gtceu:infinity_ring', '16x gtceu:infinity_round', '4x gtceu:infinity_rod', 'gtceu:infinity_gear', '2x gtceu:small_infinity_gear', '2x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
+        if (name == machinePartHelp[0]) { // Electric Motor
+            //console.log("Electric Motor run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi)}x #forge:long_rods/${magnet}`,
+                    `${Math.round(4 * multi)}x #forge:long_rods/${mat2}`,
+                    `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
+                    `${Math.round(8 * multi)}x #forge:rounds/${mat2}`,
+                    `${Math.round(2 * 64 * multi)}x #forge:fine_wires/${wire2}`,
+                    `${Math.round(2 * multi)}x gtceu:${mat1}_single_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${lube} ${Math.round(2000 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[1]) { // Electric Piston
+            //console.log("Electric Piston run");
+            ReturnOutput = [
+                [
+                    `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
+                    `${Math.round(16 * multi)}x #forge:rounds/${mat2}`,
+                    `${Math.round(4 * multi)}x #forge:rods/${mat1}`,
+                    `${Math.round(1 * multi)}x #forge:gears/${mat2}`,
+                    `${Math.round(2 * multi)}x #forge:small_gears/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${lube} ${Math.round(2000 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[2]) { // Robot Arm
+            //console.log("Robot Arm run");
+            ReturnOutput = [
+                [
+                    `${Math.round(2 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(2 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
+                    `${Math.round(16 * multi)}x #forge:rounds/${mat2}`,
+                    `${Math.round(4 * multi)}x #forge:screws/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${lube} ${Math.round(2000 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[3]) { // Sensor
+            //console.log("Sensor run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(1 * multi)}x gtceu:${mat2}_huge_fluid_pipe`,
+                    `${Math.round(2 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(8 * multi)}x #forge:screws/${mat2}`,
+                    `${Math.round(32 * multi)}x #forge:rings/${rubber}`,
+                    `${Math.round(1 * multi_small)}x gtceu:${wire2}_rotor`,
+                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${lube} ${Math.round(2000 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[4]) { // Emitter
+            //console.log("Emitter run");
+            ReturnOutput = [
+                [
+                    `${Math.round(4 * multi)}x #forge:long_rods/${mat2}`,
+                    `${Math.round(1 * multi)}x #forge:gears/${mat1}`,
+                    `${Math.round(3 * multi)}x #forge:small_gears/${mat1}`,
+                    `${Math.round(2 * multi)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(1 * multi)}x gtceu:${tier}_electric_piston`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(2 * multi_small)}x #gtceu:circuits/${voltages[tierN - 1]}`,
+                    `${Math.round(4 * multi_small)}x #gtceu:circuits/${voltages[tierN - 2]}`,
+                    `${Math.round(4 * multi)}x gtceu:${mat1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${lube} ${Math.round(2000 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[5]) { // Field Generator
+            //console.log("Field Generator run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi)}x gtceu:${mat1}_frame`,
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(4 * multi)}x #forge:plates/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(64 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(32 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[6]) { // Conveyor Module
+            //console.log("Conveyor Module run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi)}x gtceu:${mat1}_frame`,
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(4 * multi)}x #forge:long_rods/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(64 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(32 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[7]) { // Electric Pump
+            //console.log("Electric Pump run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi)}x gtceu:${mat1}_frame`,
+                    `${Math.round(6 * multi)}x #forge:plates/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_emitter`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(2 * 64 * multi)}x #forge:fine_wires/${wire2}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `${solder} ${Math.round(5760 * multi_l)}`,
+                    `${assembling} ${Math.round(1152 * multi_l)}`,
+                    `${extra} ${Math.round(576 * multi_l)}`
+                ],
+            ];
+        }
 
-
-    // Define the conveyor configurations in an array
-    const conveyorConfigs = [
-        // 2x motor, 2x mat2 plate, 4x mat2 ring, 16x mat2 round,4x mat2 screw, 2x wire1 wire
-        [['2x gtceu:uhv_electric_motor', '2x gtceu:neutronium_plate', '4x gtceu:neutronium_ring', '16x gtceu:neutronium_round', '4x gtceu:neutronium_screw', '2x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:polyether_ether_ketone'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['2x gtceu:uev_electric_motor', '2x gtceu:omnium_plate', '4x gtceu:omnium_ring', '16x gtceu:omnium_round', '4x gtceu:omnium_screw', '2x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:polyether_ether_ketone'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
-        [['2x gtceu:uiv_electric_motor', '2x gtceu:infinity_plate', '4x gtceu:infinity_ring', '16x gtceu:infinity_round', '4x gtceu:infinity_screw', '2x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:polyether_ether_ketone'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
-
-
-    // Define the pump configurations in an array
-    const pumpConfigs = [
-        // wire2 large_fluid, 2x mat2 plate, 8x mat2 screw, 16x rubber ring, wire2 rotor, 2x wire1 wire
-        [['gtceu:uhv_electric_motor', 'gtceu:crystal_matrix_huge_fluid_pipe', '2x gtceu:neutronium_plate', '8x gtceu:neutronium_screw', '32x gtceu:neutronium_ring', 'gtceu:crystal_matrix_rotor', '2x gtceu:europium_double_cable',],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['gtceu:uev_electric_motor', 'gtceu:activated_netherite_huge_fluid_pipe', '2x gtceu:omnium_plate', '8x gtceu:omnium_screw', '48x gtceu:omnium_ring', 'gtceu:activated_netherite_rotor', '2x gtceu:activated_netherite_double_wire',],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
-        [['gtceu:uiv_electric_motor', 'gtceu:holmium_huge_fluid_pipe', '2x gtceu:infinity_plate', '8x gtceu:infinity_screw', '64x gtceu:infinity_ring', 'gtceu:holmium_rotor', '2x gtceu:holmium_double_wire',],
-            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
-
-
-    // Define the robot arm configurations in an array
-    const robotArmConfigs = [
-        // 4x mat2 long rod, 1x mat1 gear, 3x mat1 small_gear, 2 motor, 1 piston, circuit, 2 circuit-1, 4 circuit-2, 4x wire1 wire
-        [['4x gtceu:long_neutronium_rod', 'gtceu:neutronium_gear', '3x gtceu:small_neutronium_gear', '3x gtceu:uhv_electric_motor', 'gtceu:uhv_electric_piston', '#gtceu:circuits/uhv', '2x #gtceu:circuits/uv', '4x #gtceu:circuits/zpm', '4x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:lubricant'} ${2000}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['4x gtceu:long_omnium_rod', 'gtceu:omnium_gear', '3x gtceu:small_omnium_gear', '3x gtceu:uev_electric_motor', 'gtceu:uev_electric_piston', '#gtceu:circuits/uev', '2x #gtceu:circuits/uhv', '4x #gtceu:circuits/uv', '4x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:lubricant'} ${3000}`, `${'gtceu:crystal_matrix'} ${1152 * 2}`, `${'gtceu:naquadria'} ${576 * 2}`],],
-        [['4x gtceu:long_infinity_rod', 'gtceu:infinity_gear', '3x gtceu:small_infinity_gear', '3x gtceu:uiv_electric_motor', 'gtceu:uiv_electric_piston', '#gtceu:circuits/uiv', '2x #gtceu:circuits/uev', '4x #gtceu:circuits/uhv', '4x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${5760 * 2}`, `${'gtceu:lubricant'} ${4000}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
-
-
-    // Define the sensor configurations in an array
-    const sensorConfigs = [
-        // mat1 frame, motor, 4x mat2 plate, gravi_star, 2x circuit, 2,5x64 wire2 foil, 4x wire1 wire
-        [['gtceu:neutronium_frame', 'gtceu:uhv_electric_motor', '4x gtceu:neutronium_plate', '2x gtceu:gravi_star', '#gtceu:circuits/uhv', '64x gtceu:naquadria_foil', '32x gtceu:naquadria_foil', '4x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${5760}`, `${'gtceu:crystal_matrix'} ${1152}`, `${'gtceu:naquadria'} ${576}`],],
-        [['gtceu:omnium_frame', 'gtceu:uev_electric_motor', '4x gtceu:omnium_plate', 'gfs:quasi_stable_neutron_star', '#gtceu:circuits/uev', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
-        [['gtceu:infinity_frame', 'gtceu:uiv_electric_motor', '4x gtceu:infinity_plate', '2x gfs:quasi_stable_neutron_star', '#gtceu:circuits/uiv', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
-
-
-    // Define the emitter configurations in an array
-    const emitterConfigs = [
-        // mat1 frame, motor, 4x mat2 long rod, gravi_star, 2x circuit, 2,5x64 wire2 foil, 4x wire1 wire
-        [['gtceu:neutronium_frame', 'gtceu:uhv_electric_motor', '4x gtceu:neutronium_rod', '2x gtceu:gravi_star', '#gtceu:circuits/uhv', '64x gtceu:naquadria_foil', '32x gtceu:naquadria_foil', '4x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${11520 / 2}`, `${'gtceu:crystal_matrix'} ${5760 / 4}`, `${'gtceu:naquadria'} ${2304 / 4}`],],
-        [['gtceu:omnium_frame', 'gtceu:uev_electric_motor', '4x gtceu:omnium_rod', 'gfs:quasi_stable_neutron_star', '#gtceu:circuits/uev', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
-        [['gtceu:infinity_frame', 'gtceu:uiv_electric_motor', '4x gtceu:infinity_rod', '2x gfs:quasi_stable_neutron_star', '#gtceu:circuits/uiv', '64x gtceu:crystal_matrix_foil', '32x gtceu:crystal_matrix_foil', '4x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
-
-
-    // Define the field generator configurations in an array
-    const fieldGeneratorConfigs = [
-        // mat1 frame, motor, 6x mat2 plate, gravi_star, 2x emitter, 2x circuit, 2x64 wire1 fine_wire, 4x wire1 wire
-        [['gtceu:neutronium_frame', '6x gtceu:neutronium_plate', '2x gtceu:gravi_star', '2x gtceu:uhv_emitter', '2x #gtceu:circuits/uhv', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '64x gtceu:fine_ruthenium_trinium_americium_neutronate_wire', '4x gtceu:europium_double_cable'],
-            [`${'gtceu:soldering_alloy'} ${11520 / 2}`, `${'gtceu:crystal_matrix'} ${5760 / 4}`, `${'gtceu:naquadria'} ${2304 / 4}`],],
-        [['gtceu:omnium_frame', '6x gtceu:omnium_plate', 'gfs:quasi_stable_neutron_star', '2x gtceu:uev_emitter', '2x #gtceu:circuits/uev', '64x gtceu:fine_activated_netherite_wire', '64x gtceu:fine_activated_netherite_wire', '4x gtceu:activated_netherite_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${7680}`, `${'gtceu:crystal_matrix'} ${5760 / 2}`, `${'gtceu:naquadria'} ${2304 / 2}`],],
-        [['gtceu:infinity_frame', '6x gtceu:infinity_plate', '2x gfs:quasi_stable_neutron_star', '2x gtceu:uiv_emitter', '2x #gtceu:circuits/uiv', '64x gtceu:fine_holmium_wire', '64x gtceu:fine_holmium_wire', '4x gtceu:holmium_double_wire'],
-            [`${'gtceu:soldering_alloy'} ${11520}`, `${'gtceu:crystal_matrix'} ${5760}`, `${'gtceu:naquadria'} ${2304}`],],
-    ];
+        console.log(ReturnOutput);
+        return ReturnOutput;
+    }
 
 
     //wire2 : fine_wire,gear,small_gear,large_fluid,rotor,foil

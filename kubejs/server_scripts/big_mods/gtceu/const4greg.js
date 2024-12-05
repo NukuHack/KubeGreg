@@ -42,6 +42,8 @@ const volt_to_cable = {
     "max": "infinity",
 };
 
+const circuitHelp = ['circuit_board', 'processing_unit', 'processor', 'processor_assembly', 'processor_computer', 'processor_mainframe',];
+
 const volt_to_material = {
     // mat 1 wire 2 (wire 1 is in "volt_to_cable")
     "lv": ["steel", "copper"],

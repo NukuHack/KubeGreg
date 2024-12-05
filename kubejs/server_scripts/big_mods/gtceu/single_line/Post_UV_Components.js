@@ -240,44 +240,55 @@ ServerEvents.recipes(event => {
     // amount*(2**index)
     // amount*(index+1)
 
-    const Post_UV_Components = [
-        ["electric_motor", motorConfigs],
-        ["electric_piston", pistonConfigs],
-        ["robot_arm", robotArmConfigs],
-        ["sensor", sensorConfigs],
-        ["emitter", emitterConfigs],
-        ["field_generator", fieldGeneratorConfigs],
-        ["conveyor_module", conveyorConfigs],
-        ["electric_pump", pumpConfigs],
-    ];
+    machinePartHelp.forEach((name) => {
+        [
+            'uhv', "uev", "uiv", "uxv", "opv",
+            //"max",
+        ].forEach((tier, index) => {
 
-    // calling and doing waaaaaay too fucking much
-    Post_UV_Components.forEach(([craft_item, BigArray], index_array) => {
-        BigArray.forEach(([parts, liquids], index) => {
-            let tier = voltages[index + 8];
-            //let tierN = voltages.indexOf(tier);
-            //let [[mat1, mat2, wire2], wire1] = [volt_to_material[tier], volt_to_cable[tier]];
-            //let [solder, rubber] = [volt_to_extra[tier]];
-            //let [smd_type, multi, ram_type, small_multi, soc_type, chip_type] = MatTypesHelp[tier];
+            let tierN = 8 + index;
 
-            let [help, eut] = [voltages[index + 7], voltage_to_eu[tier]];
-            let [res_cwu, res_dur, res_eut] = volt_to_research[tier];
+            let lesser = voltages[index_stuff + 7];
+            //console.log(`${index} ID ${lesser} is the lesser`);
+            let tierNumber = index_stuff + 9;
+            //console.log(`${index} ID ${tierNumber} is the tierNumber`);
+            let [mat1, mat2, wire2] = volt_to_material[tier];
+            //console.log(`${index} ID [${mat1}, ${mat2}, ${wire2}] is the mats`);
+            let wire1 = volt_to_cable[tier];
+            //console.log(`${index} ID [${wire1}] is the wire1`);
+            let [solder, poly, rubber, lube, assembling, extra] = volt_to_extra[tier];
+            //console.log(`${index} ID ${liq_help} is the liq_help`);
+            let [[multi, multi_small, multi_l], type_s] = volt_to_small[tier];
+            //console.log(`${index} ID ${multi_s} ${type_s} is the multi,type stuff`);
 
-            greg.assembly_line(`gfs:${tier}_${craft_item}_n_research`)
-                .itemInputs(parts)
-                .inputFluids(liquids)
-                .itemOutputs(`gtceu:${tier}_${craft_item}`)
-                .duration(10 * 20 * (index + 1))
-                .EUt(eut)
+            //(tier, tierN, [mat1, mat2, wire1, wire2], [multi, multi_small, multi_l],
+            //[solder, lube, assembling, extra], name)
+            let [solid, liquid] = MachinePartsMaterials(
+                tier, tierN,
+                [mat1, mat2, wire1, wire2],
+                [multi, multi_small, multi_l],
+                [solder, lube, assembling, extra],
+                name
+            );
+
+            let [res_cwu, res_dur, res_eut] = volt_to_research[lesser];
+
+            greg.assembly_line(`gfs:${tier}_${name}_n_research`)
+                .itemInputs(solid)
+                .inputFluids(liquid)
+                .itemOutputs(`gtceu:${tier}_${name}`)
+                .duration(20 * 20)
+                .EUt(voltage_to_eu[lesser])
                 .stationResearch((b) => b
-					.researchId(`${Item.of(`gtceu:${help}_${craft_item}`)}_to_gtceu:${tier}_${craft_item}`)
-					.dataStack(Item.of("gtceu:data_orb"))//gtceu:data_module
-                    .researchStack(Item.of(`gtceu:${help}_${craft_item}`))
+                    .researchId(`${Item.of(`gtceu:${lesser}_${name}`)}_to_gtceu:${tier}_${name}`)
+                    .dataStack(Item.of("gtceu:data_orb"))//gtceu:data_module
+                    .researchStack(Item.of(`gtceu:${tier}_${name}`))
                     .CWUt(res_cwu, res_dur)
                     .EUt(res_eut)
                 );
         });
     });
+
 
     // Define the fluid regulator configurations as arrays
     [

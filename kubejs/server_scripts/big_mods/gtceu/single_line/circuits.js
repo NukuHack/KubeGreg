@@ -30,9 +30,9 @@ ServerEvents.recipes(event => {
     });
 
     function CircuitMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, multi_small, multi_soc],
-                              [smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], name) {
-        console.log("CircuitMaterials Function called !");
-        console.log([tier, tierN]);
+                              [smd_type, ram_type, soc_type, pic_type], [solder, plastic, rubber], name) {
+        //console.log("CircuitMaterials Function called !");
+        //console.log([tier, tierN]);
 
         let ReturnOutput = [];
 
@@ -43,20 +43,20 @@ ServerEvents.recipes(event => {
                     `${Math.round(16 * multi)}x #forge:foils/${wire1}`,
                     `${Math.round(16 * multi)}x #forge:foils/${mat2}`,
                     `${Math.round(2 * multi_small)}x ${tierN == 9 ? `gtceu:neuro` : `gfs:${voltages[tierN - 1]}`}_processing_unit`,
-                    `${Math.round(1 * multi_small)}x gregtech:circuits/${voltages[tierN - 3]}`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${voltages[tierN - 3]}`,
                     `${Math.round(4 * multi)}x #forge:dusts/${mat2}`,
                 ],
-                [`${mat2} ${Math.round(144 * multi / 2)}`],
+                [`gtceu:${mat2} ${Math.round(144 * multi / 2)}`],
             ];
         } else if (name == circuitHelp[1][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_circuit_board`,
-                    `${Math.round(1 * multi)}x #forge:plates/${mat2}`,
+                    `${Math.round(2 * multi)}x #forge:plates/${mat2}`,
+                    `${Math.round(16 * multi)}x #forge:foils/${rubber}`,
                     `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
-                    `${Math.round(1 * multi_soc)}x ${soc_type}`,
                 ],
-                [`${solder} ${Math.round(576 * multi / 2)}`],
+                [`gtceu:${solder} ${Math.round(576 * multi / 2)}`],
             ];
         } else if (name == circuitHelp[2][0]) {
             ReturnOutput = [
@@ -64,46 +64,49 @@ ServerEvents.recipes(event => {
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(2 * multi_soc)}x ${smd_type}_transistor`,
-                    `${Math.round(2 * multi_soc)}x ${chip_type}`,
+                    `${Math.round(2 * multi_soc)}x ${soc_type}`,
                     `${Math.round(2 * multi)}x gtceu:${wire1}_single_wire`,
                 ],
-                [`${solder} ${Math.round(144 * multi / 2)}`],
+                [`gtceu:${solder} ${Math.round(144 * multi / 2)}`],
             ];
         } else if (name == circuitHelp[3][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
                     `${Math.round(2 * multi_small)}x gfs:${tier}_processor`,
-                    `${Math.round(6 * multi_soc)}x ${chip_type}`,
+                    `${Math.round(24 * multi_soc)}x ${ram_type}`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(3 * multi_soc)}x ${smd_type}_transistor`,
+                    `${Math.round(3 * multi_soc)}x ${smd_type}_inductor`,
                     `${Math.round(2 * multi_soc)}x ${smd_type}_resistor`,
-                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                    `${Math.round(2 * multi)}x #forge:fine_wires/${wire1}`,
                     `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
                 ],
-                [`${solder} ${Math.round(576 * multi / 2)}`],
+                [`gtceu:${solder} ${Math.round(576 * multi / 2)}`],
             ];
         } else if (name == circuitHelp[4][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processor_assembly`,
-                    `${Math.round(12 * multi_soc)}x ${chip_type}`,
+                    `${Math.round(12 * multi_soc)}x ${ram_type}`,
                     `${Math.round(6 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_transistor`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_diode`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_resistor`,
-                    `${Math.round(4 * multi_soc)}x ${uhcp_type}`,
-                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
-                    `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
-                    `${Math.round(4 * multi)}x #forge:foils/${plastic}`,
+                    `${Math.round(4 * multi_soc)}x ${pic_type}`,
+                    `${Math.round(12 * multi)}x #forge:fine_wires/${wire1}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire2}_double_wire`,
+                    `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(16 * multi)}x #forge:foils/${plastic}`,
                 ],
-                [`${solder} ${Math.round(576 * multi / 2)}`, `${mat2} ${Math.round(144 * multi / 2)}`],
+                [`gtceu:${solder} ${Math.round(576 * multi / 2)}`, `gtceu:${mat2} ${Math.round(144 * multi / 2)}`],
             ];
         } else if (name == circuitHelp[5][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(2 * multi)}x #forge:frames/${mat1}`,
+                    `${Math.round(2 * multi)}x #forge:double_plates/${mat1}`,
                     `${Math.round(4 * multi_small)}x gfs:${tier}_processor_computer`,
                     `${Math.round(4 * multi)}x #forge:plates/${mat2}`,
                     `${Math.round(12 * multi_soc)}x ${smd_type}_capacitor`,
@@ -112,15 +115,15 @@ ServerEvents.recipes(event => {
                     `${Math.round(6 * multi_soc)}x ${smd_type}_resistor`,
                     `${Math.round(6 * multi_soc)}x ${smd_type}_inductor`,
                     `${Math.round(16 * multi_soc)}x ${ram_type}`,
-                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
-                    `${Math.round(4 * multi)}x gtceu:${wire2}_double_wire`,
-                    `${Math.round(8 * multi)}x #forge:foils/${plastic}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_single_wire`,
+                    `${Math.round(6 * multi)}x gtceu:${wire2}_double_wire`,
+                    `${Math.round(64 * multi)}x #forge:foils/${plastic}`,
                 ],
-                [`${solder} ${Math.round(1152 * multi / 2)}`, `${mat2} ${Math.round(288 * multi / 2)}`],
+                [`gtceu:${solder} ${Math.round(1152 * multi / 2)}`, `gtceu:${mat2} ${Math.round(288 * multi / 2)}`],
             ];
         }
 
-        console.log(ReturnOutput);
+        //console.log(ReturnOutput);
         return ReturnOutput;
     }
 
@@ -133,9 +136,9 @@ ServerEvents.recipes(event => {
         'cosmic',
         "4d",
     ].forEach((type, index_stuff) => {
-        circuitHelp.forEach(([name, [out_multi, dur]], index) => {
+        circuitHelp.forEach(([name,[out_multi, dur],], index) => {
             let tier = voltages[index_stuff + 9];
-            console.log(`${index} ID ${tier} is the tier made from ${index_stuff + 9}`);
+            //console.log(`${index} ID ${tier} is the tier made from ${index_stuff + 9}`);
             let lesser = voltages[index_stuff + 8];
             //console.log(`${index} ID ${lesser} is the lesser`);
             let tierNumber = index_stuff + 9;
@@ -149,15 +152,15 @@ ServerEvents.recipes(event => {
             let [[multi, multi_small, multi_soc], type_s] = volt_to_small[tier];
             //console.log(`${index} ID ${multi_s} ${type_s} is the multi,type stuff`);
 
-            console.log(`${index} ID ${name} is the name AKA crafted item type`);
-            let nameLesser = index == 0 ? "noo" : circuitHelp[index - 1];
+            //console.log(`${index} ID ${name} is the name AKA crafted item type`);
+            let nameLesser = index == 0 ? "noo" : circuitHelp[index - 1][0];
             //console.log(`${index} ID ${nameLesser} is the nameLesser aka name before this`);
 
             // maybe I will just make a function for every type of circuit stuff, so it will just calculate it that time when it's called ....
             // I just hate function calls inside recipe creations
             let [solids, liquids] = CircuitMaterials(
                 //((tier, tierN, [mat1, mat2, wire1, wire2], [multi,multi_small,multi_soc],
-                //[smd_type, ram_type, soc_type, chip_type, uhcp_type], [solder, plastic, rubber], name)
+                //[smd_type, ram_type, soc_type, pic_type], [solder, plastic, rubber], name)
                 tier, tierNumber,
                 [mat1, mat2, wire1, wire2],
                 [multi, multi_small, multi_soc], type_s,

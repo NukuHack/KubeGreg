@@ -43,7 +43,7 @@ ServerEvents.recipes(event => {
                 event.remove({output: `gtceu:${tier}_energy_${type}_hatch${v}`})
             )
             // single energy hatches
-            greg.assembly_line(`gtceu:${tier}_energy_${type}_hatch`)
+            greg.assembly_line(`gfs:${tier}_energy_${type}_hatch`)
                 .itemInputs(
                     `gtceu:${tier}_machine_hull`,
                     `4x gtceu:${mat_wire}_spring`,
@@ -61,7 +61,7 @@ ServerEvents.recipes(event => {
                 [amper_list[4], wire_list[4]],
             ].forEach(([v, w], index_amper) =>
                 // multi energy hatches
-                greg.assembler(`${tier}_energy_${type}_hatch_${v}`)
+                greg.assembler(`gfs:${tier}_energy_${type}_hatch_${v}`)
                     .itemInputs(
                         `gtceu:${tier}_energy_${type}_hatch_${v == "4a" ? "" : "4a"}`,
                         `2x gtceu:${mat}_plate`,
@@ -86,7 +86,7 @@ ServerEvents.recipes(event => {
                     ["target", "emitter"],
                     ["source", "sensor"],
                 ].forEach(([type, specialInput], index_io) =>
-                    greg.assembler(`${tier}_${suffix}_laser_${type}_hatch`)
+                    greg.assembler(`gfs:${tier}_${suffix}_laser_${type}_hatch`)
                         .itemInputs(
                             `gtceu:${tier}_machine_hull`,
                             `${multi}x gtceu:diamond_lens`,
@@ -115,7 +115,7 @@ ServerEvents.recipes(event => {
         event.remove({output: `gtceu:${tier}_machine_casing`});
 
         // Hull assembler
-        greg.assembler(`${tier}_hull`)
+        greg.assembler(`gfs:${tier}_hull`)
             .itemInputs(
                 `gtceu:${tier}_machine_casing`,
                 `2x gtceu:${mat_wire}_single_wire`,
@@ -127,7 +127,7 @@ ServerEvents.recipes(event => {
 
 
         // Casing assembler
-        greg.assembler(`${tier}_casing`)
+        greg.assembler(`gfs:${tier}_casing`)
             .itemInputs(`8x gtceu:${mat_casing}_plate`)
             .itemOutputs(`gtceu:${tier}_machine_casing`)
             .circuit(8)

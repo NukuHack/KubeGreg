@@ -116,7 +116,10 @@ const volt_to_research = {
     "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],
     "uhv": [32 * 3, 18200 * 1 * 20, voltage_to_eu[voltages[8]]],
     "uev": [32 * 4, 18200 * 1.2 * 20, voltage_to_eu[voltages[9]]],
-    "uiv": [32 * 5, 18200 * 1.44 * 20, voltage_to_eu[voltages[10]]],
+    "uiv": [32 * 5, 18200 * 1.5 * 20, voltage_to_eu[voltages[10]]],
+    "uxv": [32 * 6, 18200 * 1.6 * 20, voltage_to_eu[voltages[11]]],
+    "opv": [32 * 8, 18200 * 2 * 20, voltage_to_eu[voltages[12]]],
+    "max": [32 * 10, 18200 * 3 * 20, voltage_to_eu[voltages[13]]],
 };
 
 

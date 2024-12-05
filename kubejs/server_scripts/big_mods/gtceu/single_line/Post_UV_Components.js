@@ -46,7 +46,7 @@ ServerEvents.recipes(event => {
             greg.assembly_line(`gfs:${tier}_energy_${type}_hatch`)
                 .itemInputs(
                     `gtceu:${tier}_machine_hull`,
-                    `4x gtceu:${mat_wire}_spring`,
+                    `4x #forge:springs/${mat_wire}`,
                     `2x gtceu:uhpic_chip`,
                     `#gtceu:circuits/${tier}`,
                     `2x gtceu:${mat}_double_wire`
@@ -92,11 +92,11 @@ ServerEvents.recipes(event => {
                             `${multi}x gtceu:diamond_lens`,
                             `${multi}x gtceu:${tier}_${specialInput}`,
                             `${multi}x gtceu:${tier}_electric_pump`,
-                            `4x gtceu:${mat_wire}_${wire}`
+                            `4x gtceu:${mat_wire}_${wire}_wire`
                         )
                         .itemOutputs(`gtceu:${tier}_${suffix}_laser_${type}_hatch`)
                         .circuit(index_laser + 1 * (index_io == 0 ? 1 : 6))
-                        .duration(400)
+                        .duration(20*20)
                         .EUt(eut)
                 )
             );
@@ -119,8 +119,8 @@ ServerEvents.recipes(event => {
             .itemInputs(
                 `gtceu:${tier}_machine_casing`,
                 `2x gtceu:${mat_wire}_single_wire`,
-                `2x gtceu:polyether_ether_ketone_plate`
             )
+            .inputFluids("gtceu:polyether_ether_ketone 288")
             .itemOutputs(`gtceu:${tier}_machine_hull`)
             .duration(5 * 20)
             .EUt(16);

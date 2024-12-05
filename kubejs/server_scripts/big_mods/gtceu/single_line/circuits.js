@@ -29,12 +29,21 @@ ServerEvents.recipes(event => {
             .EUt(voltage_to_eu["uhv"]);
     });
 
+        console.log("Fucntion called !!!!!!!!!!! :::");
+        console.log([tier, tierN]);
+        console.log([mat1, mat2, wire1, wire2]);
+        console.log([[multi, small_multi]]);
+        console.log([[smd_type, ram_type, soc_type, chip_type, uhcp_type]]);
+        console.log([[solder, plastic, rubber]]);
+        console.log("Done function calls");
 
     function CircuitMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, small_multi], [smd_type, ram_type, soc_type, chip_type, uhcp_type],
                               [solder, plastic, rubber]) {
         if (tier == circuitHelp[0])
 
-            return [
+        if (name == circuitHelp[0]) {
+            console.log("fist thing run");
+            ReturnOutput = [
                 [
                     `${4 * multi}x #forge:plates/${mat1}`,
                     `${16 * multi}x #forge:foils/${wire1}`,
@@ -159,7 +168,7 @@ ServerEvents.recipes(event => {
 
             console.log(`${index} ID ${name} is the name AKA crafted item type`);
             let nameLesser = index == 0 ? "noo" : circuitHelp[index - 1];
-            console.log(`${index} ID ${nameLesser} is the nameLesser aka name before this`);
+            //console.log(`${index} ID ${nameLesser} is the nameLesser aka name before this`);
 
             // maybe I will just make a function for every type of circuit stuff, so it will just calculate it that time when it's called ....
             // I just hate function calls inside recipe creations
@@ -173,8 +182,8 @@ ServerEvents.recipes(event => {
             );
             //console.log(`${index} ID ${out_multi} try for a out_multi`);
             //console.log(`${index} ID ${dur} try for a duration`);
-            console.log(`${index} ID ${inp} try for a Input`);
-            console.log(`${index} ID ${flui} try for a Input(fluid)`);
+            //console.log(`${index} ID ${inp} try for a Input`);
+            //console.log(`${index} ID ${flui} try for a Input(fluid)`);
 
             if (name == 'circuit_board') {
                 // something like : monic_circuit_board
@@ -188,9 +197,9 @@ ServerEvents.recipes(event => {
             } else {
                 // decided to go with uv for every research (for now atleast)
                 let [res_cwu, res_dur, res_eut] = volt_to_research["uv"];
-                console.log(`${res_cwu},${res_dur},${res_eut} is the stuff for research res_cwu,res_dur,res_eut - Assembly`);
                 let resHelp = (type == "matter" ? (name == "processing_unit" ? `gtceu:neuro_${name}` : `gtceu:wetware_${name}`) : `gfs:${lesser}_${nameLesser}`);
-                console.log(`${resHelp} is what I try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${nameLesser}" - Assembly`);
+                //console.log(`${res_cwu},${res_dur},${res_eut} is the stuff for research res_cwu,res_dur,res_eut - Assembly`);
+                //console.log(`${resHelp} is what I try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${nameLesser}" - Assembly`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(inp)
                     .inputFluids(flui)

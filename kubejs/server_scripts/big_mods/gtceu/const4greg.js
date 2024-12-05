@@ -44,20 +44,21 @@ const volt_to_cable = {
 
 const circuitHelp = [
     [
+        // name , out multi, dur
         'circuit_board',
-        [4, 30],
+        [2, 30],
     ],
     [
         'processing_unit',
-        [4, 5],
+        [2, 5],
     ],
     [
         'processor',
-        [4, 7],
+        [2, 7],
     ],
     [
         'processor_assembly',
-        [4, 10],
+        [2, 10],
     ],
     [
         'processor_computer',

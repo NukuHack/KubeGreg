@@ -36,7 +36,7 @@ ServerEvents.recipes(event => {
 
         let ReturnOutput = [];
 
-        if (name == circuitHelp[0]) {
+        if (name == circuitHelp[0][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
@@ -48,7 +48,7 @@ ServerEvents.recipes(event => {
                 ],
                 [`${mat2} ${Math.round(144 * multi / 2)}`],
             ];
-        } else if (name == circuitHelp[1]) {
+        } else if (name == circuitHelp[1][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_circuit_board`,
@@ -58,7 +58,7 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`],
             ];
-        } else if (name == circuitHelp[2]) {
+        } else if (name == circuitHelp[2][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
@@ -69,7 +69,7 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(144 * multi / 2)}`],
             ];
-        } else if (name == circuitHelp[3]) {
+        } else if (name == circuitHelp[3][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
@@ -83,7 +83,7 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`],
             ];
-        } else if (name == circuitHelp[4]) {
+        } else if (name == circuitHelp[4][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
@@ -100,7 +100,7 @@ ServerEvents.recipes(event => {
                 ],
                 [`${solder} ${Math.round(576 * multi / 2)}`, `${mat2} ${Math.round(144 * multi / 2)}`],
             ];
-        } else if (name == circuitHelp[5]) {
+        } else if (name == circuitHelp[5][0]) {
             ReturnOutput = [
                 [
                     `${Math.round(2 * multi)}x #forge:frames/${mat1}`,

@@ -312,11 +312,11 @@ ServerEvents.recipes(event => {
         ].forEach((tier, index) => {
 
             let tierN = 8 + index;
+            //console.log(`${index} ID ${tierN} is the tierNumber`);
 
-            let lesser = voltages[index_stuff + 7];
+            let lesser = voltages[index + 6];
             //console.log(`${index} ID ${lesser} is the lesser`);
-            let tierNumber = index_stuff + 9;
-            //console.log(`${index} ID ${tierNumber} is the tierNumber`);
+			
             let [mat1, mat2, wire2] = volt_to_material[tier];
             //console.log(`${index} ID [${mat1}, ${mat2}, ${wire2}] is the mats`);
             let wire1 = volt_to_cable[tier];
@@ -332,9 +332,9 @@ ServerEvents.recipes(event => {
                 tier, tierN,
                 [mat1, mat2, wire1, wire2],
                 [multi, multi_small, multi_l],
-                [solder, lube, assembling, extra],
+                [solder, poly, rubber, lube, assembling, extra],
                 name
-            );
+            )||["2x minecraft:iron_ingot","minecraft:water 1000"];
 
             let [res_cwu, res_dur, res_eut] = volt_to_research[lesser];
 
@@ -345,9 +345,9 @@ ServerEvents.recipes(event => {
                 .duration(20 * 20)
                 .EUt(voltage_to_eu[lesser])
                 .stationResearch((b) => b
-                    .researchId(`${Item.of(`gtceu:${lesser}_${name}`)}_to_gtceu:${tier}_${name}`)
-                    .dataStack(Item.of("gtceu:data_orb"))//gtceu:data_module
-                    .researchStack(Item.of(`gtceu:${tier}_${name}`))
+                    .researchId(`research/gtceu_${lesser}_${name}_to_gtceu_${tier}_${name}`)
+                    .dataStack("gtceu:data_orb")//gtceu:data_module
+                    .researchStack(`gtceu:${tier}_${name}`)
                     .CWUt(res_cwu, res_dur)
                     .EUt(res_eut)
                 );

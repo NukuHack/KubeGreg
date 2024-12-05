@@ -138,9 +138,11 @@ ServerEvents.recipes(event => {
 
 // Function for defining machine part materials
     function MachinePartsMaterials(tier, tierN, [mat1, mat2, wire1, wire2], [multi, multi_small, multi_l],
-                                   [solder, lube, assembling, extra], name) {
-        console.log("MachinePartsMaterials Function called!");
+                                   [solder, poly, rubber, lube, assembling, extra], name) {
+        //console.log("MachinePartsMaterials Function called!");
         //console.log([tier, tierN]);
+		
+		let magnet = "magnetic_samarium";
 
         let ReturnOutput = [];
 
@@ -297,18 +299,11 @@ ServerEvents.recipes(event => {
             ];
         }
 
-        console.log(ReturnOutput);
+        //console.log(ReturnOutput);
         return ReturnOutput;
     }
 
 
-    //wire2 : fine_wire,gear,small_gear,large_fluid,rotor,foil
-    //wire1 : wire,fine_wire
-    //mat1 : frame,gear,small_gear
-    //mat2 : plate,long rod,rod,ring,round,screw
-
-    // amount*(2**index)
-    // amount*(index+1)
 
     machinePartHelp.forEach((name) => {
         [

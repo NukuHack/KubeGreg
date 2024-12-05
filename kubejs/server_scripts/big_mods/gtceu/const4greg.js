@@ -101,12 +101,13 @@ const volt_to_material = {
 };
 
 const volt_to_extra = {
-    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:gtceu:naquada', 'gtceu:tin'],
-    "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
-    "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
-    "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
-    "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
-    "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'gtceu:lubricant', 'gtceu:crystal_matrix', 'gtceu:naquadria'],
+    "uv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquada', 'tin'],
+    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquada', 'tin'],
+    "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
+    "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
+    "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
+    "opv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
+    "max": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
 };
 
 const volt_to_research = {

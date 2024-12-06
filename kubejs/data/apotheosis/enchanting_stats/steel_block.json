@@ -1,0 +1,11 @@
+{
+	"block": "gtceu:steel_block",
+	"stats": {
+		"maxEterna": 50,
+		"eterna": 10,
+		"quanta": 10,
+		"arcana": 10,
+		"rectification": 10,
+		"clues": 1
+	}
+}

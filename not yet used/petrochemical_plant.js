@@ -1,6 +1,6 @@
  GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
      event.create('petrochemical_plant')
-         .category('petrochemical_plant')
+         .category('gfs')
          .setEUIO('in')
          .setMaxIOSize(2, 2, 2, 10)
          .setSound(GTSoundEntries.SCIENCE);

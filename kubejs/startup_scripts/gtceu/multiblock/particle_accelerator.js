@@ -1,7 +1,7 @@
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 //Steam Engine
     event.create('particle_accelerator')
-        .category('multiblock')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(1, 1, 2, 2) //Max Item Inputs, Max Item Outputs, Max Fluid Inputs, Max Fluid Outputs
         //.setProgressBar(GuiTextures.PROGRESS_BAR_ARROW, FillDirection.LEFT_TO_RIGHT)

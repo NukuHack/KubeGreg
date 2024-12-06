@@ -1,7 +1,7 @@
 
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('large_quantum_compressor')
-        .category('large_quantum_compressor')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(18, 1, 0, 0)
         .setSound(GTSoundEntries.ARC);

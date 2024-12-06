@@ -4,7 +4,7 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 // Normal mode-exclusive Multis
 // Simulation Supercomputer
     event.create('simulation_supercomputer')
-        .category('multiblock')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(2, 2, 0, 0)
         .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
@@ -14,7 +14,7 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 
 // Loot Superfabricator
     event.create('loot_superfabricator')
-        .category('multiblock')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(2, 1, 0, 0)
         .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)

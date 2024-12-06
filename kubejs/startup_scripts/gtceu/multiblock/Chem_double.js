@@ -1,12 +1,12 @@
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('chemical_plant')
-        .category('chemical_plant')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(9, 9, 9, 9)
         .setSound(GTSoundEntries.CHEMICAL);
 
     event.create('chemical_builder')
-        .category('chemical_builder')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(3, 1, 3, 1)
         .setSound(GTSoundEntries.CHEMICAL);

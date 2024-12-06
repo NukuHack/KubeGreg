@@ -1,7 +1,7 @@
 // const LargeTurbineMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.generator.LargeTurbineMachine')
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('nuclear_turbine')
-        .category('nuclear_turbine')
+        .category('gfs')
         .setEUIO('out')
         .setMaxIOSize(0, 0, 1, 1)
         .setSound(GTSoundEntries.TURBINE);

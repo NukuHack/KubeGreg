@@ -1,7 +1,7 @@
 
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('cool_assembler')
-        .category('cool_assembler')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(2, 1, 0, 0)
         .setSound(GTSoundEntries.ELECTROLYZER);

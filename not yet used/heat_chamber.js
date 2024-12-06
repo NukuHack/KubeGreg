@@ -1,7 +1,7 @@
 
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('heat_chamber')
-        .category('heat_chamber')
+        .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(4, 4, 4, 4)
         .setSound(GTSoundEntries.ARC);

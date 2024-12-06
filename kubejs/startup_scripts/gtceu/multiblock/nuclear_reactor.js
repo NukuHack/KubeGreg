@@ -1,6 +1,6 @@
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
     event.create('nuclear_reactor')
-        .category('nuclear_reactor')
+        .category('gfs')
         .setEUIO('out')
         .setMaxIOSize(2, 1, 1, 1)
         .setSound(GTSoundEntries.ARC);

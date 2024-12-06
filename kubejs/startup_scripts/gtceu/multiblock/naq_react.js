@@ -2,7 +2,7 @@
 GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
 // Naquadah Reactor I Recipe type
 event.create('naquadah_reactor_i')
-    .category('multiblock')
+    .category('gfs')
     .setEUIO('out')
     .setMaxIOSize(1, 1, 0, 0)
     .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
@@ -11,7 +11,7 @@ event.create('naquadah_reactor_i')
 
 // Naqudah Reactor II Recipe Type
 event.create('naquadah_reactor_ii')
-    .category('multiblock')
+    .category('gfs')
     .setEUIO('out')
     .setMaxIOSize(1, 1, 0, 0)
     .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)
@@ -20,7 +20,7 @@ event.create('naquadah_reactor_ii')
 	
 // Naqudah Reactor III Recipe Type
 event.create('naquadah_reactor_iii')
-    .category('multiblock')
+    .category('gfs')
     .setEUIO('out')
     .setMaxIOSize(1, 1, 0, 0)
     .setSlotOverlay(false, false, GuiTextures.SOLIDIFIER_OVERLAY)

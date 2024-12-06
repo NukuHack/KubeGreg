@@ -1,8 +1,19 @@
+GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
+    event.create('assembly')
+        .category('gfs')
+        .setEUIO('in')
+        .setMaxIOSize(9, 9, 9, 9)
+        .setProgressBar(new ResourceTexture("gfs:textures/gui/progress_bar_reconstuction.png"), FillDirection.LEFT_TO_RIGHT)
+        .setSound(GTSoundEntries.CHEMICAL);
+
+});
+
 
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create('best_assembly', 'multiblock')
         .rotationState(RotationState.NON_Y_AXIS)
         .recipeType('assembly')
+        .appearanceBlock(() => Block.getBlock('gfs:void_casing'))
         .recipeModifiers([GTRecipeModifiers.ELECTRIC_OVERCLOCK.apply(OverclockingLogic.PERFECT_OVERCLOCK)])
         .pattern(definition => FactoryBlockPattern.start()
             .aisle(' SSS     MCM     SSS ', 'S   S           S   S', 'S   S           S   S', 'S   S           S   S', ' SSS             SSS ', '                     ', '                     ', '                     ', '                     ', '                     ', ' SSS SSS SSS SSS SSS ', 'S   S   SPPPS   S   S', 'S   S   SPPPS   S   S', 'S   S   SPPPS   S   S', ' SSS SSS SSS SSS SSS ')
@@ -31,17 +42,17 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('SFFFSDDDDMCMDDDDSFFFS', ' HHH             HHH ', ' HHH             HHH ', ' HHH             HHH ', 'SFFFS           SFFFS', '  M               M  ', '  M               M  ', '                     ', '  M               M  ', '  M               M  ', 'SFFFS   SPPPS   SFFFS', ' HHHSHHHSHHHSHHHSHHH ', ' HHHSHHHSHHHSHHHSHHH ', ' HHHSHHHSHHHSHHHSHHH ', 'S   S   SPPPS   S   S')
             .aisle(' SSS     MCM     SSS ', 'S   S           S   S', 'S   S           S   S', 'S   S           S   S', ' SSS             SSS ', '                     ', '                     ', '                     ', '                     ', '                     ', ' SSS SSS SSS SSS SSS ', 'S   S   SPPPS   S   S', 'S   S   SPPPS   S   S', 'S   S   SPPPS   S   S', ' SSS SSS SSS SSS SSS ')
             .where('K', Predicates.controller(Predicates.blocks(definition.get())))
-            .where('P', Predicates.blocks('kubejs:prismalium_casing')
+            .where('P', Predicates.blocks('gfs:void_casing')
                 .or(Predicates.autoAbilities(definition.getRecipeTypes()))
                 .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))
             .where('H', Predicates.heatingCoils())
-            .where('D', Predicates.blocks('kubejs:dragonsteel_casing'))
-            .where('M', Predicates.blocks('kubejs:melodium_casing'))
-            .where('S', Predicates.blocks('kubejs:stellarium_casing'))
+            .where('D', Predicates.blocks('gfs:blue_casing'))
+            .where('M', Predicates.blocks('gfs:netherite_casing'))
+            .where('S', Predicates.blocks('gfs:green_casing'))
             .where('C', Predicates.blocks(GTBlocks.FUSION_CASING_MK3.get()))
             .where('F', Predicates.blocks(GTBlocks.FUSION_COIL.get()))
             .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("kubejs:block/casings/casing-prismalium",
+        .workableCasingRenderer("gfs:block/casings/void",
             "gtceu:block/multiblock/implosion_compressor", false);
 });

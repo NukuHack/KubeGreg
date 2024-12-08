@@ -53,6 +53,8 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('F', Predicates.blocks(GTBlocks.FUSION_COIL.get()))
             .where(' ', Predicates.any())
             .build())
-        .workableCasingRenderer("gfs:block/casings/void",
-            "gtceu:block/multiblock/implosion_compressor", false);
+        .workableCasingRenderer(
+            "gfs:block/casings/void",
+            "gtceu:block/multiblock/implosion_compressor", false
+        );
 });

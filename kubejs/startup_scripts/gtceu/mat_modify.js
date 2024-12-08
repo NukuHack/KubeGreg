@@ -13,11 +13,11 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 		mat.setProperty(PropertyKey.FLUID, prop);
 	}
 
+	// Can be LIQUID, GAS, PLASMA or MOLTEN
 	addFluid(GTMaterials.SodiumHydroxide, $FluidStorageKeys.LIQUID);
 	addFluid(GTMaterials.Salt, $FluidStorageKeys.LIQUID);
 	addFluid(GTMaterials.Holmium, $FluidStorageKeys.MOLTEN);
-	addFluid(GTMaterials.Naquadah, $FluidStorageKeys.MOLTEN);
-	// Can be LIQUID, GAS, PLASMA or MOLTEN
+	//addFluid(GTMaterials.Naquadah, $FluidStorageKeys.MOLTEN);
 
 
 	GTMaterials.Lead.addFlags(gear);

@@ -3,7 +3,9 @@ GTCEuStartupEvents.registry('gtceu:recipe_type', event => {
         .category('gfs')
         .setEUIO('in')
         .setMaxIOSize(9, 9, 9, 9)
-        .setProgressBar(new ResourceTexture("gfs:textures/gui/progress_bar_reconstuction.png"), FillDirection.LEFT_TO_RIGHT)
+        //TODO : make this nicer
+        //.setProgressBar(new ResourceTexture("gfs:textures/gui/progress_bar_reconstuction.png"), FillDirection.LEFT_TO_RIGHT)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_EXTRACT, FillDirection.LEFT_TO_RIGHT)
         .setSound(GTSoundEntries.CHEMICAL);
 
 });

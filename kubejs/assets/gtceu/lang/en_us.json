@@ -69,6 +69,7 @@
     "gtceu.naquadah_reactor_iii": "Naquadah Reactor III",
     "gtceu.nuclear_reactor": "Nuclear Reactor",
     "gtceu.nuclear_turbine": "Nuclear Turbine",
+    "gtceu.best_assembly": "Best Assembly",
 
     "block.gtceu.large_farm": "§uLarge Farm",
     "block.gtceu.simple_farm": "§uSimple Farm",
@@ -90,6 +91,7 @@
     "block.gtceu.giant_fusion_reactor": "§uPara-Fusion Reactor (MKIV)",
     "block.gtceu.mega_fusion_reactor": "§uMega-Fusion Reactor (MKV)",
     "block.gtceu.particle_accelerator": "§uParticle Accelerator",
+    "block.gtceu.best_assembly": "Best Assembly",
 
     "block.gtceu.hv_inscriber": "§6Inscriber§r",
     "block.gtceu.ev_inscriber": "§5Advanced Inscriber§r",

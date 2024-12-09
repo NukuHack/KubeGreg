@@ -86,19 +86,19 @@ const circuitHelp = [
     [
         // name , out multi, dur
         'circuit_board',
-        [2, 30],
+        [4, 30],
     ],
     [
         'processing_unit',
-        [2, 5],
+        [1, 5],
     ],
     [
         'processor',
-        [2, 7],
+        [1, 7],
     ],
     [
         'processor_assembly',
-        [2, 10],
+        [1, 10],
     ],
     [
         'processor_computer',
@@ -160,6 +160,7 @@ const volt_to_small = {
             "gfs:hyperflux_smd",
             "gfs:hyperdynamic_ram_chip",
             "gfs:quantum_soc_chip",
+			// needs a better pic type (cus num reset)
             "gtceu:uhpic_chip",
         ],
     ],

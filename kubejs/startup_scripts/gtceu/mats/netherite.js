@@ -54,7 +54,7 @@ event.create('pure_netherite')
     .iconSet(DULL)
     .fluidPipeProperties(120000, 96000, true, true, true, true)
     .blastTemp(7000, 'high', VA('ev'), 1200)
-    .flags(foil, gear, long_rod, plates,
+    .flags(foil, frame, gear, long_rod, plates,
         rod, rotor, small_gear, ring);
 
 event.create('activated_netherite')

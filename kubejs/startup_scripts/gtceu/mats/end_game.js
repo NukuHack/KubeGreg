@@ -17,7 +17,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('metallic')
         .blastTemp(6800, 'higher')
         .fluidPipeProperties(20000, 20000, true, true, true, true)
-        .flags(no_smelt, plates, rod, gear, dense_plate, frame, long_rod,
+        .flags(no_smelt, plates,small_gear, rod, gear, dense_plate, frame, long_rod,
             ring,round,bolt_and_screw );
 
     event.create("cryococcus")
@@ -49,7 +49,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .cableProperties(2147483647 / 16, 10, 0, true)
         .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .flags(plates, rod, long_rod, gear, small_gear, ring, round,
-            bolt_and_screw, frame);
+            bolt_and_screw, frame, foil, fine_wire);
 
     event.create('infinity')
         .ingot()
@@ -57,7 +57,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xffffff)
         .iconSet('infinity')
         .cableProperties(2147483647, 24, 0, true)
-        .flags(plates, rod, long_rod, ring, round, gear, small_gear,
+        .flags(plates, rod, foil, long_rod, ring, round, gear, small_gear,
             bolt_and_screw, frame, dense_plate);
 
     event.create('monium')
@@ -66,6 +66,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0xffffff)
         .iconSet('monium')
         .cableProperties(2147483647 / 4, 16, 0, true)
+        .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .flags(plates, rod, frame, gear, spring, small_gear, foil, dense_plate,
             long_rod,ring,round, bolt_and_screw,fine_wire);
 

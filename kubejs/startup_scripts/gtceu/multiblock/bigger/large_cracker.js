@@ -4,8 +4,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .recipeType("cracker")
         .recipeModifiers([GTRecipeModifiers.PARALLEL_HATCH, (machine, recipe) => GTRecipeModifiers.crackerOverclock(machine, recipe)])
         .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
-        .pattern((definition) =>
-            FactoryBlockPattern.start()
+        .pattern(definition => FactoryBlockPattern.start()
                 .aisle("AAAAAAAAA", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ")
                 .aisle("AAAAAAAAA", "AAGGGGGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGGGGGAA", "AAAAAAAAA")
                 .aisle("AAAAAAAAA", " G     G ", " G     G ", " G     G ", " G     G ", " G     G ", " GGGGGGG ")
@@ -20,7 +19,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                 .aisle("AAAAAAAAA", "AAGGGGGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGGGGGAA", "AAAAAAAAA")
                 .aisle("AAAACAAAA", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ")
                 .where("C", Predicates.controller(Predicates.blocks(definition.get())))
-                .where("F", Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(200)
+                .where("A", Predicates.blocks(GTBlocks.CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(200)
                     .or(Predicates.autoAbilities(definition.getRecipeTypes()))
                     .or(Predicates.abilities(PartAbility.PARALLEL_HATCH).setMaxGlobalLimited(1))
                     .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))

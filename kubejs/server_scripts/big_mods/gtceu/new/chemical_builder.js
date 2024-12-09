@@ -50,7 +50,7 @@ ServerEvents.recipes(event => {
     event.recipes.gtceu.chemical_builder('phenol')
         .itemInputs('6x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 6000', 'gtceu:oxygen 1000')
-        .outputFluids('gtceu:propene 1000')
+        .outputFluids('gtceu:phenol 1000')
         .duration(240)
         .EUt(GTValues.VHA[GTValues.IV])
         .circuit(4);
@@ -98,7 +98,7 @@ ServerEvents.recipes(event => {
     event.recipes.gtceu.chemical_builder('octane')
         .itemInputs('8x gtceu:carbon_dust')
         .inputFluids('gtceu:hydrogen 18000')
-        .outputFluids('gtceu:acetone 1000')
+        .outputFluids('gtceu:octane 1000')
         .duration(240)
         .EUt(GTValues.VHA[GTValues.IV])
         .circuit(10);

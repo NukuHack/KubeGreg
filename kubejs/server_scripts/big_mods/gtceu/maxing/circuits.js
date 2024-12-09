@@ -41,7 +41,7 @@ ServerEvents.recipes(event => {
                 [
                     `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
                     `${Math.round(16 * multi)}x #forge:foils/${wire1}`,
-                    `${Math.round(16 * multi)}x #forge:foils/${mat2}`,
+                    `${Math.round(16 * multi)}x #forge:foils/${mat2==wire1?wire2:mat2}`,
                     `${Math.round(2 * multi_small)}x ${tierN == 9 ? `gtceu:neuro` : `gfs:${voltages[tierN - 1]}`}_processing_unit`,
                     `${Math.round(1 * multi_small)}x #gtceu:circuits/${voltages[tierN - 3]}`,
                     `${Math.round(4 * multi)}x #forge:dusts/${mat2}`,
@@ -74,12 +74,12 @@ ServerEvents.recipes(event => {
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
                     `${Math.round(2 * multi_small)}x gfs:${tier}_processor`,
-                    `${Math.round(24 * multi_soc)}x ${ram_type}`,
+                    `${Math.round(6 * multi_soc)}x ${ram_type}`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(3 * multi_soc)}x ${smd_type}_transistor`,
                     `${Math.round(3 * multi_soc)}x ${smd_type}_inductor`,
                     `${Math.round(2 * multi_soc)}x ${smd_type}_resistor`,
-                    `${Math.round(2 * multi)}x #forge:fine_wires/${wire1}`,
+                    `${Math.round(2 * multi)}x gtceu:${wire1}_single_wire`,
                     `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
                 ],
                 [`gtceu:${solder} ${Math.round(576 * multi / 2)}`],
@@ -88,7 +88,7 @@ ServerEvents.recipes(event => {
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi_small)}x gfs:${tier}_processing_unit`,
-                    `${Math.round(1 * multi_small)}x gfs:${tier}_processor_assembly`,
+                    `${Math.round(2 * multi_small)}x gfs:${tier}_processor_assembly`,
                     `${Math.round(12 * multi_soc)}x ${ram_type}`,
                     `${Math.round(6 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(4 * multi_soc)}x ${smd_type}_transistor`,
@@ -98,7 +98,7 @@ ServerEvents.recipes(event => {
                     `${Math.round(12 * multi)}x #forge:fine_wires/${wire1}`,
                     `${Math.round(4 * multi)}x gtceu:${wire2}_double_wire`,
                     `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
-                    `${Math.round(16 * multi)}x #forge:foils/${plastic}`,
+                    `${Math.round(8 * multi)}x #forge:foils/${plastic}`,
                 ],
                 [`gtceu:${solder} ${Math.round(576 * multi / 2)}`, `gtceu:${mat2} ${Math.round(144 * multi / 2)}`],
             ];
@@ -106,8 +106,8 @@ ServerEvents.recipes(event => {
             ReturnOutput = [
                 [
                     `${Math.round(2 * multi)}x #forge:frames/${mat1}`,
+                    `${Math.round(2 * multi_small)}x gfs:${tier}_processor_computer`,
                     `${Math.round(2 * multi)}x #forge:double_plates/${mat1}`,
-                    `${Math.round(4 * multi_small)}x gfs:${tier}_processor_computer`,
                     `${Math.round(4 * multi)}x #forge:plates/${mat2}`,
                     `${Math.round(12 * multi_soc)}x ${smd_type}_capacitor`,
                     `${Math.round(6 * multi_soc)}x ${smd_type}_transistor`,
@@ -115,9 +115,9 @@ ServerEvents.recipes(event => {
                     `${Math.round(6 * multi_soc)}x ${smd_type}_resistor`,
                     `${Math.round(6 * multi_soc)}x ${smd_type}_inductor`,
                     `${Math.round(16 * multi_soc)}x ${ram_type}`,
-                    `${Math.round(4 * multi)}x gtceu:${wire1}_single_wire`,
-                    `${Math.round(6 * multi)}x gtceu:${wire2}_double_wire`,
-                    `${Math.round(64 * multi)}x #forge:foils/${plastic}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
+                    `${Math.round(6 * multi)}x gtceu:${wire2}_quadruple_wire`,
+                    `${Math.round(16 * multi)}x #forge:foils/${plastic}`,
                 ],
                 [`gtceu:${solder} ${Math.round(1152 * multi / 2)}`, `gtceu:${mat2} ${Math.round(288 * multi / 2)}`],
             ];

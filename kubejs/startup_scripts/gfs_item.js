@@ -167,8 +167,8 @@ StartupEvents.registry("item", (event) => {
             .tag(`gtceu:${x}s`)
             .texture(`gfs:item/complex_smd/complex_smd_${x}`);
 
-        event.create(`gfs:hypeflux_smd_${x}`)
-            .displayName(`Hypeflux SMD ${x.slice(0, 1).toUpperCase() + x.slice(1)}`)
+        event.create(`gfs:hyperflux_smd_${x}`)
+            .displayName(`Hyperflux SMD ${x.slice(0, 1).toUpperCase() + x.slice(1)}`)
             .tooltip("Hyper Electronic Component")
             .tag(`gtceu:${x}s`)
             .texture(`gfs:item/complex_smd/smd_${x}_exotic`);
@@ -181,15 +181,28 @@ StartupEvents.registry("item", (event) => {
         'cosmic': "§aInter Stellar",
         '4d': "§dError_Display_404",
     };
+	
+            function TypeName (type) {
+			console.log("2nd ",type)
+                if (type.indexOf("_") == -1)
+                    return type.slice(0, 1).toUpperCase() + type.slice(1);
+                else {
+                    let typeFront = type.slice(0, type.indexOf("_"));
+                    type = type.slice(type.indexOf("_") + 1);
+                    typeFront = typeFront.slice(0, 1).toUpperCase() + typeFront.slice(1);
+                    type = type.slice(0, 1).toUpperCase() + type.slice(1);
+                    return (typeFront+" "+type);
+                }
+            };
 
     // Post-tank circuits, circuit boards, processing units
     [
-        ['matter', ['processor', 'processor_assembly', 'processor_computer'], ['zpm', 'uv', 'uhv'], 'uev'],
-        ['dimensional', ['processor', 'processor_assembly', 'processor_computer'], ['uv', 'uhv', 'uev'], 'uiv'],
-        ['monic', ['processor', 'processor_assembly', 'processor_computer'], ['uhv', 'uev', 'uiv'], 'uxv'],
-        ['cosmic', ['processor', 'processor_assembly', 'processor_computer'], ['uev', 'uiv', 'uxv'], 'opv'],
-        ['4d', ['processor', 'processor_assembly', 'processor_computer'], ['uiv', 'uxv', 'opv'], 'max']
-    ].forEach(([theme, circuits, volts, mainframeVolt]) => {
+        ['matter', ['zpm', 'uv', 'uhv'], 'uev'],
+        ['dimensional', ['uv', 'uhv', 'uev'], 'uiv'],
+        ['monic', ['uhv', 'uev', 'uiv'], 'uxv'],
+        ['cosmic', ['uev', 'uiv', 'uxv'], 'opv'],
+        ['4d', ['uiv', 'uxv', 'opv'], 'max']
+    ].forEach(([theme, volts, mainframeVolt]) => {
         // Create unit for each theme	(is used to create processing unit)
         let ThemeName = theme.slice(0, 1).toUpperCase() + theme.slice(1);
         event.create(`gfs:${mainframeVolt}_circuit_board`)
@@ -206,20 +219,10 @@ StartupEvents.registry("item", (event) => {
             .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_processing_unit`});
 
         // Create circuits for each type and corresponding voltage
-        circuits.forEach((type, index) => {
-            let TypeName = (() => {
-                if (type.indexOf("_") != -1)
-                    return type.slice(0, 1).toUpperCase() + type.slice(1);
-                else {
-                    let typef = type.split(0, type.indexOf("_"));
-                    let typeb = type.split(type.indexOf("_") + 1);
-                    typef = typef.slice(0, 1).toUpperCase() + typef.slice(1);
-                    typeb = typeb.slice(0, 1).toUpperCase() + typeb.slice(1);
-                    return (typef + " " + typeb);
-                }
-            })
+        ['processor', 'processor_assembly', 'processor_computer'].forEach((type, index) => {
+			console.log(type)
             event.create(`gfs:${mainframeVolt}_${type}`)
-                .displayName(`${ThemeName} ${TypeName}`)
+                .displayName(`${ThemeName} ${TypeName(type)}`)
                 .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_${type}`})
                 .tooltip((index == 0 ? `§7Best §6${volts[index].toUpperCase()}-tier§7 Circuit` :
                     `§7Good §6${volts[index].toUpperCase()}-tier§7 Circuit`))

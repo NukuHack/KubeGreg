@@ -12,7 +12,7 @@ ServerEvents.recipes(event => {
         .duration(50 * 20)
         .EUt(voltage_to_eu["zpm"])
         .stationResearch(b =>
-            b.researchStack(Item.of('gtceu:naquadah_bolt'))
+            b.researchStack(Item.of('gtceu:naquadria_bolt'))
 				.dataStack(Item.of("gtceu:data_orb"))
                 .CWUt(res_cwu, res_dur)
                 .EUt(res_eut)

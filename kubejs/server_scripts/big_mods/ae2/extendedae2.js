@@ -19,6 +19,7 @@ ServerEvents.recipes((event) => {
         .duration(200)
         .EUt(1920);
 
+    let [res_cwu, res_dur, res_eut] = volt_to_research["iv"];
     greg
         .assembly_line("gfs:wireless_connector")
         .itemInputs(
@@ -30,6 +31,12 @@ ServerEvents.recipes((event) => {
         .inputFluids("gtceu:radon 1000")
         .itemOutputs("2x expatternprovider:wireless_connect")
         .duration(200)
+        .stationResearch(b =>
+            b.researchStack(Item.of('gtceu:naquadah_bolt'))
+                .dataStack(Item.of("gtceu:data_orb"))
+                .CWUt(res_cwu, res_dur)
+                .EUt(res_eut)
+        )
         .EUt(8192);
 
     greg

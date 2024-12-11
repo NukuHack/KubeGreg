@@ -111,6 +111,8 @@ const circuitHelp = [
 ];
 
 const volt_to_research = {
+    "ev": [4, 18200 * 0.1 * 20, voltage_to_eu[voltages[3]]],
+    "iv": [8, 18200 * 0.2 * 20, voltage_to_eu[voltages[4]]],
     "luv": [16, 18200 * 0.4 * 20, voltage_to_eu[voltages[5]]],
     "zpm": [32, 18200 * 0.6 * 20, voltage_to_eu[voltages[6]]],
     "uv": [32 * 2, 18200 * 0.8 * 20, voltage_to_eu[voltages[7]]],

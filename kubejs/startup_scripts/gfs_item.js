@@ -183,7 +183,7 @@ StartupEvents.registry("item", (event) => {
     };
 	
             function TypeName (type) {
-			console.log("2nd ",type)
+			//console.log("2nd ",type)
                 if (type.indexOf("_") == -1)
                     return type.slice(0, 1).toUpperCase() + type.slice(1);
                 else {
@@ -220,7 +220,7 @@ StartupEvents.registry("item", (event) => {
 
         // Create circuits for each type and corresponding voltage
         ['processor', 'processor_assembly', 'processor_computer'].forEach((type, index) => {
-			console.log(type)
+			//console.log(type)
             event.create(`gfs:${mainframeVolt}_${type}`)
                 .displayName(`${ThemeName} ${TypeName(type)}`)
                 .textureJson({layer0: `gfs:item/circuits/${theme}/${theme}_${type}`})

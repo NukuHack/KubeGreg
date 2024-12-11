@@ -7,6 +7,8 @@ ServerEvents.recipes(event => {
 
     event.remove({output: 'hostilenetworks:prediction_matrix'});
     event.remove({output: 'hostilenetworks:blank_data_model'});
+    event.remove({output: 'hostilenetworks:loot_fabricator'});
+    event.remove({output: 'hostilenetworks:sim_chamber'});
 
     greg
         .large_chemical_reactor('gfs:prediction_matrix')
@@ -52,7 +54,7 @@ ServerEvents.recipes(event => {
         ["AAA", "BBB", "CBC"],
         {
             A: "minecraft:wither_skeleton_skull", B: "minecraft:soul_sand",
-            C: "dmlreloaded:living_matter_extraterrestrial"
+            C: "hostilenetworks:end_prediction"
         });
 
 

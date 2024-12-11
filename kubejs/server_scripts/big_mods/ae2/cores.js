@@ -3,8 +3,6 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
 
-    event.remove({output: "ae2:formation_core"});
-    event.remove({output: "ae2:annihilation_core"});
 
     // ME Cores
     greg.assembler("gfs:formation_core")

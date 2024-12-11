@@ -16,11 +16,14 @@ ServerEvents.recipes(event => {
     event.replaceInput([{mod: "ae2"}, {mod: "expatternprovider"}, {mod: "megacells"}],
         "#forge:dusts/glowstone", "#forge:plates/glowstone");
 
+    event.replaceInput({input: "#forge:dusts/certus_quartz"}, "#forge:dusts/certus_quartz", "#forge:dusts/certus_quartz");
+    event.replaceInput({input: "#forge:dusts/ender_pearl"}, "#forge:dusts/ender_pearl", "#forge:dusts/ender_pearl");
+
+
 
     // Basic Materials gregified
 
-    event.remove({id: "ae2:transform/fluix_crystal"});
-    event.remove({id: "ae2:transform/fluix_crystals"});
+
     greg.mixer("gfs:fluix_dust")
         .itemInputs("ae2:charged_certus_quartz_crystal", "minecraft:redstone", "minecraft:quartz")
         .inputFluids(Fluid.of("minecraft:water", 100))
@@ -35,7 +38,6 @@ ServerEvents.recipes(event => {
         .duration(200);
 
     // Charged Certus Quartz
-    event.remove({id: "ae2:charger/charged_certus_quartz_crystal"});
     greg
         .polarizer("gfs:charged_certus_quartz")
         .itemInputs("#forge:gems/certus_quartz")
@@ -63,8 +65,6 @@ ServerEvents.recipes(event => {
         .EUt(16)
         .duration(80);
 
-    event.replaceInput({input: "#forge:dusts/certus_quartz"}, "#forge:dusts/certus_quartz", "#forge:dusts/certus_quartz");
-    event.replaceInput({input: "#forge:dusts/ender_pearl"}, "#forge:dusts/ender_pearl", "#forge:dusts/ender_pearl");
 
 // Quartz Glass Gregified
 
@@ -76,7 +76,6 @@ ServerEvents.recipes(event => {
         .duration(100);
 
     // vibrant quartz glass
-    event.remove({id: "ae2:decorative/quartz_vibrant_glass"});
     greg
         .alloy_smelter("gtceu:vibrant_quartz_glass")
         .itemInputs("ae2:quartz_glass", "2x #forge:plates/glowstone")
@@ -106,7 +105,6 @@ ServerEvents.recipes(event => {
     event.shapeless("ae2:energy_level_emitter", ["ae2:calculation_processor", "minecraft:redstone_torch", "ae2:logic_processor"]);
 
     // Quantum Ring
-    event.remove({id: "ae2:network/blocks/quantum_ring"});
     event.shaped("ae2:quantum_ring", ["PLP", "EHE", "PLP"], {
         P: "#forge:plates/titanium",
         L: "ae2:logic_processor",
@@ -115,7 +113,6 @@ ServerEvents.recipes(event => {
     });
 
     // Quantum Link Chamber
-    event.remove({id: "ae2:network/blocks/quantum_link"});
     event.shaped("ae2:quantum_link", ["GPG", "PHP", "GPG"], {
         G: "ae2:quartz_glass",
         P: "ae2:fluix_pearl",
@@ -133,7 +130,6 @@ ServerEvents.recipes(event => {
         .duration(240);
 
     // ME Drive
-    event.remove({id: "ae2:network/blocks/storage_drive"});
     greg.assembler("gfs:ae2_drive")
         .itemInputs("gtceu:hv_machine_hull", "4x ae2:engineering_processor",
             "4x ae2:fluix_glass_cable", "2x ae2:quartz_glass", "gtceu:stainless_steel_crate")
@@ -142,7 +138,6 @@ ServerEvents.recipes(event => {
         .duration(200);
 
     // ME Chest
-    event.remove({id: "ae2:network/blocks/storage_chest"});
     greg.assembler("gfs:ae2_chest")
         .itemInputs("gtceu:hv_machine_hull", "ae2:terminal", "ae2:engineering_processor",
             "2x ae2:fluix_glass_cable", "gtceu:stainless_steel_crate")
@@ -151,7 +146,6 @@ ServerEvents.recipes(event => {
         .duration(200);
 
     // IO Port
-    event.remove({id: "ae2:network/blocks/io_port"});
     event.shaped("ae2:io_port", ["UGR", "DCD", "PLP"], {
         U: "gtceu:hv_pump",
         G: "#forge:glass",
@@ -163,7 +157,6 @@ ServerEvents.recipes(event => {
     });
 
     // Matter Condenser
-    event.remove({id: "ae2:network/blocks/io_condenser"});
     event.shaped("ae2:condenser", ["PCP", "CHC", "PCP"], {
         P: "#forge:plates/stainless_steel",
         C: "gtceu:hv_electric_piston",
@@ -171,7 +164,6 @@ ServerEvents.recipes(event => {
     });
 
     //Energy Acceptor
-    event.remove({output: 'ae2:energy_acceptor'})
     event.shapeless("ae2:energy_acceptor", "ae2:cable_energy_acceptor")
     greg.assembler('ae2:acceptor_assembly')
         .itemInputs(["6x #forge:plates/stainless_steel", 'gtceu:hv_voltage_coil', "4x ae2:fluix_block", 'gtceu:lv_machine_hull'])
@@ -187,7 +179,6 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.LV]);
 
     // Dense Energy Cell
-    event.remove({id: "ae2:network/blocks/energy_dense_energy_cell"});
     greg
         .assembler("gfs:dense_energy_cell")
         .itemInputs("10x ae2:energy_cell")
@@ -197,7 +188,6 @@ ServerEvents.recipes(event => {
         .EUt(1000);
 
     // Tiny TNT
-    event.remove({id: "ae2:misc/tiny_tnt"});
     greg
         .cutter("gfs:tiny_tnt")
         .inputFluids("minecraft:water 9000")
@@ -207,7 +197,6 @@ ServerEvents.recipes(event => {
         .EUt(30);
 
     // wireless_access_point
-    event.remove({id: "ae2:network/wireless_access_point"});
     event.shaped("ae2:wireless_access_point", ["PWP", "RCR", "PFP"], {
         P: "#forge:plates/titanium",
         W: "ae2:wireless_receiver",
@@ -217,7 +206,6 @@ ServerEvents.recipes(event => {
     });
 
     // Wireless Receiver
-    event.remove({id: "ae2:network/wireless_part"});
     event.shaped("ae2:wireless_receiver", ["CPC", "RSR", "   "], {
         C: "#gtceu:circuits/ev",
         P: "ae2:fluix_pearl",
@@ -226,7 +214,6 @@ ServerEvents.recipes(event => {
     });
 
     // Fluix Pearl
-    event.remove({id: "ae2:misc/fluixpearl"});
     greg
         .chemical_reactor("gfs:fluix_pearl")
         .itemInputs("#forge:dusts/fluix", "ender_eye")
@@ -235,7 +222,6 @@ ServerEvents.recipes(event => {
         .EUt(480);
 
     // Wireless Booster
-    event.remove({id: "ae2:network/wireless_booster"});
     event.shaped("ae2:wireless_booster", ["EC ", "PP "], {
         E: "gtceu:hv_emitter",
         C: "ae2:fluix_glass_cable",
@@ -257,7 +243,6 @@ ServerEvents.recipes(event => {
       });
     */
     // Network Tool
-    event.remove({id: "ae2:tools/network_tool"});
     event.shaped("ae2:network_tool", ["wC ", "EP ", "   "], {
         w: "#forge:tools/wrenches",
         E: "ae2:calculation_processor",
@@ -314,7 +299,6 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.HV]);
 
     // ME Formation Plane
-    event.remove({output: "ae2:formation_plane"});
     event.shaped("ae2:formation_plane", ["EFC", "PPP"], {
         E: "gtceu:hv_electric_piston",
         F: "ae2:formation_core",
@@ -323,7 +307,6 @@ ServerEvents.recipes(event => {
     });
 
     // ME annihilation Plane
-    event.remove({output: "ae2:annihilation_plane"});
     event.shaped("ae2:annihilation_plane", ["EFC", "PPP"], {
         E: "gtceu:hv_electric_piston",
         F: "ae2:annihilation_core",
@@ -332,7 +315,6 @@ ServerEvents.recipes(event => {
     });
 
     // ME Storage Bus
-    event.remove({id: "ae2:network/parts/storage_bus"});
     event.shaped("ae2:storage_bus", ["IPC"], {
         I: "ae2:interface",
         P: "gtceu:hv_electric_piston",
@@ -340,7 +322,6 @@ ServerEvents.recipes(event => {
     });
 
     // ME Import Bus
-    event.remove({id: "ae2:network/parts/import_bus"});
     event.shaped("ae2:import_bus", ["IPC"], {
         I: "ae2:annihilation_core",
         P: "gtceu:hv_robot_arm",
@@ -348,7 +329,6 @@ ServerEvents.recipes(event => {
     });
 
     // ME Export Bus
-    event.remove({id: "ae2:network/parts/export_bus"});
     event.shaped("ae2:export_bus", ["IPC"], {
         I: "ae2:formation_core",
         P: "gtceu:hv_robot_arm",

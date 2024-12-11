@@ -1,53 +1,23 @@
 ServerEvents.recipes((event) => {
 
-    event.remove({output: "expatternprovider:infinity_cell"});
-    // removing old inf-water and inf-cobble cells
-
-
-    event.remove({output: "expatternprovider:ex_interface"});
-    event.remove({output: "expatternprovider:interface_upgrade"});
-    event.remove({output: "expatternprovider:ex_pattern_provider"});
-    event.remove({output: "expatternprovider:pattern_provider_upgrade"});
-    event.remove({output: "expatternprovider:wireless_connect"});
-    event.remove({output: "expatternprovider:ingredient_buffer"});
-    event.remove({output: "expatternprovider:ex_drive"});
-    event.remove({output: "expatternprovider:drive_upgrade"});
-    event.remove({output: "expatternprovider:ex_molecular_assembler"});
-    event.remove({output: "expatternprovider:pattern_modifier"});
-
-
     const greg = event.recipes.gtceu;
 
-    event.shaped(
-        "expatternprovider:ex_interface",
-        ["ABC", "DEF", "GHG"],
-        {
-            A: "gtceu:ev_robot_arm",
-            B: "ae2:interface",
-            C: "gtceu:ev_conveyor_module",
-            D: "ae2:annihilation_core",
-            E: "gtceu:ev_machine_hull",
-            F: "ae2:formation_core",
-            G: "ae2:fluix_glass_cable",
-            H: "ae2:logic_processor",
-        }
-    );
 
-    // extended shits
-    event.shaped(
-        "expatternprovider:ex_pattern_provider",
-        ["ABC", "DEF", "GHG"],
-        {
-            A: "gtceu:ev_robot_arm",
-            B: "ae2:pattern_provider",
-            C: "gtceu:ev_conveyor_module",
-            D: "ae2:annihilation_core",
-            E: "gtceu:ev_machine_hull",
-            F: "ae2:formation_core",
-            G: "ae2:fluix_glass_cable",
-            H: "ae2:logic_processor"
-        }
-    );
+    greg
+        .assembler("gfs:ex_interface")
+        .itemInputs("gtceu:ev_robot_arm", "ae2:interface", "gtceu:ev_conveyor_module", "ae2:annihilation_core", "gtceu:ev_machine_hull",
+            "ae2:formation_core", "2x ae2:fluix_glass_cable", "ae2:logic_processor")
+        .itemOutputs("expatternprovider:ex_interface")
+        .duration(200)
+        .EUt(1920);
+
+    greg
+        .assembler("gfs:ex_pattern_provider")
+        .itemInputs("gtceu:ev_robot_arm", "ae2:pattern_provider", "gtceu:ev_conveyor_module", "ae2:annihilation_core", "gtceu:ev_machine_hull",
+            "ae2:formation_core", "2x ae2:fluix_glass_cable", "ae2:logic_processor")
+        .itemOutputs("expatternprovider:ex_pattern_provider")
+        .duration(200)
+        .EUt(1920);
 
     greg
         .assembly_line("gfs:wireless_connector")
@@ -62,18 +32,13 @@ ServerEvents.recipes((event) => {
         .duration(200)
         .EUt(8192);
 
-    event.shaped(
-        "expatternprovider:ingredient_buffer",
-        ["GMG", "AEC", "GHG"],
-        {
-            A: "gtceu:hv_robot_arm",
-            C: "gtceu:ev_conveyor_module",
-            E: "gtceu:ev_machine_hull",
-            G: "ae2:fluix_glass_cable",
-            H: "ae2:logic_processor",
-            M: "ae2:calculation_processor"
-        }
-    );
+    greg
+        .assembler("gfs:ae_ingredient_buffer")
+        .itemInputs("gtceu:hv_robot_arm", "gtceu:ev_conveyor_module", "gtceu:ev_machine_hull",
+            "2x ae2:fluix_glass_cable", "ae2:logic_processor", "ae2:calculation_processor")
+        .itemOutputs("expatternprovider:ingredient_buffer")
+        .duration(200)
+        .EUt(1920);
 
     greg.assembler("gfs:ex_drive")
         .itemInputs("2x gtceu:ev_machine_hull", "8x ae2:engineering_processor",
@@ -82,20 +47,13 @@ ServerEvents.recipes((event) => {
         .EUt(1920)
         .duration(400);
 
-    event.shaped(
-        "expatternprovider:ex_molecular_assembler",
-        ["ABC", "DEF", "GHG"],
-        {
-            A: "gtceu:ev_robot_arm",
-            B: "ae2:quartz_glass",
-            C: "gtceu:ev_conveyor_module",
-            D: "ae2:annihilation_core",
-            E: "gtceu:ev_machine_hull",
-            F: "ae2:formation_core",
-            G: "ae2:fluix_glass_cable",
-            H: "ae2:molecular_assembler"
-        }
-    );
+    greg
+        .assembler("gfs:ex_molecular_assembler")
+        .itemInputs("gtceu:ev_robot_arm", "ae2:quartz_glass", "gtceu:ev_conveyor_module", "ae2:annihilation_core", "gtceu:ev_machine_hull",
+            "ae2:formation_core", "2x ae2:fluix_glass_cable", "ae2:molecular_assembler")
+        .itemOutputs("expatternprovider:ex_molecular_assembler")
+        .duration(200)
+        .EUt(1920);
 
     event.shaped("expatternprovider:pattern_modifier", ["PDP", "AKB", "PCP"], {
         P: "#forge:plates/ultimet",

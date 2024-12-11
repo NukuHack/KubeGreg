@@ -3,9 +3,6 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
 
-    event.remove({output: "megacells:accumulation_processor_press"});
-    event.remove({output: "megacells:printed_accumulation_processor"});
-    event.remove({output: "megacells:accumulation_processor"});
 
     event.shaped(
         "ae2:inscriber",

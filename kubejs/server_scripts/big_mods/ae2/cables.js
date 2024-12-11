@@ -3,17 +3,7 @@ ServerEvents.recipes((event) => {
     const greg = event.recipes.gtceu;
 
 
-    event.remove({id: "ae2:network/cables/covered_fluix"});
-    event.remove({id: "ae2:network/cables/dense_smart_fluix_clean"});
-    event.remove({id: "ae2:network/cables/dense_covered_fluix_clean"});
-    event.remove({id: "ae2:network/cables/smart_fluix"});
-    event.remove({id: "ae2:network/cables/dense_smart_fluix"});
-    event.remove({id: "ae2:network/cables/dense_smart_from_smart"});
-    event.remove({id: "ae2:network/cables/dense_covered_fluix"});
-
-
     // Cable Anchor
-    event.remove({id: "ae2:network/parts/cable_anchor"});
     greg
         .extruder("gfs:cable_anchor")
         .itemInputs("#forge:plates/steel")
@@ -23,7 +13,6 @@ ServerEvents.recipes((event) => {
         .EUt(16);
 
     // Quartz Fibers
-    event.remove({id: "ae2:network/parts/quartz_fiber_part"});
     greg
         .alloy_smelter("gfs:quartz_fibers")
         .itemInputs("6x #forge:dusts/certus_quartz", "2x ae2:quartz_glass")

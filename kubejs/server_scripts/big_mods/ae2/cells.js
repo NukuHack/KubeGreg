@@ -3,7 +3,6 @@ ServerEvents.recipes(event => {
     const greg = event.recipes.gtceu;
 
     // Cell Workbench
-    event.remove({id: "ae2:network/blocks/cell_workbench"});
     event.shaped("ae2:cell_workbench", ["FKL", "PCP", "PPP"], {
         F: "gtceu:item_filter",
         K: "ae2:fluix_glass_cable",

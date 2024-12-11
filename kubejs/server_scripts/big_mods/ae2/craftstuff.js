@@ -2,13 +2,8 @@ ServerEvents.recipes(event => {
 
     const greg = event.recipes.gtceu;
 
-    event.remove({output: `mae2:4x_crafting_accelerator`});
-    event.remove({output: `mae2:16x_crafting_accelerator`});
-    event.remove({output: `mae2:64x_crafting_accelerator`});
-    event.remove({output: `mae2:256x_crafting_accelerator`});
 
     // Crafting Unit
-    event.remove({id: "ae2:network/crafting/cpu_crafting_unit"});
     greg.assembler('gfs:crafting_unit')
         .itemInputs(["gtceu:hv_machine_hull", "4x #forge:plates/stainless_steel", "ae2:calculation_processor",
             "ae2:logic_processor", "2x ae2:fluix_glass_cable"])
@@ -17,7 +12,6 @@ ServerEvents.recipes(event => {
         .EUt(GTValues.VA[GTValues.HV]);
 
     // Crafting Monitor
-    event.remove({id: "ae2:network/crafting/cpu_crafting_monitor"});
     greg
         .canner("gfs:crafting_monitor")
         .itemInputs("ae2:crafting_unit", "ae2:storage_monitor")
@@ -38,7 +32,6 @@ ServerEvents.recipes(event => {
 
 
     // Crafting Co-Processing Unit
-    event.remove({id: "ae2:network/crafting/cpu_crafting_accelerator"});
     greg
         .canner("gfs:ae2_accelerator")
         .itemInputs("ae2:crafting_unit", "ae2:engineering_processor")

@@ -2,16 +2,6 @@ ServerEvents.recipes((event) => {
 
     const greg = event.recipes.gtceu;
 
-    event.remove({output: "megacells:sky_steel_ingot"});
-    event.remove({output: "megacells:sky_steel_block"});
-
-    event.remove({output: "megacells:mega_energy_cell"});
-    event.remove({output: "megacells:bulk_cell_component"});
-    event.remove({output: "megacells:mega_crafting_monitor"});
-    event.remove({output: "megacells:mega_crafting_accelerator"});
-    event.remove({output: "megacells:mega_pattern_provider"});
-    event.remove({output: "megacells:mega_interface"});
-
     event.replaceInput({mod: "megacells"}, "megacells:sky_steel_ingot", "#forge:plates/black_steel");
     event.replaceInput({mod: "megacells"}, "#forge:ingots/iron", "#forge:plates/black_steel");
     event.replaceInput({mod: "megacells"}, "megacells:sky_steel_block", "#forge:plates/black_steel");

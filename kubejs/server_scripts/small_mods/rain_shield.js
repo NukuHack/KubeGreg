@@ -17,7 +17,7 @@ ServerEvents.recipes(event => {
             B: '#forge:plates/red_alloy',
             C: 'gtceu:lv_sensor',
         }
-    )
+    );
 
 
 // fin //

@@ -38,7 +38,7 @@ ServerEvents.recipes(event => {
         )
         .itemOutputs('8x sfm:cable')
         .duration(870)
-        .EUt(980)
+        .EUt(980);
 
 
     greg.circuit_assembler('gfs:sfm_disk')
@@ -53,7 +53,7 @@ ServerEvents.recipes(event => {
         .inputFluids('gtceu:soldering_alloy 144')
         .duration(600)
         .EUt(1920)
-        .itemOutputs('4x sfm:disk')
+        .itemOutputs('4x sfm:disk');
 
 
 });

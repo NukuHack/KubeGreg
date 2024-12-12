@@ -59,10 +59,10 @@ ServerEvents.recipes(event => {
     );
 
 
-    const greg = event.recipes.gtceu
+    const greg = event.recipes.gtceu;
 
     greg
-        .assembler('omnihopper:wooden_hopper')
+        .assembler('gfs:hopper_wooden')
         .itemInputs('2x #forge:plates/wood')
         .itemInputs('2x #forge:plates/treated_wood')
         .itemInputs('minecraft:chest')
@@ -72,7 +72,7 @@ ServerEvents.recipes(event => {
         .circuit(23);
 
     greg
-        .assembler('minecraft:hopper')
+        .assembler('gfs:hopper')
         .itemInputs('2x #forge:plates/tin')
         .itemInputs('2x #forge:plates/steel')
         .itemInputs('omnihopper:wooden_hopper')
@@ -82,7 +82,7 @@ ServerEvents.recipes(event => {
         .circuit(23);
 
     greg
-        .assembler('omnihopper:fluid_hopper')
+        .assembler('gfs:hopper_fluid')
         .itemInputs('2x #forge:plates/brass')
         .itemInputs('2x #forge:plates/cupronickel')
         .itemInputs('omnihopper:wooden_hopper')

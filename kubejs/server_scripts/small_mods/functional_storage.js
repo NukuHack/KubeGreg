@@ -1,11 +1,11 @@
 // yet another huge gregified mod
 
-ServerEvents.recipes(e => {
+ServerEvents.recipes(event => {
 
-    const gre = e.recipes.gtceu;
+    const greg = event.recipes.gtceu;
 
     //removing all the recipes in functional storage
-    e.remove({mod: "functionalstorage"});
+    event.remove({mod: "functionalstorage"});
 
     //registering all the wood types in a variable
     let woodtypes = [
@@ -26,7 +26,7 @@ ServerEvents.recipes(e => {
     woodtypes.forEach(item => { //runs this for every item in woodtypes
 
         //using the woodtypes variable to make all the 1x1 drawers
-        gre.assembler(`functionalstorage:${item}_1`)
+        greg.assembler(`gfs:functionalstorage/${item}_1`)
             .itemInputs('gtceu:wood_crate')
             .itemInputs(`4x minecraft:${item}_planks`)
             .itemInputs('4x gtceu:iron_screw')
@@ -34,7 +34,7 @@ ServerEvents.recipes(e => {
             .circuit(1)
             .duration(100)
             .EUt(30);
-        gre.assembler(`functionalstorage:${item}_2`)
+        greg.assembler(`gfs:functionalstorage/${item}_2`)
             .itemInputs('2x gtceu:wood_crate')
             .itemInputs(`6x minecraft:${item}_planks`)
             .itemInputs('6x gtceu:iron_screw')
@@ -42,7 +42,7 @@ ServerEvents.recipes(e => {
             .circuit(2)
             .duration(100)
             .EUt(30);
-        gre.assembler(`functionalstorage:${item}_4`)
+        greg.assembler(`gfs:functionalstorage/${item}_4`)
             .itemInputs('4x gtceu:wood_crate')
             .itemInputs(`8x minecraft:${item}_planks`)
             .itemInputs('8x gtceu:iron_screw')
@@ -53,7 +53,7 @@ ServerEvents.recipes(e => {
     });
 
     //recipes for the framed drawers
-    gre.assembler(`functionalstorage:framed_1`)
+    greg.assembler(`gfs:functionalstorage/framed_1`)
         .itemInputs('gtceu:steel_crate')
         .itemInputs(`4x gtceu:steel_frame`)
         .itemInputs('4x gtceu:iron_screw')
@@ -61,8 +61,9 @@ ServerEvents.recipes(e => {
         .circuit(1)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:framed_1`, `functionalstorage:framed_1`);
-    gre.assembler(`functionalstorage:framed_2`)
+    event.shapeless(`functionalstorage:framed_1`, `functionalstorage:framed_1`);
+
+    greg.assembler(`gfs:functionalstorage/framed_2`)
         .itemInputs('2x gtceu:steel_crate')
         .itemInputs(`6x gtceu:steel_frame`)
         .itemInputs('6x gtceu:iron_screw')
@@ -70,8 +71,9 @@ ServerEvents.recipes(e => {
         .circuit(2)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:framed_2`, `functionalstorage:framed_2`);
-    gre.assembler(`functionalstorage:framed_4`)
+    event.shapeless(`functionalstorage:framed_2`, `functionalstorage:framed_2`);
+
+    greg.assembler(`gfs:functionalstorage/framed_4`)
         .itemInputs('4x gtceu:steel_crate')
         .itemInputs(`8x gtceu:steel_frame`)
         .itemInputs('8x gtceu:iron_screw')
@@ -79,10 +81,10 @@ ServerEvents.recipes(e => {
         .circuit(4)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:framed_4`, `functionalstorage:framed_4`);
+    event.shapeless(`functionalstorage:framed_4`, `functionalstorage:framed_4`);
 
     // compacting
-    gre.assembler(`functionalstorage:compacting_drawer`)
+    greg.assembler(`gfs:functionalstorage/compacting_drawer`)
         .itemInputs('gtceu:aluminium_crate')
         .itemInputs(`4x minecraft:stone`)
         .itemInputs(`2x minecraft:piston`)
@@ -92,11 +94,11 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(30);
 
-    e.shapeless(`functionalstorage:compacting_drawer`, [`functionalstorage:compacting_framed_drawer`]);
-    e.shapeless(`functionalstorage:compacting_framed_drawer`, [`functionalstorage:compacting_drawer`]);
+    event.shapeless(`functionalstorage:compacting_drawer`, [`functionalstorage:compacting_framed_drawer`]);
+    event.shapeless(`functionalstorage:compacting_framed_drawer`, [`functionalstorage:compacting_drawer`]);
 
     // simple compacting
-    gre.assembler(`functionalstorage:simple_compacting_drawer`)
+    greg.assembler(`gfs:functionalstorage/simple_compacting_drawer`)
         .itemInputs('gtceu:aluminium_crate')
         .itemInputs(`4x minecraft:stone`)
         .itemInputs(`1x minecraft:piston`)
@@ -106,11 +108,11 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(30);
 
-    e.shapeless(`functionalstorage:simple_compacting_drawer`, [`functionalstorage:framed_simple_compacting_drawer`]);
-    e.shapeless(`functionalstorage:framed_simple_compacting_drawer`, [`functionalstorage:simple_compacting_drawer`]);
+    event.shapeless(`functionalstorage:simple_compacting_drawer`, [`functionalstorage:framed_simple_compacting_drawer`]);
+    event.shapeless(`functionalstorage:framed_simple_compacting_drawer`, [`functionalstorage:simple_compacting_drawer`]);
 
     // fluid 1
-    gre.assembler(`functionalstorage:fluid_1`)
+    greg.assembler(`gfs:functionalstorage/fluid_1`)
         .itemInputs('gtceu:aluminium_drum')
         .itemInputs(`4x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
@@ -118,9 +120,9 @@ ServerEvents.recipes(e => {
         .circuit(1)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:fluid_1`, `functionalstorage:fluid_1`);
+    event.shapeless(`functionalstorage:fluid_1`, `functionalstorage:fluid_1`);
     // fluid 2
-    gre.assembler(`functionalstorage:fluid_2`)
+    greg.assembler(`gfs:functionalstorage/fluid_2`)
         .itemInputs('2x gtceu:aluminium_drum')
         .itemInputs(`6x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
@@ -128,9 +130,9 @@ ServerEvents.recipes(e => {
         .circuit(2)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:fluid_2`, `functionalstorage:fluid_2`);
+    event.shapeless(`functionalstorage:fluid_2`, `functionalstorage:fluid_2`);
     // fluid 4
-    gre.assembler(`functionalstorage:fluid_4`)
+    greg.assembler(`gfs:functionalstorage/fluid_4`)
         .itemInputs('4x gtceu:aluminium_drum')
         .itemInputs(`8x minecraft:stone`)
         .itemInputs('4x gtceu:iron_screw')
@@ -138,11 +140,11 @@ ServerEvents.recipes(e => {
         .circuit(4)
         .duration(100)
         .EUt(30);
-    e.shapeless(`functionalstorage:fluid_4`, `functionalstorage:fluid_4`);
+    event.shapeless(`functionalstorage:fluid_4`, `functionalstorage:fluid_4`);
 
 
     // controller
-    gre.assembler('functionalstorage:storage_controller')
+    greg.assembler('gfs:functionalstorage/storage_controller')
         .itemInputs('gtceu:lv_super_chest')
         .itemInputs(`16x gtceu:stone_plate`)
         .itemInputs('gtceu:hv_sensor')
@@ -152,11 +154,11 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(480);
 
-    e.shapeless('functionalstorage:framed_storage_controller', ['functionalstorage:storage_controller']);
-    e.shapeless('functionalstorage:storage_controller', ['functionalstorage:framed_storage_controller']);
+    event.shapeless('functionalstorage:framed_storage_controller', ['functionalstorage:storage_controller']);
+    event.shapeless('functionalstorage:storage_controller', ['functionalstorage:framed_storage_controller']);
 
     // controller extension
-    gre.assembler('functionalstorage:controller_extension')
+    greg.assembler('gfs:functionalstorage/controller_extension')
         .itemInputs('functionalstorage:storage_controller')
         .itemInputs('gtceu:mv_super_chest')
         .itemInputs('gtceu:ev_sensor')
@@ -166,11 +168,11 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(480);
 
-    e.shapeless('functionalstorage:framed_controller_extension', ['functionalstorage:controller_extension']);
-    e.shapeless('functionalstorage:controller_extension', ['functionalstorage:framed_controller_extension']);
+    event.shapeless('functionalstorage:framed_controller_extension', ['functionalstorage:controller_extension']);
+    event.shapeless('functionalstorage:controller_extension', ['functionalstorage:framed_controller_extension']);
 
 
-    gre.assembler('functionalstorage:ender_drawer')
+    greg.assembler('gfs:functionalstorage/ender_drawer')
         .itemInputs('2x gtceu:double_tungsten_steel_plate')
         .itemInputs('gtceu:ev_super_chest')
         .itemInputs('6x gtceu:ender_pearl_plate')
@@ -181,10 +183,10 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(1920);
 
-    e.shapeless('functionalstorage:ender_drawer', 'functionalstorage:ender_drawer');
+    event.shapeless('functionalstorage:ender_drawer', 'functionalstorage:ender_drawer');
 
     //various upgrades
-    gre.assembler('functionalstorage:copper_upgrade')
+    greg.assembler('gfs:functionalstorage/copper_upgrade')
         .itemInputs('functionalstorage:iron_downgrade')
         .itemInputs('gtceu:lv_super_chest')
         .itemInputs(`4x #forge:plates/copper`)
@@ -192,7 +194,7 @@ ServerEvents.recipes(e => {
         .itemOutputs('functionalstorage:copper_upgrade')
         .duration(100)
         .EUt(30);
-    gre.assembler('functionalstorage:gold_upgrade')
+    greg.assembler('gfs:functionalstorage/gold_upgrade')
         .itemInputs('functionalstorage:copper_upgrade')
         .itemInputs('gtceu:mv_super_chest')
         .itemInputs('4x #forge:plates/gold')
@@ -200,7 +202,7 @@ ServerEvents.recipes(e => {
         .itemOutputs('functionalstorage:gold_upgrade')
         .duration(100)
         .EUt(120);
-    gre.assembler('functionalstorage:diamond_upgrade')
+    greg.assembler('gfs:functionalstorage/diamond_upgrade')
         .itemInputs('functionalstorage:gold_upgrade')
         .itemInputs('gtceu:hv_super_chest')
         .itemInputs('4x #forge:plates/diamond')
@@ -208,7 +210,7 @@ ServerEvents.recipes(e => {
         .itemOutputs('functionalstorage:diamond_upgrade')
         .duration(100)
         .EUt(480);
-    gre.assembler('functionalstorage:netherite_upgrade')
+    greg.assembler('gfs:functionalstorage/netherite_upgrade')
         .itemInputs('functionalstorage:diamond_upgrade')
         .itemInputs('gtceu:ev_super_chest')
         .itemInputs('minecraft:netherite_upgrade_smithing_template')
@@ -217,14 +219,14 @@ ServerEvents.recipes(e => {
         .duration(100)
         .EUt(1920);
 
-    gre.assembler('functionalstorage:max_upgrade')
+    greg.assembler('gfs:functionalstorage/max_upgrade')
         .itemInputs('64x functionalstorage:netherite_upgrade')
         .itemInputs('16x gtceu:uhv_quantum_chest')
         .itemOutputs('functionalstorage:max_storage_upgrade')
         .duration(20 * 60 * 2)
         .EUt(450 * 1000);
 
-    e.shaped(`functionalstorage:armory_cabinet`, [
+    event.shaped(`functionalstorage:armory_cabinet`, [
             'ABA',
             'BCB',
             'ADA'
@@ -236,7 +238,7 @@ ServerEvents.recipes(e => {
         }
     );
 
-    e.shaped(`functionalstorage:iron_downgrade`, [
+    event.shaped(`functionalstorage:iron_downgrade`, [
             'AAA',
             'ABA',
             'AAA'
@@ -245,7 +247,7 @@ ServerEvents.recipes(e => {
             B: 'gtceu:stainless_steel_crate'
         }
     );
-    e.shaped(`functionalstorage:redstone_upgrade`, [
+    event.shaped(`functionalstorage:redstone_upgrade`, [
             'AAA',
             'BCB',
             'AAA'
@@ -256,14 +258,14 @@ ServerEvents.recipes(e => {
         }
     );
 
-    gre.assembler('functionalstorage:void_upgrade')
+    greg.assembler('gfs:functionalstorage/void_upgrade')
         .itemInputs('#functionalstorage:drawer')
         .itemInputs('gtceu:item_voiding_cover')
         .itemOutputs('functionalstorage:void_upgrade')
         .duration(100)
         .EUt(120);
 
-    e.shaped(`functionalstorage:puller_upgrade`, [
+    event.shaped(`functionalstorage:puller_upgrade`, [
             'ADA',
             'BCB',
             'ABA'
@@ -274,7 +276,7 @@ ServerEvents.recipes(e => {
             D: 'minecraft:hopper',
         }
     );
-    e.shaped(`functionalstorage:pusher_upgrade`, [
+    event.shaped(`functionalstorage:pusher_upgrade`, [
             'ADA',
             'BCB',
             'ABA'
@@ -285,7 +287,7 @@ ServerEvents.recipes(e => {
             D: 'omnihopper:omnihopper',
         }
     );
-    e.shaped(`functionalstorage:collector_upgrade`, [
+    event.shaped(`functionalstorage:collector_upgrade`, [
             'AFA',
             'CDE',
             'AAA'
@@ -297,7 +299,7 @@ ServerEvents.recipes(e => {
             E: 'functionalstorage:pusher_upgrade'
         }
     );
-    e.shaped('functionalstorage:linking_tool', [
+    event.shaped('functionalstorage:linking_tool', [
             'ABA',
             'CDC',
             'ABA'
@@ -308,7 +310,7 @@ ServerEvents.recipes(e => {
             D: 'gtceu:stone_plate'
         }
     );
-    e.shaped('functionalstorage:configuration_tool', [
+    event.shaped('functionalstorage:configuration_tool', [
             'ABA',
             'CDC',
             'ABA'
@@ -320,7 +322,7 @@ ServerEvents.recipes(e => {
         }
     );
 
-    e.shapeless('functionalstorage:linking_tool', 'functionalstorage:configuration_tool');
-    e.shapeless('functionalstorage:configuration_tool', 'functionalstorage:linking_tool');
+    event.shapeless('functionalstorage:linking_tool', 'functionalstorage:configuration_tool');
+    event.shapeless('functionalstorage:configuration_tool', 'functionalstorage:linking_tool');
 
 })

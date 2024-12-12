@@ -4,6 +4,8 @@
 
 ServerEvents.recipes(event => {
 
+    const greg = event.recipes.gtceu;
+
     event.remove({id: 'apotheosis:inert_trident'});
     event.shaped('apotheosis:inert_trident',
         [' BB', 'CAB', 'AD '],
@@ -507,7 +509,7 @@ ServerEvents.recipes(event => {
 
 // uncommon_material
 
-    event.recipes.gtceu.large_chemical_reactor('gfs:uncommon_material')
+    greg.large_chemical_reactor('gfs:uncommon_material')
         .itemInputs('4x gtceu:carbon_fibers')
         .itemInputs('4x #forge:dusts/green_sapphire')
         .inputFluids(Fluid.of('gtceu:beryllium', 144))
@@ -517,7 +519,7 @@ ServerEvents.recipes(event => {
 
 // rare_material
 
-    event.recipes.gtceu.large_chemical_reactor('gfs:rare_material')
+    greg.large_chemical_reactor('gfs:rare_material')
         .itemInputs('1x #forge:ingots/blue_steel')
         .itemInputs('1x #forge:exquisite_gems')
         .inputFluids(Fluid.of('gtceu:hydrofluoric_acid', 144))
@@ -527,7 +529,7 @@ ServerEvents.recipes(event => {
 
 // epic_material
 
-    event.recipes.gtceu.large_chemical_reactor('gfs:epic_material')
+    greg.large_chemical_reactor('gfs:epic_material')
         .itemInputs('3x #forge:dusts/amethyst')
         .itemInputs('3x #forge:dusts/ender_eye')
         .inputFluids(Fluid.of('gtceu:ruby_slurry', 144))
@@ -539,7 +541,7 @@ ServerEvents.recipes(event => {
 
 // mythic_material
 
-    event.recipes.gtceu.autoclave('gfs:mythic_material')
+    greg.autoclave('gfs:mythic_material')
         .itemInputs('gtceu:iv_field_generator')
         .inputFluids(Fluid.of('gtceu:rhodium_sulfate', 1000))
         .itemOutputs('apotheosis:mythic_material')

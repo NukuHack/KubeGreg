@@ -21,7 +21,7 @@ ServerEvents.recipes((event) => {
     event.remove({mod: "elevatorid"});
     dyes.forEach((dyes) => {
         greg
-            .chemical_bath(`${dyes}_elevator`)
+            .chemical_bath(`gfs:${dyes}_elevator`)
             .itemInputs("#elevatorid:elevators")
             .inputFluids(`gtceu:${dyes}_dye 18"`)
             .itemOutputs(`elevatorid:elevator_${dyes}`)
@@ -29,7 +29,7 @@ ServerEvents.recipes((event) => {
             .EUt(7);
     });
     greg
-        .chemical_bath("elevator_washing")
+        .chemical_bath("gfs:elevator_washing")
         .itemInputs("#elevatorid:elevators")
         .inputFluids("gtceu:chlorine 50")
         .itemOutputs("elevatorid:elevator_gray")

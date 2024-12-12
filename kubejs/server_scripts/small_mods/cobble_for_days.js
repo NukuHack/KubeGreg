@@ -21,6 +21,6 @@ ServerEvents.recipes(event => {
             W: water,
             L: lava,
             I: index > 0 ? tiers[index - 1].gen : '#forge:glass'
-        }).id(`kubejs:${tier.gen.replace(':', '/')}`)
+        }).id(`gfs:${tier.gen.replace(':', '/')}`)
     });
 });

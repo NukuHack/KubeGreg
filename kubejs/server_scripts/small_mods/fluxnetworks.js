@@ -3,7 +3,7 @@ ServerEvents.recipes(event => {
     // making it ..... obtainable in void world
     const greg = event.recipes.gtceu;
 
-    greg.chemical_reactor('flux_dust')
+    greg.chemical_reactor('gfs:flux_dust')
         .itemInputs('20x #forge:dusts/redstone')
         .itemInputs('20x #forge:dusts/obsidian')
         .inputFluids('minecraft:lava 32000')
@@ -11,7 +11,7 @@ ServerEvents.recipes(event => {
         .duration(120 * 20)
         .EUt(480);
 
-    greg.large_chemical_reactor('flux_dust')
+    greg.large_chemical_reactor('gfs:flux_dust')
         .itemInputs('16x #forge:dusts/redstone')
         .itemInputs('16x #forge:dusts/obsidian')
         .inputFluids('minecraft:lava 32000')

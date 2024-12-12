@@ -7,7 +7,8 @@ ServerEvents.recipes(event => {
 
 // rain_shield
 
-    event.remove({mod: 'rainshield'})
+    event.remove({mod: 'rainshield'});
+
     event.shaped('rainshield:rain_shield', [
             ' C ',
             ' A ',

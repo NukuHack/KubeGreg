@@ -11,7 +11,6 @@ ServerEvents.recipes((event) => {
         event.remove({output: remove_recipe});
     });
     // Building Tool
-    event.remove({output: "buildinggadgets2:gadget_building"});
     event.shaped("buildinggadgets2:gadget_building", ["PLP", "DCD", "PKP"], {
         P: "#forge:plates/steel",
         L: "#forge:plates/lapis",
@@ -20,7 +19,6 @@ ServerEvents.recipes((event) => {
         K: "gtceu:tin_single_cable",
     });
     // Exchanging Tool
-    event.remove({output: "buildinggadgets2:gadget_exchanging"});
     event.shaped("buildinggadgets2:gadget_exchanging", ["PLP", "DCD", "PKP"], {
         P: "#forge:plates/steel",
         L: "#forge:plates/gold",
@@ -29,7 +27,6 @@ ServerEvents.recipes((event) => {
         K: "gtceu:tin_single_cable",
     });
     // Copy-paste Tool
-    event.remove({output: "buildinggadgets2:gadget_copy_paste"});
     event.shaped("buildinggadgets2:gadget_copy_paste", ["PLP", "DCD", "PKP"], {
         P: "#forge:plates/steel",
         L: "#forge:plates/redstone",
@@ -39,7 +36,6 @@ ServerEvents.recipes((event) => {
     });
 
     // Template Manager
-    event.remove({output: "buildinggadgets2:template_manager"});
     event.shaped("buildinggadgets2:template_manager", ["KCK", "CHC", "KCK"], {
         K: "gtceu:tin_single_cable",
         C: "#gtceu:circuits/lv",
@@ -47,7 +43,6 @@ ServerEvents.recipes((event) => {
     });
 
     // Destruction Gadget
-    event.remove({output: "buildinggadgets2:gadget_destruction"});
     event.shaped("buildinggadgets2:gadget_destruction", ["PLP", "DCD", "PKP"], {
         P: "#forge:plates/aluminium",
         L: "#forge:plates/nether_quartz",
@@ -57,7 +52,6 @@ ServerEvents.recipes((event) => {
     });
 
     // Cut 'n' Paste Gadget
-    event.remove({output: "buildinggadgets2:gadget_cut_paste"});
     event.shaped("buildinggadgets2:gadget_cut_paste", ["PLP", "DCD", "PKP"], {
         P: "#forge:plates/aluminium",
         L: "#forge:plates/lapis",

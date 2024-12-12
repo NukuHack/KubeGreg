@@ -3,7 +3,7 @@ ServerEvents.recipes(event => {
     event.remove({mod: "enderstorage"});
     event.remove({mod: "proxy"});
 
-    event.recipes.gtceu.assembler('gfs:e_ender_chest')
+    event.recipes.gtceu.assembler('gfs:better_ender_chest')
         .itemInputs('8x #forge:plates/redstone')
         .itemInputs('8x #forge:dense_plates/obsidian')
         .itemInputs('8x #forge:plates/ender_eye')

@@ -55,3 +55,10 @@ just found this today :
                           })
 
                         JsonIO.write("kubejs/assets/emi/index/stacks/my_added_stacks.json", obj);
+
+
+
+
+                        ServerEvents.tags('item', event => {
+                            event.add("c:hidden_from_recipe_viewers", /item_to_hide/);
+                        });

@@ -25,70 +25,65 @@ ServerEvents.recipes(event => {
             F: '#forge:tools/screwdrivers'
         }
     );
+	
+// card_holder
+
+    event.shaped('laserio:card_holder', [
+            'AAA',
+            'CDC',
+            'ABA',
+        ], {
+            A: '#forge:plates/iron',
+            B: 'laserio:logic_chip',
+            C: '#forge:plates/red_alloy',
+            D: '#forge:chests/wooden',
+        }
+    );
+	
+// card_cloner
+
+    event.shaped('laserio:card_cloner', [
+            'AAA',
+            'CDC',
+            'ABA',
+        ], {
+            A: '#forge:plates/iron',
+            B: 'laserio:logic_chip',
+            C: '#forge:plates/paper',
+            D: '#forge:chests/wooden',
+        }
+    );
 
 // laser_node
 
     greg
         .assembler('gfs:laser_node')
-        .itemInputs('4x #forge:plates/tin')
-        .itemInputs('4x #forge:glass_panes/colorless')
+        .itemInputs('12x #forge:rods/long/stainless_steel')
+        .itemInputs('6x gtceu:tempered_glass')
+        .itemInputs('4x #forge:lenses/glass')
         .itemInputs('laserio:laser_connector')
         .itemOutputs('laserio:laser_node')
         .duration(100)
         .EUt(30);
-    /*
-        event.shaped('laserio:laser_node', [
-        'ABA',
-        'BCB',
-        'ABA',
-      ], {
-        A: '#forge:plates/tin',
-        B: '#forge:glass_panes/colorless',
-        C: 'laserio:laser_connector'
-      }
-    );*/
 
 // laser_connector
     greg
         .assembler('gfs:laser_connector')
+        .itemInputs('2x #forge:lenses/glass')
         .itemInputs('#forge:rods/red_alloy', 'laserio:logic_chip', '3x #forge:plates/tin', '2x #forge:foils/red_alloy')
         .itemOutputs('laserio:laser_connector')
         .duration(100)
         .EUt(30);
-    /*
-        event.shaped('laserio:laser_connector', [
-        ' A ',
-        'BCB',
-        'DDD',
-      ], {
-        A: '#forge:rods/red_alloy',
-        B: '#forge:foils/red_alloy',
-        C: 'laserio:logic_chip',
-        D: '#forge:plates/tin'
-      }
-    );*/
 
 // laser_connector_advanced
     greg
         .assembler('gfs:laser_connector_advanced')
-        .itemInputs('3x #forge:rods/red_alloy',
-            '2x #forge:plates/rubber', 'laserio:laser_connector', '3x #forge:plates/electrum', '2x #forge:ender_pearls')
+        .itemInputs('3x #forge:rods/red_alloy','laserio:laser_connector',
+			'3x #forge:plates/electrum', '2x #forge:plates/ender_eye')
         .itemOutputs('laserio:laser_connector_advanced')
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .duration(100)
         .EUt(30);
-    /*
-        event.shaped('laserio:laser_connector_advanced', [
-        'EAE',
-        'BCB',
-        'DDD',
-      ], {
-        A: '#forge:rods/red_alloy',
-        B: '#forge:plates/rubber',
-        C: 'laserio:laser_connector',
-        D: '#forge:plates/electrum',
-        E: '#forge:ender_pearls'
-      }
-    );*/
 
 // overclocker_card
 
@@ -161,7 +156,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:mv_robot_arm')
         .itemInputs('gtceu:mv_conveyor_module')
         .itemInputs('6x minecraft:hopper')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 144))
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('laserio:card_item')
         .duration(5 * 20)
         .EUt(120);
@@ -193,7 +188,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:mv_electric_pump')
         .itemInputs('gtceu:mv_fluid_regulator')
         .itemInputs('6x omnihopper:fluid_hopper')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 144))
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('laserio:card_fluid')
         .duration(5 * 20)
         .EUt(120);
@@ -223,7 +218,7 @@ ServerEvents.recipes(event => {
         .itemInputs('2x laserio:logic_chip')
         .itemInputs('gtceu:mv_electric_motor')
         .itemInputs('gtceu:hv_lithium_battery')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 144))
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('laserio:card_energy')
         .duration(5 * 20)
         .EUt(120);
@@ -253,7 +248,7 @@ ServerEvents.recipes(event => {
         .itemInputs('2x laserio:logic_chip')
         .itemInputs('gtceu:lv_sensor')
         .itemInputs('gtceu:lv_emitter')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 144))
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('laserio:card_redstone')
         .duration(5 * 20)
         .EUt(120);
@@ -268,7 +263,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:fluid_filter')
         .itemInputs('gtceu:item_tag_filter')
         .itemInputs('gtceu:item_filter')
-        .inputFluids(Fluid.of('gtceu:rubber', 144))
+        .inputFluids(Fluid.of('gtceu:rubber', 288))
         .itemOutputs('2x laserio:filter_basic')
         .duration(10 * 20)
         .EUt(120);
@@ -283,19 +278,19 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:fluid_filter')
         .itemInputs('gtceu:item_tag_filter')
         .itemInputs('gtceu:item_filter')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 144))
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('2x laserio:filter_basic')
         .duration(5 * 20)
         .EUt(120);
 
 // logic_chip
 
-    greg.assembler('gfs:logic_chip')
-        .itemInputs('10x #forge:dusts/redstone')
-        .itemInputs('4x #forge:ingots/clay')
-        .itemInputs('2x #forge:storage_blocks/quartz')
-        .itemInputs('5x #forge:ingots/gold')
-        .itemInputs('#gregtech:circuits/lv')
+    greg.assembler('gfs:logic_chip_ulv')
+        .itemInputs('1x #gtceu:circuits/ulv')
+        .itemInputs('4x #forge:dusts/clay')
+        .itemInputs('2x #forge:plates/nether_quartz')
+        .itemInputs('4x #forge:foils/red_alloy')
+        .itemInputs('2x #forge:screws/gold')
         .inputFluids(Fluid.of('gtceu:rubber', 288))
         .itemOutputs('laserio:logic_chip_raw')
         .duration(10 * 20)
@@ -303,17 +298,36 @@ ServerEvents.recipes(event => {
 
 // logic_chip_2
 
-    greg.assembler('gfs:logic_chip_2')
-        .itemInputs('10x #forge:dusts/redstone')
-        .itemInputs('4x #forge:ingots/clay')
-        .itemInputs('2x #forge:storage_blocks/quartz')
-        .itemInputs('5x #forge:ingots/gold')
-        .itemInputs('#gregtech:circuits/lv')
-        .inputFluids(Fluid.of('gtceu:polyethylene', 288))
+    greg.assembler('gfs:logic_chip_ulv_2')
+        .itemInputs('1x #gtceu:circuits/ulv')
+        .itemInputs('4x #forge:dusts/clay')
+        .itemInputs('2x #forge:plates/nether_quartz')
+        .itemInputs('4x #forge:foils/red_alloy')
+        .itemInputs('2x #forge:screws/gold')
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .itemOutputs('laserio:logic_chip_raw')
         .duration(5 * 20)
         .EUt(100);
 
+    greg.assembler('gfs:logic_chip_lv')
+        .itemInputs('1x #gtceu:circuits/lv')
+        .itemInputs('8x #forge:dusts/clay')
+        .itemInputs('4x #forge:plates/nether_quartz')
+        .itemInputs('8x #forge:foils/red_alloy')
+        .itemInputs('4x #forge:screws/gold')
+        .inputFluids(Fluid.of('gtceu:silicone_rubber', 288))
+        .itemOutputs('2x laserio:logic_chip_raw')
+        .duration(10 * 20)
+        .EUt(100);
+
+
+
+  greg
+      .alloy_smelter('gfs:logic_chip')
+      .itemInputs('laserio:logic_chip_raw')
+      .itemOutputs('laserio:logic_chip')
+      .duration(5*20)
+      .EUt(30);
 
 // fin //
 

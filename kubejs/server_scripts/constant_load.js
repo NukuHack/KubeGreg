@@ -247,6 +247,8 @@ const autoClay = [
 // tag : event.remove(id[0], id[1]);
 
 const replacements = [
+    ["forge:silicon", "ae2:silicon"],
+    ["forge:silicon", "enderio:silicon"],
 
     ["forge:dusts/ender_pearl", "ae2:ender_dust"],
     ['forge:gems/certus_quartz', "ae2:certus_quartz_crystal"],

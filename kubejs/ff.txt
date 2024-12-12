@@ -1,1 +1,35 @@
 sfm:labelgun (wrench)
+
+enderio conduits:
+energy_conduit
+fluid_conduit
+pressurized_fluid_conduit
+ender_fluid_conduit
+redstone_conduit
+item_conduit
+dense_me_conduit
+me_conduit
+
+enderio extra:
+yeta_wrench
+extraction_speed_upgrade_1
+extraction_speed_upgrade_2
+extraction_speed_upgrade_3
+extraction_speed_upgrade_4
+basic_item_filter
+basic_fluid_filter
+advanced_item_filter
+advanced_fluid_filter
+redstone_not_filter
+redstone_or_filter
+redstone_and_filter
+redstone_nor_filter
+redstone_nand_filter
+redstone_xor_filter
+redstone_xnor_filter
+redstone_toggle_filter
+redstone_counting_filter
+redstone_sensor_filter
+redstone_timer_filter
+
+might save some extra "random" machines from enderio but not much

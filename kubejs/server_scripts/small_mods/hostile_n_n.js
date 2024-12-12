@@ -9,6 +9,7 @@ ServerEvents.recipes(event => {
     event.remove({output: 'hostilenetworks:blank_data_model'});
     event.remove({output: 'hostilenetworks:loot_fabricator'});
     event.remove({output: 'hostilenetworks:sim_chamber'});
+    event.remove({output: 'hostilenetworks:deep_learner'});
 
     greg
         .large_chemical_reactor('gfs:prediction_matrix')
@@ -17,7 +18,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:ram_chip')
         .inputFluids(Fluid.of('gtceu:oxygen', 2000))
         .itemOutputs('4x hostilenetworks:prediction_matrix')
-        .duration(200)
+        .duration(10*20)
         .EUt(120);
 
     greg
@@ -27,7 +28,18 @@ ServerEvents.recipes(event => {
         .itemInputs('#forge:ingots/blue_alloy')
         .itemInputs('gtceu:data_stick')
         .itemOutputs('2x hostilenetworks:blank_data_model')
-        .duration(400)
+        .duration(20*20)
+        .EUt(120);
+
+    greg
+        .assembler('gfs:deep_learner')
+        .itemInputs('gtceu:stainless_steel_crate')
+        .itemInputs('6x #forge:dense_plates/obsian')
+        .itemInputs('2x minecraft:comparator')
+        .itemInputs('16x #forge:dusts/redstone')
+        .itemInputs('gtceu:data_stick')
+        .itemOutputs('hostilenetworks:deep_learner')
+        .duration(10*20)
         .EUt(120);
 
     greg
@@ -35,16 +47,16 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:hv_assembler')
         .itemInputs('#forge:dusts/ender_eye')
         .itemOutputs('hostilenetworks:sim_chamber')
-        .duration(800)
-        .EUt(300);
+        .duration(40*20)
+        .EUt(480);
 
     greg
         .assembler('gfs:loot_fabricator')
         .itemInputs('gtceu:hv_assembler')
         .itemInputs('#forge:ingots/netherite')
         .itemOutputs('hostilenetworks:loot_fabricator')
-        .duration(800)
-        .EUt(300);
+        .duration(40*20)
+        .EUt(480);
 
 
     event.shapeless("4x minecraft:netherrack", ["hostilenetworks:nether_prediction", "minecraft:dirt"]);

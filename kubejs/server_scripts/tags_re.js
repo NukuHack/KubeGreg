@@ -17,6 +17,24 @@ ServerEvents.tags('item', event => {
     replacements.forEach((id) => {
         event.remove(id[0], id[1]);
     });
+	
+	replaceEnderioDusts=[
+		"coal",
+		"iron",
+		"gold",
+		"copper",
+		"tin",
+		"ender_pearl",
+		"obsidian",
+		"cobalt",
+		"lapis",
+		"quartz",
+	];
+	
+	replaceEnderioDusts.forEach((dust)=>{
+		event.remove(`forge:dusts/${dust}`,`enderio:${dust}_dust`);
+		event.remove(`forge:dusts`,`enderio:${dust}_dust`);
+	});
 
 });
 

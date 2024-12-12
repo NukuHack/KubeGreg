@@ -5,7 +5,7 @@ ServerEvents.recipes((event) => {
     event.remove({mod: "aeinfinitybooster"});
 
     // inf card
-    greg.assembler("gfs:aeinfinitybooster_inf")
+    greg.assembler("gfs:infinity_booster_inf")
         .itemInputs("ae2:controller","64x ae2:wireless_booster", "32x #forge:dusts/sky_stone",
             "16x ae2:quartz_vibrant_glass", "6x #forge:plates/pure_netherite", "gtceu:iv_emitter", "gtceu:iv_field_generator")
         .itemOutputs("aeinfinitybooster:infinity_card")
@@ -13,7 +13,7 @@ ServerEvents.recipes((event) => {
         .duration(1920*4);
 		
     // dimension card
-    greg.assembly_line('gfs:aeinfinitybooster_dim')
+    greg.assembly_line('gfs:infinity_booster_dim')
         .itemInputs("ae2:controller","16x aeinfinitybooster:infinity_card", "64x #forge:dusts/sky_stone",
             "64x ae2:quartz_vibrant_glass", "6x #forge:plates/naquadria", "gtceu:uhv_emitter", "gtceu:uhv_field_generator")
         .itemOutputs("aeinfinitybooster:dimension_card")

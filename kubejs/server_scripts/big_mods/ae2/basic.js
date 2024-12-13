@@ -20,7 +20,6 @@ ServerEvents.recipes(event => {
     event.replaceInput({input: "#forge:dusts/ender_pearl"}, "#forge:dusts/ender_pearl", "#forge:dusts/ender_pearl");
 
 
-
     // Basic Materials gregified
 
 
@@ -342,13 +341,13 @@ ServerEvents.recipes(event => {
         .inputFluids(
             Fluid.of('gtceu:soldering_alloy', 8192),
         )
-		.stationResearch(b => 
-			b.researchStack(Item.of('megacells:mega_energy_cell'))
-			.dataStack(Item.of("gtceu:data_orb"))
-			.EUt(GTValues.VA[GTValues.IV])
-			.duration(60*20)
-		)
-        .duration(20*20)
+        .stationResearch((b) => b
+            .researchStack(Item.of('aeinfinitybooster:infinity_card'))
+            .dataStack(Item.of("gtceu:data_orb"))
+            .CWUt(16, 200 * 20)
+            .EUt(GTValues.VA[GTValues.UV])
+        )
+        .duration(20 * 20)
         .EUt(GTValues.VA[GTValues.LuV]);
 
     // balls

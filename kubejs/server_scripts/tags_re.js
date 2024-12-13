@@ -18,7 +18,9 @@ ServerEvents.tags('item', event => {
         event.remove(id[0], id[1]);
     });
 	
-	replaceEnderioDusts=[
+	event.remove("forge:silicon", "enderio:silicon");
+	
+	const replaceEnderioDusts=[
 		"coal",
 		"iron",
 		"gold",
@@ -32,8 +34,8 @@ ServerEvents.tags('item', event => {
 	];
 	
 	replaceEnderioDusts.forEach((dust)=>{
-		event.remove(`forge:dusts/${dust}`,`enderio:${dust}_dust`);
-		event.remove(`forge:dusts`,`enderio:${dust}_dust`);
+		event.remove(`forge:dusts/${dust}`,`enderio:powdered_${dust!="lapis"?dust:dust+"_lazuli"}`);
+		event.remove(`forge:dusts`,`enderio:powdered_${dust!="lapis"?dust:dust+"_lazuli"}`);
 	});
 
 });

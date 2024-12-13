@@ -18,7 +18,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:ram_chip')
         .inputFluids(Fluid.of('gtceu:oxygen', 2000))
         .itemOutputs('4x hostilenetworks:prediction_matrix')
-        .duration(10*20)
+        .duration(10 * 20)
         .EUt(120);
 
     greg
@@ -28,18 +28,19 @@ ServerEvents.recipes(event => {
         .itemInputs('#forge:ingots/blue_alloy')
         .itemInputs('gtceu:data_stick')
         .itemOutputs('2x hostilenetworks:blank_data_model')
-        .duration(20*20)
+        .duration(20 * 20)
         .EUt(120);
 
     greg
         .assembler('gfs:deep_learner')
         .itemInputs('gtceu:stainless_steel_crate')
-        .itemInputs('6x #forge:dense_plates/obsian')
+        .itemInputs('6x #forge:dense_plates/obsidian')
         .itemInputs('2x minecraft:comparator')
-        .itemInputs('16x #forge:dusts/redstone')
+        .itemInputs('12x #forge:rods/red_alloy')
+        .itemInputs('4x #forge:plates/red_alloy')
         .itemInputs('gtceu:data_stick')
         .itemOutputs('hostilenetworks:deep_learner')
-        .duration(10*20)
+        .duration(10 * 20)
         .EUt(120);
 
     greg
@@ -47,7 +48,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:hv_assembler')
         .itemInputs('#forge:dusts/ender_eye')
         .itemOutputs('hostilenetworks:sim_chamber')
-        .duration(40*20)
+        .duration(40 * 20)
         .EUt(480);
 
     greg
@@ -55,7 +56,7 @@ ServerEvents.recipes(event => {
         .itemInputs('gtceu:hv_assembler')
         .itemInputs('#forge:ingots/netherite')
         .itemOutputs('hostilenetworks:loot_fabricator')
-        .duration(40*20)
+        .duration(40 * 20)
         .EUt(480);
 
 

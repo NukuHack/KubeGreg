@@ -473,7 +473,7 @@ ServerEvents.recipes(event => {
     event.custom({
         "type": "apotheosis:salvaging",
         "conditions": [{"type": "apotheosis:module", "module": "adventure"}],
-        "input": {"tag": "forge:dusts"},
+        "input": {"tag": "forge:ingots"},
         "outputs": [{
             "min_count": 0,
             "max_count": 1,
@@ -494,7 +494,6 @@ ServerEvents.recipes(event => {
 
 // draconic_endshelf
 
-    event.remove({id: 'apotheosis:draconic_endshelf'})
     event.shaped('apotheosis:draconic_endshelf', [
             ' A ',
             'BCB',

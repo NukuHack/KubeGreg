@@ -8,7 +8,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
         .pattern((definition) =>
             FactoryBlockPattern.start()
-                .aisle("AAAAA", "AAAAA", "AAAAA", "AAAAA", "AAAAA")
+                .aisle("AAAAA", "AAAAA", "AADAA", "AAAAA", "AAAAA")
                 .aisle("ABBBA", "B C B", "BC CB", "B C B", "ABBBA")
                 .aisle("ABBBA", "B C B", "BC CB", "B C B", "ABBBA")
                 .aisle("ABBBA", "B C B", "BC CB", "B C B", "ABBBA")
@@ -23,6 +23,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                     .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))
                 .where("B", Predicates.heatingCoils())
                 .where("C", Predicates.blocks("gtceu:tungsten_carbide_frame"))
+                .where("D", Predicates.blocks(PartAbility.MUFFLER))
                 .where(" ", Predicates.any())
                 .build())
         .additionalDisplay((controller, components) => {

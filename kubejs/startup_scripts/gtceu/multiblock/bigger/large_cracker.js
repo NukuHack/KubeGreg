@@ -6,7 +6,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
         .appearanceBlock(GTBlocks.CASING_STAINLESS_CLEAN)
         .pattern(definition => FactoryBlockPattern.start()
                 .aisle("AAAAAAAAA", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ", " A     A ")
-                .aisle("AAAAAAAAA", "AAGGGGGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGAAAGAA", "AAGGGGGAA", "AAAAAAAAA")
+                .aisle("AAAAAAAAA", "AAGGGGGAA", "AAGAAAGAA", "AAGADAGAA", "AAGAAAGAA", "AAGGGGGAA", "AAAAAAAAA")
                 .aisle("AAAAAAAAA", " G     G ", " G     G ", " G     G ", " G     G ", " G     G ", " GGGGGGG ")
                 .aisle("AAAAAAAAA", " GXXXXXG ", " GX X XG ", " GXXXXXG ", " GX X XG ", " GXXXXXG ", " GGGGGGG ")
                 .aisle("AAAAAAAAA", " G     G ", " G     G ", " G     G ", " G     G ", " G     G ", " GGGGGGG ")
@@ -25,6 +25,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
                     .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))
                 .where("G", Predicates.blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
                 .where("X", Predicates.heatingCoils())
+                .where("D", Predicates.blocks(PartAbility.MUFFLER))
                 .where(" ", Predicates.any())
                 .build())
         .additionalDisplay((controller, components) => {

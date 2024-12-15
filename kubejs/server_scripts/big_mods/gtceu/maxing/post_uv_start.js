@@ -7,24 +7,20 @@ ServerEvents.recipes(event => {
 
 
     // Loop through each voltage tier
-    ["uhv", "uev", "uiv", "uxv", "opv", "max"].forEach((tier, index) => {
+    voltages.forEach((tier, index) => {
 		
-        let materials = volt_to_material[tier];
-        let [mat1, mat2, wire2] = materials;
-        let tierN = index + 8;
+        let tierN = index + 9;
+        let lesser = voltages[tierN-1];
+        let [mat1, mat2, wire2] = volt_to_material[tier];
         let wire1 = volt_to_cable[tier];
         let eut = voltage_to_eu[tier];
-        let extra = volt_to_extra[tier] || [];
-        let [solder, poly, rubber, lube, assembling] = extra;
+        let [solder, poly, rubber, lube, assembling] = volt_to_extra[tier] || [];
 
-        let EnergyHatchHelper = [
-            [`gtceu:sodium_potassium 12000`, `gtceu:${mat1} 1152`, `gtceu:${solder} 576`],
-            [`gtceu:${assembling} 11520`, `gtceu:${solder} 5760`],
-        ];
+
 
         // Energy Converters
         amperages.forEach((amperage, amperageIndex) => {
-            if ([2, 4].includes(amperageIndex)) {
+            if (amperageIndex!=1&&amperageIndex!=3) {
                 let wireType = wireTypes[amperageIndex];
                 event.remove({ output: `gtceu:${tier}_${amperage}_energy_converter` });
                 event.shaped(Item.of(`gtceu:${tier}_${amperage}_energy_converter`), [
@@ -40,12 +36,22 @@ ServerEvents.recipes(event => {
             }
         });
 
+
+		if (index>7){
+			
+			
+        let EnergyHatchHelper = [
+            [`gtceu:sodium_potassium 12000`, `gtceu:${mat1} 1152`, `gtceu:${solder} 576`],
+            [`gtceu:${assembling} 11520`, `gtceu:${solder} 5760`],
+        ];
+
         // Energy Hatches (input/output)
         ioTypes.forEach((type, ioIndex) => {
             // Remove old recipes
-            ["", "_4a", "_16a"].forEach(suffix =>
-                event.remove({ output: `gtceu:${tier}_energy_${type}_hatch${suffix}` })
-            );
+            ["", "_4a", "_16a"].forEach(suffix =>{
+                event.remove({ output: `gtceu:${tier}_energy_${type}_hatch${suffix}` });
+            });
+                event.remove({ output: `gtceu:${tier}_substation_${type}_hatch_64a` });
 
             // Basic energy hatch recipe
             greg.assembly_line(`gfs:${tier}_energy_${type}_hatch`)
@@ -58,44 +64,84 @@ ServerEvents.recipes(event => {
                 )
                 .inputFluids(EnergyHatchHelper[ioIndex])
                 .itemOutputs(`gtceu:${tier}_energy_${type}_hatch`)
-                .duration(50 * 20)
+                .duration(20 * 20)
                 .EUt(eut);
 
-            // Multi-energy hatches (4a and 16a)
-            [
-                [amperages[2], wireTypes[2]], // 4a
-                [amperages[4], wireTypes[4]], // 16a
-            ].forEach(([amperage, wireType], idx) =>
-                greg.assembler(`gfs:${tier}_energy_${type}_hatch_${amperage}`)
+            // Multi-energy hatches (4a and 16a and 64a)
+			
+                greg.assembler(`gfs:${tier}_energy_${type}_hatch_4a`)
                     .itemInputs(
-                        `gtceu:${tier}_energy_${type}_hatch${amperage === "4a" ? "" : "_4a"}`,
+                        `gtceu:${tier}_energy_${type}_hatch`,
                         `2x gtceu:${mat1}_plate`,
-                        `2x gtceu:${wire1}_${wireType}`
+                        `2x gtceu:${wire1}_quadruple_wire`
                     )
-                    .itemOutputs(`gtceu:${tier}_energy_${type}_hatch_${amperage}`)
+                    .itemOutputs(`gtceu:${tier}_energy_${type}_hatch_4a`)
                     .duration(10 * 20)
-                    .EUt(eut * (4 ** (1 + idx)))
-            );
+                    .EUt(voltage_to_eu[lesser]);
+					
+                greg.assembler(`gfs:${tier}_energy_${type}_hatch_16a`)
+                    .itemInputs(
+                        `gtceu:${tier}_transformer_1a`,
+                        `gtceu:${tier}_energy_${type}_hatch_4a`,
+                        `2x gtceu:${wire1}_hex_wire`
+                        `4x gtceu:${mat1}_plate`,
+                    )
+                    .itemOutputs(`gtceu:${tier}_energy_${type}_hatch_16a`)
+                    .duration(20 * 20)
+                    .EUt(eut);
+			
+                greg.assembler(`gfs:${tier}_substation_${type}_hatch_64a`)
+                    .itemInputs(
+                        `gtceu:${tier}_transformer_16a`,
+                        `gtceu:${tier}_energy_${type}_hatch_16a`,
+                        `2x gtceu:${wire1}_hex_wire`
+                        `6x gtceu:${mat1}_plate`,
+                    )
+                    .itemOutputs(`gtceu:${tier}_substation_${type}_hatch_64a`)
+                    .duration(30 * 20)
+                    .EUt(eut);
+				
+			
         });
+					
+			// transformers :
+				// this should redo every transformer even the lv ones
+			// for 1,2,4
+				// pic chip 2
+				// 1 higher x cable
+				// 4 tier x cable
+				// 1 tier machine Hull
+				// = 
+				// tier transformer x
+			// for 16
+				// 1 tier transformer 4
+				// 1 lesser electric motor
+				// 1 lesser electric pump
+				// 1 higher cable 8
+				// 2 tier cable 16
+				// 1 higher wire1 small spring
+				// 2 wire1 springs
+				// 2k lube
 
-        // Lasers (only for voltages below 11)
-        if (index < 12) {
+        // Lasers
+        if (index < voltages.length-1) {
             [
                 ["256a", 1, wireTypes[0]],
                 ["1024a", 2, wireTypes[2]],
                 ["4096a", 4, wireTypes[4]],
             ].forEach(([suffix, multiplier, wire], idx) => {
-                ["target", "source"].forEach((specialInput, ioIndex) => {
-                    greg.assembler(`gfs:${tier}_${suffix}_laser_${specialInput}_hatch`)
+                ["target", "source"].forEach((special, ioIndex) => {
+                event.remove({ output: `gtceu:${tier}_${suffix}_laser_${special}_hatch` });
+                    greg.assembler(`gfs:${tier}_${suffix}_laser_${special}_hatch`)
                         .itemInputs(
                             `gtceu:${tier}_machine_hull`,
                             `${multiplier}x gtceu:diamond_lens`,
-                            `${multiplier}x gtceu:${tier}_${(specialInput=="target"?"sensor":"emitter")}`,
+                            `${multiplier}x gtceu:${tier}_${special=="target"?"sensor":"emitter"}`,
                             `${multiplier}x gtceu:${tier}_electric_pump`,
                             `4x gtceu:${wire1}_${wire}_wire`
                         )
-                        .itemOutputs(`gtceu:${tier}_${suffix}_laser_${specialInput}_hatch`)
-                        .circuit(idx + 1 + (specialInput === "source" ? 6 : 0))
+                        .itemOutputs(`gtceu:${tier}_${suffix}_laser_${special}_hatch`)
+                        .circuit(3)
                         .duration(20 * 20)
                         .EUt(eut);
                 });
@@ -109,7 +155,7 @@ ServerEvents.recipes(event => {
         greg.assembler(`gfs:${tier}_hull`)
             .itemInputs(
                 `gtceu:${tier}_machine_casing`,
-                `2x gtceu:${wire1}_single_wire`
+                `2x gtceu:${wire1}_single_${tierN>9?"cable":"wire"}`
             )
             .inputFluids(`gtceu:${rubber} 288`)
             .itemOutputs(`gtceu:${tier}_machine_hull`)
@@ -122,5 +168,6 @@ ServerEvents.recipes(event => {
             .circuit(8)
             .duration(5 * 20)
             .EUt(16);
+	}
     });
 });

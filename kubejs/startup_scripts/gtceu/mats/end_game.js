@@ -60,6 +60,15 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .flags(plates, rod, foil, long_rod, ring, round, gear, small_gear,
             bolt_and_screw, frame, dense_plate);
 
+    event.create('pure_all')
+        .ingot()
+        .element(GTElements.get("pure_all"))
+        .color(0xffffff)
+        .iconSet('shiny')
+        .cableProperties(2147483647 / 64, 6, 0, true)
+        .flags(plates, rod, foil, long_rod, ring, round, gear, small_gear,
+            bolt_and_screw, frame, dense_plate);
+
     event.create('monium')
         .ingot()
         .element(GTElements.get("monium"))

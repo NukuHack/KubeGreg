@@ -8,7 +8,7 @@ ServerEvents.recipes(event => {
         ["X X", " X ", "X X"], {
             X: "engineersdecor:metal_bar"
         });
-
+		
     event.shaped("24x engineersdecor:metal_bar",
         ["X  ", " X ", "  X"], {
             X: "#forge:ingots/steel"

@@ -1,13 +1,5 @@
-
-
 priority: 99
 //priority: 99
-
-
-
-
-
-
 
 
 // constants for machines
@@ -24,9 +16,6 @@ const $CleaningPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machin
 const $FluidHatchPartMachine = Java.loadClass('com.gregtechceu.gtceu.common.machine.multiblock.part.FluidHatchPartMachine');
 const $FluidType = Java.loadClass('net.minecraftforge.fluids.FluidType');
 const bucket = $FluidType.BUCKET_VOLUME;
-
-
-
 
 
 /* // it's stupid and still not work
@@ -124,11 +113,6 @@ $MyApp.Renderers.MaintenanceRenderer.prototype.constructor = $MyApp.Renderers.Ma
 
 
 */
-
-
-
-
-
 
 
 //multiblocks :

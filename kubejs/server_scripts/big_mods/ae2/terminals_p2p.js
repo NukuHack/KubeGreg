@@ -70,6 +70,7 @@ ServerEvents.recipes((event) => {
 
     event.remove({id: "mae2:network/parts/multi_p2p_tunnel_workaround"});
 
+	//making the basic from the variants
     event.shapeless("ae2:me_p2p_tunnel", ["ae2:me_p2p_tunnel"]);
     event.shapeless("ae2:me_p2p_tunnel", ["eup2p:eu_p2p_tunnel"]);
     event.shapeless("ae2:me_p2p_tunnel", ["mae2:eu_p2p_tunnel"]);
@@ -79,17 +80,19 @@ ServerEvents.recipes((event) => {
     event.shapeless("ae2:me_p2p_tunnel", ["ae2:fe_p2p_tunnel"]);
     event.shapeless("ae2:me_p2p_tunnel", ["ae2:light_p2p_tunnel"]);
     event.shapeless("ae2:me_p2p_tunnel", ["mae2:pattern_p2p_tunnel"]);
-	
+	//resetting eup2p
+    event.shapeless("eup2p:eu_p2p_tunnel", ["eup2p:eu_p2p_tunnel"]);
+	//crafting eup2p to the other mod
     event.shapeless("eup2p:eu_p2p_tunnel", ["mae2:eu_p2p_tunnel"]);
     event.shapeless("mae2:eu_p2p_tunnel", ["eup2p:eu_p2p_tunnel"]);
-
+	// making the simple ones from the multi ones
     event.shapeless("ae2:item_p2p_tunnel", ["mae2:item_multi_p2p_tunnel"]);
     event.shapeless("mae2:pattern_p2p_tunnel", ["mae2:pattern_multi_p2p_tunnel"]);
     event.shapeless("ae2:redstone_p2p_tunnel", ["mae2:redstone_multi_p2p_tunnel"]);
     event.shapeless("ae2:fe_p2p_tunnel", ["mae2:fe_multi_p2p_tunnel"]);
     event.shapeless("ae2:fluid_p2p_tunnel", ["mae2:fluid_multi_p2p_tunnel"]);
     event.shapeless("mae2:eu_p2p_tunnel", ["mae2:eu_multi_p2p_tunnel"]);
-
+	//making the extra ones from the basic variant
     event.shapeless("eup2p:eu_p2p_tunnel", ["ae2:me_p2p_tunnel", "#forge:dusts/wrought_iron"]);
     event.shapeless("mae2:eu_p2p_tunnel", ["ae2:me_p2p_tunnel", "#forge:dusts/wrought_iron"]);
     event.shapeless("ae2:redstone_p2p_tunnel", ["ae2:me_p2p_tunnel", "#forge:dusts/redstone"]);

@@ -1,4 +1,3 @@
-
 // Giga, Omega Parallel Hatches
 GTCEuStartupEvents.registry('gtceu:machine', event => {
     event.create(

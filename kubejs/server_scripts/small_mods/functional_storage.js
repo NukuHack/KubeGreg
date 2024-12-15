@@ -197,8 +197,8 @@ ServerEvents.recipes(event => {
     greg.assembler('gfs:functionalstorage/gold_upgrade')
         .itemInputs('functionalstorage:copper_upgrade')
         .itemInputs('gtceu:mv_super_chest')
-        .itemInputs(`4x #forge:plates/aluninium`)
-        .itemInputs('2x #forge:storage_blocks/aluninium')
+        .itemInputs(`4x #forge:plates/aluminium`)
+        .itemInputs('2x #forge:storage_blocks/aluminium')
         .itemOutputs('functionalstorage:gold_upgrade')
         .duration(100)
         .EUt(120);

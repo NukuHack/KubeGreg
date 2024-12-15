@@ -44,10 +44,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .color(0x969688);
 
 
-
-
-
-
     // more useful stuff
 
     event.create('dusty_helium')

@@ -194,7 +194,7 @@ ServerEvents.recipes(event => {
 
 // Create machine recipes for a specific voltage
     voltages.forEach((volt, index) => {
-        if (!(index > 7) && index > 1) {
+        if (index <9 && index > 2) {
             event.shaped(
                 "gtceu:" + volt + "_inscriber",
                 ["AXA", "BYC", "DED"],

@@ -1,4 +1,3 @@
-
 priority: 50
 
 GTCEuStartupEvents.registry("gtceu:material", event => {
@@ -14,7 +13,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
     periodicTableElement('flerovium', 'ingot');
     periodicTableElement('rhenium', 'ingot');
     periodicTableElement('holmium', 'ingot');
-
 
 
 // Dusts

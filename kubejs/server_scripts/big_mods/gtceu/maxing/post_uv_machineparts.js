@@ -10,7 +10,7 @@ ServerEvents.recipes(event => {
         //console.log("MachinePartsMaterials Function called!");
         //console.log([tier, tierN]);
 		
-		let multiHelp = (tierN-8)/2;
+		let index = (tierN-9)+1;
 		
 		let magnet = "magnetic_samarium";
 
@@ -28,16 +28,17 @@ ServerEvents.recipes(event => {
                     `${Math.round(2 * multi)}x gtceu:${wire1}_single_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${lube} ${Math.round(2000 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${lube} ${Math.round(2000 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         } else if (name == machinePartHelp[1]) { // Electric Piston
             //console.log("Electric Piston run");
             ReturnOutput = [
                 [
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
                     `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
                     `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
                     `${Math.round(16 * multi)}x #forge:rounds/${mat2}`,
@@ -47,47 +48,51 @@ ServerEvents.recipes(event => {
                     `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${lube} ${Math.round(2000 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${lube} ${Math.round(2000 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         } else if (name == machinePartHelp[2]) { // Robot Arm
             //console.log("Robot Arm run");
             ReturnOutput = [
                 [
-                    `${Math.round(2 * multi_small)}x gtceu:${tier}_electric_motor`,
-                    `${Math.round(2 * multi)}x #forge:plates/${mat1}`,
-                    `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
-                    `${Math.round(16 * multi)}x #forge:rounds/${mat2}`,
+                    `${Math.round(4 * multi)}x #forge:rods/long/${mat2}`,
+                    `${Math.round(1 * multi)}x #forge:gears/${mat1}`,
+                    `${Math.round(3 * multi)}x #forge:small_gears/${mat1}`,
                     `${Math.round(4 * multi)}x #forge:screws/${mat2}`,
-                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                    `${Math.round(2 * multi)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(1 * multi)}x gtceu:${tier}_electric_piston`,
+                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(2 * multi_small)}x #gtceu:circuits/${voltages[tierN - 1]}`,
+                    `${Math.round(4 * multi_small)}x #gtceu:circuits/${voltages[tierN - 2]}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${lube} ${Math.round(2000 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${lube} ${Math.round(2000 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         } else if (name == machinePartHelp[3]) { // Sensor
             //console.log("Sensor run");
             ReturnOutput = [
                 [
+                    `${Math.round(1 * multi)}x #forge:frames/${mat1}`,
                     `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
-                    `${Math.round(1 * multi)}x gtceu:${mat2}_huge_fluid_pipe`,
-                    `${Math.round(2 * multi)}x #forge:plates/${mat1}`,
-                    `${Math.round(8 * multi)}x #forge:screws/${mat2}`,
-                    `${Math.round(32 * multi)}x #forge:rings/${rubber}`,
-                    `${Math.round(1 * multi_small)}x gtceu:${wire2}_rotor`,
-                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                    `${Math.round(4 * multi)}x #forge:plates/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
+                    `${Math.round(2 * multi_small)}x #gtceu:circuits/${tier}`,
+                    `${Math.round(96 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${lube} ${Math.round(2000 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${lube} ${Math.round(2000 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         } else if (name == machinePartHelp[4]) { // Emitter
@@ -105,50 +110,14 @@ ServerEvents.recipes(event => {
                     `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${lube} ${Math.round(2000 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${lube} ${Math.round(2000 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         } else if (name == machinePartHelp[5]) { // Field Generator
             //console.log("Field Generator run");
-            ReturnOutput = [
-                [
-                    `${Math.round(1 * multi)}x #forge:frames/${mat1}`,
-                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
-                    `${Math.round(4 * multi)}x #forge:plates/${mat2}`,
-                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
-                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
-                    `${Math.round(96 * multi)}x #forge:foils/${wire2}`,
-                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
-                ],
-                [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
-                ],
-            ];
-        } else if (name == machinePartHelp[6]) { // Conveyor Module
-            //console.log("Conveyor Module run");
-            ReturnOutput = [
-                [
-                    `${Math.round(1 * multi)}x #forge:frames/${mat1}`,
-                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
-                    `${Math.round(4 * multi)}x #forge:long_rods/${mat2}`,
-                    `${Math.round(2 * multi)}x gtceu:gravi_star`,
-                    `${Math.round(1 * multi_small)}x #gtceu:circuits/${tier}`,
-                    `${Math.round(64 * multi)}x #forge:foils/${wire2}`,
-                    `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
-                ],
-                [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
-                ],
-            ];
-        } else if (name == machinePartHelp[7]) { // Electric Pump
-            //console.log("Electric Pump run");
             ReturnOutput = [
                 [
                     `${Math.round(1 * multi)}x #forge:frames/${mat1}`,
@@ -160,9 +129,46 @@ ServerEvents.recipes(event => {
                     `${Math.round(4 * multi)}x gtceu:${wire1}_double_wire`,
                 ],
                 [
-                    `gtceu:${solder} ${Math.round(5760 * multiHelp)}`,
-                    `gtceu:${assembling} ${Math.round(1152 * multiHelp)}`,
-                    `gtceu:${extra} ${Math.round(576 * multiHelp)}`
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[6]) { // Conveyor Module
+            //console.log("Conveyor Module run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(4 * multi)}x #forge:rings/${mat2}`,
+                    `${Math.round(16 * multi)}x #forge:rounds/${mat2}`,
+                    `${Math.round(4 * multi)}x #forge:rods/${mat1}`,
+                    `${Math.round(1 * multi)}x #forge:gears/${mat2}`,
+                    `${Math.round(2 * multi)}x #forge:small_gears/${mat2}`,
+                    `${Math.round(2 * multi)}x gtceu:${wire2}_double_wire`,
+                ],
+                [
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
+                ],
+            ];
+        } else if (name == machinePartHelp[7]) { // Electric Pump
+            //console.log("Electric Pump run");
+            ReturnOutput = [
+                [
+                    `${Math.round(1 * multi_small)}x gtceu:${tier}_electric_motor`,
+                    `${Math.round(1 * multi)}x gtceu:${mat2}_huge_fluid_pipe`,
+                    `${Math.round(2 * multi)}x #forge:plates/${mat1}`,
+                    `${Math.round(8 * multi)}x #forge:screws/${mat2}`,
+                    `${Math.round(32 * multi)}x #forge:rings/${rubber}`,
+                    `${Math.round(1 * multi_small)}x gtceu:${wire2}_rotor`,
+                    `${Math.round(2 * multi)}x gtceu:${wire1}_double_wire`,
+                ],
+                [
+                    `gtceu:${solder} ${Math.round(5760 * index)}`,
+                    `gtceu:${assembling} ${Math.round(1152 * index)}`,
+                    `gtceu:${extra} ${Math.round(576 * index)}`
                 ],
             ];
         }
@@ -179,10 +185,10 @@ ServerEvents.recipes(event => {
             //"max",
         ].forEach((tier, index) => {
 
-            let tierN = 8 + index;
+            let tierN = 9 + index;
             //console.log(`${index} ID ${tierN} is the tierNumber`);
 
-            let lesser = voltages[index + 7];
+            let lesser = voltages[tierN-1];
             //console.log(`${index} ID ${lesser} is the lesser`);
 			
             let [mat1, mat2, wire2] = volt_to_material[tier];
@@ -224,18 +230,16 @@ ServerEvents.recipes(event => {
 
 
     // Define the fluid regulator configurations as arrays
-    [
-        [voltages[8], voltage_to_eu[voltages[8]]],
-        [voltages[9], voltage_to_eu[voltages[9]]],
-        [voltages[10], voltage_to_eu[voltages[10]]],
-    ].forEach(([tier, eut]) => {
-        let craft_item = "fluid_regulator";
-        greg.assembler(`gfs:${tier}_${craft_item}`)
-            .itemInputs(`gtceu:${tier}_electric_pump`, `2x #gtceu:circuits/${tier}`)
-            .circuit(1)
-            .itemOutputs(`gtceu:${tier}_${craft_item}`)
-            .duration(5 * 20)
-            .EUt(eut);
+    voltages.forEach((tier,index) => {
+		if (index>8&&index < voltages.length-1){
+			let eut=voltage_to_eu[tier];
+			greg.assembler(`gfs:${tier}_fluid_regulator`)
+				.itemInputs(`gtceu:${tier}_electric_pump`, `2x #gtceu:circuits/${tier}`)
+				.circuit(1)
+				.itemOutputs(`gtceu:${tier}_fluid_regulator`)
+				.duration(5 * 20)
+				.EUt(eut);
+		}
     });
 
 

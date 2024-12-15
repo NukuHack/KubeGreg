@@ -22,7 +22,7 @@ StartupEvents.registry("block", event => {
         .tagBlock('forge:obsidian')
         .tagBlock('minecraft:wither_immune')
         .tagBlock('minecraft:dragon_immune')
-        .textureAll(`gfs:block/witherproof_block`);
+        .textureAll(`gfs:block/witherproof_block`); //no texture yet
 
     event.create('gfs:dust', 'falling')
         .soundType('sand')

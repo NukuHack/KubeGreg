@@ -22,7 +22,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .aisle('COCCCCHHHCCCCOC', 'CPPPPPPGPPPPPPC', 'COCCCCHHHCCCCOC')
             .aisle('CCC  CHHHC  CCC', ' CCCCCHGHCCCCC ', 'CCC  CHHHC  CCC')
             .aisle('    HHHSHHH    ', '    FHSGSHF    ', '    HHHSHHH    ')
-            .aisle('  HHHHSSSHHHH  ', '   HHFSRSFHH   ', '  HHHHSKSHHHH  ')
+            .aisle('  HHHHSKSHHHH  ', '   HHFSRSFHH   ', '  HHHHSSSHHHH  ')
             .aisle('  HHH     HHH  ', '  HHH     HHH  ', '  HHH     HHH  ')
             .aisle('  HHH     HHH  ', '   H       H   ', '  HHH     HHH  ')
             .where('K', Predicates.controller(Predicates.blocks(definition.get())))

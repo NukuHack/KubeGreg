@@ -137,12 +137,13 @@ ServerEvents.recipes(event => {
         "4d",
     ].forEach((type, index_stuff) => {
         circuitHelp.forEach(([name,[out_multi, dur],], index) => {
-            let tier = voltages[index_stuff + 9];
+			
+			let tierN = index_stuff + 10;
+            //console.log(`${index} ID ${tierN} is the tierNumber`);
+            let tier = voltages[tierN];
             //console.log(`${index} ID ${tier} is the tier made from ${index_stuff + 9}`);
-            let lesser = voltages[index_stuff + 8];
+            let lesser = voltages[tierN-1];
             //console.log(`${index} ID ${lesser} is the lesser`);
-            let tierNumber = index_stuff + 9;
-            //console.log(`${index} ID ${tierNumber} is the tierNumber`);
             let [mat1, mat2, wire2] = volt_to_material[tier];
             //console.log(`${index} ID [${mat1}, ${mat2}, ${wire2}] is the mats`);
             let wire1 = volt_to_cable[tier];
@@ -161,7 +162,7 @@ ServerEvents.recipes(event => {
             let [solids, liquids] = CircuitMaterials(
                 //((tier, tierN, [mat1, mat2, wire1, wire2], [multi,multi_small,multi_soc],
                 //[smd_type, ram_type, soc_type, pic_type], [solder, plastic, rubber], name)
-                tier, tierNumber,
+                tier, tierN,
                 [mat1, mat2, wire1, wire2],
                 [multi, multi_small, multi_soc], type_s,
                 [solder, poly, rubber], name

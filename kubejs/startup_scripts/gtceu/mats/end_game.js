@@ -17,8 +17,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('metallic')
         .blastTemp(6800, 'higher')
         .fluidPipeProperties(20000, 20000, true, true, true, true)
-        .flags(no_smelt, plates,small_gear, rod, gear, dense_plate, frame, long_rod,
-            ring,round,bolt_and_screw );
+        .flags(no_smelt, plates, small_gear, rod, gear, dense_plate, frame, long_rod,
+            ring, round, bolt_and_screw);
 
     event.create("cryococcus")
         .ingot()
@@ -26,8 +26,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .element(GTElements.get("cryococcus"))
         .color(0x008F92)
         .iconSet('metallic')
-        .cableProperties(8388608/4, 8, 0, true)
-        .flags(no_smelt, plates, rod, gear, frame, ring, dense_plate);
+        .cableProperties(8388608 / 4, 8, 0, true)
+        .flags(no_smelt, plates, rod, gear, frame, ring, dense_plate, fine_wire);
 
 
     event.create("crystal_matrix")
@@ -38,8 +38,8 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('shiny')
         .fluidPipeProperties(100000, 64000, true, true, true, true)
         .cableProperties(2147483647 / 16, 4, 0, true)
-        .flags(plates, foil, rod, frame, rotor, dense_plate,fine_wire,round,
-            bolt_and_screw,ring);
+        .flags(plates, foil, rod, frame, rotor, dense_plate, fine_wire, round,
+            bolt_and_screw, ring, long_rod, gear, small_gear);
 
     event.create("omnium")
         .ingot()
@@ -68,7 +68,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .cableProperties(2147483647 / 4, 16, 0, true)
         .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .flags(plates, rod, frame, gear, spring, small_gear, foil, dense_plate,
-            long_rod,ring,round, bolt_and_screw,fine_wire);
+            long_rod, ring, round, bolt_and_screw, fine_wire);
 
     event.create('omnic_acid')
         .dust()
@@ -76,9 +76,6 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .iconSet('shiny')
         .components('5x carbon', '4x hydrogen', '3x oxygen', '4x omnium')
         .flags(no_decomp);
-
-
-
 
 
     // magic stuff
@@ -107,7 +104,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .secondaryColor(0xCDEDFE)
         .iconSet(NETHERSTAR)
         .gem()
-        .flags(fine_wire,lens);
+        .flags(fine_wire, lens);
 
     //Stardust
     event.create('stardust')
@@ -121,28 +118,27 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
     // Stellar
     event.create('stellar')
         // ✵
-        .components('stardust','wissen','ember','mana')
+        .components('stardust', 'wissen', 'ember', 'mana')
         .element(GTElements.get("stellar"))
         .color(0xFFFFFF)
         .secondaryColor(0x111111)
         .iconSet(NETHERSTAR)
         .ingot()
-        .flags(no_smelt, no_decomp, plates, rod,gear, frame, ring, dense_plate,
-            gear, small_gear, dense_plate);
+        .flags(no_smelt, no_decomp, plates, rod, gear, frame, ring, dense_plate,
+            gear, small_gear, dense_plate, long_rod);
 
     //TODO : draconium and awakened draconium
     // opv wire (2147483647/4), max wire (2147483647)
     // both with atleast with : wire,fine_wire + stellar's because it's fun
 
 
-
     // my take on it
-/*
-    event.create('graphenium')
-    event.create('quanton')
-    event.create('photonite')
-    event.create('antimatter')
-*/
+    /*
+        event.create('graphenium')
+        event.create('quanton')
+        event.create('photonite')
+        event.create('antimatter')
+    */
 
 });
 

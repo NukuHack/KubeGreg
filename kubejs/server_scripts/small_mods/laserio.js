@@ -25,7 +25,7 @@ ServerEvents.recipes(event => {
             F: '#forge:tools/screwdrivers'
         }
     );
-
+	
 // card_holder
 
     event.shaped('laserio:card_holder', [
@@ -39,7 +39,7 @@ ServerEvents.recipes(event => {
             D: '#forge:chests/wooden',
         }
     );
-
+	
 // card_cloner
 
     event.shaped('laserio:card_cloner', [
@@ -78,8 +78,8 @@ ServerEvents.recipes(event => {
 // laser_connector_advanced
     greg
         .assembler('gfs:laser_connector_advanced')
-        .itemInputs('3x #forge:rods/red_alloy', 'laserio:laser_connector',
-            '3x #forge:plates/electrum', '2x #forge:plates/ender_eye', '2x #forge:plates/diamond')
+        .itemInputs('3x #forge:rods/red_alloy','laserio:laser_connector',
+			'3x #forge:plates/electrum', '2x #forge:plates/ender_eye', '2x #forge:plates/diamond')
         .itemOutputs('laserio:laser_connector_advanced')
         .inputFluids(Fluid.of('gtceu:silicone_rubber', 144))
         .duration(100)
@@ -321,12 +321,13 @@ ServerEvents.recipes(event => {
         .EUt(100);
 
 
-    greg
-        .alloy_smelter('gfs:logic_chip')
-        .itemInputs('laserio:logic_chip_raw')
-        .itemOutputs('laserio:logic_chip')
-        .duration(5 * 20)
-        .EUt(30);
+
+  greg
+      .alloy_smelter('gfs:logic_chip')
+      .itemInputs('laserio:logic_chip_raw')
+      .itemOutputs('laserio:logic_chip')
+      .duration(5*20)
+      .EUt(30);
 
 // fin //
 

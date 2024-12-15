@@ -3,11 +3,12 @@ priority: 100
 
 
 const voltages = [
-    //0     1     2     3     4     5      6      7     8      9      10    11     12     13
-    "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
+    //0     1     2     3     4     5      6      7     8      9      10    11     12     13	 14
+    "ulv", "lv", "mv", "hv", "ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "uxv", "opv", "max"
 ];
 
 const voltage_to_eu = {
+	"ulv": 6,
     "lv": 30,//lv
     "mv": 120,//mv
     "hv": 480,//hv
@@ -26,6 +27,7 @@ const voltage_to_eu = {
 
 // access just like you would volt_to_cable["lv"] = "tin"
 const volt_to_cable = {
+	"ulv": "red_alloy",
     "lv": "tin",
     "mv": "copper",
     "hv": "gold",
@@ -43,27 +45,36 @@ const volt_to_cable = {
 };
 
 const volt_to_material = {
-    // mat 1 wire 2 (wire 1 is in "volt_to_cable")
-    "lv": ["steel", "copper"],
-    "mv": ["aluminium", "cupronickel"],
-    "hv": ["stainless_steel", "electrum"],
-    "ev": ["titanium", "kanthal"],
-    "iv": ["tngsten_steel", "rtm_alloy"],
-    "luv": ["rhodium_plated_palladium", "hssg"],
     // mat 1 mat 2 wire 2 (wire 1 is in "volt_to_cable")
-    "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],// ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
+	"ulv": ["wrought_iron","","lead"],
+    "lv": ["steel", "", "copper"],
+    "mv": ["aluminium", "", "cupronickel"],
+    "hv": ["stainless_steel","", "electrum"],
+    "ev": ["titanium", "", "kanthal"],
+    "iv": ["tngsten_steel", "", "rtm_alloy"],
+    "luv": ["rhodium_plated_palladium", "", "hssg"],
+	//zmp :  ++ best (og)plastic, magnetic samarium, europium, hsss, palladium
+    "zpm": ["naquadah_alloy", "osmiridium", "naquadah"],
     "uv": ["darmstadtium", "tritanium", "naquadah_alloy"],
     "uhv": ["neutronium", "cryolobus", "ruthenium_trinium_americium_neutronate"],
-    "uev": ["pure_netherite", "holmium", "cryococcus"],
-    "uiv": ["infinity", "crystal_matrix", "holmium"],
+    "uev": ["weapon_grade_naquadaria", "holmium", "cryococcus"],
+    "uiv": ["pure_all", "crystal_matrix", "holmium"],
     "uxv": ["monium", "omnium", "crystal_matrix"],
     "opv": ["stellar", "monium", "draconium"],
     "max": ["void", "infinity", "awakened_draconium"],
 };
 
 const volt_to_extra = {
-    "uv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquada', 'tin'],
-    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquada', 'tin'],
+    "ulv": ["tin", "", "rubber", '', '', ''],
+    "lv": ["soldering_alloy", "", "rubber", '', 'red_alloy', 'tin'],
+    "mv": ["soldering_alloy", "polyethylene", "rubber", 'lubricant', 'red_alloy', 'tin'],
+    "hv": ["soldering_alloy", "polytetrafluoroethylene", "silicone_rubber", 'lubricant', 'red_alloy', 'tin'],
+    "ev": ["soldering_alloy", "polytetrafluoroethylene", "silicone_rubber", 'lubricant', 'red_alloy', 'tin'],
+	"iv": ["soldering_alloy", "polytetrafluoroethylene", "silicone_rubber", 'lubricant', 'naquadah', 'tin'],
+	"luv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquadah', 'naquadah'],
+	"zpm": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquadah', 'naquadah'],
+    "uv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquadah', 'naquadah'],
+    "uhv": ["soldering_alloy", "polybenzimidazole", "styrene_butadiene_rubber", 'lubricant', 'naquadria', 'naquadah'],
     "uev": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
     "uiv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],
     "uxv": ["soldering_alloy", "polyether_ether_ketone", "styrene_butadiene_rubber", 'lubricant', 'crystal_matrix', 'naquadria'],

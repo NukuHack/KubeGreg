@@ -96,7 +96,7 @@ event.create('naquadah_reactor_iii', 'multiblock')
             .or(Predicates.autoAbilities(definition.getRecipeTypes())))
         .where('P', Predicates.blocks(GTBlocks.FUSION_CASING_MK3.get()))
         .where('I', Predicates.blocks('gtceu:infinity_block'))
-        .where('O', Predicates.blocks("gtceu:omnium_block"))
+        .where('O', Predicates.blocks("gtceu:monium_block"))
         .build())
     .workableCasingRenderer(
         "gtceu:block/casings/gcym/reaction_safe_mixing_casing",

@@ -50,7 +50,7 @@ GTCEuStartupEvents.registry('gtceu:machine', event => {
             .where('C', Predicates.blocks("gfs:void_casing")
                     .or(Predicates.abilities(PartAbility.INPUT_ENERGY).setMinGlobalLimited(1).setMaxGlobalLimited(2))
                     .or(Predicates.abilities(PartAbility.MAINTENANCE).setExactLimit(1)))
-            .where('P', Predicates.blocks('gtceu:long_distance_fluid_pipeline'))
+            .where('P', Predicates.blocks('gfs:dark_fusion_coil'))
             .where('I', Predicates.abilities(PartAbility.IMPORT_FLUIDS_1X))
             .where('O', Predicates.abilities(PartAbility.EXPORT_FLUIDS_1X))
             .where('G', Predicates.abilities(PartAbility.IMPORT_ITEMS))

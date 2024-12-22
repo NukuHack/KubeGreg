@@ -25,22 +25,22 @@ StartupEvents.registry("block", event => {
 
     const casingS = [
 		// name , Displayname, hard, resistance, light, sound, texture
-        ["test","Test",10,1,1,"metal","gfs:block/casings/test_casing"],
-        ["green","Agriculture",4,1,10,"metal",'gfs:block/casings/green'],
-        ["blue","Deep",4,1,1,"metal",'gfs:block/casings/blue'],
-        ["yellow","Gilded",5,1,15,"metal",'gfs:block/casings/yellow'],
-        ["netherite","Netherite",5,1,0,"metal","gfs:block/casings/peek"],
-        ["peek","PEEK",7,2,0,"metal","gfs:block/casings/netherite"],
-        ["omnic","Omnic Matrix",8,1,0,"metal","gfs:block/casings/omnic"],
-        ["high_temperature","High Temperature Fusion (MKIV)",10,2,0,"metal","gfs:block/casings/high_temperature"],
-        ['steel_304','Austenitic Stainless Steel 304 Nuclear',6,2,0,"metal",'gfs:block/casings/hard_steel'],
-        ['inconel_625','Inconel 625 Thermal Fluctuation Resistant',5,3,0,"metal",'gfs:block/casings/inconel'],
-        ["void","Void",6,3,0,"metal",'gfs:block/casings/void'],
-        ["cryococcus","Cryococcus",5,3,0,"metal",'gfs:block/casings/cryococcus'],
+        ["test_casing","Test Casing",10,1,1,"metal","gfs:block/casings/test_casing"],
+        ["green_casing","Light Green Casing",4,1,10,"metal",'gfs:block/casings/green'],
+        ["blue_casing","Deep Blue Casing",4,1,1,"metal",'gfs:block/casings/blue'],
+        ["yellow_casing","Golden Yellow Casing",5,1,15,"metal",'gfs:block/casings/yellow'],
+        ["netherite_casing","Netherite Casing",5,1,0,"metal","gfs:block/casings/peek"],
+        ["peek_casing","PEEK Casing",7,2,0,"metal","gfs:block/casings/netherite"],
+        ["omnic_casing","Omnic Matrix Casing",8,1,0,"metal","gfs:block/casings/omnic"],
+        ["fusion_casing_mk4","High Temperature Fusion Casing (MKIV)",10,2,0,"metal","gfs:block/casings/high_temperature"],
+        ['steel_304_casing','Austenitic Stainless Steel 304 Nuclear Casing',6,2,0,"metal",'gfs:block/casings/hard_steel'],
+        ['inconel_625_casing','Inconel 625 Thermal Fluctuation Resistant Casing',5,3,0,"metal",'gfs:block/casings/inconel'],
+        ["void_casing","Void Casing",6,3,0,"metal",'gfs:block/casings/void'],
+        ["cryococcus_casing","Cryococcus Casing",5,3,0,"metal",'gfs:block/casings/cryococcus'],
     ];
     casingS.forEach(([name,Dname,hard,res,light,sound,texture])=>{
-        event.create(`gfs:${name}_casing`)
-            .displayName(`${Dname} Casing`)
+        event.create(`gfs:${name}`)
+            .displayName(`${Dname}`)
             .hardness(hard)
             .resistance(res)
             .lightLevel(light)

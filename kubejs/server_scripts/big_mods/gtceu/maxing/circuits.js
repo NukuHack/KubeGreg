@@ -40,9 +40,9 @@ ServerEvents.recipes(event => {
             ReturnOutput = [
                 [
                     `${Math.round(4 * multi)}x #forge:plates/${mat1}`,
-                    `${Math.round(16 * multi)}x #forge:foils/${wire1}`,
-                    `${Math.round(16 * multi)}x #forge:foils/${mat2==wire1?wire2:mat2}`,
-                    `${Math.round(2 * multi_small)}x ${tierN == 9 ? `gtceu:neuro` : `gfs:${voltages[tierN - 1]}`}_processing_unit`,
+                    `${Math.round(12 * multi)}x #forge:foils/${wire1}`,
+                    `${Math.round(12 * multi)}x #forge:foils/${wire2}`,
+                    `${Math.round(2 * multi_small)}x ${tier == "uev" ? `gtceu:neuro` : `gfs:${voltages[tierN - 1]}`}_processing_unit`,
                     `${Math.round(1 * multi_small)}x #gtceu:circuits/${voltages[tierN - 3]}`,
                     `${Math.round(4 * multi)}x #forge:dusts/${mat2}`,
                 ],
@@ -136,13 +136,13 @@ ServerEvents.recipes(event => {
         'cosmic',
         "4d",
     ].forEach((type, index_stuff) => {
-        circuitHelp.forEach(([name,[out_multi, dur],], index) => {
-			
-			let tierN = index_stuff + 10;
+        circuitHelp.forEach(([name, [out_multi, dur],], index) => {
+
+            let tierN = index_stuff + 10;
             //console.log(`${index} ID ${tierN} is the tierNumber`);
             let tier = voltages[tierN];
             //console.log(`${index} ID ${tier} is the tier made from ${index_stuff + 9}`);
-            let lesser = voltages[tierN-1];
+            let lesser = voltages[tierN - 1];
             //console.log(`${index} ID ${lesser} is the lesser`);
             let [mat1, mat2, wire2] = volt_to_material[tier];
             //console.log(`${index} ID [${mat1}, ${mat2}, ${wire2}] is the mats`);
@@ -190,7 +190,7 @@ ServerEvents.recipes(event => {
                         `wetware_processor_mainframe` :
                         `${lesser}_processor_mainframe`) :
                     (`${tier}_${nameLesser}`);
-				let resHelpSecond = resHelp=="wetware_processor_mainframe"?"gtceu":`gfs`;
+                let resHelpSecond = resHelp == "wetware_processor_mainframe" ? "gtceu" : `gfs`;
                 //console.log(`${resHelp} is what I try to research for "gfs:${tier}_${name}" hope it works ... the helping variable is tier: "${tier}" and last made item: "${nameLesser}" - Assembly`);
                 greg.assembly_line(`gfs:${type}_${name}`)
                     .itemInputs(solids)
@@ -201,7 +201,7 @@ ServerEvents.recipes(event => {
                     .stationResearch((b) => b
                         .researchId(`research/${resHelpSecond}_${resHelp}_to_gfs_${tier}_${name}`)
                         .dataStack("gtceu:data_module")
-						.researchStack(`${resHelpSecond}:${resHelp}`)
+                        .researchStack(`${resHelpSecond}:${resHelp}`)
                         .CWUt(res_cwu, res_dur)
                         .EUt(res_eut)
                     );

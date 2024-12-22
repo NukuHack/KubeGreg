@@ -49,7 +49,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .cableProperties(2147483647 / 16, 10, 0, true)
         .liquid(new GTFluidBuilder().state(GTFluidState.LIQUID).customStill())
         .flags(plates, rod, long_rod, gear, small_gear, ring, round,
-            bolt_and_screw, frame, foil, fine_wire);
+            bolt_and_screw, frame, foil, fine_wire, spring);
 
     event.create('infinity')
         .ingot()
@@ -62,6 +62,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create('pure_all')
         .ingot()
+        .fluid()
         .element(GTElements.get("pure_all"))
         .color(0xffffff)
         .iconSet('shiny')
@@ -133,6 +134,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
         .secondaryColor(0x111111)
         .iconSet(NETHERSTAR)
         .ingot()
+        .fluid()
         .flags(no_smelt, no_decomp, plates, rod, gear, frame, ring, dense_plate,
             gear, small_gear, dense_plate, long_rod);
 

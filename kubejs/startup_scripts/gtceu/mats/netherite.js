@@ -74,6 +74,7 @@ GTCEuStartupEvents.registry("gtceu:material", event => {
 
     event.create('weapon_grade_naquadaria')
         .ingot()
+        .fluid()
         .components('7x naquadria', '2x naquadic_netherite', '5x neutronium', '16x fluorine')
         .color(0xccff33)
         .iconSet(DULL)

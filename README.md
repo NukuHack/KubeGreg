@@ -7,7 +7,6 @@ The repository includes custom scripts and utilities designed to enhance or modi
 ## Structure
 The directory structure is organized for easy navigation:
 
-.
 ├── scripts
 │   ├── machines
 │   ├── recipes

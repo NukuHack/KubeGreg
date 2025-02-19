@@ -7,6 +7,8 @@ The repository includes custom scripts and utilities designed to enhance or modi
 ## Structure
 The directory structure is organized for easy navigation:
 
+```
+.
 ├── scripts
 │   ├── machines
 │   ├── recipes
@@ -15,6 +17,7 @@ The directory structure is organized for easy navigation:
 │   ├── gregtech
 │   └── kubejs
 └── README.md
+```
 
 ## Contribution
 This repository is primarily for personal use. Contributions are welcome, but they may not be actively reviewed or merged.

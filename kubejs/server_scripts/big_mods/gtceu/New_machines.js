@@ -47,18 +47,6 @@ ServerEvents.recipes(event => {
                     E: `gtceu:electric_blast_furnace`
                 }
             );
-            event.shaped(
-                "gtceu:" + volt + "_miniature_pyrolyse_oven",
-                ["AXB", "YXD", " E "],
-                {
-                    A: `#forge:tools/wrenches`,
-                    B: `#forge:tools/hammers`,
-                    X: `gfs:compressed_${coilS[index - 1]}_coil`,
-                    Y: `gfs:compressed_ulv_casing`,
-                    D: `gfs:compressed_lv_hatch`,
-                    E: `gtceu:pyrolyse_oven`
-                }
-            );
 
             greg
                 .macerator("gfs:" + volt + "miniature_ebf")
@@ -93,20 +81,12 @@ ServerEvents.recipes(event => {
         .duration(60)
         .EUt(120);
 
-    //event.shapeless(Item.of("gfs:coke_oven_side"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven_hatch","4x gtceu:coke_oven_bricks"]);
-    //event.shapeless(Item.of("gfs:coke_oven_controller"), ["4x gtceu:coke_oven_bricks","gtceu:coke_oven","3x gtceu:coke_oven_bricks"]);
-    //event.shapeless(Item.of("gfs:compressed_coke_oven"), ["gfs:coke_oven_side","gfs:coke_oven_controller","gfs:coke_oven_side"]);
-
     greg.assembler('gfs:compressed_coke_oven')
         .itemInputs("23x gtceu:coke_oven_bricks", "2x gtceu:coke_oven_hatch", "gtceu:coke_oven")
         .itemOutputs('gfs:compressed_coke_oven')
         .circuit(4)
         .duration(400)
         .EUt(30);
-
-    //event.shapeless(Item.of("gfs:primitive_blast_furnace_layer"), ["8x gtceu:firebricks"]);
-    //event.shapeless(Item.of("gfs:primitive_blast_furnace_controller"), ["4x gtceu:firebricks","gtceu:primitive_blast_furnace","4x gtceu:firebricks"]);
-    //event.shapeless(Item.of("gfs:compressed_primitive_blast_furnace"), ["2x gfs:primitive_blast_furnace_layer","gfs:primitive_blast_furnace_controller","gfs:primitive_blast_furnace_layer"]);
 
     greg.assembler('gfs:compressed_primitive_blast_furnace')
         .itemInputs("32x gtceu:firebricks", "gtceu:primitive_blast_furnace")

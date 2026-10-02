@@ -1,3 +1,5 @@
+To Greggyfy
+
 sfm:labelgun (wrench)
 
 enderio conduits:
@@ -34,31 +36,3 @@ redstone_timer_filter
 
 might save some extra "random" machines from enderio but not much
 
-
-
-
-just found this today :
-
-                        let myArbitrayListOfItems = [
-                          "minecraft:stone",
-                          "minecraft:enchanted_book{StoredEnchantments:[{id:'minecraft:fire_aspect',lvl:1s}]}"
-                        ]
-
-                        let obj = {
-                            added: [],
-                          };
-
-                          myArbitrayListOfItems.forEach(item => {
-                            obj.added.push({
-                              stack: `item:${item}`
-                            })
-                          })
-
-                        JsonIO.write("kubejs/assets/emi/index/stacks/my_added_stacks.json", obj);
-
-
-
-
-                        ServerEvents.tags('item', event => {
-                            event.add("c:hidden_from_recipe_viewers", /item_to_hide/);
-                        });

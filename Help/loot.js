@@ -1,3 +1,4 @@
+//requires: lootjs
 LootJS.modifiers((event) => {
 
 

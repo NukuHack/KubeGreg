@@ -1,4 +1,4 @@
-
+//requires: gtceu
 
 const $RecipeIO = Java.loadClass('com.gregtechceu.gtceu.api.capability.recipe.IO');
 const $ItemStackHashStrategy = Java.loadClass('com.gregtechceu.gtceu.utils.ItemStackHashStrategy');

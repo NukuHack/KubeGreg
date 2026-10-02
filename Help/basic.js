@@ -106,6 +106,10 @@ ServerEvents.recipes(event => {
       // code
     });
 
+// simple item object frm string
+    Item.of('minecraft:stone')
+    // this has other stuff like .mod for easy access
+
 
 //some random stolen stuff from ... idk
 
@@ -113,17 +117,39 @@ ServerEvents.recipes(event => {
         getFluids(recipe)
     });
 
-    function getFluids() {
+    function getFluids(recipe) {
         let mylist = recipe.originalRecipe.getInputContents('fluid').stream()
             .map(cont => cont.content)
             .map(cont => cont.getStacks()[0])
             .map(fluidstack => Fluid.of(fluidstack.fluid, fluidstack.amount))
             .toList()
-        console.log(mylist)
+        //console.log(mylist)
         return mylist
     };
 
 });
 
 
+    let myArbitrayListOfItems = [
+        "minecraft:stone",
+        "minecraft:enchanted_book{StoredEnchantments:[{id:'minecraft:fire_aspect',lvl:1s}]}"
+    ]
 
+    let obj = {
+        added: [],
+        };
+
+        myArbitrayListOfItems.forEach(item => {
+        obj.added.push({
+            stack: `item:${item}`
+        })
+        })
+
+    JsonIO.write("kubejs/assets/emi/index/stacks/my_added_stacks.json", obj);
+
+
+
+
+    ServerEvents.tags('item', event => {
+        event.add("c:hidden_from_recipe_viewers", /item_to_hide/);
+    });

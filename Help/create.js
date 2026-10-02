@@ -1,4 +1,4 @@
-
+//requires: create
 StartupEvents.registry("block", event => {
 
     event.create("gfs:void_ore_generation_core")

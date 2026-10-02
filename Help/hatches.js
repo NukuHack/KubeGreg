@@ -1,5 +1,4 @@
-
-priority: 0
+//requires: gtceu
 //priority: 0
 
 /* // most of this does work i just disabled it because there is no reason to have these : gt has big enough hatches
